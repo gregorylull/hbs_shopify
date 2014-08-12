@@ -1,5 +1,44 @@
 <p>Theme settings allow designers to provide an easy way for any user to customize the look and feel of their shop without having to delve into HTML or CSS code. Please see our <a title="Open Theme Settings documentation in a new window" target="docs" href="http://docs.shopify.com/themes/theme-templates/settings">help page on theme settings</a> to learn more about how you can make your theme customizable.</p>
 
+<!-- 
+
+Navigation: 
+1. Colors
+  + background
+  + text
+  + link color
+
+2. Typography
+  + typeface
+  + base font size
+
+3. Header
+  + Custom logo
+  + social media logos (fb, twitter, etc)
+
+4. Footer (null)
+
+5. Homepage
+  + Content (show content of some page)
+  + Featured collection (show products from what)
+
+6. Product page (null)
+
+7. Collection page
+  + product grid
+    - # of products per row
+    - # of rows
+
+8. Blog pages (null)
+
+9. Cart pages (null)
+
+10. Additional layouts
+  + customer area layout
+
+
+-->
+
 <fieldset>
   <legend>Colors</legend>
   <h3>Background</h3>
@@ -160,6 +199,28 @@
     <tr>
       <th><label for="homepage_collection">Feature products from this collection</label></th>
       <td><select id="homepage_collection" class="collection" name="homepage_collection" value="frontpage" /></td>
+    </tr>
+  </table>
+  
+  <!-- everything below this was not included in the skeleton theme -->
+  <!-- pictures for the slide show, max is 6 -->
+  <h3>Slide Show</h3>
+  <table>
+    <tr>
+      <th>
+        <label for="my_file">File Upload, picture 1</label>
+      </th>
+      <td>
+          <input type="file" name="homepage_slideshow_pic_0.png"/>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="my_checkbox">Use picture 1?</label>
+      </th>      
+      <td>
+        <input type="checkbox" name="homepage_slideshow_pic_0_checkbox" value="1" />
+      </td>
     </tr>
   </table>
 </fieldset>
