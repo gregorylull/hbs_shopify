@@ -25,7 +25,7 @@
 
     <div class="frontpage_md_featuredProduct">
       featured product
-      {{ collections.frontpage-featured-product.products[0].featured_image | img_url | img_tag }}
+      {{ collections.frontpage-featured-product.products[0].featured_image | img_url: 'large' | img_tag }}
     </div>
 
   </div> <!-- end col-md-4 left column-->
