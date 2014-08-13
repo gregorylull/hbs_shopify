@@ -1,0 +1,18 @@
+{% comment %}
+  icon menu for small mobile. uses dropdown menu
+{% endcomment %}
+
+<div class="row visible-xs-block">
+  <div class='dropdown'>
+    <button class="btn btn-default dropdown-toggle" type="button" id="mobileMenu" data-toggle="dropdown">
+	    <span class="glyphicon glyphicon-align-justify"></span>
+	  </button>
+	  <ul class="dropdown-menu" role="menu" aria-labelledby="mobileMenu">
+	    {% for link in linklists.main-menu.links %}
+	      <li role="presentation"> 
+	        <a role="menuitem" tabindex="-1" href="{{ link.url }}"> {{ link.title }} </a> 
+	      </li>
+	    {% endfor %}
+	  </ul>
+  </div>
+</div>
