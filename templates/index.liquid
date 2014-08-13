@@ -1,5 +1,59 @@
+<div class="row">
+  
+  <div class="col-md-4 frontpage_md_leftColumn">
+    
+    <div class="frontpage_md_contact">
+      contact box
+    </div>
 
-<p> this is a test that index.liquid works </p>
+    <div class="rte frontpage_md_upcomingEvents">
+      upcoming events
+      {{ collections.frontpage-upcoming-events.description }}
+
+      <script> 
+        console.log('collections: ', {{ collections | json }});
+        console.log('settings: ', {{ settings | json }});
+        console.log('collection product: ', {{ collections.frontpage-featured-product.products | json }});
+      </script>
+
+    </div>
+
+    <div class="rte frontpage_md_pulseFeature">
+      pulse feature
+      {{ collections.frontpage-pulse-feature.description }}
+    </div>
+
+    <div class="frontpage_md_featuredProduct">
+      featured product
+      {{ collections.frontpage-featured-product.products[0].featured_image | img_url | img_tag }}
+    </div>
+
+  </div> <!-- end col-md-4 left column-->
+
+  <div class="col-md-8 frontpage_md_rightColumn">
+  
+    <div class="frontpage_md_slideshow">
+      slideshow start
+      {% if settings.homepage_slideshow_pic_0_checkbox == true %}
+        {{ 'homepage_slideshow_pic_0.png' | asset_url | img_tag: 'Student association jumping' }}
+      {% endif %}
+      slideshow end
+    </div>
+  
+    <div class="rte frontpage_md_mission">
+      mission statement
+      {{ pages.frontpage.content }}
+    </div>
+
+    <div class="rte frontpage_md_pulseNews">
+      pulse news
+      {{ collections.frontpage-pulse-news.description }}
+    </div>
+      
+  </div> <!-- end col-md-8 right column -->
+
+</div> <!-- end row -->
+
 
 {% comment %}
 ===============================================================================================
