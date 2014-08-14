@@ -1,9 +1,8 @@
-{% comment %}
-  icon menu for small mobile. uses dropdown menu
-{% endcomment %}
+<!-- in the spirit of bootstrap 3.x's "mobile first" idea, the first block of html code here is the markup for the mobile version (xs) -->
+<div class="row visible-xs-block mobile_header">
 
-<div class="row visible-xs-block">
-  <div class='dropdown'>
+  <!-- dropdown menu through button -->
+  <ul class='dropdown mobile_dropdown col-xs-1'> 
     <button class="btn btn-default dropdown-toggle" type="button" id="mobileMenu" data-toggle="dropdown">
 	    <span class="glyphicon glyphicon-align-justify"></span>
 	  </button>
@@ -14,5 +13,25 @@
 	      </li>
 	    {% endfor %}
 	  </ul>
+  </ul> <!-- end dropdown menu-->
+
+  <!-- centered logo leads back to index page -->
+  <div class="mobile_logo_container center-block">
+    <a href="/">
+	    {% if settings.use_logo == true %}
+	      {{ 'logo.png' | asset_url | img_tag: 'HBS student association logo', 'mobile_logo_image' }}
+	    {% endif %}
+    </a>
   </div>
-</div>
+
+  <!-- shopping cart logo on far right -->
+  <div class="mobile_shoppingCart_container col-xs-offset-10 col-xs-1">
+    <a href="/cart">
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
+  </div>
+
+</div> <!-- end xs mobile header -->
+
+<!-- navigation bar for viewports that are sized small and above -->
+
