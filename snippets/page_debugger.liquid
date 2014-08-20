@@ -1,0 +1,17 @@
+{% assign itemsToCheck = stringToSplit | split: ',' %}
+
+{% case page.handle %}
+{% when 'events' %}
+	{% for item in itemsToCheck %}
+	  {% if settings[item] == blank %}
+	    <script> 
+	      console.log('Events page error/blank: ', {{ item | json }});
+	    </script>
+	  {% endif %}
+	{% endfor %}
+	{% if settings[event_rsvp_display] == true and settings[event_rsvp_link] == blank %}
+	  <script>
+	    console.log('Events page warning: event #' + {{ i | json }}, ' is live but has no RSVP link!', {{ settings[event_rsvp] | json }});
+	  </script>
+	{% endif %}
+{% endcase %}

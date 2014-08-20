@@ -1,3 +1,15 @@
+{% case page.handle %}
+  {% when "about-us" %}
+  {% when "events" %}
+    {% include 'page_events' %}
+{% endcase %}
+
+
+{% comment%}
+===============================================================================
+    EVERYTHING BELOW THIS LINE IS SHOPIFY SKELETON THEME
+===============================================================================
+
 {% comment %}
 Re-use the 'rte' class wherever you output content that was added by a merchant using
 the Rich Text Editor ( 'rte' stands for rich text editor ).
@@ -15,3 +27,5 @@ Example: the h2 element should have the same size and color in:
 {% if page.handle == "about-us" %}
   
 {% endif %}
+
+{% endcomment %}
