@@ -1,3 +1,5 @@
+this is /collections/all check check
+
 {% comment %}
   Important notes about pagination:
   - Never access collection.products before the opening paginate tag.
@@ -24,6 +26,10 @@
 {% endcomment %}
 
 <h1 class="left">{{ collection.title }}</h1>
+
+<script>console.log("collection: ", {{ collection | json }}, "\bend collection\n\n")</script>
+<script>console.log("collection.handle: ", {{ collection.handle | json }})</script>
+
 
 {% comment %}
   Collection sorting. Needs the JavaScript that is at the bottom of this file.

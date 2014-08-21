@@ -1,11 +1,22 @@
+<div class="container-fluid">
+{% include 'header' %}
+</div>
+
 {% comment %} 
   - concatentate (capture) string to create a base 'name' attribute in settings for events, i.e.: "eventspage_" + number + "_" === "eventspage_0_"
   - check if the event display checkbox is true, if so, then capture string for other properties and display them
 {% endcomment %}
 
-working
 
-<div class="eventspage_events_container">
+
+<!-- outer container to limit the width, margin, and padding of events, 250px * 250px for pics, 3 on md devices, 2 on sm devices, 1 on xs -->
+<div class="eventspage_container gl_clearfix">
+	<h1 class="eventspage_page_title"> {{ page.title }} </h1>
+	{% if page.content != blank %}
+		<p class="eventspage_page_description"> {{ page.content }}</p>
+	{% endif %}
+	<div class="eventspage_divider"></div>
+
 	{% for i in (0...14) %}
 	  {% capture base_string %}{{ 'eventspage_' | append: i | append: '_'}}{% endcapture %}
 
@@ -22,9 +33,18 @@ working
 	    {% capture stringToSplit %}{{ event_title | append: ',' | append: event_date | append: ',' | append: event_description}}{% endcapture %}
 	    {% include 'page_debugger' %}
 
+      <!-- Beginning of individual event containers-->
 	    <div class="eventspage_event_wrapper">
-
-	    </div>
+	      <p>{{ settings[event_date] }}</p>
+	      <div class="eventspage_event_info">
+	        {{ event_picture | asset_url | img_tag: event_title }}
+	        <p class="eventspage_event_description">{{ settings[event_description] }}</p>
+		      <div class="eventspage_event_title">{{ settings[event_title] }}</div>
+	      </div>
+	      {% if settings[event_rsvp_display] == true %}
+	        <a class='eventspage_event_rsvp_link' target="_blank" href='{{ settings[event_rsvp_link] }}'> RSVP NOW! </a>
+	      {% endif %}
+	    </div> <!-- /.eventspage_event_wrapper -->
 
 	  {% endif %}
 	{% endfor %}

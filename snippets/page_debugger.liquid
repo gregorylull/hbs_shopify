@@ -11,7 +11,7 @@
 	{% endfor %}
 	{% if settings[event_rsvp_display] == true and settings[event_rsvp_link] == blank %}
 	  <script>
-	    console.log('Events page warning: event #' + {{ i | json }}, ' is live but has no RSVP link!', {{ settings[event_rsvp] | json }});
+	    console.log('Events page warning: event #' + {{ i | json }}, 'is live but has no RSVP link!', {{ settings[event_rsvp_link] | json }});
 	  </script>
 	{% endif %}
 {% endcase %}
