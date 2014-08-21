@@ -1,59 +1,61 @@
-<div class="container-fluid">
-{% include 'header' %}
-<div class="row">
-  
-  <div class="col-sm-3 frontpage_md_leftColumn">
+<div id="frontpage_container" class="container-fluid">
+  {% include 'header' %}
+  <div id="frontpage_row" class="row">
+    <div class="col-sm-9 frontpage_md_leftColumn">
+      <div class="frontpage_hbs_banner">
+        {{ 'logo.png' | asset_url | img_tag: 'hbs logo'}}
+      </div>
     
-    <div class="frontpage_md_contact">
-      contact box
-    </div>
-
-    <div class="rte frontpage_md_upcomingEvents">
-      upcoming events
-      {{ collections.frontpage-upcoming-events.description }}
-
-      <script> 
-        console.log('collections: ', {{ collections | json }});
-        console.log('settings: ', {{ settings | json }});
-        console.log('collection product: ', {{ collections.frontpage-featured-product.products | json }});
-        console.log('link list: ', {{ linklists | json }});
-      </script>
-
-    </div>
-
-    <div class="rte frontpage_md_pulseFeature">
-      pulse feature
-      {{ collections.frontpage-pulse-feature.description }}
-    </div>
-
-    <div class="frontpage_md_featuredProduct">
-      featured product
-      {{ collections.frontpage-featured-product.products[0].featured_image | img_url: 'large' | img_tag }}
-    </div>
-
-  </div> <!-- end col-sm-4 left column-->
-
-  <div class="col-sm-9 frontpage_md_rightColumn">
-  
-    <div class="frontpage_md_slideshow">
-      slideshow start
-      {% include 'picture_carousel' %}
-      slideshow end
-    </div>
-  
-    <div class="rte frontpage_md_mission">
-      mission statement
-      {{ pages.frontpage.content }}
-    </div>
-
-    <div class="rte frontpage_md_pulseNews">
-      pulse news
-      {{ collections.frontpage-pulse-news.description }}
-    </div>
+      <div class="frontpage_md_slideshow">
+        {% include 'picture_carousel' %}
+      </div>
       
-  </div> <!-- end col-sm-8 right column -->
+      <div class="frontpage_rte frontpage_md_mission">
+        <h3> Mission</h3>
+        {{ pages.frontpage.content }}
+      </div>
 
-</div> <!-- end row -->
+      <div class="row hbs_innerrow"> 
+        <div class="col-sm-8 frontpage_rte frontpage_md_pulseNews">
+          <h3> {{ collections.frontpage-pulse-news.title }} </h3>
+          <div class="pre-scrollable"> {{ collections.frontpage-pulse-news.description }} </div>
+        </div>
+        <div class="col-sm-4 frontpage_md_featuredProduct">
+          <h3> Featured Product </h3>
+          {{ collections.frontpage-featured-product.products[0].featured_image | img_url: 'large' | img_tag }}
+          <h4>{{ collection.frontpage-featured-product.products[0].title }}</h4>
+        </div>
+      </div> <!-- /.hbs_innerrow-->
+    </div> <!-- end col-sm-9 left column -->
+    
+    <div class="col-sm-3 frontpage_md_rightColumn">
+      
+      <div class="frontpage_md_contact">
+        <h3>Contact Us!</h3>
+          {% include 'social-links' %}
+      </div>
+
+      <div class="frontpage_rte frontpage_md_upcomingEvents">
+        <h3>Upcoming Events</h3>
+        {{ collections.frontpage-upcoming-events.description }}
+
+        <script> 
+          console.log('collections: ', {{ collections | json }});
+          console.log('settings: ', {{ settings | json }});
+          console.log('collection product: ', {{ collections.frontpage-featured-product.products | json }});
+          console.log('link list: ', {{ linklists | json }});
+        </script>
+
+      </div>
+
+      <div class="frontpage_rte frontpage_md_pulseFeature">
+        <h3> Pulse Feature </h3>
+        {{ collections.frontpage-pulse-feature.description }}
+      </div>
+
+    </div> <!-- end col-sm-3 right column-->
+
+  </div> <!-- end row -->
 </div>
 
 

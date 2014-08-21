@@ -1,13 +1,11 @@
 <div class="container-fluid">
-{% include 'header' %}
+  {% include 'header' %}
 </div>
 
 {% comment %} 
   - concatentate (capture) string to create a base 'name' attribute in settings for events, i.e.: "eventspage_" + number + "_" === "eventspage_0_"
   - check if the event display checkbox is true, if so, then capture string for other properties and display them
 {% endcomment %}
-
-
 
 <!-- outer container to limit the width, margin, and padding of events, 250px * 250px for pics, 3 on md devices, 2 on sm devices, 1 on xs -->
 <div class="eventspage_container gl_clearfix">
@@ -35,7 +33,7 @@
 
       <!-- Beginning of individual event containers-->
 	    <div class="eventspage_event_wrapper">
-	      <p>{{ settings[event_date] }}</p>
+	      <p class="eventspage_event_date">{{ settings[event_date] }}</p>
 	      <div class="eventspage_event_info">
 	        {{ event_picture | asset_url | img_tag: event_title }}
 	        <p class="eventspage_event_description">{{ settings[event_description] }}</p>
