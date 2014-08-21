@@ -1,0 +1,54 @@
+{% comment %}
+These are the 'name' variables used in the settings page
+	Legend: About Us: Executive Team Profiles
+	  Use this profile - checkbox :: aboutus_execprofile_0_display
+	  Name - input :: aboutus_execprofile_0_name
+	  Team position - input :: aboutus_execprofile_0_position
+	  About yourself - text area :: aboutus_execprofile_0_description
+	  Email - text input :: aboutus_execprofile_0_picture.png
+	  Picture - file upload :: aboutus_execprofile_0_email
+{% endcomment %}
+
+<div class="container-fluid">
+	{% include 'header' %}
+</div>
+
+<div class="aboutus_execprofile_container gl_clearfix">
+	<h1 class="aboutus_execprofile_page_title"> {{ page.title }} </h1>
+	{% if page.content != blank %}
+		<p class="aboutus_execprofile_page_description"> {{ page.content }}</p>
+	{% endif %}
+	<div class="aboutus_execprofile_divider"></div>
+
+	{% for i in (0...14) %}
+	  {% capture base_string %}{{ 'aboutus_execprofile_' | append: i | append: '_'}}{% endcapture %}
+
+	  {% capture profile_display %}{{ base_string | append: 'display'}}{% endcapture %}
+
+	  {% if settings[profile_display] == true %}
+	    {% capture profile_name %}{{ base_string | append: 'name' }}{% endcapture %}
+	    {% capture profile_position %}{{ base_string | append: 'position' }}{% endcapture %}
+	    {% capture profile_description %}{{ base_string | append: 'description' }}{% endcapture %}
+	    {% capture profile_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
+	    {% capture profile_email %}{{ base_string | append: 'email'}}{% endcapture %}
+
+	    {% capture stringToSplit %}{{ profile_name | append: ',' | append: profile_position | append: ',' | append: profile_description}}{% endcapture %}
+
+      <!-- Beginning of individual profile containers-->
+		    <div class="aboutus_execprofile_profile_wrapper">
+		      <div class="aboutus_execprofile_profile_info">
+		        {{ profile_picture | asset_url | img_tag: profile_name }}
+		        <p class="aboutus_execprofile_profile_description">{{ settings[profile_description] }}</p>
+			      <div class="aboutus_execprofile_profile_name">{{ settings[profile_name] }}</div>
+			      <p class="aboutus_execprofile_profile_position">{{ settings[profile_position] }}</p>
+		      </div>
+			      <div class="aboutus_execprofile_profile_email">{{ settings[profile_email] }}</div>
+	      </div> <!-- /.aboutus_execprofile_profile_wrapper -->
+	      
+      {% if i == 1 %}
+        <div class="aboutus_firstrow_end"></div>
+      {% endif %}
+
+	  {% endif %}
+	{% endfor %}
+</div>
