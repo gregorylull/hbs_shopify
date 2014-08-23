@@ -1,4 +1,50 @@
-this is /collections/all check check
+
+
+<div class='container-fluid'>
+  {% include 'header' %}
+  <div class="row row_all">
+    <div class="col-sm-3 catalog_all_leftmenu">
+      <h3> HBS SA Products </h3>
+      <p>The Student Association Office offers a variety of products for HBS students to make their experience even better. Our Product Managers (who are also HBS Partners!) are located right across from The Grille in Spangler, and are always happy to field any questions. The office is open Monday to Thursday from 10am to 4pm. They can also be reached by phone at 617-496-6854. Please note that we will close for the summer on May 15, 2014.</p>
+      {% include 'menu_vertical' %}
+    </div> <!-- ./catalog_hbs_leftmenu col-sm-3 -->
+
+    <div class="col-sm-9">
+      <div class="row catalog_all_product_pic">
+        <div class="col-sm-9 catalog_product_picture">
+          {{ collections.frontpage-featured-product.products[0].featured_image | img_url: 'large' | img_tag }}
+        </div>
+
+      </div> <!-- ./row catalog_all_product_pic-->
+
+      <div class="row catalog_all_product_description_tabs">
+        <div class="col-sm-12">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+            <li><a href="#embroidery" role="tab" data-toggle="tab">Custom Embroidery</a></li>
+            <li><a href="#sizing" role="tab" data-toggle="tab">Sizing Chart</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="description"> This is a description of shirt </div>
+            <div class="tab-pane" id="embroidery">Type you want below this line: </div>
+            <div class="tab-pane" id="sizing">x-large === very big!!</div>
+          </div>
+        </div>
+      </div> <!-- ./row catalog_all_product_description_tabs-->
+    </div> 
+  </div> <!-- /.row_all-->
+</div> <!-- /.container-fluid -->
+
+
+
+
+{% comment %}
+===============================================================================
+    EVERYTHING BELOW THIS IS ORIGINAL SHOPIFY SKELETON COLLECTION CODE
+===============================================================================
 
 {% comment %}
   Important notes about pagination:
@@ -106,3 +152,5 @@ jQuery('.sort-by')
     location.search = jQuery.param(Shopify.queryParams);
   });
 </script>
+
+{% endcomment %}

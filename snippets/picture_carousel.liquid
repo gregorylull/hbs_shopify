@@ -1,22 +1,38 @@
 <div id="frontpage_carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
+  {% assign once_carousel = true %}
   <ol class="carousel-indicators">
-    <li data-target="#frontpage_carousel" data-slide-to="0" class="active"></li>
-    <li data-target="#frontpage_carousel" data-slide-to="1"></li>
+  {% for i in (0..5) %}
+    {% assign base = "homepage_slideshow_pic_" | append: i %}
+    {% assign checkbox = base | append: "_checkbox" %}
+    {% if settings[checkbox] == true %}
+      {% assign picture = base | append: ".png" %}
+      {% if once_carousel == true %}
+        <li data-target="#frontpage_carousel" data-slide-to="{% increment counter %}" class="active"></li>
+        {% assign display_list = picture %}
+        {% assign once_carousel = false %}
+      {% else %}
+        <li data-target="#frontpage_carousel" data-slide-to="{% increment counter %}"></li>
+        {% assign display_list = display_list | append: "," | append: picture %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
   </ol>
+
+
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-      {% for i in (0..1) %}
+    {% assign picture_list = display_list | split: "," %}
+      <script>console.log( "picture_list: ", {{picture_list | json}} )</script>
+      {% for picture_file in picture_list %}
         {% if forloop.first == true %}
           <div class="item active">
         {% else %}
           <div class="item">
         {% endif %}
-            {% capture pic_file_name %}{{ "homepage_slideshow_pic_" | append: i | append: '.png' }}{% endcapture %}
-            {{ pic_file_name | asset_url | img_tag }}
-            <script> console.log('filename:', {{pic_file_name | json }})</script>
-            <div class="carousel-caption">{{i}}</div>
+          {{ picture_file | asset_url | img_tag }}
+            <div class="carousel-caption"></div>
           </div>
       {% endfor %}
   </div>

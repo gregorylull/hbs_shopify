@@ -1,12 +1,16 @@
 <div id="frontpage_container" class="container-fluid">
   {% include 'header' %}
   <div id="frontpage_row" class="row">
-    <div class="col-sm-9 frontpage_md_leftColumn">
-      <div class="frontpage_hbs_banner">
+
+    <div class="row frontpage_hbs_banner">
+      <div class="col-sm-12">
         {{ 'logo.png' | asset_url | img_tag: 'hbs logo'}}
       </div>
+    </div>
+
+    <div class="col-sm-9 frontpage_md_leftColumn">
     
-      <div class="frontpage_md_slideshow">
+      <div class="row frontpage_md_slideshow">
         {% include 'picture_carousel' %}
       </div>
       
