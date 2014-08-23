@@ -3,9 +3,9 @@
 <div class='container-fluid'>
   {% include 'header' %}
   <div class="row row_all">
-    <div class="col-sm-3 catalog_all_leftmenu">
+    <div class="col-sm-3 catalog_all_hbs_description">
       <h3> HBS SA Products </h3>
-      <p>The Student Association Office offers a variety of products for HBS students to make their experience even better. Our Product Managers (who are also HBS Partners!) are located right across from The Grille in Spangler, and are always happy to field any questions. The office is open Monday to Thursday from 10am to 4pm. They can also be reached by phone at 617-496-6854. Please note that we will close for the summer on May 15, 2014.</p>
+      <p> {{collections.all.description}}</p>
       {% include 'menu_vertical' %}
     </div> <!-- ./catalog_hbs_leftmenu col-sm-3 -->
 

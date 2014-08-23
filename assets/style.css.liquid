@@ -11,13 +11,40 @@
 	font-size: 0;
 }
 
+.hbs_banner_words {
+    text-align: center;
+}
+
+.hbs_banner_words img {
+    width: 90%;	
+}
+
+@media screen and (min-width: 768px) {
+	.hbs_banner_words img {
+		width: 60%;
+	}
+
+	.hbs_banner_words {
+		text-align: center;
+	}
+}
+
+body {
+	background-image: linear-gradient(to bottom, rgb(200,200,200), white);
+}
 
 /******************************************************************************
   FRONT PAGE
 ******************************************************************************/
 
+
+.hbs_banner_words {
+	background-color: white;
+}
+
 #hbs_header {
 	margin-bottom: 0px;
+	border-bottom: 2px outset rgb(118, 0, 1);
 }
 
 #frontpage_container {
@@ -30,13 +57,100 @@
 	/*margin-left: -30px;*/
 }
 
+.frontpage_md_slideshow {
+	border-bottom: 2px outset rgb(118, 0, 1);
+}
+
+.frontpage_separator {
+	width: 100%;
+	margin: 15px auto;
+}
+
 .frontpage_rte p {
 	margin-bottom: 5px;
 	line-height: 1.2;
 }
 
-.frontpage_md_rightColumn {
-	border-left: 1px solid rgb(255,220,220);
+.frontpage_md_mission {
+	padding: 0px 10px;
+}
+
+.frontpage_md_leftColumn .frontpage_block_content {
+    background-color: white;
+/*	border-right: 3px outset rgb(220,220,220);
+	border-bottom: 3px outset rgb(220,220,220);*/
+
+/*	border-right: 3px outset rgb(118, 0, 1);
+	border-bottom: 3px outset rgb(118, 0, 1);*/
+
+	border-right: 3px outset rgb(169, 21, 37);
+	border-bottom: 3px outset rgb(169, 21, 37);
+}
+
+/*.frontpage_md_featuredProduct {
+	border: 0px;
+}*/
+
+.frontpage_md_leftColumn_innerRow {
+	padding: 0px 15px;
+}
+
+.frontpage_md_leftColumn_innerRow h3 {
+	margin-top: 0px;
+}
+
+@media (min-width: 768px) {
+	.frontpage_md_leftColumn_innerRow .col-sm-7 {
+		width: 62%;
+	}
+
+	.frontpage_md_leftColumn_innerRow .col-sm-4 {
+		width: 35%;
+	}
+
+	.frontpage_md_leftColumn_innerRow .col-sm-offset-1 {
+		margin-left: 3%;
+	}
+}
+
+.frontpage_md_rightColumn h3 {
+	color: rgb(0, 75, 25);
+}
+
+@media screen and (min-width: 768px) {
+	.frontpage_md_leftColumn h3 {
+		text-align: left;
+	}
+
+	.frontpage_md_leftColumn {
+		/*border-right: 3px ridge rgb(200,150,100);*/
+	}
+
+
+	.frontpage_md_rightColumn {
+		/*border-right: 3px ridge rgb(200,150,100);*/
+		background-image: linear-gradient(to bottom, rgb(252, 212, 161), white);
+		/*background-image: linear-gradient(to right, rgb(118, 0, 1), white 8%);*/
+	}
+
+	.frontpage_md_rightColumn .frontpage_block_content {
+/*	    border-right: 3px outset rgb(107, 189, 185);
+	    border-bottom: 3px outset rgb(107, 189, 185);
+	    background-color: white;*/
+    }
+}
+
+.frontpage_md_leftColumn h3 {
+	/*border-bottom: 3px solid rgb(229, 102, 93);*/
+	/*text-shadow: 1px 1px 1px black;*/
+	/*border-bottom: 2px solid rgb(10, 100, 120);*/
+	text-align: center;
+	color: rgb(13, 102, 127);
+}
+
+
+.pre-scrollable {
+	border-right: 1px solid rgb(200,200,200);
 }
 
 .frontpage_md_contact h3 {
@@ -84,8 +198,8 @@ img {
 
 .frontpage_md_pulseNews {
 	background-color: pink;
-}*/
-
+}
+*/
 /******************************************************************************
   ABOUT US PAGE: EXEC TEAM PROFILE
 ******************************************************************************/
