@@ -23,7 +23,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     {% assign picture_list = display_list | split: "," %}
-      <script>console.log( "picture_list: ", {{picture_list | json}} )</script>
+      <script>console.log( "slideshow picture_list: ", {{picture_list | json}} )</script>
       {% for picture_file in picture_list %}
         {% if forloop.first == true %}
           <div class="item active">

@@ -1,0 +1,87 @@
+{% comment %}
+
+{% endcomment %}
+
+$(function () {
+	var hbsApp = window.hbsApp;
+	console.log('\n\n**** START javascript main.js ********\n\n');
+
+	// universal properties to access
+	hbsApp.docWidth = $(document).width();
+	hbsApp.windowWidth = $(window).width();
+	hbsApp.headers = $('.headers')[0];
+	hbsApp.mobileCheck = hbsApp.getMobileCheck();
+	hbsApp.imagesLoading = false;
+
+	// initialize app
+	// hbsApp.fpAdjustCol();
+  hbsApp.checkImgLoading("", function () {
+  	hbsApp.fpAdjustCol();
+  }, hbsApp, null);
+
+	// auto update properties upon window.resize
+	$(window).resize((function () {
+		var timeoutPointer;
+		return function () {
+			clearTimeout(timeoutPointer);
+			timeoutPointer = setTimeout(function () {
+				console.log("\n");
+				var oldWidth = hbsApp.docWidth;
+				hbsApp.docWidth = $(document).width()
+				var diff = hbsApp.docWidth - oldWidth;
+				console.log('Window resized, new width:', hbsApp.docWidth, ', old: ', oldWidth, ', diff px:', diff, ', diff %:', (diff/oldWidth*100).toFixed(4));
+
+				var oldMobileCheck = hbsApp.mobileCheck;
+				hbsApp.mobileCheck = hbsApp.getMobileCheck();
+				console.log('Window resized, new grid: ', hbsApp.mobileCheck, ', old: ', oldMobileCheck);
+
+				// for front page
+				hbsApp.fpAdjustCol();
+			}, 100);
+		}
+	})());
+
+  // background picture test
+  $('body').prepend($('<div>BG texture:</div>').addClass('background_test'));
+    
+	// foreground block test
+	$($('<div>block texture:</div>').addClass('foreground_test')).insertAfter($('.background_test'));
+	
+	{% assign base = "default_background_" %}
+	{% for i in (0..14) %}
+	  {% assign display_bg = base | append: i | append: "_display" %}
+	  
+	  {% if settings[display_bg] == true %}
+	    {% assign bg_picture = base | append: i | append: "_picture.png" %}
+	    {% assign bg_title = base | append: i | append: "_title"%}
+
+	    $('.background_test').append(
+	    	  $('<div></div>').addClass({{ bg_picture | asset_url | json}}).text({{ settings[bg_title] | json }})
+	    	);
+
+	    $('.foreground_test').append(
+	    	  $('<div></div>').addClass({{ bg_picture | asset_url | json}}).text({{ settings[bg_title] | json }})
+	    	);
+	  {% endif %}
+	  
+	{% endfor %}
+
+	$(".background_test").on('click', 'div', function (e) {
+		$('body').css('background-image', "url(" + $(this).attr('class')+ ")");
+	});
+
+	$(".foreground_test").on('click', 'div', function (e) {
+		$('.frontpage_block_content').css('background-image', "url(" + $(this).attr('class')+ ")");
+	});
+
+  /*
+    frontpage column adjustment
+    - right column always has to be gte the left column (height: fixed)
+      + except on mobile (height: auto)
+  */
+	{% if page.handle == 'frontpage' %}
+	  console.log('frontpage height adjust execute');
+	{% endif %}
+	
+	console.log('\n\n**** /END javascript main.js ********\n\n');
+});

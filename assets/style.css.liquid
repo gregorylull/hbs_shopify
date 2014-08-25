@@ -3,6 +3,30 @@
   Universal
 ******************************************************************************/
 
+.background_test {
+	background-color: yellow;
+	text-align: center;
+}
+
+.foreground_test {
+	background-color: gray;
+	text-align: center;
+}
+
+.background_test div {
+	display: inline-block;
+	padding: 0 5px;
+	background-color: rgb(200, 200, 200);
+	border: 2px solid black;
+}
+
+.foreground_test div {
+	display: inline-block;
+	padding: 0 5px;
+	background-color: rgb(220, 220, 200);
+	border: 2px solid black;
+}
+
 .gl_clearfix::after {
 	display: block;
 	content: " ";
@@ -16,27 +40,45 @@
 }
 
 .hbs_banner_words img {
-    width: 90%;	
+    width: 60%;	
 }
 
+.mobileCheck { background-color: red;}
+
+/* small devices - tablets */
 @media screen and (min-width: 768px) {
 	.hbs_banner_words img {
-		width: 60%;
+		max-width: 600px;
 	}
 
 	.hbs_banner_words {
 		text-align: center;
 	}
+
+	.mobileCheck { background-color: green;	}
+}
+
+/* medium - desktpo*/
+@media screen and (min-width: 992px) {
+	.mobileCheck { background-color: blue; }
+}
+
+/* large desktops */
+@media screen and (min-width: 1200px) {
+	.mobileCheck { background-color: white; }
 }
 
 body {
-	background-image: linear-gradient(to bottom, rgb(200,200,200), white);
+	background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_5_picture.png?4392);
 }
 
 /******************************************************************************
   FRONT PAGE
 ******************************************************************************/
 
+/*html, body, .frontpage_container, .frontpage_row, .frontpage_md_rightColumn {
+	height: 100%;
+}*/
 
 .hbs_banner_words {
 	background-color: white;
@@ -76,15 +118,15 @@ body {
 }
 
 .frontpage_md_leftColumn .frontpage_block_content {
-    background-color: white;
-/*	border-right: 3px outset rgb(220,220,220);
-	border-bottom: 3px outset rgb(220,220,220);*/
-
-/*	border-right: 3px outset rgb(118, 0, 1);
-	border-bottom: 3px outset rgb(118, 0, 1);*/
-
+    background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_3_picture.png?4392);
 	border-right: 3px outset rgb(169, 21, 37);
 	border-bottom: 3px outset rgb(169, 21, 37);
+}
+
+.frontpage_md_rightColumn .frontpage_block_content {
+    background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_3_picture.png?4392);
+    border-right: 3px solid rgb(0, 25, 75);
+    border-bottom: 3px solid rgb(0, 25, 75);    
 }
 
 /*.frontpage_md_featuredProduct {
@@ -114,7 +156,7 @@ body {
 }
 
 .frontpage_md_rightColumn h3 {
-	color: rgb(0, 75, 25);
+	color: rgb(0, 100, 25);
 }
 
 @media screen and (min-width: 768px) {

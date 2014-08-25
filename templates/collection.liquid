@@ -1,14 +1,23 @@
-
+{% include 'header' %}
 
 <div class='container-fluid'>
-  {% include 'header' %}
   <div class="row row_all">
-    <div class="col-sm-3 catalog_all_hbs_description">
-      <h3> HBS SA Products </h3>
-      <p> {{collections.all.description}}</p>
-      {% include 'menu_vertical' %}
+    <div class="col-sm-2 catalog_all_leftColumn">
+      <div class="catalog_all_hbs_description">
+        <h3> HBS SA Products </h3>
+        <p class="catalog_all_rte"> {{collections.all.description}}</p>
+      </div>
+      <div class="catalog_all_leftMenu">
+        {% include 'menu_vertical' %}
+      </div>
     </div> <!-- ./catalog_hbs_leftmenu col-sm-3 -->
 
+  <div class="col-sm-offset-1 col-sm-9 catalog_all_rightColumn">
+    <div class="row"></div>
+    <div class="row"></div>
+  </div>
+
+{% comment %}
     <div class="col-sm-9">
       <div class="row catalog_all_product_pic">
         <div class="col-sm-9 catalog_product_picture">
@@ -34,7 +43,8 @@
           </div>
         </div>
       </div> <!-- ./row catalog_all_product_description_tabs-->
-    </div> 
+    </div>  <!-- ./col-sm-9 ./catalog_all_rightColumn -->
+{% endcomment %}
   </div> <!-- /.row_all-->
 </div> <!-- /.container-fluid -->
 

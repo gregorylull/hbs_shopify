@@ -1,0 +1,108 @@
+(function () {
+
+window.hbsApp = {} ;
+
+	/*
+	  RIGHT COLUMN FRONT PAGE SCROLL HEIGHT DETECTION
+	    + we will plant a invisible div on screen (.mobileCheck), that changes its background-color using bootstrap's media query breakpoints
+	    + we will check the color on that div everytime there is a window resize;
+
+    red: rgb(255, 0, 0) === 'xs' < 768px
+    green: rgb(0, 128, 0) === 'sm' < 992px
+    blue: rgb(0, 0, 255) === 'md' < 1200px
+    white: rgb(255, 255, 255) === 'lg'
+  */
+	window.hbsApp.rgbaToVal = function (rgbaStr) {
+		var rgba = [];
+		var parsed = rgbaStr.match(/\d+/g);
+		for (var i = 0; i < parsed.length; i++) { 
+			rgba.push(parseInt(parsed[i], 10));
+		}
+		return rgba;
+	}
+
+  window.hbsApp.rgbaToName = function (rgbaStr) {
+  	var rgba = window.hbsApp.rgbaToVal(rgbaStr);
+  	var red = rgba[0];
+  	var green = rgba[1];
+  	var blue = rgba[2];
+  	var alpha = rgba[3];
+
+  	if (red > 100 && green > 100 && blue > 100) {
+  		return "lg";
+  	} else if (red > 100) {
+  		return "xs";
+  	} else if (green > 100) {
+  		return "sm";
+  	} else {
+  		return "md";
+  	}
+  };
+
+  window.hbsApp.getMobileCheck = function () {
+	  return window.hbsApp.rgbaToName($('.mobileCheck', hbsApp.headers).css('background-color'));
+  };
+
+  /*
+    check if images are still loading
+
+    // timesChecked specifies max amount of time this function will run, just in case an image can't be found, the page won't stop loading
+  */
+  window.hbsApp.checkImgLoading = function (imageElements, callback, args, context, timesChecked) {
+  	timesChecked = timesChecked || 0;
+  	if (timesChecked > 0) {
+	    imageElements = imageElements || $('img');
+	    context = context || null;
+
+	  	filtered = imageElements.filter(function (index) {
+	  		return this.naturalHeight === 0 || this.naturalWidth === 0;
+	  	});
+
+	  	// all images are loading / have a size
+	  	if (filtered.length === 0) {
+	  		hbsApp.imagesLoading = true;
+	  		callback.apply(context, args);
+
+	  	// not all images are loading / received size yet
+	  	} else {
+	  		var images = filtered;
+	  		for (var i = 0; i < images.length; i++) { console.log('img' + i, images[i].src, images[i].naturalHeight)}
+	  		hbsApp.imagesLoading = false;
+	  		setTimeout(function () {
+	  			hbsApp.checkImgLoading(filtered, callback, args, context, timesChecked-1);
+	  		}, 25);
+	  	}
+  	}
+  };
+
+  /*
+    frontpage column adjustment
+    - right column always has to be gte the left column (height: fixed)
+      + except on mobile (height: auto)
+      + except when the left column is naturally shorter because of its contents
+  */
+
+  window.hbsApp.fpAdjustCol = function () {
+  	var leftCol = $(".frontpage_md_leftColumn")[0];
+  	var rightCol = $(".frontpage_md_rightColumn")[0];
+ 		$(rightCol).css('height', 'auto');
+
+  	var leftColHeight = leftCol.scrollHeight;
+  	var rightColHeight = rightCol.scrollHeight;
+  	console.log('col left:', leftColHeight, ', right:',rightColHeight);
+
+  	if (hbsApp.mobileCheck === 'xs') {
+  		$(rightCol).css('height', 'auto');
+  		console.log('currently small?');
+  	} else if (rightColHeight < leftColHeight) {
+  		console.log('right before adj', rightCol.scrollHeight);
+  		$(rightCol).css('height', leftColHeight + 'px');
+  		console.log('right after adj', rightCol.scrollHeight);
+  	} else if (rightColHeight >= leftColHeight) {
+  		$(rightCol).css('height', 'auto');
+  	} else {
+  		$(rightCol).css('height', leftColHeight + 'px');
+  	}
+  };
+
+})();

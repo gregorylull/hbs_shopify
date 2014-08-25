@@ -1,4 +1,40 @@
-<div class="btn-group-vertical">
+{% assign product_types = collections.all.all_types %}
+  <script>console.log("product types sorted: ", {{ product_types | json }})</script>
+
+{% assign once_special_collections = true %}
+{% for collection in (collections | sort: 'title') %}
+  {% if collection.products_count > 0 %}
+    {% if once_special_collections %}
+      {% assign collections_special = collection.handle %}
+      {% assign once_special_collections = false %}
+    {% else %}
+      {% assign collections_special = collections_special | append: "," | append: collection.handle %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign collections_special = collections_special | split: "," %}
+
+{% assign scopeTest = true %}
+
+<div class="catalog_all_leftMenu_types">
+  <h4 class="types_header">Categories</h4>
+  <ul class="types_list">
+    {% for type in product_types %}
+      <li>{{ type }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="catalog_all_leftMenu_collections">
+  <h4 class="collections_header"> Special Categories </h4>
+  <ul class="collections_list">
+    {% for collection_handle in collections_special %}
+      <li> {{ collections[collection_handle].title | capitalize }}</li>      
+    {% endfor %}
+  </ul>
+</div>
+
+<!-- <div class="btn-group-vertical">
   <button type="button" class="btn btn-default">Tshirt</button>
   <button type="button" class="btn btn-default">Jacket</button>
   <button type="button" class="btn btn-default">Backpacks</button>
@@ -14,4 +50,5 @@
       <li><a href="#">Women</a></li>
     </ul>
   </div>
-</div>
+</div> -->
+
