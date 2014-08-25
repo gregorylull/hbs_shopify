@@ -45,6 +45,11 @@
 
 .mobileCheck { background-color: red;}
 
+img {
+	width: 100%;
+	height: auto;
+}
+
 /* small devices - tablets */
 @media screen and (min-width: 768px) {
 	.hbs_banner_words img {
@@ -69,7 +74,7 @@
 }
 
 body {
-	background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_5_picture.png?4392);
+	background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_1_picture.png?4392);
 }
 
 /******************************************************************************
@@ -126,7 +131,9 @@ body {
 .frontpage_md_rightColumn .frontpage_block_content {
     background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_3_picture.png?4392);
     border-right: 3px solid rgb(0, 25, 75);
-    border-bottom: 3px solid rgb(0, 25, 75);    
+    border-bottom: 3px solid rgb(0, 25, 75); 
+    border-radius: 0px 5px 0px 5px;
+    padding: 0px 8px;
 }
 
 /*.frontpage_md_featuredProduct {
@@ -196,12 +203,11 @@ body {
 }
 
 .frontpage_md_contact h3 {
-	margin-top: 0;
+	/*margin-top: 0;*/
 }
 
-img {
-	width: 100%;
-	height: auto;
+.frontpage_md_featuredProduct img {
+	border: 3px double rgb(220, 220, 220);
 }
 
 /* WIREFRAME front page (index.liquid) */
@@ -445,5 +451,8 @@ img {
 }
 
 /******************************************************************************
-  CATALOG
+  CATALOG / COLLECTIONS.all
 ******************************************************************************/
+.catalog_all_leftColumn {
+	background-image: url({{ 'default_background_3_picture.png' | asset_url }});
+}

@@ -49,7 +49,7 @@ window.hbsApp = {} ;
     // timesChecked specifies max amount of time this function will run, just in case an image can't be found, the page won't stop loading
   */
   window.hbsApp.checkImgLoading = function (imageElements, callback, args, context, timesChecked) {
-  	timesChecked = timesChecked || 0;
+  	timesChecked = timesChecked || 3;
   	if (timesChecked > 0) {
 	    imageElements = imageElements || $('img');
 	    context = context || null;

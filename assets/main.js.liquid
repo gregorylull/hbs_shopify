@@ -14,7 +14,6 @@ $(function () {
 	hbsApp.imagesLoading = false;
 
 	// initialize app
-	// hbsApp.fpAdjustCol();
   hbsApp.checkImgLoading("", function () {
   	hbsApp.fpAdjustCol();
   }, hbsApp, null);
@@ -42,10 +41,10 @@ $(function () {
 	})());
 
   // background picture test
-  $('body').prepend($('<div>BG texture:</div>').addClass('background_test'));
+  $('body').prepend($('<div>BG texture:</div>').addClass('background_test hbsDebugger hidden'));
     
 	// foreground block test
-	$($('<div>block texture:</div>').addClass('foreground_test')).insertAfter($('.background_test'));
+	$($('<div>block texture:</div>').addClass('foreground_test hbsDebugger hidden')).insertAfter($('.background_test'));
 	
 	{% assign base = "default_background_" %}
 	{% for i in (0..14) %}
@@ -72,6 +71,29 @@ $(function () {
 
 	$(".foreground_test").on('click', 'div', function (e) {
 		$('.frontpage_block_content').css('background-image', "url(" + $(this).attr('class')+ ")");
+	});
+
+	/*
+	  add a debugging button
+	*/
+	$('<div>Styles OFF</div>').appendTo($('body')).addClass('hbsDebuggerSwitch').css({
+		'background-color': 'red',
+		'width': '50px',
+		'height': '50px',
+		'position': 'fixed',
+		'bottom': 0,
+		'left': 0,
+		'border': '2px solid black',
+		'text-align': 'center'
+	}).on('click', function () {
+		var styles = $('.hbsDebugger');
+		if (styles.hasClass('hidden')) {
+			styles.removeClass('hidden');
+			$(this).text('Styles ON').css('background-color', 'rgb(0,220,0)');
+		} else {
+		  styles.addClass('hidden');
+		  $(this).text('Styles OFF').css('background-color', 'red');
+		}
 	});
 
   /*
