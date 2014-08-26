@@ -50,7 +50,7 @@ var hbsApp = window.hbsApp
     // timesChecked specifies max amount of time this function will run, just in case an image can't be found, the page won't stop loading
   */
   hbsApp.checkImgLoading = function (imageElements, callback, args, context, timesChecked) {
-  	timesChecked = (timesChecked === undefined ? 10 : timesChecked);
+  	timesChecked = (timesChecked === undefined ? 40 : timesChecked);
     console.log('timesChecked orig: ', timesChecked);
     // console.log('checkImgLoading: ', imageElements, callback, args, context, timesChecked);
   	if (timesChecked > 0) {
@@ -74,7 +74,7 @@ var hbsApp = window.hbsApp
         console.log('timesChecked: ', timesChecked);
 	  		setTimeout(function () {
 	  			hbsApp.checkImgLoading(filtered, callback, args, context, timesChecked-1);
-	  		}, 200);
+	  		}, 300);
 	  	}
   	}
   };
@@ -126,15 +126,14 @@ var hbsApp = window.hbsApp
     - useful for container-fluid    
   */
   hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp) {
-    var firstTime = false;
     if (!imageObj) {
-      firstTime = true;
       hbsApp.imageObj = {};
       var imageObj = hbsApp.imageObj;
       imageObj.images = $('.collection-grid-row .product-image-wrapper img');
       imageObj.ideal = null;
       imageObj.unevenImages = [];
       imageObj.evenImages = [];
+      imageObj.firstTime = true;
       imageObj.images.each(function (index) {
         if (!hbsApp.imageObj.ideal && this.naturalHeight % this.naturalWidth === 0) {
           hbsApp.imageObj.ideal = this;
@@ -155,8 +154,7 @@ var hbsApp = window.hbsApp
       var idealHeight = $(hbsApp.imageObj.ideal).css({width: "100%", height: 'auto'}).css('height');
     }
 
-    if (firstTime) {
-      firstTime = false;
+    if (imageObj.firstTime) {
       $(imageObj.evenImages).css({width: '100%', height: 'auto'});
     }
   
@@ -165,15 +163,22 @@ var hbsApp = window.hbsApp
       if height/width is lt 1, then image is horizontal rect, set width to fix, height to auto
     */
     $(imageObj.unevenImages).each(function (index) {
-      var width = parseInt($(this).css('width'), 10);
-      var height = parseInt($(this).css('height'), 10)
-      if (height / width > 1) {
+      var aspectRatio = this.naturalHeight / this.naturalWidth;
+
+      // vertical rectangle
+      if (aspectRatio > 1) {
         $(this).css({height: idealHeight, width: 'auto'});
+
+      // horizontal rectangle
       } else {
         $(this).parent().css({height: idealHeight, width: 'auto'});
         $(this).css({height: 'auto', width: idealHeight});
+        if (imageObj.firstTime) {
+          $(this).parent().addClass('unevenHorizontalParent');
+        }
       }
     });
+    imageObj.firstTime = false;
   };
 
   /*
@@ -196,9 +201,27 @@ var hbsApp = window.hbsApp
     Because img loading time is asychronous, the pictures will jitter, so we have to set all the pictures to an initial width
     - this executes ONCE only
   */
-  hbsApp.catalogInitCol = function (height) {
-    console.log('height', height);
-    $('.product-grid-wrapper img').css({height: height + 'px', width: 'auto'});
+  hbsApp.catalogInitCol = function (idealHeight) {
+
+    $('.product-grid-wrapper img').css({height: idealHeight + 'px', width: 'auto'});
+    // $('.product-grid-wrapper img').each(function (index) {
+    //   var aspectRatio = this.naturalHeight / this.naturalWidth;
+
+    //   // vertial rectangle
+    //   if (aspectRatio > 1) {
+    //     $(this).css({height: idealHeight, width: 'auto'});
+    //     $(this).parent().addClass('unevenVerticalParent');
+
+    //   // horizontal rectangle
+    //   } else if (aspectRatio < 1 && aspectRatio > 0) {
+    //     $(this).parent().css({height: idealHeight, width: 'auto'});
+    //     $(this).css({height: 'auto', width: idealHeight});
+    //     $(this).parent().addClass('unevenHorizontalParent');
+
+    //   // normal ratio
+    //   } else {
+    //   }
+    // });
   };
 
 })();

@@ -1,22 +1,29 @@
-this is /collections
 
+<script>window.location.replace("/collections/all")</script>
 
 {% comment %}
-{% include 'collection-listing' %}
-<!-- Alternatively, if not using a snippet, use the code below. 
-To use the code below, get rid of the above 'include', and get rid of the comment tags, and you're in business. -->
-{% endcomment %}
+===============================================================================
+  EVERYTHING BELOW THIS LINE IS ORIGINAL SHOPIFY SKELETON CODE FOR REFERENCE  
+===============================================================================
 
-{% paginate collections by 6 %}
-  <h1>Collections</h1>
-  <ul class="grid clearfix">
-  {% for collection in collections %}
-    {% include 'collection-grid-item' with 'three-per-row' %}
-  {% endfor %}
-  </ul>
-  {% if paginate.pages > 1 %}
-  <div id="pagination">
-    {{ paginate | default_pagination }}
-  </div>
-  {% endif %}
-{% endpaginate %}
+  {% comment %}
+  {% include 'collection-listing' %}
+  <!-- Alternatively, if not using a snippet, use the code below. 
+  To use the code below, get rid of the above 'include', and get rid of the comment tags, and you're in business. -->
+  {% endcomment %}
+
+  {% paginate collections by 6 %}
+    <h1>Collections</h1>
+    <ul class="grid clearfix">
+    {% for collection in collections %}
+      {% include 'collection-grid-item' with 'three-per-row' %}
+    {% endfor %}
+    </ul>
+    {% if paginate.pages > 1 %}
+    <div id="pagination">
+      {{ paginate | default_pagination }}
+    </div>
+    {% endif %}
+  {% endpaginate %}
+
+{% endcomment %}
