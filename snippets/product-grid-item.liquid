@@ -10,6 +10,8 @@
 {% for product in collections[product-grid-item].products %}
   <div class="col-xs-6 col-sm-4 col-md-3">
     <div class="product-grid-wrapper">
+    <!-- <a href="/products/{{product.handle}}"> -->
+    <a href="#">
       <div class="product-image-wrapper" style="text-align: center">
         <img class="img-thumbnail" src="{{product.featured_image.src | img_url: 'large' }}" alt="{{product.featured_image.alt}}"/>
       </div>
@@ -27,7 +29,8 @@
       {% elsif product.compare_at_price_min != 0 %}
         <small class="product-compare"> Normally {{ product.compare_at_price_max | money }}</small>
       {% endif %}
-    </div> <!-- END /.product-grid-wrapper -->
+
+    </div></a> <!-- END /.product-grid-wrapper -->
   </div> <!-- END / .col-xs-6 .col-sm-4 .col-md-3 -->
 
   {% comment %}

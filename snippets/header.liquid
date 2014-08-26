@@ -3,7 +3,10 @@
 
 	<!-- in the spirit of bootstrap 3.x's "mobile first" idea, the first block of html code here is the markup for the mobile version (xs) -->
 	<div class="hbs_banner_words">
-	    <a href="/">{{ 'logo.png' | asset_url | img_tag: 'hbs logo'}}</a>
+	    <a href="/"><img src="{{ 'logo.png' | asset_url}}" class="logo"/></a>
+	    <a href="/"><img src="{{ 'logoWords.png' | asset_url}}" class="logoWords"/></a>
+
+	    <!-- <a href="/">{{ 'logoWords.png' | asset_url | img_tag: 'hbs logo words'}}</a> -->
 	</div>
 	<nav id="hbs_header" class="navbar navbar-inverse" role="navigation">
 	  <!-- navbar toggle menu-->

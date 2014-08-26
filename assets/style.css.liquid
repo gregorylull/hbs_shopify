@@ -64,8 +64,14 @@
     text-align: center;
 }
 
-.hbs_banner_words img {
+.hbs_banner_words .logoWords {
     width: 60%;	
+}
+
+.hbs_banner_words .logo {
+	min-height: 25px;
+	max-height: 45px;
+	width: auto;
 }
 
 .mobileCheck { background-color: red;}
@@ -296,7 +302,7 @@ body {
 	text-align: center;
   /*background-image: url({{ 'default_background_3_picture.png' | asset_url }});*/
   background-color: rgba(150, 13, 52, 0.8);
-
+	font-family: 'Pontano Sans', sans-serif;
 }
 
 .aboutus_execprofile_page_title {
@@ -333,7 +339,6 @@ body {
 	text-align: center;
 	vertical-align: top;
 	font-size: 1.5em;
-	font-family: serif;
   background-image: url({{ 'default_background_3_picture.png' | asset_url }});
 }
 

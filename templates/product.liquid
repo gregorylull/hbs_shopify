@@ -1,4 +1,10 @@
-check check this is product.liquid
+{% include 'header' %}
+
+
+{% comment %}
+ ==============================================================================
+  EVERYTHING BELOW THIS LINE IS ORIGINAL SKELETON CODE FOR REFERENCE 
+ ==============================================================================
 
 <div class="product" itemscope itemtype="http://schema.org/Product">
   
@@ -191,3 +197,4 @@ Shopify.Image.preload({{ product.images | json }}, 'grande');
 Shopify.Image.preload({{ product.images | json }}, '1024x1024');
 
 </script>
+{% endcomment %}

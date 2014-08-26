@@ -3,6 +3,7 @@
 {% endcomment %}
 
 $(function () {
+// $(window).load(function () {
 	var hbsApp = window.hbsApp;
 	console.log('\n\n**** START javascript main.js ********\n\n');
 
@@ -77,11 +78,13 @@ $(function () {
 	{% endfor %}
 
 	$(".background_test").on('click', 'div', function (e) {
+		$('#aboutus_video').addClass('hidden');
 		$('body').css('background-image', "url(" + $(this).attr('class')+ ")");
 	});
 
 	$(".foreground_test").on('click', 'div', function (e) {
-		$('.frontpage_block_content').css('background-image', "url(" + $(this).attr('class')+ ")");
+		$('.frontpage_block_content, .aboutus_execprofile_container').css('background-image', "url(" + $(this).attr('class')+ ")").css(
+		 'background-color', 'none');
 	});
 
   /*
