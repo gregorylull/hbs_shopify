@@ -1,6 +1,7 @@
 (function () {
 
 window.hbsApp = {} ;
+var hbsApp = window.hbsApp
 
 	/*
 	  RIGHT COLUMN FRONT PAGE SCROLL HEIGHT DETECTION
@@ -12,7 +13,7 @@ window.hbsApp = {} ;
     blue: rgb(0, 0, 255) === 'md' < 1200px
     white: rgb(255, 255, 255) === 'lg'
   */
-	window.hbsApp.rgbaToVal = function (rgbaStr) {
+	hbsApp.rgbaToVal = function (rgbaStr) {
 		var rgba = [];
 		var parsed = rgbaStr.match(/\d+/g);
 		for (var i = 0; i < parsed.length; i++) { 
@@ -21,8 +22,8 @@ window.hbsApp = {} ;
 		return rgba;
 	}
 
-  window.hbsApp.rgbaToName = function (rgbaStr) {
-  	var rgba = window.hbsApp.rgbaToVal(rgbaStr);
+  hbsApp.rgbaToName = function (rgbaStr) {
+  	var rgba = hbsApp.rgbaToVal(rgbaStr);
   	var red = rgba[0];
   	var green = rgba[1];
   	var blue = rgba[2];
@@ -39,8 +40,8 @@ window.hbsApp = {} ;
   	}
   };
 
-  window.hbsApp.getMobileCheck = function () {
-	  return window.hbsApp.rgbaToName($('.mobileCheck', hbsApp.headers).css('background-color'));
+  hbsApp.getMobileCheck = function () {
+	  return hbsApp.rgbaToName($('.mobileCheck', hbsApp.headers).css('background-color'));
   };
 
   /*
@@ -48,8 +49,10 @@ window.hbsApp = {} ;
 
     // timesChecked specifies max amount of time this function will run, just in case an image can't be found, the page won't stop loading
   */
-  window.hbsApp.checkImgLoading = function (imageElements, callback, args, context, timesChecked) {
-  	timesChecked = timesChecked || 3;
+  hbsApp.checkImgLoading = function (imageElements, callback, args, context, timesChecked) {
+  	timesChecked = (timesChecked === undefined ? 10 : timesChecked);
+    console.log('timesChecked orig: ', timesChecked);
+    // console.log('checkImgLoading: ', imageElements, callback, args, context, timesChecked);
   	if (timesChecked > 0) {
 	    imageElements = imageElements || $('img');
 	    context = context || null;
@@ -68,11 +71,20 @@ window.hbsApp = {} ;
 	  		var images = filtered;
 	  		for (var i = 0; i < images.length; i++) { console.log('img' + i, images[i].src, images[i].naturalHeight)}
 	  		hbsApp.imagesLoading = false;
+        console.log('timesChecked: ', timesChecked);
 	  		setTimeout(function () {
 	  			hbsApp.checkImgLoading(filtered, callback, args, context, timesChecked-1);
-	  		}, 25);
+	  		}, 200);
 	  	}
   	}
+  };
+
+  /*
+    check if function is allowed to be executed on the current page
+  */
+
+  hbsApp.okayToExecute = function (page_title) {
+
   };
 
   /*
@@ -82,27 +94,111 @@ window.hbsApp = {} ;
       + except when the left column is naturally shorter because of its contents
   */
 
-  window.hbsApp.fpAdjustCol = function () {
-  	var leftCol = $(".frontpage_md_leftColumn")[0];
-  	var rightCol = $(".frontpage_md_rightColumn")[0];
- 		$(rightCol).css('height', 'auto');
+  hbsApp.fpAdjustCol = function () {
+    if ($('#frontpage_container').length > 0) {
+      console.log('fpAdjustCol executed');
+      var leftCol = $(".frontpage_md_leftColumn")[0];
+      var rightCol = $(".frontpage_md_rightColumn")[0];
+      $(rightCol).css('height', 'auto');
 
-  	var leftColHeight = leftCol.scrollHeight;
-  	var rightColHeight = rightCol.scrollHeight;
-  	console.log('col left:', leftColHeight, ', right:',rightColHeight);
+      var leftColHeight = leftCol.scrollHeight;
+      var rightColHeight = rightCol.scrollHeight;
+      console.log('col left:', leftColHeight, ', right:',rightColHeight);
 
-  	if (hbsApp.mobileCheck === 'xs') {
-  		$(rightCol).css('height', 'auto');
-  		console.log('currently small?');
-  	} else if (rightColHeight < leftColHeight) {
-  		console.log('right before adj', rightCol.scrollHeight);
-  		$(rightCol).css('height', leftColHeight + 'px');
-  		console.log('right after adj', rightCol.scrollHeight);
-  	} else if (rightColHeight >= leftColHeight) {
-  		$(rightCol).css('height', 'auto');
-  	} else {
-  		$(rightCol).css('height', leftColHeight + 'px');
-  	}
+      if (hbsApp.mobileCheck === 'xs') {
+        $(rightCol).css('height', 'auto');
+        console.log('currently small?');
+      } else if (rightColHeight < leftColHeight) {
+        console.log('right before adj', rightCol.scrollHeight);
+        $(rightCol).css('height', leftColHeight + 'px');
+        console.log('right after adj', rightCol.scrollHeight);
+      } else if (rightColHeight >= leftColHeight) {
+        $(rightCol).css('height', 'auto');
+      } else {
+        $(rightCol).css('height', leftColHeight + 'px');
+      }
+    }
+  };
+
+  /*
+    Catalog page adjust images just in case aspect ratio is not the same when merchant uploaded
+    - look for images under the .collection-grid-row
+    - useful for container-fluid    
+  */
+  hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp) {
+    var firstTime = false;
+    if (!imageObj) {
+      firstTime = true;
+      hbsApp.imageObj = {};
+      var imageObj = hbsApp.imageObj;
+      imageObj.images = $('.collection-grid-row .product-image-wrapper img');
+      imageObj.ideal = null;
+      imageObj.unevenImages = [];
+      imageObj.evenImages = [];
+      imageObj.images.each(function (index) {
+        if (!hbsApp.imageObj.ideal && this.naturalHeight % this.naturalWidth === 0) {
+          hbsApp.imageObj.ideal = this;
+          imageObj.evenImages.push(this);
+        } else {
+          if (this.naturalHeight % this.naturalWidth === 0) { 
+            imageObj.evenImages.push(this)
+          } else { 
+            imageObj.unevenImages.push(this) 
+          }
+        }
+      });
+    }
+
+    if (hbsApp.imageObj.ideal === null) {
+      var idealHeight = hbsApp.catalogColWidth();
+    } else {
+      var idealHeight = $(hbsApp.imageObj.ideal).css({width: "100%", height: 'auto'}).css('height');
+    }
+
+    if (firstTime) {
+      firstTime = false;
+      $(imageObj.evenImages).css({width: '100%', height: 'auto'});
+    }
+  
+    /* 
+      if height/width is gt 1, then image is vertical rect, set height to fix, width to auto
+      if height/width is lt 1, then image is horizontal rect, set width to fix, height to auto
+    */
+    $(imageObj.unevenImages).each(function (index) {
+      var width = parseInt($(this).css('width'), 10);
+      var height = parseInt($(this).css('height'), 10)
+      if (height / width > 1) {
+        $(this).css({height: idealHeight, width: 'auto'});
+      } else {
+        $(this).parent().css({height: idealHeight, width: 'auto'});
+        $(this).css({height: 'auto', width: idealHeight});
+      }
+    });
+  };
+
+  /*
+    calculate current column width, fixed or fluid will both have the same width once the dom is loaded
+  */
+  hbsApp.catalogColWidth = function () {
+    var col = $('.product-grid-wrapper');
+    if (col.length > 0) {
+      col = $(col[0]);
+      var finalWidth = parseInt(col.css('width'), 10);
+      var checkStyles = ['border-left', 'border-right', 'padding-left', 'padding-right']
+      for (var i = 0; i < checkStyles.length; i++) {
+        finalWidth -= parseInt(col.css(checkStyles[i]), 10);
+      }
+      return finalWidth;
+    }
+  }
+
+  /*
+    Because img loading time is asychronous, the pictures will jitter, so we have to set all the pictures to an initial width
+    - this executes ONCE only
+  */
+  hbsApp.catalogInitCol = function (height) {
+    console.log('height', height);
+    $('.product-grid-wrapper img').css({height: height + 'px', width: 'auto'});
   };
 
 })();

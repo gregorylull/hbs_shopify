@@ -3,6 +3,31 @@
   Universal
 ******************************************************************************/
 
+.hbsDebuggerPanel::after {
+	content: "";
+	display: block;
+	width: 100%;
+	line-height: 0;
+	font-size: 0;
+}
+
+.hbsDebuggerSwitch {
+	margin: 0px 1px;
+	border: 1px dotted blue;
+}
+
+/* header */
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
 .background_test {
 	background-color: yellow;
 	text-align: center;
@@ -256,6 +281,11 @@ body {
 	width: 100%;
 	margin: 0px auto;
 	text-align: center;
+  background-image: url({{ 'default_background_3_picture.png' | asset_url }});
+}
+
+.aboutus_execprofile_page_title {
+  margin-top: 0px;
 }
 
 .aboutus_execprofile_divider {
@@ -331,11 +361,11 @@ body {
 
 .aboutus_execprofile_profile_info:hover img {
 	opacity: 0.15;
-	-webkit-transition: opacity 0.2s ease-in-out;
-	-moz-transition: opacity 0.2s ease-in-out;
-	-ms-transition: opacity 0.2s ease-in-out;
-	-o-transition: opacity 0.2s ease-in-out;
-	transition: opacity 0.2s ease-in-out;
+	-webkit-transition: opacity 0.1s ease-in-out;
+	-moz-transition: opacity 0.1s ease-in-out;
+	-ms-transition: opacity 0.1s ease-in-out;
+	-o-transition: opacity 0.1s ease-in-out;
+	transition: opacity 0.1s ease-in-out;
 }
 
 .aboutus_execprofile_profile_info:hover .aboutus_execprofile_profile_name,
@@ -346,6 +376,11 @@ body {
 
 .aboutus_execprofile_profile_info:hover p {
 	color: rgba(0,0,0,1);
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -moz-transition: opacity 0.1s ease-in-out;
+  -ms-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
 }
 
 /******************************************************************************
@@ -357,6 +392,11 @@ body {
 	width: 100%;
 	margin: 0px auto;
 	text-align: justify;
+  background-image: url({{ 'default_background_3_picture.png' | asset_url }});
+}
+
+.eventspage_page_title {
+  margin-top: 0px;
 }
 
 .eventspage_divider {
@@ -462,7 +502,7 @@ body {
 }
 
 .product-grid-wrapper {
-  border: 1px dotted red;
+  /*border: 1px dotted red;*/
 }
 
 @media screen and (min-width: 768px) {

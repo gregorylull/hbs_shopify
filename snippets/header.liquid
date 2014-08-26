@@ -3,7 +3,7 @@
 
 	<!-- in the spirit of bootstrap 3.x's "mobile first" idea, the first block of html code here is the markup for the mobile version (xs) -->
 	<div class="hbs_banner_words">
-	    {{ 'logo.png' | asset_url | img_tag: 'hbs logo'}}
+	    <a href="/">{{ 'logo.png' | asset_url | img_tag: 'hbs logo'}}</a>
 	</div>
 	<nav id="hbs_header" class="navbar navbar-inverse" role="navigation">
 	  <!-- navbar toggle menu-->
@@ -14,17 +14,22 @@
 		    <span class="icon-bar"></span>
 		    <span class="icon-bar"></span>
 		  </button>
-		  <a class="navbar-brand as_navbar_brand" href="/">HBS SA</a>
+		  <!-- <a class="navbar-brand as_navbar_brand" href="/">HBS SA</a> -->
 		</div> <!-- ./navbar-header -->
 
 		<div class="collapse navbar-collapse" id="navbar_mobile_collapse">
-		  <ul class="nav navbar-nav nav"> 
+		  <ul class="nav navbar-nav"> 
 			  {% for link in linklists.main-menu.links %}
 		      <li role="presentation"> 
 		        <a role="menuitem" tabindex="-1" href="{{ link.url }}"> {{ link.title }} </a> 
 		      </li>
 		    {% endfor %}
 		  </ul>
+<!-- 		  <ul class="nav navbar-nav navbar-center">
+		    <li role="presentation" style="float: ">
+		        <a role="menuitem" tabindex="-1" href="#">CHECK</a> 
+		    </li>
+		  </ul> -->
 		</div> <!-- /.navbar-collapse -->
 	</nav> <!-- /.navbar-->
 </div>

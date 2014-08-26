@@ -10,13 +10,20 @@ $(function () {
 	hbsApp.docWidth = $(document).width();
 	hbsApp.windowWidth = $(window).width();
 	hbsApp.headers = $('.headers')[0];
+	hbsApp.container = $('.container').length > 0 ? '.container' : 'container-fluid';
 	hbsApp.mobileCheck = hbsApp.getMobileCheck();
 	hbsApp.imagesLoading = false;
+	hbsApp.page_title = false;
 
 	// initialize app
-  // hbsApp.checkImgLoading("", function () {
-  // 	hbsApp.fpAdjustCol();
-  // }, hbsApp, null);
+	hbsApp.catalogInitCol(hbsApp.catalogColWidth());
+  hbsApp.checkImgLoading("", function () {
+  	hbsApp.fpAdjustCol();
+  	hbsApp.catalogAdjustProductHeight("", hbsApp);
+  	console.log('executed?');
+  }, [], hbsApp);
+
+  // hbsApp.checkImgLoading();
 
 	// auto update properties upon window.resize
 	$(window).resize((function () {
@@ -35,7 +42,11 @@ $(function () {
 				console.log('Window resized, new grid: ', hbsApp.mobileCheck, ', old: ', oldMobileCheck);
 
 				// for front page
-				// hbsApp.fpAdjustCol();
+				hbsApp.fpAdjustCol();
+
+				// for catalog.all page
+		  	hbsApp.catalogAdjustProductHeight(hbsApp.imageObj, hbsApp);
+
 			}, 100);
 		}
 	})());
@@ -73,18 +84,27 @@ $(function () {
 		$('.frontpage_block_content').css('background-image', "url(" + $(this).attr('class')+ ")");
 	});
 
+  /*
+    add a debugging / style panel
+  */
+    $('<div></div>').appendTo($('body')).addClass('hbsDebuggerPanel').css({
+    	position: 'fixed',
+    	border: '2px solid black',
+    	bottom: 0,
+    	left: 0,
+    	'text-align': 'center',
+    	padding: '2px'
+    })
+	
 	/*
-	  add a debugging button
+	  add a background styling button / foreground block elements
 	*/
-	$('<div>Styles OFF</div>').appendTo($('body')).addClass('hbsDebuggerSwitch').css({
+	$('<div>Styles OFF</div>').appendTo($('.hbsDebuggerPanel')).addClass('hbsDebuggerSwitch').css({
 		'background-color': 'red',
 		'width': '50px',
 		'height': '50px',
-		'position': 'fixed',
-		'bottom': 0,
-		'left': 0,
-		'border': '2px solid black',
-		'text-align': 'center'
+		// display: 'inline-block'
+		float: 'left'
 	}).on('click', function () {
 		var styles = $('.hbsDebugger');
 		if (styles.hasClass('hidden')) {
@@ -94,6 +114,27 @@ $(function () {
 		  styles.addClass('hidden');
 		  $(this).text('Styles OFF').css('background-color', 'red');
 		}
+	});
+
+	/*
+	  add a container-fluid container-fixed switch
+	*/
+	var containerWord = hbsApp.container === '.container' ? 'fixed' : 'fluid';
+	$('<div>' + containerWord + '</div>').appendTo($('.hbsDebuggerPanel')).addClass('hbsDebuggerSwitch').css({
+		'background-color': 'pink',
+		'width': '50px',
+		'height': '50px',
+		// display: 'inline-block'
+		float: 'left'
+	}).on('click', function (e) {
+		if ($(this).text() === 'fixed') { 
+			$(this).text('fluid');
+			$(".container").addClass('container-fluid').removeClass('container');
+		}	else {
+		  $(this).text('fixed');
+		  $(".container-fluid").addClass('container').removeClass('container-fluid');
+		}
+
 	});
 
   /*

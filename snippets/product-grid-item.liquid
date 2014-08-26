@@ -13,18 +13,30 @@
       </div>
       <h4 class="product-title">{{ product.title }}</h4>
       <h5 class="product-price">{{ product.price | money }}</h5>
-<!--       {% unless product.compare_at_price_max == 0 %}
+      {% unless product.compare_at_price_max == 0 %}
         <small class="product-compare"> Normally {{ product.compare_at_price_max | money }}</small>
-      {% endunless %} -->
-    </div>
-  </div>
+      {% endunless %}
+    </div> <!-- END /.product-grid-wrapper -->
+  </div> <!-- END / .col-xs-6 .col-sm-4 .col-md-3 -->
+
+  {% comment %}
+    not very clean, but since we're using bootstrap and floats, we need to insert a clearfix after certain elements, namely those that are divisible by 2, 3, and 4
+  {% endcomment %}
+  
+  {% assign byTwo = forloop.index | modulo: 2 %}
+  {% assign byThree = forloop.index | modulo: 3 %}
+  {% assign byFour = forloop.index | modulo: 4 %}
+  {% if byTwo == 0 or byThree == 0 or byFour == 0 %}
+    {% if byTwo == 0 %}<div class="clearfix visible-xs-block"></div>{% endif %}
+    {% if byThree == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
+    {% if byFour == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
+  {% endif %}
 {% endfor %}
-</div>
+</div> <!-- END / .collection-grid-row -->
 
 
-
-
-
+{% comment %}
+{% endcomment %}
 
 
 
