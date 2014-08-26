@@ -1,6 +1,6 @@
 {% include 'header' %}
 
-<div class='container-fluid'>
+<div class='container catalog_all_container'>
   <div class="row row_all">
     <div class="col-sm-3 catalog_all_leftColumn">
       <div class="catalog_all_hbs_description">
@@ -13,12 +13,11 @@
     </div> <!-- ./catalog_hbs_leftmenu col-sm-3 -->
 
   <div class="col-sm-9 catalog_all_rightColumn">
-    <div class="row"></div>
-    <div class="row"></div>
+    {% include 'product-grid-item' with "all" %}
   </div>
 
 {% comment %}
-    <div class="col-sm-9">
+    <div class="col-sm-offset-1 col-sm-8">
       <div class="row catalog_all_product_pic">
         <div class="col-sm-9 catalog_product_picture">
           {{ collections.frontpage-featured-product.products[0].featured_image | img_url: 'large' | img_tag }}

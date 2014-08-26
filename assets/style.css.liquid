@@ -453,6 +453,25 @@ body {
 /******************************************************************************
   CATALOG / COLLECTIONS.all
 ******************************************************************************/
-.catalog_all_leftColumn {
+.catalog_all_container {
 	background-image: url({{ 'default_background_3_picture.png' | asset_url }});
 }
+
+.collection-grid-row .product-price {
+  margin-bottom: 0px;
+}
+
+.product-grid-wrapper {
+  border: 1px dotted red;
+}
+
+@media screen and (min-width: 768px) {
+  .product-grid-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*.collection-grid-row {
+  background-image: url({{ 'default_background_3_picture.png' | asset_url }});
+}*/

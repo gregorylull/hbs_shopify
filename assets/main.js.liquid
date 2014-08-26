@@ -14,9 +14,9 @@ $(function () {
 	hbsApp.imagesLoading = false;
 
 	// initialize app
-  hbsApp.checkImgLoading("", function () {
-  	hbsApp.fpAdjustCol();
-  }, hbsApp, null);
+  // hbsApp.checkImgLoading("", function () {
+  // 	hbsApp.fpAdjustCol();
+  // }, hbsApp, null);
 
 	// auto update properties upon window.resize
 	$(window).resize((function () {
@@ -35,7 +35,7 @@ $(function () {
 				console.log('Window resized, new grid: ', hbsApp.mobileCheck, ', old: ', oldMobileCheck);
 
 				// for front page
-				hbsApp.fpAdjustCol();
+				// hbsApp.fpAdjustCol();
 			}, 100);
 		}
 	})());
