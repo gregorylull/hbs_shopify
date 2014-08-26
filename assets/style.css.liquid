@@ -276,16 +276,32 @@ body {
 /******************************************************************************
   ABOUT US PAGE: EXEC TEAM PROFILE
 ******************************************************************************/
+#aboutus_video {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
+	opacity: 0.5;
+}
+
 /* mobile first */
 .aboutus_execprofile_container {
 	width: 100%;
 	margin: 0px auto;
 	text-align: center;
-  background-image: url({{ 'default_background_3_picture.png' | asset_url }});
+  /*background-image: url({{ 'default_background_3_picture.png' | asset_url }});*/
+  background-color: rgba(150, 13, 52, 0.8);
+
 }
 
 .aboutus_execprofile_page_title {
   margin-top: 0px;
+  color: rgba(238, 226, 159, 1);
 }
 
 .aboutus_execprofile_divider {
@@ -318,6 +334,7 @@ body {
 	vertical-align: top;
 	font-size: 1.5em;
 	font-family: serif;
+  background-image: url({{ 'default_background_3_picture.png' | asset_url }});
 }
 
 .aboutus_execprofile_profile_info {
@@ -475,11 +492,11 @@ body {
 
 .eventspage_event_info:hover img {
 	opacity: 0.15;
-	-webkit-transition: opacity 0.2s ease-in-out;
-	-moz-transition: opacity 0.2s ease-in-out;
-	-ms-transition: opacity 0.2s ease-in-out;
-	-o-transition: opacity 0.2s ease-in-out;
-	transition: opacity 0.2s ease-in-out;
+	-webkit-transition: opacity 0.1s ease-in-out;
+	-moz-transition: opacity 0.1s ease-in-out;
+	-ms-transition: opacity 0.1s ease-in-out;
+	-o-transition: opacity 0.1s ease-in-out;
+	transition: opacity 0.1s ease-in-out;
 }
 
 .eventspage_event_info:hover .eventspage_event_title {
@@ -488,6 +505,11 @@ body {
 
 .eventspage_event_info:hover p {
 	color: rgba(0,0,0,1);
+	-webkit-transition: opacity 0.2s ease-in-out;
+	-moz-transition: opacity 0.2s ease-in-out;
+	-ms-transition: opacity 0.2s ease-in-out;
+	-o-transition: opacity 0.2s ease-in-out;
+	transition: opacity 0.2s ease-in-out;
 }
 
 /******************************************************************************

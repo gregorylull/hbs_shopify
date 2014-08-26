@@ -13,9 +13,8 @@
     </div> <!-- ./catalog_hbs_leftmenu col-sm-3 -->
 
   <div class="col-sm-9 catalog_all_rightColumn">
-    {% include 'product-grid-item' with "all" %}
+    {% include 'product-grid-item' with collection.handle %}
   </div>
-
 {% comment %}
     <div class="col-sm-offset-1 col-sm-8">
       <div class="row catalog_all_product_pic">
