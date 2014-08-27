@@ -1,16 +1,57 @@
 <div class="row product-page-row1">
-  <div class="col-sm-8">
+  <div class="col-sm-7 col-sm-offset-1">
     <div class="product-page-productPicture">
-      <img src="{{product.featured_image | img_url: 'large' }}" />
+      <img class="thumbnail" src="{{product.featured_image | img_url: 'grande' }}"/>
     </div> <!-- END ./product-page-productPicture -->
-  </div> <!-- END ./col-sm-8 -->
+        <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+      <!-- <li><a href="#embroidery" role="tab" data-toggle="tab">Custom Embroidery</a></li> -->
+      <li><a href="#sizing" role="tab" data-toggle="tab">Extra Information</a></li>
+    </ul>
 
-  <div class="product-page-">
-    
-  </div>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="description">
+        <div id="product-description" class="rte" itemprop="description">
+          {{ product.description }}
+        </div>
+      </div>
+      <div class="tab-pane" id="sizing">Some sizing info, or other special info about the product itself / special instructions?</div>
+    </div>
+  </div> <!-- END ./col-sm-7 -->
+
+
+
+
+
+
+  <div class="col-sm-4">
+    <div class="row product-page-rightColumn">
+      <div class="col-sm-12">
+        <div class="product-page-product-description">
+<!--           <h3 class="product-name"> {{ product.title }} </h3>
+          <p class="description"> {{ product.description }} </p>
+          <small>{{ product.price | money}}</small>
+ -->
+          <!-- product price --> 
+        </div>
+      </div> <!-- product-page-product-description -->
+
+      <div class="col-sm-12">
+        <div class="product-page-form">
+          {% include 'checkout-form' %}
+
+        </div>
+        </div> <!-- product-page-form -->
+      </div>    
+    </div> <!-- END ./product-page-rightColumn-->
+  </div> <!-- -->
 </div> <!-- product-page-row1 -->
 
 <!-- tab section-->
 <div class="row product-page-tabs">
-  
+  <div class="col-sm-12">
+    
+  </div>
 </div>
