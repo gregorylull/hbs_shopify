@@ -1,0 +1,22 @@
+<div class='container catalog_all_container'>
+  <div class="row row_all">
+    <div class="col-sm-3 catalog_all_leftColumn">
+      <div class="catalog_all_hbs_description">
+        <h3> HBS SA Products </h3>
+        <p class="catalog_all_rte"> {{collections.all.description}}</p>
+      </div>
+      <div class="catalog_all_leftMenu">
+      {% comment %} snipped used in both /product/* and /collection/* pages {% endcomment %}
+        {% include 'menu_vertical' %} 
+      </div>
+    </div> <!-- ./catalog_hbs_leftmenu col-sm-3 -->
+
+  <div class="col-sm-9 catalog_all_rightColumn">
+    {% if template contains 'product' %}
+      {% include 'product-page-item' with product.handle %}
+    {% elsif template contains 'collection' %}
+      {% include 'product-grid-item' with collection.handle %} <!-- -->
+    {% endif %}
+  </div>
+  </div> <!-- /.row_all-->
+</div> <!-- /.container-fluid -->

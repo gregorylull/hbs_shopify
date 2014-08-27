@@ -1,12 +1,12 @@
 {% include 'header' %}
 
 <div id="frontpage_container" class="container-fluid">
-
-  <div id="frontpage_row" class="row">
-    <div class="col-sm-9 frontpage_md_leftColumn">
         <div class="row frontpage_md_slideshow">
           {% include 'picture_carousel' %}
         </div>
+  <div id="frontpage_row" class="row">
+    <div class="col-sm-9 frontpage_md_leftColumn">
+
 
         <div class="frontpage_rte frontpage_md_mission frontpage_block_content">
           <h3 class="frontpage_mission_title">Mission</h3>
@@ -16,16 +16,16 @@
       <div class="frontpage_separator hidden-xs"></div>
 
       <div class="row frontpage_md_leftColumn_innerRow">   
-          <div class="col-sm-7 frontpage_rte frontpage_md_pulseNews frontpage_block_content">
+          <div class="col-sm-12 frontpage_rte frontpage_md_pulseNews frontpage_block_content">
             <h3><span>{{ collections.frontpage-pulse-news.title }}<span></h3>
             <div class="frontpage_pulseNews_text"> 
               {{ collections.frontpage-pulse-news.description }}
             </div>
           </div>
 
-          <div class="col-sm-4 col-sm-offset-1 frontpage_md_featuredProduct frontpage_block_content">
+          <div class="col-sm-12 frontpage_md_featuredProduct frontpage_block_content">
             <h3><span>Featured Product</span></h3>
-            {{ collections.featured-product.products[0].featured_image | img_url: 'large' | img_tag }}
+            <!-- {{ collections['all'].products[0].featured_image | asset_url | img_tag }} -->
             <h4>{{ collections.featured-product.products[0].title }}</h4>
           </div>
       </div> <!-- ./frontpage_md_leftColumn_innerRow -->

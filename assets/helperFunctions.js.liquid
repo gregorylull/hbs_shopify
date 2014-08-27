@@ -224,4 +224,12 @@ var hbsApp = window.hbsApp
     // });
   };
 
+  /*
+    creates an on click event for catalog page, hides all the rows of the products
+    - should run everytime a product is clicked
+  */
+  hbsApp.catalogDisplayProduct = function () {
+    hbsApp.catalogRows = $('.collection-grid-row');
+  };
+
 })();

@@ -1,6 +1,8 @@
 {% assign product_types = collections.all.all_types %}
   <script>console.log("product types sorted: ", {{ product_types | json }})</script>
 
+{% assign myTest = "greg" %}
+
 {% assign once_special_collections = true %}
 {% for collection in (collections | sort: 'title') %}
   {% if collection.products_count > 0 %}

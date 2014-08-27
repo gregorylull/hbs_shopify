@@ -2,37 +2,43 @@
 	<div class="hidden mobileCheck"></div>
 
 	<!-- in the spirit of bootstrap 3.x's "mobile first" idea, the first block of html code here is the markup for the mobile version (xs) -->
-	<div class="hbs_banner_words">
+	<div class="hbs_banner">
+		<div class="hbs_banner_logo">
 	    <a href="/"><img src="{{ 'logo.png' | asset_url}}" class="logo"/></a>
-	    <a href="/"><img src="{{ 'logoWords.png' | asset_url}}" class="logoWords"/></a>
-
-	    <!-- <a href="/">{{ 'logoWords.png' | asset_url | img_tag: 'hbs logo words'}}</a> -->
+		</div>
+	    <a href="/" class="hbs_banner_words"><img src="{{ 'logoWords.png' | asset_url}}" class="logoWords"/></a>
 	</div>
+
+	<!-- nav bar -->
 	<nav id="hbs_header" class="navbar navbar-inverse" role="navigation">
 	  <!-- navbar toggle menu-->
-		<div class="navbar-header">
+		<div class="navbar-header ">
 		  <button type="button" class="navbar-toggle as_navbar_mobile_menu" data-toggle="collapse" data-target="#navbar_mobile_collapse">
 		    <span class="sr-only">Toggle navigation</span>
 		    <span class="icon-bar"></span>
 		    <span class="icon-bar"></span>
 		    <span class="icon-bar"></span>
 		  </button>
-		  <!-- <a class="navbar-brand as_navbar_brand" href="/">HBS SA</a> -->
+
+		  <!-- navbar brand, left logo -->
+		  <div class="navbar-brand as_navbar_brand">
+			  <a href="/">
+			  	<img class="navbar_logo" src="{{'logo.png' | asset_url }}" alt="HBS logo shield"/>
+			  </a>
+		  </div>
 		</div> <!-- ./navbar-header -->
 
 		<div class="collapse navbar-collapse" id="navbar_mobile_collapse">
-		  <ul class="nav navbar-nav"> 
+		  <ul class="nav navbar-nav navbar-right"> 
 			  {% for link in linklists.main-menu.links %}
 		      <li role="presentation"> 
 		        <a role="menuitem" tabindex="-1" href="{{ link.url }}"> {{ link.title }} </a> 
 		      </li>
 		    {% endfor %}
-		  </ul>
-<!-- 		  <ul class="nav navbar-nav navbar-center">
-		    <li role="presentation" style="float: ">
-		        <a role="menuitem" tabindex="-1" href="#">CHECK</a> 
+		    <li role="presentation">
+		      <a role="menuitem" tabindex="-1" href="/cart"> Checkout </a>
 		    </li>
-		  </ul> -->
+		  </ul>
 		</div> <!-- /.navbar-collapse -->
 	</nav> <!-- /.navbar-->
 </div>

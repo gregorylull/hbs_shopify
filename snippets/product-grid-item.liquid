@@ -6,12 +6,14 @@
 
 {% if collection[product-grid-item].empty? %} {% assign product-grid-item = "all" %} {% endif %}
 
+<script>console.log( "myTest: ", {{ myTest | json }})</script>
+
 <div class="row collection-grid-row">  
 {% for product in collections[product-grid-item].products %}
   <div class="col-xs-6 col-sm-4 col-md-3">
     <div class="product-grid-wrapper">
-    <!-- <a href="/products/{{product.handle}}"> -->
-    <a href="#">
+    <a href="/products/{{product.handle}}">
+    <!-- <a href="#"> -->
       <div class="product-image-wrapper" style="text-align: center">
         <img class="img-thumbnail" src="{{product.featured_image.src | img_url: 'large' }}" alt="{{product.featured_image.alt}}"/>
       </div>
