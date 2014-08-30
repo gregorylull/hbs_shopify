@@ -7,28 +7,40 @@
   <div id="frontpage_row" class="row">
     <div class="col-sm-9 frontpage_md_leftColumn">
 
-
+        {% comment %}
         <div class="frontpage_rte frontpage_md_mission frontpage_block_content">
           <h3 class="frontpage_mission_title">Mission</h3>
           <h4>{{ pages.frontpage.content }}</h4>
         </div>
+        {% endcomment %}
       <!-- --> 
       <div class="frontpage_separator hidden-xs"></div>
 
       <div class="row frontpage_md_leftColumn_innerRow">   
+
+          <div class="col-sm-12 frontpage_md_featuredProduct frontpage_block_content">
+            <h3><span>Featured Product</span></h3>
+            <div class="row featured-product-wrapper">
+              <div class="col-sm-6">
+                <h4>{{ collections.featured-product.products[0].title }}</h4>
+                <p> {{ collections.featured-product.products[0].description }}</p>
+                <h5>{{ collections.featured-product.products[0].price | money}}</h5>
+              </div>
+
+              <div class="col-sm-6">
+                <img src="{{collections.featured-product.products[0].featured_image | img_url: 'large'}}" alt="featured product image"/>       
+              </div>
+            </div> <!-- /.featured-product-wrapper -->
+          </div> <!-- /.frontpage_md_featuredProduct block_content-->
+
           <div class="col-sm-12 frontpage_rte frontpage_md_pulseNews frontpage_block_content">
-            <h3><span>{{ collections.frontpage-pulse-news.title }}<span></h3>
+            <h3><span>{{ collections.frontpage-pulse-news.title }}</span></h3>
             <div class="frontpage_pulseNews_text"> 
               {{ collections.frontpage-pulse-news.description }}
             </div>
           </div>
 
-          <div class="col-sm-12 frontpage_md_featuredProduct frontpage_block_content">
-            <h3><span>Featured Product</span></h3>
-            <!-- {{ collections['all'].products[0].featured_image | asset_url | img_tag }} -->
-            <h4>{{ collections.featured-product.products[0].title }}</h4>
-          </div>
-      </div> <!-- ./frontpage_md_leftColumn_innerRow -->
+      </div> <!-- /.frontpage_md_leftColumn_innerRow -->
     </div> <!-- end col-sm-9 left column -->
   
     <!-- separating rows in mobile -->

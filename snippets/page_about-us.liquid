@@ -9,21 +9,27 @@ These are the 'name' variables used in the settings page
 	  Picture - file upload :: aboutus_execprofile_0_email
 {% endcomment %}
 
-<!-- <video controls class="hidden-xs" id="aboutus_video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
-  <source src="https://cdn.shopify.com/s/files/1/0595/0661/files/HBS_FIELD_3_Montage.ogv?7160" type="video/ogg">
-  <source src="//cdn.shopify.com/s/files/1/0595/0661/files/HBS_FIELD_3_Montage.mp4?6903" type="video/mp4">
-  I'm sorry; your browser doesn't support HTML5 video in WebM with VP8 or MP4 with H.264.
-  <!-- You can embed a Flash player here, to play your mp4 video in older browsers
-</video> -->
+{% comment %}
+		<video controls class="hidden-xs" id="aboutus_video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+		  <source src="https://cdn.shopify.com/s/files/1/0595/0661/files/HBS_FIELD_3_Montage.ogv?7160" type="video/ogg">
+		  <source src="//cdn.shopify.com/s/files/1/0595/0661/files/HBS_FIELD_3_Montage.mp4?6903" type="video/mp4">
+		  I'm sorry; your browser doesn't support HTML5 video in WebM with VP8 or MP4 with H.264.
+		   You can embed a Flash player here, to play your mp4 video in older browsers
+		</video>
+{% endcomment %}
 
 {% include 'header' %}
 
 <div class="aboutus_execprofile_container gl_clearfix">
-	<h1 class="aboutus_execprofile_page_title"> {{ page.title }} </h1>
+	<!-- <h1 class="aboutus_execprofile_page_title"> {{ page.title }} </h1> -->
 	{% if page.content != blank %}
 		<h4 class="aboutus_execprofile_page_description"> {{ page.content }}</h4>
 	{% endif %}
 	<div class="aboutus_execprofile_divider"></div>
+	
+	{% unless settings['aboutus_meet_exec'] == blank %}
+	{% endunless%}
+	  <h4 class="aboutus_execprofile_meet_blurb">The Executive Team </h4> 
 
 	{% for i in (0...14) %}
 	  {% capture base_string %}{{ 'aboutus_execprofile_' | append: i | append: '_'}}{% endcapture %}
@@ -39,19 +45,24 @@ These are the 'name' variables used in the settings page
 
 	    {% capture stringToSplit %}{{ profile_name | append: ',' | append: profile_position | append: ',' | append: profile_description}}{% endcapture %}
 
-      <!-- Beginning of individual profile containers-->
+      {% comment %} beginning of individual wrappers {% endcomment %}
 		    <div class="aboutus_execprofile_profile_wrapper">
 		      <div class="aboutus_execprofile_profile_info">
 		        {{ profile_picture | asset_url | img_tag: profile_name }}
 		        <p class="aboutus_execprofile_profile_description">{{ settings[profile_description] }}</p>
 			      <div class="aboutus_execprofile_profile_name">{{ settings[profile_name] }}</div>
+			      <div class="aboutus_execprofile_position-break" id="execprofile_position-break"></div>
 			      <p class="aboutus_execprofile_profile_position">{{ settings[profile_position] }}</p>
 		      </div>
-			      <div class="aboutus_execprofile_profile_email">{{ settings[profile_email] }}</div>
+			    <div class="aboutus_execprofile_profile_email">{{ settings[profile_email] }}</div>
+			    <div class="aboutus_execprofile_profile_socialIcons"> 
+			      <span class="glyphicon glyphicon-envelope"> </span>
+			      <span class="shopify-social-icon-linkedin{{ settings.social_icons_style }}"> </span>
+			    </div>
 	      </div> <!-- /.aboutus_execprofile_profile_wrapper -->
 	      
-      {% if i == 1 %}
-        <div class="aboutus_firstrow_end"></div>
+      {% if i == 1 or i == 5 or i == 8 %}
+        <div class="hidden-xs"></div>
       {% endif %}
 
 	  {% endif %}

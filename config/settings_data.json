@@ -1,6 +1,10 @@
 {
-  "current": "Slate",
+  "current": "HbsSA",
   "presets": {
+    "HbsSA": {
+      "about"
+
+    },
     "Slate": {
       "customer_layout": "theme",
       "background_color": "#ffffff",

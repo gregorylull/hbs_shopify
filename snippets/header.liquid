@@ -2,15 +2,17 @@
 	<div class="hidden mobileCheck"></div>
 
 	<!-- in the spirit of bootstrap 3.x's "mobile first" idea, the first block of html code here is the markup for the mobile version (xs) -->
+	{% comment %}
 	<div class="hbs_banner">
 		<div class="hbs_banner_logo">
 	    <a href="/"><img src="{{ 'logo.png' | asset_url}}" class="logo"/></a>
 		</div>
 	    <a href="/" class="hbs_banner_words"><img src="{{ 'logoWords.png' | asset_url}}" class="logoWords"/></a>
 	</div>
+	{% endcomment %}
 
 	<!-- nav bar -->
-	<nav id="hbs_header" class="navbar navbar-inverse" role="navigation">
+	<nav id="hbs_header" class="navbar" role="navigation">
 	  <!-- navbar toggle menu-->
 		<div class="navbar-header ">
 		  <button type="button" class="navbar-toggle as_navbar_mobile_menu" data-toggle="collapse" data-target="#navbar_mobile_collapse">
@@ -23,7 +25,11 @@
 		  <!-- navbar brand, left logo -->
 		  <div class="navbar-brand as_navbar_brand">
 			  <a href="/">
-			  	<img class="navbar_logo" src="{{'logo.png' | asset_url }}" alt="HBS logo shield"/>
+			  	<img class="navbar_logo" src="{{'logo.png' | asset_url }}" alt="HBS logo: student association shield"/>
+			  	<img class="hidden-xs navbar_logoWords" src="{{'logoWords.png' | asset_url}}" alt="HBS student association"/>
+			  	{% comment %}
+				  	<img class="hidden-xs navbar_logoShieldWords" src="{{'logoWordsShield.png' | asset_url}}" alt="HBS student association shield and words"/>
+			  	{% endcomment %}
 			  </a>
 		  </div>
 		</div> <!-- ./navbar-header -->
@@ -36,7 +42,7 @@
 		      </li>
 		    {% endfor %}
 		    <li role="presentation">
-		      <a role="menuitem" tabindex="-1" href="/cart"> Checkout </a>
+		      <a role="menuitem" tabindex="-1" href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span>({{cart.item_count}})</a>
 		    </li>
 		  </ul>
 		</div> <!-- /.navbar-collapse -->

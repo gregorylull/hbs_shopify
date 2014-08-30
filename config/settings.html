@@ -15,7 +15,9 @@ Navigation:
   + base font size
 
 3. Header
-  + Custom logo
+  + Custom logo only
+  + banner words only
+  + logo AND banner words
   + social media logos (fb, twitter, etc)
 
 4. Footer (null)
@@ -378,15 +380,19 @@ Navigation:
       <td><input type="checkbox" id="use_logo" name="use_logoWords" /></td>
     </tr>
     <tr>
-      <td><label for="logo_imageWords">Logo Words</label></td>
+      <td><label for="logo_imageShieldWords">Logo Shield + Words </label></td>
+      <td><input type="file" name="logoWordsShield.png" id="logo_imageShieldWords" data-max-width="1200" data-max-height="1200" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><small>Shield on the left, words on the right</small></td>
+    </tr>
+    <tr>
+      <td><label for="logo_imageWords">Logo Words Only</label></td>
       <td><input type="file" name="logoWords.png" id="logo_imageWords" data-max-width="1200" data-max-height="1200" /></td>
     </tr>
     <tr>
-      <td><label for="logo_image">Logo Shield</label></td>
+      <td><label for="logo_image">Logo Shield Only</label></td>
       <td><input type="file" name="logo.png" id="logo_image" data-max-width="1200" data-max-height="1200" /></td>
-    </tr>
-    <tr>
-      <td colspan="2"><small>Recommend the optimal width and height for your logo here.</small></td>
     </tr>
   </table>
   <h3>Social links</h3>
@@ -588,6 +594,22 @@ Navigation:
 
 <fieldset>
     <legend>About Us: Executive Team Profiles</legend>
+    <h3>Exec Team Profile Layout</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="aboutus_execprofile_row_sequence">Specifiy how many profiles per row (comma separated). If empty, the default* will be used.</label></td>
+                <td><input type="text" name="aboutus_execprofile_row_sequence" id="aboutus_execprofile_row_sequence" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>*default layout for 2 co-presidents and 11 other members is: 2,4,3,4</small></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_display_alphabetical">Check this to display profiles in the order entered below (default is alphabetical)</label></td>
+                <td><input type="checkbox" name="aboutus_execprofile_display_alphabetical" id="aboutus_execprofile_display_alphabetical" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
     <h3>Member #1</h3>
     <table>
         <tbody>
@@ -614,6 +636,10 @@ Navigation:
             <tr>
                 <td><label for="aboutus_execprofile_0_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_0_email" id="aboutus_execprofile_0_email_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_0_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_0_linkedin" id="aboutus_execprofile_0_linkedin_input" /></td>
             </tr>
         </tbody>
     </table>
@@ -644,6 +670,10 @@ Navigation:
                 <td><label for="aboutus_execprofile_1_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_1_email" id="aboutus_execprofile_1_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_1_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_1_linkedin" id="aboutus_execprofile_1_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
     <h3>Member #3</h3>
@@ -672,6 +702,10 @@ Navigation:
             <tr>
                 <td><label for="aboutus_execprofile_2_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_2_email" id="aboutus_execprofile_2_email_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_2_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_2_linkedin" id="aboutus_execprofile_2_linkedin_input" /></td>
             </tr>
         </tbody>
     </table>
@@ -702,6 +736,10 @@ Navigation:
                 <td><label for="aboutus_execprofile_3_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_3_email" id="aboutus_execprofile_3_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_3_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_3_linkedin" id="aboutus_execprofile_3_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
     <h3>Member #5</h3>
@@ -730,6 +768,10 @@ Navigation:
             <tr>
                 <td><label for="aboutus_execprofile_4_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_4_email" id="aboutus_execprofile_4_email_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_4_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_4_linkedin" id="aboutus_execprofile_4_linkedin_input" /></td>
             </tr>
         </tbody>
     </table>
@@ -760,6 +802,10 @@ Navigation:
                 <td><label for="aboutus_execprofile_5_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_5_email" id="aboutus_execprofile_5_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_5_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_5_linkedin" id="aboutus_execprofile_5_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
     <h3>Member #7</h3>
@@ -788,6 +834,10 @@ Navigation:
             <tr>
                 <td><label for="aboutus_execprofile_6_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_6_email" id="aboutus_execprofile_6_email_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_6_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_6_linkedin" id="aboutus_execprofile_6_linkedin_input" /></td>
             </tr>
         </tbody>
     </table>
@@ -818,6 +868,10 @@ Navigation:
                 <td><label for="aboutus_execprofile_7_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_7_email" id="aboutus_execprofile_7_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_7_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_7_linkedin" id="aboutus_execprofile_7_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
     <h3>Member #9</h3>
@@ -846,6 +900,10 @@ Navigation:
             <tr>
                 <td><label for="aboutus_execprofile_8_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_8_email" id="aboutus_execprofile_8_email_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_8_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_8_linkedin" id="aboutus_execprofile_8_linkedin_input" /></td>
             </tr>
         </tbody>
     </table>
@@ -876,6 +934,10 @@ Navigation:
                 <td><label for="aboutus_execprofile_9_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_9_email" id="aboutus_execprofile_9_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_9_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_9_linkedin" id="aboutus_execprofile_9_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
     <h3>Member #11</h3>
@@ -904,6 +966,10 @@ Navigation:
             <tr>
                 <td><label for="aboutus_execprofile_10_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_10_email" id="aboutus_execprofile_10_email_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_10_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_10_linkedin" id="aboutus_execprofile_10_linkedin_input" /></td>
             </tr>
         </tbody>
     </table>
@@ -934,6 +1000,10 @@ Navigation:
                 <td><label for="aboutus_execprofile_11_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_11_email" id="aboutus_execprofile_11_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_11_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_11_linkedin" id="aboutus_execprofile_11_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
     <h3>Member #13</h3>
@@ -962,6 +1032,10 @@ Navigation:
             <tr>
                 <td><label for="aboutus_execprofile_12_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_12_email" id="aboutus_execprofile_12_email_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_12_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_12_linkedin" id="aboutus_execprofile_12_linkedin_input" /></td>
             </tr>
         </tbody>
     </table>
@@ -992,6 +1066,10 @@ Navigation:
                 <td><label for="aboutus_execprofile_13_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_13_email" id="aboutus_execprofile_13_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_13_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_13_linkedin" id="aboutus_execprofile_13_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
     <h3>Member #15</h3>
@@ -1021,9 +1099,13 @@ Navigation:
                 <td><label for="aboutus_execprofile_14_email_input">Email: </label></td>
                 <td><input type="text" name="aboutus_execprofile_14_email" id="aboutus_execprofile_14_email_input" /></td>
             </tr>
+            <tr>
+                <td><label for="aboutus_execprofile_14_linkedin_input">LinkedIn profile link: </label></td>
+                <td><input type="text" name="aboutus_execprofile_14_linkedin" id="aboutus_execprofile_14_linkedin_input" /></td>
+            </tr>
         </tbody>
     </table>
-</fieldset> <!-- END ABOUT US EXEC TEAM PROFILES -->
+</fieldset>
 
 <fieldset>
     <legend>Events page</legend>
