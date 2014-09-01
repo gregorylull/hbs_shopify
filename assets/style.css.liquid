@@ -11,6 +11,10 @@
 	font-size: 0;
 }
 
+body {
+	margin-bottom: 40px;
+}
+
 .hbs_headers .hbs_banner {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -25,9 +29,10 @@
 	margin-right: 15px;
 }
 
-.hbs_header {
-	margin-bottom: 0px;
-	border-bottom: 2px solid rgb(230,230,230);
+.hbs_headers {
+	margin-bottom: 40px;
+	margin-top: 40px;
+	/*border-bottom: 2px solid rgb(210,210,210);*/
 }
 
 /*.hbs_banner img {
@@ -195,12 +200,30 @@ body {
 	background-color: white;
 }
 
+.frontpage_md_leftColumn .row {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .frontpage_md_rightColumn .frontpage_block_content {
 /*    background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_3_picture.png?4392);
     border-right: 3px solid rgb(0, 25, 75);
     border-bottom: 3px solid rgb(0, 25, 75); 
     border-radius: 0px 5px 0px 5px;
     padding: 0px 8px;*/
+}
+
+.frontpage_md_rightColumn .row {
+	margin-top: 20px ;
+	margin-bottom: 20px;
+}
+
+.frontpage_md_contact {
+	margin-top: 0px;
+}
+
+.social-links {
+	font-size: 2em;
 }
 
 /*.frontpage_md_featuredProduct {
@@ -212,6 +235,10 @@ body {
 }
 
 .frontpage_md_leftColumn_innerRow h3 {
+	/*margin-top: 0px;*/
+}
+
+.frontpage_md_upcomingEvents h3 {
 	margin-top: 0px;
 }
 
@@ -349,7 +376,7 @@ body {
 }
 
 div.aboutus_execprofile_divider {
-	width: 419px;
+	width: 47%;
 	border: 1px dotted rgb(220,220,220);
 	margin: 15px auto;
 }
@@ -449,6 +476,11 @@ div.aboutus_execprofile_divider {
 .aboutus_execprofile_profile_info:hover .aboutus_execprofile_position-break,
 .aboutus_execprofile_profile_info:hover .aboutus_execprofile_profile_email {
 	opacity: 0.1;
+	-webkit-transition: opacity 0.1s ease-in-out;
+	-moz-transition: opacity 0.1s ease-in-out;
+	-ms-transition: opacity 0.1s ease-in-out;
+	-o-transition: opacity 0.1s ease-in-out;
+	transition: opacity 0.1s ease-in-out
 }
 
 .aboutus_execprofile_profile_info:hover p {
@@ -468,7 +500,7 @@ div.aboutus_execprofile_divider {
 	width: 100%;
 	margin: 0px auto;
 	text-align: justify;
-  background-image: url({{ 'default_background_3_picture.png' | asset_url }});
+  /*background-image: url({{ 'default_background_3_picture.png' | asset_url }});*/
 }
 
 .eventspage_page_title {

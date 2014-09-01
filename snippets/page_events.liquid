@@ -7,7 +7,7 @@
 {% include 'header' %}
 
 <!-- outer container to limit the width, margin, and padding of events, 250px * 250px for pics, 3 on md devices, 2 on sm devices, 1 on xs -->
-<div class="eventspage_container gl_clearfix">
+<div  id="page_container" class="eventspage_container gl_clearfix">
 	<h1 class="eventspage_page_title"> {{ page.title }} </h1>
 	{% if page.content != blank %}
 		<p class="eventspage_page_description"> {{ page.content }}</p>

@@ -1,25 +1,39 @@
 {% include 'header' %}
 
-<div id="frontpage_container" class="container-fluid">
-        <div class="row frontpage_md_slideshow">
-          {% include 'picture_carousel' %}
-        </div>
+<div id="page_container" class="container-fluid">
+
+  <div class="row frontpage_md_slideshow">
+    {% include 'picture_carousel' %}
+  </div>
+
   <div id="frontpage_row" class="row">
     <div class="col-sm-9 frontpage_md_leftColumn">
 
         {% comment %}
-        <div class="frontpage_rte frontpage_md_mission frontpage_block_content">
-          <h3 class="frontpage_mission_title">Mission</h3>
-          <h4>{{ pages.frontpage.content }}</h4>
+        <div class="row">
+          <div class="col-xs-12 frontpage_rte frontpage_md_mission frontpage_block_content">
+            <h3 class="frontpage_mission_title">Mission</h3>
+            <h4>{{ pages.frontpage.content }}</h4>
+          </div>
         </div>
         {% endcomment %}
       <!-- --> 
       <div class="frontpage_separator hidden-xs"></div>
 
-      <div class="row frontpage_md_leftColumn_innerRow">   
+      <div class="row frontpage_md_leftColumn_innerRow">  
+        <div class="row">
+          <div class="col-sm-12 frontpage_rte frontpage_md_upcomingEvents frontpage_block_content">
+            <h3>Upcoming Events</h3>
+            {{ collections.frontpage-upcoming-events.description }}
+          </div>
+        </div>
 
+        <div class="row">      
           <div class="col-sm-12 frontpage_md_featuredProduct frontpage_block_content">
-            <h3><span>Featured Product</span></h3>
+            <h3><span>Featured Products</span></h3>
+            {% include 'product-grid-item' with 'featured-product' %}
+           
+            {% comment %}
             <div class="row featured-product-wrapper">
               <div class="col-sm-6">
                 <h4>{{ collections.featured-product.products[0].title }}</h4>
@@ -31,14 +45,10 @@
                 <img src="{{collections.featured-product.products[0].featured_image | img_url: 'large'}}" alt="featured product image"/>       
               </div>
             </div> <!-- /.featured-product-wrapper -->
+            {% endcomment %}
           </div> <!-- /.frontpage_md_featuredProduct block_content-->
+        </div>
 
-          <div class="col-sm-12 frontpage_rte frontpage_md_pulseNews frontpage_block_content">
-            <h3><span>{{ collections.frontpage-pulse-news.title }}</span></h3>
-            <div class="frontpage_pulseNews_text"> 
-              {{ collections.frontpage-pulse-news.description }}
-            </div>
-          </div>
 
       </div> <!-- /.frontpage_md_leftColumn_innerRow -->
     </div> <!-- end col-sm-9 left column -->
@@ -49,19 +59,29 @@
 
     <div class="col-sm-3 frontpage_md_rightColumn">
       
-      <div class="frontpage_md_contact frontpage_block_content">
-        <h3>Contact Us!</h3>
-          {% include 'social-links' %}
+      <div class="row">
+        <div class="col-xs-12 frontpage_md_contact frontpage_block_content">
+          <h3>Contact Us!</h3>
+          <div class="social-links">
+            {% include 'social-links' %}
+          </div>
+        </div>
       </div>
 
-      <div class="frontpage_rte frontpage_md_upcomingEvents frontpage_block_content">
-        <h3>Upcoming Events</h3>
-        {{ collections.frontpage-upcoming-events.description }}
+      <div class="row">
+        <div class="col-xs-12 frontpage_rte frontpage_md_pulseNews frontpage_block_content">
+          <h3><span>{{ collections.frontpage-pulse-news.title }}</span></h3>
+          <div class="frontpage_pulseNews_text"> 
+            {{ collections.frontpage-pulse-news.description }}
+          </div>
+        </div>
       </div>
 
-      <div class="frontpage_rte frontpage_md_pulseFeature frontpage_block_content">
-        <h3> Pulse Feature </h3>
-        {{ collections.frontpage-pulse-feature.description }}
+      <div class="row">      
+        <div class="col-xs-12 frontpage_rte frontpage_md_pulseFeature frontpage_block_content">
+          <h3> Pulse Feature </h3>
+          {{ collections.frontpage-pulse-feature.description }}
+        </div>
       </div>
 
     </div> <!-- end col-sm-3 right column-->

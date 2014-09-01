@@ -10,8 +10,9 @@ $(function () {
 	// universal properties to access
 	hbsApp.docWidth = $(document).width();
 	hbsApp.windowWidth = $(window).width();
-	hbsApp.headers = $('.headers')[0];
-	hbsApp.container = $('.container').length > 0 ? '.container' : 'container-fluid';
+	hbsApp.header = $('.hbs_headers');
+	hbsApp.container = hbsApp.getContainerDOM(); // returns element, stripped away of $() wrap
+	hbsApp.containerType = hbsApp.getContainerType(hbsApp.container);
 	hbsApp.mobileCheck = hbsApp.getMobileCheck();
 	hbsApp.imagesLoading = false;
 	hbsApp.page_title = false;
@@ -23,8 +24,7 @@ $(function () {
   	hbsApp.catalogAdjustProductHeight("", hbsApp);
   	console.log('executed?');
   }, [], hbsApp);
-
-  // hbsApp.checkImgLoading();
+  hbsApp.controlPanelInit(hbsApp);
 
 	// auto update properties upon window.resize
 	$(window).resize((function () {
@@ -50,104 +50,7 @@ $(function () {
 
 			}, 100);
 		}
-	})());
-
-  // background picture test
-  $('body').prepend($('<div>BG texture:</div>').addClass('background_test hbsDebugger hidden'));
-    
-	// foreground block test
-	$($('<div>block texture:</div>').addClass('foreground_test hbsDebugger hidden')).insertAfter($('.background_test'));
-	
-	{% assign base = "default_background_" %}
-	{% for i in (0..14) %}
-	  {% assign display_bg = base | append: i | append: "_display" %}
-	  
-	  {% if settings[display_bg] == true %}
-	    {% assign bg_picture = base | append: i | append: "_picture.png" %}
-	    {% assign bg_title = base | append: i | append: "_title"%}
-
-	    $('.background_test').append(
-	    	  $('<div></div>').addClass({{ bg_picture | asset_url | json}}).text({{ settings[bg_title] | json }})
-	    	);
-
-	    $('.foreground_test').append(
-	    	  $('<div></div>').addClass({{ bg_picture | asset_url | json}}).text({{ settings[bg_title] | json }})
-	    	);
-	  {% endif %}
-	  
-	{% endfor %}
-
-	$(".background_test").on('click', 'div', function (e) {
-		$('#aboutus_video').addClass('hidden');
-		$('body').css('background-image', "url(" + $(this).attr('class')+ ")");
-	});
-
-	$(".foreground_test").on('click', 'div', function (e) {
-		$('.frontpage_block_content, .aboutus_execprofile_container').css('background-image', "url(" + $(this).attr('class')+ ")").css(
-		 'background-color', 'none');
-	});
-
-  /*
-    add a debugging / style panel
-  */
-    $('<div></div>').appendTo($('body')).addClass('hbsDebuggerPanel').css({
-    	position: 'fixed',
-    	border: '2px solid black',
-    	bottom: 0,
-    	left: 0,
-    	'text-align': 'center',
-    	padding: '2px'
-    })
-	
-	/*
-	  add a background styling button / foreground block elements
-	*/
-	$('<div>Styles OFF</div>').appendTo($('.hbsDebuggerPanel')).addClass('hbsDebuggerSwitch').css({
-		'background-color': 'red',
-		'width': '50px',
-		'height': '50px',
-		// display: 'inline-block'
-		float: 'left'
-	}).on('click', function () {
-		var styles = $('.hbsDebugger');
-		if (styles.hasClass('hidden')) {
-			styles.removeClass('hidden');
-			$(this).text('Styles ON').css('background-color', 'rgb(0,220,0)');
-		} else {
-		  styles.addClass('hidden');
-		  $(this).text('Styles OFF').css('background-color', 'red');
-		}
-	});
-
-	/*
-	  add a container-fluid container-fixed switch
-	*/
-	var containerWord = hbsApp.container === '.container' ? 'fixed' : 'fluid';
-	$('<div>' + containerWord + '</div>').appendTo($('.hbsDebuggerPanel')).addClass('hbsDebuggerSwitch').css({
-		'background-color': 'pink',
-		'width': '50px',
-		'height': '50px',
-		// display: 'inline-block'
-		float: 'left'
-	}).on('click', function (e) {
-		if ($(this).text() === 'fixed') { 
-			$(this).text('fluid');
-			$(".container").addClass('container-fluid').removeClass('container');
-		}	else {
-		  $(this).text('fixed');
-		  $(".container-fluid").addClass('container').removeClass('container-fluid');
-		}
-
-	});
-
-  /*
-    frontpage column adjustment
-    - right column always has to be gte the left column (height: fixed)
-      + except on mobile (height: auto)
-  */
-	{% if page.handle == 'frontpage' %}
-	  console.log('frontpage height adjust execute');
-	{% endif %}
+	})()); // end of resizing update functions
 	
 	console.log('\n\n**** /END javascript main.js ********\n\n');
 });

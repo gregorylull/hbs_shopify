@@ -1,0 +1,180 @@
+(function () {
+
+hbsApp.controlPanelInit = function (hbsApp) {
+
+  /****************************************************************************
+    Universal settings and helpers
+  ****************************************************************************/
+  var master = {
+    id: "hbsDebuggerPanel",
+    css: {
+      'background-color': 'pink',
+      'width': '100px',
+      'height': '50px',
+      float: 'left'
+    },
+    copyCSS : function (css) {
+      css = css || this.css;
+      var copy = {};
+      for (property in css) {
+        copy[property] = css[property];
+      }
+      return copy;
+    }
+  };
+
+  /****************************************************************************
+    CREATE CONTROL PANEL
+  ****************************************************************************/
+  var createDiv = function (text, css, parentEl, classes) {
+    text = text || "";
+    parentEl = parentEl || $('#')
+    classes = classes || "hbsDebuggerSwitch";
+    css = css || master.css;
+
+    return $('<div>' + text + '</div>').appendTo(parentEl)
+      .addClass('classes').css(css);
+  };
+
+  /*
+    add a debugging / style panel
+  */
+  var createPanel = function (parentEl, css, id) {
+    id = id || master.id;
+    parentEl = parentEl || $('body');
+    if (!css) {
+      css = {
+        position: 'fixed',
+        border: '2px solid black',
+        bottom: 0,
+        left: 0,
+        'text-align': 'center',
+        padding: '2px'
+      }
+    }
+
+    master.controlPanel = $('<div></div>').appendTo(parentEl).attr('id', id).css(css);
+
+    return master.controlPanel;
+  };
+
+  // Initialize panel
+  createPanel();
+
+  /****************************************************************************
+    CREATE PANEL ITEMS
+  ****************************************************************************/
+
+  // background picture test
+  $('body').prepend($('<div>BG texture:</div>').addClass('background_test hbsDebugger hidden'));
+    
+  // foreground block test
+  $($('<div>block texture:</div>').addClass('foreground_test hbsDebugger hidden')).insertAfter($('.background_test'));
+  
+  {% assign base = "default_background_" %}
+  {% for i in (0..14) %}
+    {% assign display_bg = base | append: i | append: "_display" %}
+    
+    {% if settings[display_bg] == true %}
+      {% assign bg_picture = base | append: i | append: "_picture.png" %}
+      {% assign bg_title = base | append: i | append: "_title"%}
+
+      $('.background_test').append(
+          $('<div></div>').addClass({{ bg_picture | asset_url | json}}).text({{ settings[bg_title] | json }})
+        );
+
+      $('.foreground_test').append(
+          $('<div></div>').addClass({{ bg_picture | asset_url | json}}).text({{ settings[bg_title] | json }})
+        );
+    {% endif %}
+    
+  {% endfor %}
+
+  $(".background_test").on('click', 'div', function (e) {
+    $('#aboutus_video').addClass('hidden');
+    $('body').css('background-image', "url(" + $(this).attr('class')+ ")");
+  });
+
+  $(".foreground_test").on('click', 'div', function (e) {
+    $('.frontpage_block_content, .aboutus_execprofile_container').css('background-image', "url(" + $(this).attr('class')+ ")").css(
+     'background-color', 'none');
+  });
+
+  
+  /*
+    add a background styling button / foreground block elements
+  */
+  $('<div>Styles OFF</div>').appendTo($('#hbsDebuggerPanel')).addClass('hbsDebuggerSwitch').css({
+    'background-color': 'red',
+    'width': '100px',
+    'height': '50px',
+    float: 'left'
+  }).on('click', function () {
+    var styles = $('.hbsDebugger');
+    if (styles.hasClass('hidden')) {
+      styles.removeClass('hidden');
+      $(this).text('Styles ON').css('background-color', 'rgb(0,220,0)');
+    } else {
+      styles.addClass('hidden');
+      $(this).text('Styles OFF').css('background-color', 'red');
+    }
+  });
+
+  /*
+    add a container-fluid container-fixed switch
+  */
+  $('<div>' + hbsApp.containerType + '</div>').appendTo($('#hbsDebuggerPanel')).addClass('hbsDebuggerSwitch').css({
+    'background-color': 'pink',
+    'width': '100px',
+    'height': '50px',
+    float: 'left'
+  }).on('click', function (e) {
+    if ($(this).text() === '.container') { 
+      $(this).text('.container-fluid');
+      $(".container").addClass('container-fluid').removeClass('container');
+
+    // if container is fluid, switch 
+    } else if ($(this).text() === '.container-fluid'){
+      $(this).text('.container');
+      $(".container-fluid").addClass('container').removeClass('container-fluid');
+
+    // not using bootstrap container
+    } else if ($(this).text() === 'null') {
+    }
+
+    $(window).trigger('resize');
+
+  });
+
+  /*
+    Create a toggle to insert/remove header into container to view fix/fluid style
+  */
+  var headerNested = $( hbsApp.containerType + ' .hbs_headers').length > 0;
+  var headerNestText = headerNested ? "header nested" : "header not nested";
+  var headerNestCSS = master.copyCSS();
+  headerNestCSS['background-color'] = 'yellow';
+  // text, css, parentEl, classes
+  createDiv(headerNestText, headerNestCSS, master.controlPanel, "hbsDebuggerSwitch")
+    .on('click', function (index) {
+      if (headerNested) {
+        $(this).text('header not nested');
+        hbsApp.header.prependTo($('body'));
+        headerNested = false;
+      } else if (!headerNested){
+        $(this).text('header nested');
+        hbsApp.header.prependTo(hbsApp.container);
+        headerNested = true;
+      }
+    });
+
+  /*
+    frontpage column adjustment
+    - right column always has to be gte the left column (height: fixed)
+      + except on mobile (height: auto)
+  */
+  {% if template contains 'index' %}
+    console.log('this is index page');
+  {% endif %}
+
+}; // hbsApp.controlPanelInit();
+})();

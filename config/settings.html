@@ -1117,6 +1117,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_0_display" id="eventspage_0_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_0_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_0_cohort" id="eventspage_0_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_0_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_0_title" id="eventspage_0_title_input" /></td>
             </tr>
@@ -1125,11 +1136,19 @@ Navigation:
                 <td><input type="text" name="eventspage_0_date" id="eventspage_0_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_0_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_0_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_0_location" id="eventspage_0_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_0_location_link" id="eventspage_0_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_0_description" cols="55" rows="6" value="0" id="eventspage_0_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_0_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_0_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_0_picture.png" id="eventspage_0_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1137,7 +1156,7 @@ Navigation:
                 <td><input type="text" name="eventspage_0_rsvp" id="eventspage_0_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_0_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_0_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_0_rsvp_display" id="eventspage_0_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1150,6 +1169,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_1_display" id="eventspage_1_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_1_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_1_cohort" id="eventspage_1_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_1_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_1_title" id="eventspage_1_title_input" /></td>
             </tr>
@@ -1158,11 +1188,19 @@ Navigation:
                 <td><input type="text" name="eventspage_1_date" id="eventspage_1_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_1_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_1_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_1_location" id="eventspage_1_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_1_location_link" id="eventspage_1_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_1_description" cols="55" rows="6" value="0" id="eventspage_1_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_1_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_1_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_1_picture.png" id="eventspage_1_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1170,7 +1208,7 @@ Navigation:
                 <td><input type="text" name="eventspage_1_rsvp" id="eventspage_1_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_1_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_1_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_1_rsvp_display" id="eventspage_1_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1183,6 +1221,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_2_display" id="eventspage_2_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_2_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_2_cohort" id="eventspage_2_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_2_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_2_title" id="eventspage_2_title_input" /></td>
             </tr>
@@ -1191,11 +1240,19 @@ Navigation:
                 <td><input type="text" name="eventspage_2_date" id="eventspage_2_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_2_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_2_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_2_location" id="eventspage_2_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_2_location_link" id="eventspage_2_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_2_description" cols="55" rows="6" value="0" id="eventspage_2_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_2_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_2_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_2_picture.png" id="eventspage_2_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1203,7 +1260,7 @@ Navigation:
                 <td><input type="text" name="eventspage_2_rsvp" id="eventspage_2_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_2_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_2_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_2_rsvp_display" id="eventspage_2_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1216,6 +1273,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_3_display" id="eventspage_3_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_3_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_3_cohort" id="eventspage_3_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_3_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_3_title" id="eventspage_3_title_input" /></td>
             </tr>
@@ -1224,11 +1292,19 @@ Navigation:
                 <td><input type="text" name="eventspage_3_date" id="eventspage_3_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_3_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_3_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_3_location" id="eventspage_3_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_3_location_link" id="eventspage_3_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_3_description" cols="55" rows="6" value="0" id="eventspage_3_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_3_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_3_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_3_picture.png" id="eventspage_3_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1236,7 +1312,7 @@ Navigation:
                 <td><input type="text" name="eventspage_3_rsvp" id="eventspage_3_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_3_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_3_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_3_rsvp_display" id="eventspage_3_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1249,6 +1325,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_4_display" id="eventspage_4_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_4_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_4_cohort" id="eventspage_4_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_4_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_4_title" id="eventspage_4_title_input" /></td>
             </tr>
@@ -1257,11 +1344,19 @@ Navigation:
                 <td><input type="text" name="eventspage_4_date" id="eventspage_4_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_4_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_4_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_4_location" id="eventspage_4_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_4_location_link" id="eventspage_4_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_4_description" cols="55" rows="6" value="0" id="eventspage_4_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_4_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_4_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_4_picture.png" id="eventspage_4_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1269,7 +1364,7 @@ Navigation:
                 <td><input type="text" name="eventspage_4_rsvp" id="eventspage_4_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_4_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_4_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_4_rsvp_display" id="eventspage_4_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1282,6 +1377,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_5_display" id="eventspage_5_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_5_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_5_cohort" id="eventspage_5_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_5_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_5_title" id="eventspage_5_title_input" /></td>
             </tr>
@@ -1290,11 +1396,19 @@ Navigation:
                 <td><input type="text" name="eventspage_5_date" id="eventspage_5_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_5_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_5_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_5_location" id="eventspage_5_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_5_location_link" id="eventspage_5_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_5_description" cols="55" rows="6" value="0" id="eventspage_5_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_5_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_5_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_5_picture.png" id="eventspage_5_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1302,7 +1416,7 @@ Navigation:
                 <td><input type="text" name="eventspage_5_rsvp" id="eventspage_5_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_5_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_5_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_5_rsvp_display" id="eventspage_5_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1315,6 +1429,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_6_display" id="eventspage_6_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_6_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_6_cohort" id="eventspage_6_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_6_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_6_title" id="eventspage_6_title_input" /></td>
             </tr>
@@ -1323,11 +1448,19 @@ Navigation:
                 <td><input type="text" name="eventspage_6_date" id="eventspage_6_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_6_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_6_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_6_location" id="eventspage_6_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_6_location_link" id="eventspage_6_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_6_description" cols="55" rows="6" value="0" id="eventspage_6_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_6_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_6_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_6_picture.png" id="eventspage_6_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1335,7 +1468,7 @@ Navigation:
                 <td><input type="text" name="eventspage_6_rsvp" id="eventspage_6_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_6_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_6_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_6_rsvp_display" id="eventspage_6_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1348,6 +1481,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_7_display" id="eventspage_7_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_7_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_7_cohort" id="eventspage_7_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_7_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_7_title" id="eventspage_7_title_input" /></td>
             </tr>
@@ -1356,11 +1500,19 @@ Navigation:
                 <td><input type="text" name="eventspage_7_date" id="eventspage_7_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_7_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_7_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_7_location" id="eventspage_7_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_7_location_link" id="eventspage_7_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_7_description" cols="55" rows="6" value="0" id="eventspage_7_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_7_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_7_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_7_picture.png" id="eventspage_7_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1368,7 +1520,7 @@ Navigation:
                 <td><input type="text" name="eventspage_7_rsvp" id="eventspage_7_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_7_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_7_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_7_rsvp_display" id="eventspage_7_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1381,6 +1533,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_8_display" id="eventspage_8_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_8_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_8_cohort" id="eventspage_8_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_8_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_8_title" id="eventspage_8_title_input" /></td>
             </tr>
@@ -1389,11 +1552,19 @@ Navigation:
                 <td><input type="text" name="eventspage_8_date" id="eventspage_8_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_8_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_8_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_8_location" id="eventspage_8_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_8_location_link" id="eventspage_8_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_8_description" cols="55" rows="6" value="0" id="eventspage_8_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_8_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_8_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_8_picture.png" id="eventspage_8_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1401,7 +1572,7 @@ Navigation:
                 <td><input type="text" name="eventspage_8_rsvp" id="eventspage_8_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_8_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_8_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_8_rsvp_display" id="eventspage_8_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1414,6 +1585,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_9_display" id="eventspage_9_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_9_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_9_cohort" id="eventspage_9_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_9_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_9_title" id="eventspage_9_title_input" /></td>
             </tr>
@@ -1422,11 +1604,19 @@ Navigation:
                 <td><input type="text" name="eventspage_9_date" id="eventspage_9_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_9_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_9_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_9_location" id="eventspage_9_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_9_location_link" id="eventspage_9_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_9_description" cols="55" rows="6" value="0" id="eventspage_9_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_9_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_9_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_9_picture.png" id="eventspage_9_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1434,7 +1624,7 @@ Navigation:
                 <td><input type="text" name="eventspage_9_rsvp" id="eventspage_9_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_9_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_9_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_9_rsvp_display" id="eventspage_9_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1447,6 +1637,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_10_display" id="eventspage_10_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_10_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_10_cohort" id="eventspage_10_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_10_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_10_title" id="eventspage_10_title_input" /></td>
             </tr>
@@ -1455,11 +1656,19 @@ Navigation:
                 <td><input type="text" name="eventspage_10_date" id="eventspage_10_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_10_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_10_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_10_location" id="eventspage_10_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_10_location_link" id="eventspage_10_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_10_description" cols="55" rows="6" value="0" id="eventspage_10_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_10_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_10_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_10_picture.png" id="eventspage_10_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1467,7 +1676,7 @@ Navigation:
                 <td><input type="text" name="eventspage_10_rsvp" id="eventspage_10_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_10_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_10_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_10_rsvp_display" id="eventspage_10_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1480,6 +1689,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_11_display" id="eventspage_11_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_11_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_11_cohort" id="eventspage_11_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_11_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_11_title" id="eventspage_11_title_input" /></td>
             </tr>
@@ -1488,11 +1708,19 @@ Navigation:
                 <td><input type="text" name="eventspage_11_date" id="eventspage_11_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_11_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_11_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_11_location" id="eventspage_11_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_11_location_link" id="eventspage_11_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_11_description" cols="55" rows="6" value="0" id="eventspage_11_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_11_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_11_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_11_picture.png" id="eventspage_11_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1500,7 +1728,7 @@ Navigation:
                 <td><input type="text" name="eventspage_11_rsvp" id="eventspage_11_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_11_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_11_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_11_rsvp_display" id="eventspage_11_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1513,6 +1741,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_12_display" id="eventspage_12_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_12_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_12_cohort" id="eventspage_12_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_12_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_12_title" id="eventspage_12_title_input" /></td>
             </tr>
@@ -1521,11 +1760,19 @@ Navigation:
                 <td><input type="text" name="eventspage_12_date" id="eventspage_12_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_12_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_12_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_12_location" id="eventspage_12_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_12_location_link" id="eventspage_12_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_12_description" cols="55" rows="6" value="0" id="eventspage_12_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_12_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_12_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_12_picture.png" id="eventspage_12_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1533,7 +1780,7 @@ Navigation:
                 <td><input type="text" name="eventspage_12_rsvp" id="eventspage_12_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_12_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_12_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_12_rsvp_display" id="eventspage_12_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1546,6 +1793,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_13_display" id="eventspage_13_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_13_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_13_cohort" id="eventspage_13_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_13_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_13_title" id="eventspage_13_title_input" /></td>
             </tr>
@@ -1554,11 +1812,19 @@ Navigation:
                 <td><input type="text" name="eventspage_13_date" id="eventspage_13_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_13_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_13_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_13_location" id="eventspage_13_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_13_location_link" id="eventspage_13_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_13_description" cols="55" rows="6" value="0" id="eventspage_13_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_13_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_13_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_13_picture.png" id="eventspage_13_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1566,7 +1832,7 @@ Navigation:
                 <td><input type="text" name="eventspage_13_rsvp" id="eventspage_13_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_13_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_13_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_13_rsvp_display" id="eventspage_13_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
@@ -1579,6 +1845,17 @@ Navigation:
                 <td><input type="checkbox" name="eventspage_14_display" id="eventspage_14_display_checkbox" value="1" /></td>
             </tr>
             <tr>
+                <td><label for="eventspage_14_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_14_cohort" id="eventspage_14_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="eventspage_14_title_input">Event name: </label></td>
                 <td><input type="text" name="eventspage_14_title" id="eventspage_14_title_input" /></td>
             </tr>
@@ -1587,11 +1864,19 @@ Navigation:
                 <td><input type="text" name="eventspage_14_date" id="eventspage_14_date_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_14_description_textarea">Event description (~220 characters): </label></td>
+                <td><label for="eventspage_14_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_14_location" id="eventspage_14_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_14_location_link" id="eventspage_14_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_description_textarea">Event description (max ~180 characters): </label></td>
                 <td><textarea name="eventspage_14_description" cols="55" rows="6" value="0" id="eventspage_14_description_textarea" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_14_picture_upload">Event picture (aspect ratio must be 1:1): </label></td>
+                <td><label for="eventspage_14_picture_upload">Event picture (height:width must be 1:1): </label></td>
                 <td><input name="eventspage_14_picture.png" id="eventspage_14_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
             </tr>
             <tr>
@@ -1599,13 +1884,272 @@ Navigation:
                 <td><input type="text" name="eventspage_14_rsvp" id="eventspage_14_rsvp_input" /></td>
             </tr>
             <tr>
-                <td><label for="eventspage_14_rsvp_live">Display RSVP link (is link live)?: </label></td>
+                <td><label for="eventspage_14_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
                 <td><input type="checkbox" name="eventspage_14_rsvp_display" id="eventspage_14_rsvp_live" value="1" /></td>
             </tr>
         </tbody>
     </table>
-</fieldset>
-
+    <h3>Event #16</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_15_display_checkbox">Display Event #16?</label></td>
+                <td><input type="checkbox" name="eventspage_15_display" id="eventspage_15_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_15_cohort" id="eventspage_15_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_15_title" id="eventspage_15_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_date_input">Event date: </label></td>
+                <td><input type="text" name="eventspage_15_date" id="eventspage_15_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_15_location" id="eventspage_15_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_15_location_link" id="eventspage_15_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_15_description" cols="55" rows="6" value="0" id="eventspage_15_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_15_picture.png" id="eventspage_15_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_15_rsvp" id="eventspage_15_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_15_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_15_rsvp_display" id="eventspage_15_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #17</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_16_display_checkbox">Display Event #17?</label></td>
+                <td><input type="checkbox" name="eventspage_16_display" id="eventspage_16_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_16_cohort" id="eventspage_16_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_16_title" id="eventspage_16_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_date_input">Event date: </label></td>
+                <td><input type="text" name="eventspage_16_date" id="eventspage_16_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_16_location" id="eventspage_16_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_16_location_link" id="eventspage_16_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_16_description" cols="55" rows="6" value="0" id="eventspage_16_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_16_picture.png" id="eventspage_16_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_16_rsvp" id="eventspage_16_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_16_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_16_rsvp_display" id="eventspage_16_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #18</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_17_display_checkbox">Display Event #18?</label></td>
+                <td><input type="checkbox" name="eventspage_17_display" id="eventspage_17_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_17_cohort" id="eventspage_17_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_17_title" id="eventspage_17_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_date_input">Event date: </label></td>
+                <td><input type="text" name="eventspage_17_date" id="eventspage_17_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_17_location" id="eventspage_17_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_17_location_link" id="eventspage_17_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_17_description" cols="55" rows="6" value="0" id="eventspage_17_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_17_picture.png" id="eventspage_17_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_17_rsvp" id="eventspage_17_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_17_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_17_rsvp_display" id="eventspage_17_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #19</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_18_display_checkbox">Display Event #19?</label></td>
+                <td><input type="checkbox" name="eventspage_18_display" id="eventspage_18_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_18_cohort" id="eventspage_18_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_18_title" id="eventspage_18_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_date_input">Event date: </label></td>
+                <td><input type="text" name="eventspage_18_date" id="eventspage_18_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_18_location" id="eventspage_18_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_18_location_link" id="eventspage_18_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_18_description" cols="55" rows="6" value="0" id="eventspage_18_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_18_picture.png" id="eventspage_18_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_18_rsvp" id="eventspage_18_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_18_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_18_rsvp_display" id="eventspage_18_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #20</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_19_display_checkbox">Display Event #20?</label></td>
+                <td><input type="checkbox" name="eventspage_19_display" id="eventspage_19_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_19_cohort" id="eventspage_19_corhort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_19_title" id="eventspage_19_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_date_input">Event date: </label></td>
+                <td><input type="text" name="eventspage_19_date" id="eventspage_19_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_19_location" id="eventspage_19_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_19_location_link" id="eventspage_19_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_19_description" cols="55" rows="6" value="0" id="eventspage_19_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_19_picture.png" id="eventspage_19_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_19_rsvp" id="eventspage_19_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_19_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_19_rsvp_display" id="eventspage_19_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset> <!-- events page-->
 
 <fieldset>
   <legend>Blog pages</legend>

@@ -20,7 +20,7 @@ These are the 'name' variables used in the settings page
 
 {% include 'header' %}
 
-<div class="aboutus_execprofile_container gl_clearfix">
+<div id="page_container" class="aboutus_execprofile_container gl_clearfix">
 	<!-- <h1 class="aboutus_execprofile_page_title"> {{ page.title }} </h1> -->
 	{% if page.content != blank %}
 		<h4 class="aboutus_execprofile_page_description"> {{ page.content }}</h4>
@@ -29,7 +29,7 @@ These are the 'name' variables used in the settings page
 	
 	{% unless settings['aboutus_meet_exec'] == blank %}
 	{% endunless%}
-	  <h4 class="aboutus_execprofile_meet_blurb">The Executive Team </h4> 
+	  <h4 class="aboutus_execprofile_meet_blurb">Meet the Executive Team </h4> 
 
 	{% for i in (0...14) %}
 	  {% capture base_string %}{{ 'aboutus_execprofile_' | append: i | append: '_'}}{% endcapture %}
@@ -62,9 +62,39 @@ These are the 'name' variables used in the settings page
 	      </div> <!-- /.aboutus_execprofile_profile_wrapper -->
 	      
       {% if i == 1 or i == 5 or i == 8 %}
-        <div class="hidden-xs"></div>
+        <div class="breaker"></div>
       {% endif %}
 
 	  {% endif %}
 	{% endfor %}
 </div>
+
+<script>
+  var containerWindow = $('.aboutus_execprofile_container');
+  var sampleWrapper = $('.aboutus_execprofile_profile_wrapper')[0];
+	$('.aboutus_execprofile_profile_info').on('click', function () {
+		$(this).hover();
+	});
+
+	var calculateWrap = function () {
+		var img = $(sampleWrapper);
+		var result = 0;
+		var addList = ['margin-left', 'margin-right', 'width', 'padding-left', 'padding-right', 'border-left-width', 'border-right-width'];
+		for (var i = 0; i < addList.length; i++) {
+			result += parseInt(img.css(addList[i]), 10);
+		}
+    console.log('individual wrap width: ', result, result*2, containerWindow.css('width'));
+		return result;
+	};
+  
+  $(window).resize(function () {
+  	if (parseInt(containerWindow.css('width'), 10) < calculateWrap() * 2) {
+  		console.log('adding hidden');
+		  $('.breaker').addClass('hidden');
+  	} else {
+  		$('.breaker').removeClass('hidden');
+  		console.log('remove hidden');
+  	}
+  });
+
+</script>

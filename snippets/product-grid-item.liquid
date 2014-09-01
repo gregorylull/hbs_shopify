@@ -1,3 +1,5 @@
+<script>console.log( "is there anything here?", {{ product-grid-item | json }})</script>
+
 {% comment %}
   + This code should list all the products for a single collection...or type? BOTH! This snippet can get passed an argument, a string or array: collection/type, handle
   + if no value is passed, nothing gets displayed
@@ -8,9 +10,15 @@
 
 <script>console.log( "myTest: ", {{ myTest | json }})</script>
 
+{% if template == 'index' %}
+  {% assign classes = "col-xs-6 col-sm-3" %}
+{% else %}
+  {% assign classes = "col-xs-6 col-sm-4 col-md-3" %}
+{% endif %}
+
 <div class="row collection-grid-row">  
 {% for product in collections[product-grid-item].products %}
-  <div class="col-xs-6 col-sm-4 col-md-3">
+  <div class="{{ classes }}">
     <div class="product-grid-wrapper">
     <a href="/products/{{product.handle}}">
     <!-- <a href="#"> -->
@@ -43,7 +51,7 @@
   {% assign byThree = forloop.index | modulo: 3 %}
   {% assign byFour = forloop.index | modulo: 4 %}
   {% if byTwo == 0 or byThree == 0 or byFour == 0 %}
-    {% if byTwo == 0 %}<div class="clearfix visible-xs-block"></div>{% endif %}
+    {% if byTwo == 0 and template != "index" %}<div class="clearfix visible-xs-block"></div>{% endif %}
     {% if byThree == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
     {% if byFour == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
   {% endif %}

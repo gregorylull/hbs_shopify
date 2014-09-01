@@ -232,4 +232,37 @@ var hbsApp = window.hbsApp
     hbsApp.catalogRows = $('.collection-grid-row');
   };
 
+  /*
+    return the container, strips away the $() wrap
+  */
+  hbsApp.getContainerDOM = function () {
+    var container = $('.container');
+    if (container.length > 0) {
+      return container[0];
+    } else {
+      container = $('.container-fluid');
+    }
+
+    if (container.length > 0) {
+      return container[0];
+    } else {
+      container = $('#page_container');
+    }
+
+    if (container.length > 0) {
+      return container[0];
+    } else {
+      return null;
+    }
+  };
+
+  /*
+    return the type of container, either: "container", "container-fluid", or "null"
+  */
+  hbsApp.getContainerType = function (container) {
+    if ($(container).hasClass('container')) { return '.container'; }
+    else if ($(container).hasClass('container-fluid')) { return '.container-fluid'; }
+    else { return "#page_container"; }
+  };
+
 })();
