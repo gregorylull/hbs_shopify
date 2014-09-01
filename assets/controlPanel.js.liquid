@@ -7,14 +7,22 @@ hbsApp.controlPanelInit = function (hbsApp) {
   ****************************************************************************/
   var master = {
     id: "hbsDebuggerPanel",
-    css: {
+    leftCSS: {
       'background-color': 'pink',
       'width': '100px',
       'height': '50px',
       float: 'left'
     },
+
+    rightCSS: {
+      'background-color': 'white',
+      width: '100px',
+      heigth: '50px',
+      float: 'right'
+    },
+
     copyCSS : function (css) {
-      css = css || this.css;
+      css = css || this.leftCSS;
       var copy = {};
       for (property in css) {
         copy[property] = css[property];
@@ -26,11 +34,12 @@ hbsApp.controlPanelInit = function (hbsApp) {
   /****************************************************************************
     CREATE CONTROL PANEL
   ****************************************************************************/
+  // takes 4 args, text, css, parentEl(id), classes
   var createDiv = function (text, css, parentEl, classes) {
     text = text || "";
     parentEl = parentEl || $('#')
     classes = classes || "hbsDebuggerSwitch";
-    css = css || master.css;
+    css = css || master.leftCSS;
 
     return $('<div>' + text + '</div>').appendTo(parentEl)
       .addClass('classes').css(css);
@@ -53,17 +62,51 @@ hbsApp.controlPanelInit = function (hbsApp) {
       }
     }
 
-    master.controlPanel = $('<div></div>').appendTo(parentEl).attr('id', id).css(css);
+    master[id] = $('<div></div>').appendTo(parentEl).attr('id', id).css(css);
 
-    return master.controlPanel;
+    return master[id];
   };
 
-  // Initialize panel
+  // Initialize lower left OVERALL panel
   createPanel();
 
+  // Initial lower right page/template specific panel
+  var pagePanelCSS = {
+    position: 'fixed',
+    border: '2px solid black',
+    bottom: 0,
+    right: 0,
+    'text-align': 'center',
+    padding: '2px'
+  };
+  createPanel("", pagePanelCSS, 'pagePanel');
+
   /****************************************************************************
-    CREATE PANEL ITEMS
+    CREATE UNIVERSAL PANEL ITEMS
+      createDiv() // takes 4 args, text, css, parentEl(id), classes
   ****************************************************************************/
+
+  // add background color
+  var backgroundColorCSS = master.copyCSS(master.leftCSS);
+  backgroundColorCSS['background-color'] = "rgb(220, 220, 220)";
+  backgroundColorCSS['width'] = '100px';
+  var backgroundColor = createDiv('BG color', backgroundColorCSS, master.hbsDebuggerPanel, '');
+  var backgroundColorInput = $('<input type="color" class="backgroundColor"/>').appendTo(backgroundColor);
+  backgroundColorInput.on('change', function () {
+    var color = $(this).val();
+    $('body').css('background-color', color);
+  });
+  // add container color
+  var containerColorCSS = master.copyCSS(master.leftCSS);
+  containerColorCSS['background-color'] = "rgb(200, 200, 200)";
+  containerColorCSS['width'] = '150px';
+  var containerColor = createDiv('container color', containerColorCSS, master.hbsDebuggerPanel, '');
+  var containerColorInput = $('<input type="color" class="containerColor"/>').appendTo(containerColor);
+  containerColorInput.on('change', function () {
+    var color = $(this).val();
+    $('#page_container').css('background-color', color);
+  });
+
 
   // background picture test
   $('body').prepend($('<div>BG texture:</div>').addClass('background_test hbsDebugger hidden'));
@@ -154,7 +197,7 @@ hbsApp.controlPanelInit = function (hbsApp) {
   var headerNestCSS = master.copyCSS();
   headerNestCSS['background-color'] = 'yellow';
   // text, css, parentEl, classes
-  createDiv(headerNestText, headerNestCSS, master.controlPanel, "hbsDebuggerSwitch")
+  createDiv(headerNestText, headerNestCSS, master.hbsDebuggerPanel, "hbsDebuggerSwitch")
     .on('click', function (index) {
       if (headerNested) {
         $(this).text('header not nested');
@@ -165,16 +208,47 @@ hbsApp.controlPanelInit = function (hbsApp) {
         hbsApp.header.prependTo(hbsApp.container);
         headerNested = true;
       }
+      $(window).trigger('resize');
     });
+
+  /****************************************************************************
+    CREATE PAGE SPECIFIC
+  ****************************************************************************/
+
+  /*---------------------------------------------------------------------------
+      FRONT PAGE PANEL
+        createDiv () // text, css, parentEl(id), classes
+        master.copyCSS() // css
+
+  ---------------------------------------------------------------------------*/
+  if (hbsApp.template === 'index') {  
+
+  /*
+    Create a toggle to insert/remove slide show picture
+  */
+
+
+  /*
+    create a panel to change upcomingEvents font-size, color, for each individual 
+  */
+  var upcomingEventsCSS = {
+  };
+
+  // for titles
+  var eventsTitle = createDiv('N/A', master.rightCSS, master.pagePanel, 'upcomingEventsControl');
+
 
   /*
     frontpage column adjustment
     - right column always has to be gte the left column (height: fixed)
       + except on mobile (height: auto)
   */
-  {% if template contains 'index' %}
-    console.log('this is index page');
-  {% endif %}
+
+
+  } // end frontpage inclusion
+  /*---------------------------------------------------------------------------
+      ABOUT US PAGE PANEL
+  ---------------------------------------------------------------------------*/
 
 }; // hbsApp.controlPanelInit();
 })();

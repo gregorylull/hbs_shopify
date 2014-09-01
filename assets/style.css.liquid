@@ -11,7 +11,7 @@
 	font-size: 0;
 }
 
-body {
+body, .container, .container-fluid, #page_container {
 	margin-bottom: 40px;
 }
 
@@ -30,26 +30,15 @@ body {
 }
 
 .hbs_headers {
-	margin-bottom: 40px;
-	margin-top: 40px;
-	/*border-bottom: 2px solid rgb(210,210,210);*/
+/*	margin-bottom: 40px;
+	margin-top: 40px;*/
+	padding-top: 25px;
+	padding-bottom: 25px;
+/*	-webkit-box-shadow: 2px 10px 27px 2px rgba(80,80,80,0.75);
+	-moz-box-shadow: 2px 10px 27px 2px rgba(0,0,0,0.75);*/
+	box-shadow: 0px 5px 2px -2px rgba(200,200,200,0.75);
+	/*border-bottom: 3px solid black;*/
 }
-
-/*.hbs_banner img {
-	min-width: 60%;
-	height: auto;
-}*/
-
-/*.hbs_banner_logo img {
-	max-height: 60px;
-	width: auto;
-}*/
-
-/*.hbs_banner_words .logoWords {
-    width: 40%;
-    max-width: 600px;
-    height: auto;
-}*/
 
 /* navigation bar*/
 .navbar-toggle span.icon-bar {
@@ -148,7 +137,6 @@ img {
 }
 
 body {
-	/*background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_1_picture.png?4392);*/
 	background-color: white;
 }
 
@@ -161,7 +149,7 @@ body {
 }*/
 
 .hbs_banner_words {
-	background-color: white;
+	/*background-color: white;*/
 }
 
 
@@ -197,7 +185,7 @@ body {
   /*background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_3_picture.png?4392);*/
 	/*border-right: 3px outset rgb(169, 21, 37);*/
 	/*border-bottom: 3px outset rgb(169, 21, 37);*/
-	background-color: white;
+	/*background-color: white;*/
 }
 
 .frontpage_md_leftColumn .row {
@@ -226,19 +214,7 @@ body {
 	font-size: 2em;
 }
 
-/*.frontpage_md_featuredProduct {
-	border: 0px;
-}*/
-
-.frontpage_md_leftColumn_innerRow {
-	padding: 0px 15px;
-}
-
-.frontpage_md_leftColumn_innerRow h3 {
-	/*margin-top: 0px;*/
-}
-
-.frontpage_md_upcomingEvents h3 {
+.frontpage_md_upcomingEvents > h3 {
 	margin-top: 0px;
 }
 
@@ -498,13 +474,14 @@ div.aboutus_execprofile_divider {
 /* mobile first */
 .eventspage_container {
 	width: 100%;
-	margin: 0px auto;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: justify;
   /*background-image: url({{ 'default_background_3_picture.png' | asset_url }});*/
 }
 
 .eventspage_page_title {
-  margin-top: 0px;
+  margin-top: 20px;
 }
 
 .eventspage_divider {
@@ -631,6 +608,15 @@ div.aboutus_execprofile_divider {
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
+}
+
+/* MENU bar */
+.catalog_all_leftMenu_collections li {
+	list-style-type: none;
+}
+
+.collections_list {
+	padding-left: 15px;
 }
 
 

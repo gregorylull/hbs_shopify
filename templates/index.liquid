@@ -1,6 +1,7 @@
-{% include 'header' %}
 
-<div id="page_container" class="container-fluid">
+
+<div id="page_container" class="container">
+  {% include 'header' %}
 
   <div class="row frontpage_md_slideshow">
     {% include 'picture_carousel' %}
@@ -9,28 +10,19 @@
   <div id="frontpage_row" class="row">
     <div class="col-sm-9 frontpage_md_leftColumn">
 
-        {% comment %}
-        <div class="row">
-          <div class="col-xs-12 frontpage_rte frontpage_md_mission frontpage_block_content">
-            <h3 class="frontpage_mission_title">Mission</h3>
-            <h4>{{ pages.frontpage.content }}</h4>
-          </div>
-        </div>
-        {% endcomment %}
-      <!-- --> 
       <div class="frontpage_separator hidden-xs"></div>
 
       <div class="row frontpage_md_leftColumn_innerRow">  
-        <div class="row">
+          <h3 class="block-title">Upcoming Events</h3>
           <div class="col-sm-12 frontpage_rte frontpage_md_upcomingEvents frontpage_block_content">
-            <h3>Upcoming Events</h3>
-            {{ collections.frontpage-upcoming-events.description }}
+            {% comment %}
+              {{ collections.frontpage-upcoming-events.description }}
+            {% endcomment %}
+            {% include 'upcomingEventsGrid' %}
           </div>
-        </div>
 
-        <div class="row">      
           <div class="col-sm-12 frontpage_md_featuredProduct frontpage_block_content">
-            <h3><span>Featured Products</span></h3>
+            <h3 class="block-title">Featured Products</h3>
             {% include 'product-grid-item' with 'featured-product' %}
            
             {% comment %}
@@ -47,7 +39,6 @@
             </div> <!-- /.featured-product-wrapper -->
             {% endcomment %}
           </div> <!-- /.frontpage_md_featuredProduct block_content-->
-        </div>
 
 
       </div> <!-- /.frontpage_md_leftColumn_innerRow -->
@@ -61,7 +52,7 @@
       
       <div class="row">
         <div class="col-xs-12 frontpage_md_contact frontpage_block_content">
-          <h3>Contact Us!</h3>
+          <h3 class="block-title">Contact Us!</h3>
           <div class="social-links">
             {% include 'social-links' %}
           </div>
@@ -70,7 +61,7 @@
 
       <div class="row">
         <div class="col-xs-12 frontpage_rte frontpage_md_pulseNews frontpage_block_content">
-          <h3><span>{{ collections.frontpage-pulse-news.title }}</span></h3>
+          <h3 class="block-title">{{ collections.frontpage-pulse-news.title }}</h3>
           <div class="frontpage_pulseNews_text"> 
             {{ collections.frontpage-pulse-news.description }}
           </div>
@@ -79,7 +70,7 @@
 
       <div class="row">      
         <div class="col-xs-12 frontpage_rte frontpage_md_pulseFeature frontpage_block_content">
-          <h3> Pulse Feature </h3>
+          <h3 class="block-title"> Pulse Feature </h3>
           {{ collections.frontpage-pulse-feature.description }}
         </div>
       </div>
@@ -89,6 +80,9 @@
   </div> <!-- end row -->
 </div>
 
+<script>
+  window.hbsApp.template = {{ template | json }}
+</script>
 
 {% comment %}
 ===============================================================================================

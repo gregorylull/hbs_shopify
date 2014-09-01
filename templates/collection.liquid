@@ -1,6 +1,7 @@
 {% include 'header' %}
 
-{% include 'catalog-frame' %} 
+{% include 'catalog-frame' with collection.handle %} 
+
   
 {% comment %}
 <div class='container catalog_all_container'>
@@ -21,11 +22,6 @@
   </div>
   </div> <!-- /.row_all-->
 </div> <!-- /.container-fluid -->
-
-
-
-<!-- -->
-
 
     <div class="col-sm-offset-1 col-sm-8">
       <div class="row catalog_all_product_pic">

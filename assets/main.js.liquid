@@ -26,6 +26,11 @@ $(function () {
   }, [], hbsApp);
   hbsApp.controlPanelInit(hbsApp);
 
+  // page specific initiaion
+  if (hbsApp.page === 'about-us') {
+  	hbsApp.sortProfiles(hbsApp);
+  }
+
 	// auto update properties upon window.resize
 	$(window).resize((function () {
 		var timeoutPointer;

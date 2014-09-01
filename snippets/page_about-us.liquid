@@ -1,3 +1,4 @@
+
 {% comment %}
 These are the 'name' variables used in the settings page
 	Legend: About Us: Executive Team Profiles
@@ -29,53 +30,64 @@ These are the 'name' variables used in the settings page
 	
 	{% unless settings['aboutus_meet_exec'] == blank %}
 	{% endunless%}
-	  <h4 class="aboutus_execprofile_meet_blurb">Meet the Executive Team </h4> 
+	<h4 class="aboutus_execprofile_meet_blurb">Meet the Executive Team </h4>
 
-	{% for i in (0...14) %}
-	  {% capture base_string %}{{ 'aboutus_execprofile_' | append: i | append: '_'}}{% endcapture %}
+	<div class="aboutus_execprofiles">
+		{% for i in (0...14) %}
+		  {% capture base_string %}{{ 'aboutus_execprofile_' | append: i | append: '_'}}{% endcapture %}
 
-	  {% capture profile_display %}{{ base_string | append: 'display'}}{% endcapture %}
+		  {% capture profile_display %}{{ base_string | append: 'display'}}{% endcapture %}
 
-	  {% if settings[profile_display] == true %}
-	    {% capture profile_name %}{{ base_string | append: 'name' }}{% endcapture %}
-	    {% capture profile_position %}{{ base_string | append: 'position' }}{% endcapture %}
-	    {% capture profile_description %}{{ base_string | append: 'description' }}{% endcapture %}
-	    {% capture profile_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
-	    {% capture profile_email %}{{ base_string | append: 'email'}}{% endcapture %}
+		  {% if settings[profile_display] == true %}
+		    {% capture profile_name %}{{ base_string | append: 'name' }}{% endcapture %}
+		    {% capture profile_position %}{{ base_string | append: 'position' }}{% endcapture %}
+		    {% capture profile_description %}{{ base_string | append: 'description' }}{% endcapture %}
+		    {% capture profile_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
+		    {% capture profile_email %}{{ base_string | append: 'email'}}{% endcapture %}
 
-	    {% capture stringToSplit %}{{ profile_name | append: ',' | append: profile_position | append: ',' | append: profile_description}}{% endcapture %}
+		    {% capture stringToSplit %}{{ profile_name | append: ',' | append: profile_position | append: ',' | append: profile_description}}{% endcapture %}
 
-      {% comment %} beginning of individual wrappers {% endcomment %}
-		    <div class="aboutus_execprofile_profile_wrapper">
-		      <div class="aboutus_execprofile_profile_info">
-		        {{ profile_picture | asset_url | img_tag: profile_name }}
-		        <p class="aboutus_execprofile_profile_description">{{ settings[profile_description] }}</p>
-			      <div class="aboutus_execprofile_profile_name">{{ settings[profile_name] }}</div>
-			      <div class="aboutus_execprofile_position-break" id="execprofile_position-break"></div>
-			      <p class="aboutus_execprofile_profile_position">{{ settings[profile_position] }}</p>
-		      </div>
-			    <div class="aboutus_execprofile_profile_email">{{ settings[profile_email] }}</div>
-			    <div class="aboutus_execprofile_profile_socialIcons"> 
-			      <span class="glyphicon glyphicon-envelope"> </span>
-			      <span class="shopify-social-icon-linkedin{{ settings.social_icons_style }}"> </span>
-			    </div>
-	      </div> <!-- /.aboutus_execprofile_profile_wrapper -->
-	      
-      {% if i == 1 or i == 5 or i == 8 %}
-        <div class="breaker"></div>
-      {% endif %}
+	      {% comment %} beginning of individual wrappers {% endcomment %}
+	      {% assign specialClass = '' %}
+	      {% if i == 1 %} {% assign specialClass = ' special-break' %} {% endif %}
+			    <div class="aboutus_execprofile_profile_wrapper{{specialClass}}">
+			      <div class="aboutus_execprofile_profile_info">
+			        {{ profile_picture | asset_url | img_tag: profile_name }}
+			        <p class="aboutus_execprofile_profile_description">{{ settings[profile_description] }}</p>
+				      <div class="aboutus_execprofile_profile_name">{{ settings[profile_name] }}</div>
+				      <div class="aboutus_execprofile_position-break" id="execprofile_position-break"></div>
+				      <p class="aboutus_execprofile_profile_position">{{ settings[profile_position] }}</p>
+			      </div>
+				    <div class="aboutus_execprofile_profile_email">{{ settings[profile_email] }}</div>
+				    <div class="aboutus_execprofile_profile_socialIcons"> 
+				      <span class="glyphicon glyphicon-envelope"> </span>
+				      <span class="shopify-social-icon-linkedin{{ settings.social_icons_style }}"> </span>
+				    </div>
+		      </div> {% comment %}<!-- /.aboutus_execprofile_profile_wrapper -->{% endcomment %}
+		      
+	      {% if i == 1 or i == 5 or i == 8 %}
+	        <div class="breaker"></div>
+	      {% endif %}
 
-	  {% endif %}
-	{% endfor %}
-</div>
+		  {% endif %}
+		{% endfor %}
+	</div> <!-- END /.aboutus_execprofiles -->
+</div> <!-- END /.page_container .aboutus_execprofile_container-->
 
 <script>
+  // give the page a value
+  hbsApp.template = {{ template | json }};
+  hbsApp.page = {{ page.handle | json }};
+  console.log('temp: ', hbsApp.template, ', page: ', hbsApp.page);
+
+  // this simulates hover on ipads
   var containerWindow = $('.aboutus_execprofile_container');
   var sampleWrapper = $('.aboutus_execprofile_profile_wrapper')[0];
 	$('.aboutus_execprofile_profile_info').on('click', function () {
 		$(this).hover();
 	});
 
+  // this is to to reaculate wrapping / separator NOT WORKING
 	var calculateWrap = function () {
 		var img = $(sampleWrapper);
 		var result = 0;

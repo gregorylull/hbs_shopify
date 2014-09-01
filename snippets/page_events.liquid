@@ -26,6 +26,8 @@
 	    {% capture event_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
 	    {% capture event_rsvp_link %}{{ base_string | append: 'rsvp'}}{% endcapture %}
 	    {% capture event_rsvp_display %}{{ base_string | append: 'rsvp_display'}}{% endcapture %}
+	    {% assign event_location = base_string | append: 'location' %}
+	    {% assign event_link = base_string | append: 'location_link' %}
 
 	    {% capture stringToSplit %}{{ event_title | append: ',' | append: event_date | append: ',' | append: event_description}}{% endcapture %}
 	    {% include 'page_debugger' %}

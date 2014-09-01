@@ -1,7 +1,4 @@
 {% assign product_types = collections.all.all_types %}
-  <script>console.log("product types sorted: ", {{ product_types | json }})</script>
-
-{% assign myTest = "greg" %}
 
 {% assign once_special_collections = true %}
 {% for collection in (collections | sort: 'title') %}
@@ -17,7 +14,16 @@
 {% assign collections_special = collections_special | split: "," %}
 
 {% assign scopeTest = true %}
+  
+<div class="catalog_all_leftMenu_collections">
+  <h4 class="collections_header"> Collections </h4>
+  <ul class="collections_list">
+    {% for collection_handle in collections_special %}
+      <a href="/collections/{{collection_handle}}"><li> {{ collections[collection_handle].title | capitalize }}</li></a>
+    {% endfor %}
+  </ul>
 
+{% comment %}
 <div class="catalog_all_leftMenu_types">
   <h4 class="types_header">Categories</h4>
   <ul class="types_list">
@@ -26,14 +32,8 @@
     {% endfor %}
   </ul>
 </div>
+{% endcomment %}
 
-<div class="catalog_all_leftMenu_collections">
-  <h4 class="collections_header"> Special Categories </h4>
-  <ul class="collections_list">
-    {% for collection_handle in collections_special %}
-      <a href="#"><li> {{ collections[collection_handle].title | capitalize }}</li></a>
-    {% endfor %}
-  </ul>
 </div>
 
 <!-- <div class="btn-group-vertical">
