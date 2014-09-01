@@ -127,11 +127,12 @@ var hbsApp = window.hbsApp
     - look for images under the .collection-grid-row
     - useful for container-fluid    
   */
-  hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp) {
+  hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp, imageSelector) {
+    imageSelector = imageSelector || '.collection-grid-row .product-image-wrapper img';
     if (!imageObj) {
       hbsApp.imageObj = {};
       var imageObj = hbsApp.imageObj;
-      imageObj.images = $('.collection-grid-row .product-image-wrapper img');
+      imageObj.images = $(imageSelector);
       imageObj.ideal = null;
       imageObj.unevenImages = [];
       imageObj.evenImages = [];
@@ -186,8 +187,9 @@ var hbsApp = window.hbsApp
   /*
     calculate current column width, fixed or fluid will both have the same width once the dom is loaded
   */
-  hbsApp.catalogColWidth = function () {
-    var col = $('.product-grid-wrapper');
+  hbsApp.catalogColWidth = function (colSelector) {
+    colSelector = colSelector || '.product-grid-wrapper';
+    var col = $(colSelector);
     if (col.length > 0) {
       col = $(col[0]);
       var finalWidth = parseInt(col.css('width'), 10);
@@ -203,27 +205,10 @@ var hbsApp = window.hbsApp
     Because img loading time is asychronous, the pictures will jitter, so we have to set all the pictures to an initial width
     - this executes ONCE only
   */
-  hbsApp.catalogInitCol = function (idealHeight) {
+  hbsApp.catalogInitCol = function (idealHeight, imageSelector) {
+    imageSelector = imageSelector || '.product-grid-wrapper img';
 
-    $('.product-grid-wrapper img').css({height: idealHeight + 'px', width: 'auto'});
-    // $('.product-grid-wrapper img').each(function (index) {
-    //   var aspectRatio = this.naturalHeight / this.naturalWidth;
-
-    //   // vertial rectangle
-    //   if (aspectRatio > 1) {
-    //     $(this).css({height: idealHeight, width: 'auto'});
-    //     $(this).parent().addClass('unevenVerticalParent');
-
-    //   // horizontal rectangle
-    //   } else if (aspectRatio < 1 && aspectRatio > 0) {
-    //     $(this).parent().css({height: idealHeight, width: 'auto'});
-    //     $(this).css({height: 'auto', width: idealHeight});
-    //     $(this).parent().addClass('unevenHorizontalParent');
-
-    //   // normal ratio
-    //   } else {
-    //   }
-    // });
+    $(imageSelector).css({height: idealHeight + 'px', width: 'auto'});
   };
 
   /*

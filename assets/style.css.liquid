@@ -276,9 +276,38 @@ body {
 	/*margin-top: 0;*/
 }
 
-.frontpage_md_featuredProduct img {
-	border: 3px double rgb(220, 220, 220);
+/*-----------------------------------------------------------------------------
+  FEATURED PRODUCT GRID FRONT PAGE
+-------------------------------------------------------------------------------*/
+
+.featuredProductContainer {
+	text-align: justify;
 }
+
+.featuredProductContainer .productWrapper {
+	display: inline-block;
+}
+
+.featuredProductContainer::after {
+	content: "";
+	display: inline-block;
+	width: 100%;
+}
+
+.featuredProductContainer .productPicture {
+	max-width: 300px;
+	min-width: 200px;
+	height: auto;
+}
+
+.featuredProductContainer .productTitle {
+	text-align: center;
+}
+
+
+/*.frontpage_md_featuredProduct img {
+	border: 3px double rgb(220, 220, 220);
+}*/
 
 /* WIREFRAME front page (index.liquid) */
 
