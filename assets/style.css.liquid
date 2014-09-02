@@ -5,6 +5,7 @@
 
 body, .container, .container-fluid, #page_container {
 	margin-bottom: 40px;
+	/*font-family: "Lato", sans-serif;*/
 }
 
 img {
@@ -20,28 +21,26 @@ img {
 	font-size: 0;
 }
 
+@media screen and (min-width: 768px) {
+}
+
 /******************************************************************************
   HEADER / BANNER / LOGO
 ******************************************************************************/
 
-.hbs_headers .hbs_banner {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	text-align: center;
-}
-
-.hbs_headers .hbs_banner div {
-	display: inline-block;
-}
-
-.hbs_headers .hbs_banner_logo {
-	margin-right: 15px;
-}
-
 .hbs_headers {
-	padding-top: 25px;
-	padding-bottom: 15px;
+	padding-top: 10px;
+	/*padding-bottom: 10px;*/
 	box-shadow: 0px 5px 2px -2px rgba(200,200,200,0.75);
+}
+
+/* FOR FRONT PAGE ONLY, header will have NO bottom shadow, conflicts with slideshow pic*/
+.hbs_headers.index {
+	box-shadow: none;
+}
+
+.hbs_headers.index .navbar {
+	margin-bottom: 0px;
 }
 
 /*-------------------------------------
@@ -53,23 +52,52 @@ img {
 
 .hbs_headers .navbar-brand {
 	padding: 5px;
+	width: 75%;
 }
 
 .hbs_headers .navbar_logo {
-	width: auto;
-	height: 100%;
+  height: 75%;
+  width: auto;
+}
+
+.hbs_headers .navbar_logoWords {
+	width: 80%;
+	height: auto;
 }
 
 @media screen and (min-width: 768px) {
+  .hbs_headers.index .navbar {
+	  margin-bottom: 20px;
+  }
+
+	.hbs_headers .navbar-brand {
+		width: auto;
+	}
+	.hbs_headers .navbar_logo {
+		width: auto;
+		height: 100%;
+	}
 	.hbs_headers .navbar_logoWords {
 		width: auto;
 		height: 40px;
 	}
+
+	.hbs_headers {
+	  padding-top: 25px;
+	  padding-bottom: 15px;
+  }
 }
 
 /******************************************************************************
   FRONT PAGE
 ******************************************************************************/
+/*-------------------------------------
+  FRONTPAGE ALL
+-------------------------------------*/
+.frontpage_rte p {
+	margin-bottom: 5px;
+	line-height: 1.2;
+}
 
 .frontpage_md_slideshow {
 	border-bottom: 2px outset rgb(118, 0, 1);
@@ -80,15 +108,27 @@ img {
 	margin: 15px auto;
 }
 
-.frontpage_rte p {
-	margin-bottom: 5px;
-	line-height: 1.2;
-}
+/*-------------------------------------
+  LEFT COLUMN
+-------------------------------------*/
 
 .frontpage_md_leftColumn .row {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+.frontpage_md_leftColumn h3 {
+	text-align: center;
+	color: rgb(13, 102, 127);
+}
+
+.frontpage_md_upcomingEvents > h3 {
+	margin-top: 0px;
+}
+
+/*-------------------------------------
+  RIGHT COLUMN
+-------------------------------------*/
 
 .frontpage_md_rightColumn .row {
 	margin-top: 20px ;
@@ -103,36 +143,17 @@ img {
 	font-size: 2em;
 }
 
-.frontpage_md_upcomingEvents > h3 {
-	margin-top: 0px;
-}
-
-
 .frontpage_md_rightColumn h3 {
 	color: rgb(0, 100, 25);
 }
 
-.frontpage_md_leftColumn h3 {
-	text-align: center;
-	color: rgb(13, 102, 127);
-}
 
-@media screen and (min-width: 768px) {
-	.frontpage_md_leftColumn_innerRow .col-sm-7 {
-		width: 62%;
-	}
-
-	.frontpage_md_leftColumn_innerRow .col-sm-4 {
-		width: 35%;
-	}
-
-	.frontpage_md_leftColumn_innerRow .col-sm-offset-1 {
-		margin-left: 3%;
-	}
-
-	.frontpage_md_leftColumn h3 {
-		text-align: left;
-	}
+/*-------------------------------------
+  UPCOMING EVENTS GRID
+--------------------------------------*/
+.frontpage_md_upcomingEvents .eventPicture {
+	width: 100%;
+	height: auto;
 }
 
 /*-------------------------------------
@@ -156,13 +177,42 @@ img {
 }
 
 .featuredProductContainer .productPicture {
-	max-width: 300px;
+	max-width: 230px;
 	min-width: 200px;
 	height: auto;
 }
 
 .featuredProductContainer .productTitle {
 	text-align: center;
+}
+
+/*-------------------------------------
+  MEDIA QUERIES
+-------------------------------------*/
+
+@media screen and (min-width: 768px) {
+  .container.index {
+  	max-width: 1000px;
+  }
+
+	.frontpage_md_leftColumn h3 {
+		text-align: left;
+	}
+
+	/*----------------------
+	  UPCOMING EVENTS
+	-----------------------*/
+	.frontpage_md_upcomingEvents .eventPicture {
+		max-width: 200px;
+		min-width: 150px;
+		height: auto;
+  }
+  .frontpage_md_upcomingEvents .img-left {
+  	background-image: linear-gradient(to right, rgb(164, 16, 52), rgb(200,200,200) 10%, white);
+  }
+  .frontpage_md_upcomingEvents .img-right {
+  	background-image: linear-gradient(to left, rgb(164, 16, 52), rgb(200,200,200) 10%, white);
+  }
 }
 
 /******************************************************************************

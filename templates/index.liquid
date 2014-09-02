@@ -1,6 +1,7 @@
+{% if template != "" %}{% assign templateClass = template %}{% endif %}
+{% if page.handle != "" %}{% assign pageClass = page.handle %}{% endif %}
 
-
-<div id="page_container" class="container">
+<div id="page_container" class="container {{templateClass}} {{pageClass}}">
   {% include 'header' %}
 
   <div class="row frontpage_md_slideshow">

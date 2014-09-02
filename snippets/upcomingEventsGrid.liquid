@@ -13,28 +13,24 @@
     {% assign event_location = base_string | append: 'location' %}
     {% assign event_location_link = base_string | append: 'location_link' %}
 
-    <div class="row">
+    <div class="row{% cycle ' img-left', ' img-right' %}{% cycle ' info-right', ' info-left' %}">
       <div class="col-xs-8 {% cycle 'col-xs-push-4', '' %}">
-      {% comment %}
-        
-        <p class="frontpage_event_title">{{ settings[event_title] }}</p>
-        <p class="frontpage_event_date">{{ settings[event_date] }}</p>
-        <p class="frontpage_event_location">{{ settings[event_location] }}</p>
-        <p class="frontpage_event_description">{{ settings[event_description] }}</p>
-
-      {% endcomment %}
-        <h4 class="frontpage_event_title">{{ settings[event_title] }}</h4>
-        <h5 class="frontpage_event_date">{{ settings[event_date] }}</h5>
-        <h5 class="frontpage_event_location">{{ settings[event_location] }}</h5>
-        <h4 class="frontpage_event_description">{{ settings[event_description] }}</h4>        
-        {% if settings[event_rsvp_display] == true %}
-          <a href="{{ settings[event_rsvp_link]}}"> RSVP!</a>
-        {% endif %}
-      </div>
+          <div class="eventInfo">
+            <h4 class="frontpage_event_title">{{ settings[event_title] }}</h4>
+            <h5 class="frontpage_event_date">{{ settings[event_date] }}</h5>
+            <h5 class="frontpage_event_location">{{ settings[event_location] }}</h5>
+            <h4 class="frontpage_event_description">{{ settings[event_description] }}</h4>        
+            {% if settings[event_rsvp_display] == true %}
+              <a href="{{ settings[event_rsvp_link]}}" target="_blank"> RSVP!</a>
+            {% endif %}
+          </div>
+      </div> <!-- END events info /.col-xs-8 -->
 
       <div class="col-xs-4 {% cycle 'col-xs-pull-8', '' %}">
-        <img class="frontpage_upcomingevents_picture" src="{{ event_picture | asset_url }}" alt="event picture {{i}}"/>    
-      </div>
+          <div class="eventPicture center-block">
+            <img class="frontpage_upcomingevents_picture" src="{{ event_picture | asset_url }}" alt="event picture {{i}}"/>    
+          </div>
+      </div> <!-- END event img /.col-xs-4 -->
     </div>
   {% endif %}
 {% endfor %}
