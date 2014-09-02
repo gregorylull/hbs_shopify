@@ -15,7 +15,8 @@
   {% assign classes = "col-xs-6 col-sm-4 col-md-3" %}
 {% endif %}
 
-<div class="row collection-grid-row">  
+<div class="row collection-grid-row">
+<h4 class="collection-grid-title"> Collection: <span>{{collections[product-grid-item].title}}</span></h4>
 {% for product in collections[product-grid-item].products %}
   <div class="{{ classes }}">
     <div class="product-grid-wrapper">

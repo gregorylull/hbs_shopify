@@ -42,7 +42,7 @@ hbsApp.controlPanelInit = function (hbsApp) {
     css = css || master.leftCSS;
 
     return $('<div>' + text + '</div>').appendTo(parentEl)
-      .addClass('classes').css(css);
+      .addClass(classes).css(css);
   };
 
   /*
@@ -85,12 +85,30 @@ hbsApp.controlPanelInit = function (hbsApp) {
     CREATE UNIVERSAL PANEL ITEMS
       createDiv() // takes 4 args, text, css, parentEl(id), classes
   ****************************************************************************/
+  /*
+    MASTER STYLING SWITCH
+  */
+  $('<div>Styles ON</div>').appendTo($('#hbsDebuggerPanel')).addClass('hbsMasterSwitch').css({
+    'background-color': 'rgb(20, 200, 20)',
+    'width': '100px',
+    'height': '50px',
+    float: 'left'
+  }).on('click', function () {
+    var styles = $('.hbsDebuggerSwitch');
+    if (styles.hasClass('hidden')) {
+      styles.removeClass('hidden');
+      $(this).text('Styles ON').css('background-color', 'rgb(0,220,0)');
+    } else {
+      styles.addClass('hidden');
+      $(this).text('Styles OFF').css('background-color', 'red');
+    }
+  });
 
   // add background color
   var backgroundColorCSS = master.copyCSS(master.leftCSS);
   backgroundColorCSS['background-color'] = "rgb(220, 220, 220)";
-  backgroundColorCSS['width'] = '100px';
-  var backgroundColor = createDiv('BG color', backgroundColorCSS, master.hbsDebuggerPanel, '');
+  backgroundColorCSS['width'] = '75px';
+  var backgroundColor = createDiv('BG color', backgroundColorCSS, master.hbsDebuggerPanel, 'hbsDebuggerSwitch');
   var backgroundColorInput = $('<input type="color" class="backgroundColor"/>').appendTo(backgroundColor);
   backgroundColorInput.on('change', function () {
     var color = $(this).val();
@@ -99,8 +117,8 @@ hbsApp.controlPanelInit = function (hbsApp) {
   // add container color
   var containerColorCSS = master.copyCSS(master.leftCSS);
   containerColorCSS['background-color'] = "rgb(200, 200, 200)";
-  containerColorCSS['width'] = '150px';
-  var containerColor = createDiv('container color', containerColorCSS, master.hbsDebuggerPanel, '');
+  containerColorCSS['width'] = '100px';
+  var containerColor = createDiv('container color', containerColorCSS, master.hbsDebuggerPanel, 'hbsDebuggerSwitch');
   var containerColorInput = $('<input type="color" class="containerColor"/>').appendTo(containerColor);
   containerColorInput.on('change', function () {
     var color = $(this).val();
@@ -143,25 +161,6 @@ hbsApp.controlPanelInit = function (hbsApp) {
      'background-color', 'none');
   });
 
-  
-  /*
-    add a background styling button / foreground block elements
-  */
-  $('<div>Styles OFF</div>').appendTo($('#hbsDebuggerPanel')).addClass('hbsDebuggerSwitch').css({
-    'background-color': 'red',
-    'width': '100px',
-    'height': '50px',
-    float: 'left'
-  }).on('click', function () {
-    var styles = $('.hbsDebugger');
-    if (styles.hasClass('hidden')) {
-      styles.removeClass('hidden');
-      $(this).text('Styles ON').css('background-color', 'rgb(0,220,0)');
-    } else {
-      styles.addClass('hidden');
-      $(this).text('Styles OFF').css('background-color', 'red');
-    }
-  });
 
   /*
     add a container-fluid container-fixed switch
@@ -223,28 +222,26 @@ hbsApp.controlPanelInit = function (hbsApp) {
   ---------------------------------------------------------------------------*/
   if (hbsApp.template === 'index') {  
 
-  /*
-    Create a toggle to insert/remove slide show picture
-  */
+    /*
+      Create a toggle to insert/remove slide show picture
+    */
 
 
-  /*
-    create a panel to change upcomingEvents font-size, color, for each individual 
-  */
-  var upcomingEventsCSS = {
-  };
+    /*
+      create a panel to change upcomingEvents font-size, color, for each individual 
+    */
+    var upcomingEventsCSS = {
+    };
 
-  // for titles
-  var eventsTitle = createDiv('N/A', master.rightCSS, master.pagePanel, 'upcomingEventsControl');
-
-
-  /*
-    frontpage column adjustment
-    - right column always has to be gte the left column (height: fixed)
-      + except on mobile (height: auto)
-  */
+    // for titles
+    var eventsTitle = createDiv('N/A', master.rightCSS, master.pagePanel, 'hbsDebuggerSwitch upcomingEventsControl');
 
 
+    /*
+      frontpage column adjustment
+      - right column always has to be gte the left column (height: fixed)
+        + except on mobile (height: auto)
+    */
   } // end frontpage inclusion
   /*---------------------------------------------------------------------------
       ABOUT US PAGE PANEL

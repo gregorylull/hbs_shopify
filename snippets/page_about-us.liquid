@@ -44,6 +44,7 @@ These are the 'name' variables used in the settings page
 		    {% capture profile_description %}{{ base_string | append: 'description' }}{% endcapture %}
 		    {% capture profile_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
 		    {% capture profile_email %}{{ base_string | append: 'email'}}{% endcapture %}
+		    {% assign profile_linkedin = base_string | append: 'linkedin' %}
 
 		    {% capture stringToSplit %}{{ profile_name | append: ',' | append: profile_position | append: ',' | append: profile_description}}{% endcapture %}
 
@@ -58,10 +59,17 @@ These are the 'name' variables used in the settings page
 				      <div class="aboutus_execprofile_position-break" id="execprofile_position-break"></div>
 				      <p class="aboutus_execprofile_profile_position">{{ settings[profile_position] }}</p>
 			      </div>
-				    <div class="aboutus_execprofile_profile_email">{{ settings[profile_email] }}</div>
-				    <div class="aboutus_execprofile_profile_socialIcons"> 
-				      <span class="glyphicon glyphicon-envelope"> </span>
-				      <span class="shopify-social-icon-linkedin{{ settings.social_icons_style }}"> </span>
+				    <div class="aboutus_execprofile_profile_socialIcons">
+					    {% if settings[profile_email] != blank %}
+					      <a href="{{ 'mailto:' | append: settings[profile_email]}}">
+					        <span class="glyphicon glyphicon-envelope"></span>
+					      </a>
+					    {% endif %}
+					    {% if settings[profile_linkedin] != blank %}
+					      <a href="{{ settings[profile_linkedin] }}" target="_blank">
+					        <span class="shopify-social-icon-linkedin{{ settings.social_icons_style }}"> </span>
+					      </a>
+					    {% endif %}
 				    </div>
 		      </div> {% comment %}<!-- /.aboutus_execprofile_profile_wrapper -->{% endcomment %}
 		      
@@ -71,8 +79,20 @@ These are the 'name' variables used in the settings page
 
 		  {% endif %}
 		{% endfor %}
+
 	</div> <!-- END /.aboutus_execprofiles -->
+
+  <div class="aboutus_sectionOfficer_divider"></div>
 </div> <!-- END /.page_container .aboutus_execprofile_container-->
+
+	<div class="container-fluid table-container">
+	  <div class="row">
+		  <h4 class="block-title center-block page-header">Meet the Section Officers</h4>
+			<div class="col-xs-12 tableWrapper table-responsive">
+			  {% include 'page_about-us_table' %}
+			</div>
+	  </div>
+	</div><!-- END /.table-container-->
 
 <script>
   // give the page a value
