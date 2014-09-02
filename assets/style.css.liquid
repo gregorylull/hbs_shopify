@@ -3,17 +3,26 @@
   Universal
 ******************************************************************************/
 
-.hbsDebuggerPanel::after {
-	content: "";
-	display: block;
+body, .container, .container-fluid, #page_container {
+	margin-bottom: 40px;
+}
+
+img {
 	width: 100%;
+	height: auto;
+}
+
+.gl_clearfix::after {
+	display: block;
+	content: " ";
+	clear: both;
 	line-height: 0;
 	font-size: 0;
 }
 
-body, .container, .container-fluid, #page_container {
-	margin-bottom: 40px;
-}
+/******************************************************************************
+  HEADER / BANNER / LOGO
+******************************************************************************/
 
 .hbs_headers .hbs_banner {
 	margin-top: 20px;
@@ -30,17 +39,14 @@ body, .container, .container-fluid, #page_container {
 }
 
 .hbs_headers {
-/*	margin-bottom: 40px;
-	margin-top: 40px;*/
 	padding-top: 25px;
 	padding-bottom: 15px;
-/*	-webkit-box-shadow: 2px 10px 27px 2px rgba(80,80,80,0.75);
-	-moz-box-shadow: 2px 10px 27px 2px rgba(0,0,0,0.75);*/
 	box-shadow: 0px 5px 2px -2px rgba(200,200,200,0.75);
-	/*border-bottom: 3px solid black;*/
 }
 
-/* navigation bar*/
+/*-------------------------------------
+  Navigation bar
+--------------------------------------*/
 .navbar-toggle span.icon-bar {
 	background-color: black;
 }
@@ -54,114 +60,16 @@ body, .container, .container-fluid, #page_container {
 	height: 100%;
 }
 
-.hbs_headers .navbar_logoWords {
-	width: auto;
-	height: 40px;
-}
-
-.hbsDebuggerSwitch {
-	margin: 0px 1px;
-	border: 1px dotted blue;
-}
-
-/* header */
-/*@media (min-width: 768px) {
-    .navbar .navbar-nav {
-        display: inline-block;
-        float: none;
-    }
-
-    .navbar .navbar-collapse {
-        text-align:;
-    }
-}*/
-
-.background_test {
-	background-color: yellow;
-	text-align: center;
-}
-
-.foreground_test {
-	background-color: gray;
-	text-align: center;
-}
-
-.background_test div {
-	display: inline-block;
-	padding: 0 5px;
-	background-color: rgb(200, 200, 200);
-	border: 2px solid black;
-}
-
-.foreground_test div {
-	display: inline-block;
-	padding: 0 5px;
-	background-color: rgb(220, 220, 200);
-	border: 2px solid black;
-}
-
-.gl_clearfix::after {
-	display: block;
-	content: " ";
-	clear: both;
-	line-height: 0;
-	font-size: 0;
-}
-
-
-.mobileCheck { background-color: red;}
-
-img {
-	width: 100%;
-	height: auto;
-}
-
-/* small devices - tablets */
 @media screen and (min-width: 768px) {
-	.hbs_banner_words img {
-		width: 600px;
-		height: auto;
+	.hbs_headers .navbar_logoWords {
+		width: auto;
+		height: 40px;
 	}
-
-	.mobileCheck { background-color: green;	}
-}
-
-/* medium - desktpo*/
-@media screen and (min-width: 992px) {
-	.mobileCheck { background-color: blue; }
-}
-
-/* large desktops */
-@media screen and (min-width: 1200px) {
-	.mobileCheck { background-color: white; }
-}
-
-body {
-	background-color: white;
 }
 
 /******************************************************************************
   FRONT PAGE
 ******************************************************************************/
-
-/*html, body, .frontpage_container, .frontpage_row, .frontpage_md_rightColumn {
-	height: 100%;
-}*/
-
-.hbs_banner_words {
-	/*background-color: white;*/
-}
-
-
-#frontpage_container {
-}
-
-#frontpage_row {
-}
-
-#frontpage_carousel {
-	/*margin-left: -30px;*/
-}
 
 .frontpage_md_slideshow {
 	border-bottom: 2px outset rgb(118, 0, 1);
@@ -177,28 +85,9 @@ body {
 	line-height: 1.2;
 }
 
-.frontpage_md_mission {
-	padding: 0px 10px;
-}
-
-.frontpage_md_leftColumn .frontpage_block_content {
-  /*background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_3_picture.png?4392);*/
-	/*border-right: 3px outset rgb(169, 21, 37);*/
-	/*border-bottom: 3px outset rgb(169, 21, 37);*/
-	/*background-color: white;*/
-}
-
 .frontpage_md_leftColumn .row {
 	margin-top: 20px;
 	margin-bottom: 20px;
-}
-
-.frontpage_md_rightColumn .frontpage_block_content {
-/*    background-image: url(//cdn.shopify.com/s/files/1/0595/0661/t/3/assets/default_background_3_picture.png?4392);
-    border-right: 3px solid rgb(0, 25, 75);
-    border-bottom: 3px solid rgb(0, 25, 75); 
-    border-radius: 0px 5px 0px 5px;
-    padding: 0px 8px;*/
 }
 
 .frontpage_md_rightColumn .row {
@@ -218,7 +107,17 @@ body {
 	margin-top: 0px;
 }
 
-@media (min-width: 768px) {
+
+.frontpage_md_rightColumn h3 {
+	color: rgb(0, 100, 25);
+}
+
+.frontpage_md_leftColumn h3 {
+	text-align: center;
+	color: rgb(13, 102, 127);
+}
+
+@media screen and (min-width: 768px) {
 	.frontpage_md_leftColumn_innerRow .col-sm-7 {
 		width: 62%;
 	}
@@ -230,55 +129,15 @@ body {
 	.frontpage_md_leftColumn_innerRow .col-sm-offset-1 {
 		margin-left: 3%;
 	}
-}
 
-.frontpage_md_rightColumn h3 {
-	color: rgb(0, 100, 25);
-}
-
-@media screen and (min-width: 768px) {
 	.frontpage_md_leftColumn h3 {
 		text-align: left;
 	}
-
-	.frontpage_md_leftColumn {
-		/*border-right: 3px ridge rgb(200,150,100);*/
-	}
-
-
-	.frontpage_md_rightColumn {
-		/*border-right: 3px ridge rgb(200,150,100);*/
-		/*background-image: linear-gradient(to bottom, rgb(252, 212, 161), white);*/
-		/*background-image: linear-gradient(to right, rgb(118, 0, 1), white 8%);*/
-	}
-
-	.frontpage_md_rightColumn .frontpage_block_content {
-/*	    border-right: 3px outset rgb(107, 189, 185);
-	    border-bottom: 3px outset rgb(107, 189, 185);
-	    background-color: white;*/
-    }
 }
 
-.frontpage_md_leftColumn h3 {
-	/*border-bottom: 3px solid rgb(229, 102, 93);*/
-	/*text-shadow: 1px 1px 1px black;*/
-	/*border-bottom: 2px solid rgb(10, 100, 120);*/
-	text-align: center;
-	color: rgb(13, 102, 127);
-}
-
-
-.pre-scrollable {
-	border-right: 1px solid rgb(200,200,200);
-}
-
-.frontpage_md_contact h3 {
-	/*margin-top: 0;*/
-}
-
-/*-----------------------------------------------------------------------------
+/*-------------------------------------
   FEATURED PRODUCT GRID FRONT PAGE
--------------------------------------------------------------------------------*/
+--------------------------------------*/
 
 .featuredProductContainer {
 	text-align: center;
@@ -306,49 +165,6 @@ body {
 	text-align: center;
 }
 
-
-/*.frontpage_md_featuredProduct img {
-	border: 3px double rgb(220, 220, 220);
-}*/
-
-/* WIREFRAME front page (index.liquid) */
-
-/*.hbs_innerrow {
-	border: 2px solid red;
-}
-
-.frontpage_md_leftColumn {
-  border: 2px solid blue;
-}
-
-.frontpage_md_rightColumn {
-	border: 2px solid black;
-}
-
-.frontpage_md_contact {
-	background-color: yellow;
-}
-
-.frontpage_md_upcomingEvents {
-	background-color: orange;
-}
-
-.frontpage_md_pulseFeature {
-	background-color: #ADD8E6;
-}
-
-.frontpage_md_featuredProduct {
-	background-color: #76EE00;
-}
-
-.frontpage_md_mission {
-	background-color: #D3D3D3;
-}
-
-.frontpage_md_pulseNews {
-	background-color: pink;
-}
-*/
 /******************************************************************************
   ABOUT US PAGE: EXEC TEAM PROFILE
 ******************************************************************************/
@@ -746,10 +562,6 @@ OVERWRITING BOOTSTRAP TABLE
   }
 }
 
-/*.collection-grid-row {
-  background-image: url({{ 'default_background_3_picture.png' | asset_url }});
-}*/
-
 /******************************************************************************
   PRODUCT / Product-page-item.liquid
     + individual product layout
@@ -763,3 +575,64 @@ OVERWRITING BOOTSTRAP TABLE
 
 }
 
+/******************************************************************************
+  DEBUGGER PANEL and MOBILE CHECK
+    + hbsDebuggerSwitch are for the styling buttons, can turn on in settings
+    + mobile check is for internal javascript code which uses @media to accurately check what the current viewport is classified as
+******************************************************************************/
+
+.hbsDebuggerPanel::after {
+	content: "";
+	display: block;
+	width: 100%;
+	line-height: 0;
+	font-size: 0;
+}
+
+.hbsDebuggerSwitch {
+	margin: 0px 1px;
+	border: 1px dotted blue;
+}
+
+.background_test {
+	background-color: yellow;
+	text-align: center;
+}
+
+.foreground_test {
+	background-color: gray;
+	text-align: center;
+}
+
+.background_test div {
+	display: inline-block;
+	padding: 0 5px;
+	background-color: rgb(200, 200, 200);
+	border: 2px solid black;
+}
+
+.foreground_test div {
+	display: inline-block;
+	padding: 0 5px;
+	background-color: rgb(220, 220, 200);
+	border: 2px solid black;
+}
+
+/* The following is for internal javascript to check for viewport classification */
+
+.mobileCheck { background-color: red;}
+
+/* small devices - tablets */
+@media screen and (min-width: 768px) {
+	.mobileCheck { background-color: green;	}
+}
+
+/* medium - desktpo*/
+@media screen and (min-width: 992px) {
+	.mobileCheck { background-color: blue; }
+}
+
+/* large desktops */
+@media screen and (min-width: 1200px) {
+	.mobileCheck { background-color: white; }
+}
