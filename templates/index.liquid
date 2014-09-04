@@ -86,7 +86,8 @@
 </div>
 
 <script>
-  window.hbsApp.template = {{ template | json }}
+  window.hbsApp.template = {{ template | json }};
+  window.hbsApp.page = {{ page | json }};
 </script>
 
 {% comment %}

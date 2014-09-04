@@ -13,7 +13,7 @@
     {% assign event_location = base_string | append: 'location' %}
     {% assign event_location_link = base_string | append: 'location_link' %}
 
-    <div class="row{% cycle ' img-left', ' img-right' %}{% cycle ' info-right', ' info-left' %}">
+    <div class="row{% cycle ' img-left', ' img-right' %}{% cycle ' info-right', ' info-left' %} eventWrapper">
       <div class="col-xs-8 {% cycle 'col-xs-push-4', '' %}">
           <div class="eventInfo">
             <h4 class="frontpage_event_title">{{ settings[event_title] }}</h4>
@@ -31,6 +31,74 @@
             <img class="frontpage_upcomingevents_picture" src="{{ event_picture | asset_url }}" alt="event picture {{i}}"/>    
           </div>
       </div> <!-- END event img /.col-xs-4 -->
+      <div class="col-xs-12 event_descriptionTemp"></div>
     </div>
   {% endif %}
 {% endfor %}
+
+<script>
+/*
+  CONSIDER
+    for xs
+      info: col-xs-7
+      img: col-xs-5
+      description: col-xs-12
+
+  Helper function plan. 
+  can it be done without javascript using only css? i don't think so, can't measure height of text...
+
+  if eventInfo contains eventDescription
+    - I take the height of the eventPicture and compare it to the height of overall eventInfo
+      --> if eventInfo is larger, then i take the eventDescription and append it to event_descriptionTemp
+      --> if not larger, then do nothing
+
+  if eventInfo does NOT contain description
+    - I take the heigh of the eventPicture and compare it to the height of the eventInfo PLUS eventDescription with (.col-xs-8 width) (as IF it were inserted back into...hm)..
+      ?? take i take the height of a detached element? --> NO
+      --> if it is smaller, then I insert it back into 
+
+*/
+
+/*
+$(window).resize(function () {
+  // thresholdMax is a multiplier, 1 === 100%, 1.05 == 105%. If the eventInfo is only -slightly- larger than the picture, maybe it is not necessary to take it ou. 
+  var thresholdMax = 1;
+  if (hbsApp.mobileCheck === 'xs') {
+    var eventWrapper = $('.eventWrapper');
+    var pictures = $('.eventPicture', eventWrapper);
+    var eventInfo = $('.eventInfo', eventWrapper);
+    var infoCol = $('.col-xs-8', eventWrapper);
+    var eventTemp = $('.event_descriptionTemp', eventWrapper);
+
+    $('.frontpage_event_description').each(function (index) {
+      var picHeight = parseInt($(pictures[index]).css('height'), 10);
+      var descripHeight = parseInt($(this).css('height'), 10);
+      var infoHeight = parseInt($(eventInfo[index]).css('height'), 10);
+      console.log('checking becaues XS');
+
+      // if parent is eventInfo, that means it is contained within eventInfo, and we check the full height to see if it's more than the eventPicture
+      if ($(this).parent().hasClass('.eventInfo')) {
+        console.log('parent is eventInfo. is infoHeight > picHeight?: ', infoHeight > picHeight);
+        if (infoHeight > picHeight) {
+          $(this).appendTo(eventTemp[index]);
+          tyepasdonethi
+        }
+      // if parent is event_descriptionTemp. we change its width to the infoCol width, and check if the would be height PLUS the currentInfo height is greater than the picture height
+      } else if ($(this).parent().hasClass('event_descriptionTemp')) {
+        console.log('parent is descripTemp');
+        var infoColWidth = $(infoCol[index]).css('width');
+        var withinInfoHeight = parseInt($(this).css('width', infoColWidth).css('height'), 10);
+        // if it is greater, then we append it to the appropriate eventInfo index, else we revert it back to its original width
+        if (withinInfoHeight + infoHeight > picHeight * thresholdMax) {
+          $(this).appendTo(eventInfo[index]);
+        } else {
+          $(this).css('width', 'auto');
+        }
+      }
+
+    });
+  }
+
+}).trigger('resize');
+*/
+</script>

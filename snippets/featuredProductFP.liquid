@@ -1,6 +1,5 @@
 <div class="featuredProductContainer">
   {% for product in collections['featured-product'].products %}
-  <script>console.log( 'products', {{ product | json }})</script>
     <div class="productWrapper">
       <div class="productPicture">
         <img src="{{product.featured_image | img_url: 'medium' }}"/>        

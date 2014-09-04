@@ -13,6 +13,21 @@ var hbsApp = window.hbsApp
     blue: rgb(0, 0, 255) === 'md' < 1200px
     white: rgb(255, 255, 255) === 'lg'
   */
+
+  /****************************************************************************
+    UNIVERSAL
+  ****************************************************************************/
+
+  // special console log, first argument is true or false, meaning to be displayed or not
+  // this is because we can't set break points in chrome debugger, so have to use console logs to debug
+  hbsApp.cLog = function (toLog) {
+    if (toLog === true) {
+      var args = Array.isArray(arguments[1]) ? arguments[1] : Array.prototype.slice.call(arguments, 1);
+      console.log.apply(console, args);
+    }
+  };
+
+  // converts an rgba string to an array of returns an array of 3 or 4 values
 	hbsApp.rgbaToVal = function (rgbaStr) {
     rgbaStr = rgbaStr || "rgba(255, 255, 255)";
 		var rgba = [];
@@ -23,6 +38,7 @@ var hbsApp = window.hbsApp
 		return rgba;
 	}
 
+  // this is for checking if the size of the viewport as classified by bootstrap (xs, sm, md, lg)
   hbsApp.rgbaToName = function (rgbaStr) {
   	var rgba = hbsApp.rgbaToVal(rgbaStr);
   	var red = rgba[0];
@@ -41,19 +57,21 @@ var hbsApp = window.hbsApp
   	}
   };
 
+  // returns 'xs', 'sm', 'md', or 'lg', depending on the current viewport
   hbsApp.getMobileCheck = function () {
 	  return hbsApp.rgbaToName($('.mobileCheck', hbsApp.headers).css('background-color'));
   };
 
   /*
     check if images are still loading
-
     // timesChecked specifies max amount of time this function will run, just in case an image can't be found, the page won't stop loading
   */
   hbsApp.checkImgLoading = function (imageElements, callback, args, context, timesChecked) {
+    var interval = 300;
+    var toLog = false;
   	timesChecked = (timesChecked === undefined ? 40 : timesChecked);
-    // console.log('timesChecked orig: ', timesChecked);
-    // console.log('checkImgLoading: ', imageElements, callback, args, context, timesChecked);
+    hbsApp.cLog(toLog, 'timesChecked orig: ', timesChecked);
+    hbsApp.cLog(toLog, 'checkImgLoading: ', imageElements, callback, args, context, timesChecked);
   	if (timesChecked > 0) {
 	    imageElements = imageElements || $('img');
 	    context = context || null;
@@ -64,29 +82,21 @@ var hbsApp = window.hbsApp
 
 	  	// all images are loading / have a size
 	  	if (filtered.length === 0) {
-        console.log('timesChecked total loops: ', 40 - timesChecked);
+        hbsApp.cLog(toLog, 'timesChecked total loops: ', 40 - timesChecked, ', at', interval, 'ms / loop');
 	  		hbsApp.imagesLoading = true;
 	  		callback.apply(context, args);
 
 	  	// not all images are loading / received size yet
 	  	} else {
 	  		var images = filtered;
-	  		// for (var i = 0; i < images.length; i++) { console.log('img' + i, images[i].src, images[i].naturalHeight)}
+	  		// for (var i = 0; i < images.length; i++) { hbsApp.cLog(toLog, 'img' + i, images[i].src, images[i].naturalHeight)}
 	  		hbsApp.imagesLoading = false;
-        // console.log('timesChecked: ', timesChecked);
+        hbsApp.cLog(toLog, 'timesChecked loops left: ', timesChecked);
 	  		setTimeout(function () {
 	  			hbsApp.checkImgLoading(filtered, callback, args, context, timesChecked-1);
-	  		}, 300);
+	  		}, interval);
 	  	}
   	}
-  };
-
-  /*
-    check if function is allowed to be executed on the current page
-  */
-
-  hbsApp.okayToExecute = function (page_title) {
-
   };
 
   /*
@@ -97,23 +107,24 @@ var hbsApp = window.hbsApp
   */
 
   hbsApp.fpAdjustCol = function () {
+    var toLog = true;
     if ($('#frontpage_container').length > 0) {
-      console.log('fpAdjustCol executed');
+      hbsApp.cLog(toLog, 'fpAdjustCol executed');
       var leftCol = $(".frontpage_md_leftColumn")[0];
       var rightCol = $(".frontpage_md_rightColumn")[0];
       $(rightCol).css('height', 'auto');
 
       var leftColHeight = leftCol.scrollHeight;
       var rightColHeight = rightCol.scrollHeight;
-      console.log('col left:', leftColHeight, ', right:',rightColHeight);
+      hbsApp.cLog(toLog, 'col left:', leftColHeight, ', right:',rightColHeight);
 
       if (hbsApp.mobileCheck === 'xs') {
         $(rightCol).css('height', 'auto');
-        console.log('currently small?');
+        hbsApp.cLog(toLog, 'currently small?');
       } else if (rightColHeight < leftColHeight) {
-        console.log('right before adj', rightCol.scrollHeight);
+        hbsApp.cLog(toLog, 'right before adj', rightCol.scrollHeight);
         $(rightCol).css('height', leftColHeight + 'px');
-        console.log('right after adj', rightCol.scrollHeight);
+        hbsApp.cLog(toLog, 'right after adj', rightCol.scrollHeight);
       } else if (rightColHeight >= leftColHeight) {
         $(rightCol).css('height', 'auto');
       } else {
@@ -128,6 +139,7 @@ var hbsApp = window.hbsApp
     - useful for container-fluid    
   */
   hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp, imageSelector) {
+    var toLog = true;
     imageSelector = imageSelector || '.collection-grid-row .product-image-wrapper img';
     if (!imageObj) {
       hbsApp.imageObj = {};
@@ -188,6 +200,7 @@ var hbsApp = window.hbsApp
     calculate current column width, fixed or fluid will both have the same width once the dom is loaded
   */
   hbsApp.catalogColWidth = function (colSelector) {
+    var toLog = true;
     colSelector = colSelector || '.product-grid-wrapper';
     var col = $(colSelector);
     if (col.length > 0) {
@@ -207,7 +220,6 @@ var hbsApp = window.hbsApp
   */
   hbsApp.catalogInitCol = function (idealHeight, imageSelector) {
     imageSelector = imageSelector || '.product-grid-wrapper img';
-
     $(imageSelector).css({height: idealHeight + 'px', width: 'auto'});
   };
 
@@ -259,18 +271,71 @@ var hbsApp = window.hbsApp
   /*---------------------------------------------------------------------------
     ABOUT US PAGE
   ---------------------------------------------------------------------------*/
+  hbsApp.fp_adjustEventsInfoDescription = function (thresholdMax) {
+    var toLog = false; // set to false to turn off debuggin console logs (breakpoints don't work on shopoify);
+    var thresholdMax = thresholdMax || 1;
+
+    // this checks only 'xs', but really, if someone transitions from 'xs' to other sizes, this sitll needs to be checked
+    // therefore, if there is a transition from xs to any othersize, then we will run this again
+    if (hbsApp.mobileCheck === 'xs' || hbsApp.mobileCheckPrevious === 'xs' && hbsApp.mobileCheck !== 'xs') {
+      hbsApp.cLog(toLog, 'checking becaues XS');
+      var eventWrapper = $('.eventWrapper');
+      var pictures = $('.eventPicture', eventWrapper);
+      var eventInfo = $('.eventInfo', eventWrapper);
+      var infoCol = $('.col-xs-8', eventWrapper);
+      var eventTemp = $('.event_descriptionTemp', eventWrapper);
+
+      $('.frontpage_event_description').each(function (index) {
+        var picHeight = parseInt($(pictures[index]).css('height'), 10);
+        var descripHeight = parseInt($(this).css('height'), 10);
+        var infoHeight = parseInt($(eventInfo[index]).css('height'), 10);
+
+        // debugging purpose
+        hbsApp.cLog(toLog, 'picHeight:', picHeight, ', descripHeight:', descripHeight, ', infoHeight:', infoHeight);
+        hbsApp.cLog(toLog, 'this parent has class eventInfo:', $(this).parent().hasClass('eventInfo'));
+        hbsApp.cLog(toLog, 'this parent has class event description temp:', $(this).parent().hasClass('event_descriptionTemp'));
+
+        // if parent is eventInfo, that means it is contained within eventInfo, and we check the full height to see if it's more than the eventPicture
+        if ($(this).parent().hasClass('eventInfo')) {
+          hbsApp.cLog(toLog, 'parent is eventInfo. is infoHeight > picHeight?: ', infoHeight > picHeight);
+          if (infoHeight > picHeight) {
+            $(this).appendTo(eventTemp[index]);
+          }
+        // if parent is event_descriptionTemp. we change its width to the infoCol width, and check if the would be height PLUS the currentInfo height is greater than the picture height
+        } else if ($(this).parent().hasClass('event_descriptionTemp')) {
+          hbsApp.cLog(toLog, 'parent is descripTemp');
+          var infoColWidth = $(infoCol[index]).css('width');
+          var withinInfoHeight = parseInt($(this).css('width', infoColWidth).css('height'), 10);
+          hbsApp.cLog(toLog, 'infoColWidth (px):', infoColWidth, 'withinInfoHeight (decimal):', withinInfoHeight)
+          hbsApp.cLog(toLog, 'withinInfoHeight + infoHeight < picHeight * threshold', withinInfoHeight + infoHeight < picHeight * thresholdMax);
+          // if it is greater, then we append it to the appropriate eventInfo index, else we revert it back to its original width
+          if (withinInfoHeight + infoHeight < picHeight * thresholdMax) {
+            $(this).appendTo(eventInfo[index]);
+          } else {
+          }
+          $(this).css('width', 'auto');
+        }
+
+      });
+    }
+  }; // end of fp_adjustEventsInfoDescription
+
+  /*---------------------------------------------------------------------------
+    ABOUT US PAGE
+  ---------------------------------------------------------------------------*/
   hbsApp.sortProfiles = function (hbsApp) {
     // detaching and reattaching a sorted grid of profile names
+    var toLog = false;
     var breakerIndexes = [];
     var previousSibling = [];
     var breakers = $('.aboutus_execprofiles > *').filter(function (index) {
       if ($(this).hasClass('breaker')) {
         breakerIndexes.push(index);
-        console.log('index: ', index);
+        hbsApp.cLog(toLog, 'index: ', index);
         return true; 
       }
     }).detach();
-    console.log('breaker index: ', breakerIndexes, ', breakers: ', breakers);
+    hbsApp.cLog(toLog, 'breaker index: ', breakerIndexes, ', breakers: ', breakers);
 
     // get profile wrappers and detach
     var profileWrappers = $('.aboutus_execprofile_profile_wrapper').filter(function (index) {
@@ -278,7 +343,7 @@ var hbsApp = window.hbsApp
         return true;
       }
     }).detach();
-    console.log('\nnames before sort: ', $('.aboutus_execprofile_profile_name', profileWrappers).text());
+    hbsApp.cLog(toLog, '\nnames before sort: ', $('.aboutus_execprofile_profile_name', profileWrappers).text());
 
     // sort the wrappers, mutates the original array
     profileWrappers.sort(function (profile1, profile2) {
@@ -294,14 +359,14 @@ var hbsApp = window.hbsApp
       }
     });
 
-    console.log('after sort: ', $('.aboutus_execprofile_profile_name', profileWrappers).text());
+    hbsApp.cLog(toLog, 'after sort: ', $('.aboutus_execprofile_profile_name', profileWrappers).text());
 
     // reinsert/reattach profile wrappers
     profileWrappers.appendTo($('.aboutus_execprofiles'));
 
     // reinsert/reattach breakers
     breakerIndexes = [0, 3, 6];
-    console.log('new breakerIndexes: ', breakerIndexes);
+    hbsApp.cLog(toLog, 'new breakerIndexes: ', breakerIndexes);
     var first = true;
     for (var i = 0; i < breakerIndexes.length; i++) {
       if (i === 0) {

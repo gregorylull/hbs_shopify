@@ -9,21 +9,33 @@ $(function () {
 
 	// universal properties to access
 	hbsApp.docWidth = $(document).width();
+  hbsApp.docWidthPrevious = null
 	hbsApp.windowWidth = $(window).width();
+  hbsApp.windowWidthPrevious = null;
 	hbsApp.header = $('.hbs_headers');
 	hbsApp.container = hbsApp.getContainerDOM(); // returns element, stripped away of $() wrap
 	hbsApp.containerType = hbsApp.getContainerType(hbsApp.container);
 	hbsApp.mobileCheck = hbsApp.getMobileCheck();
+  hbsApp.mobileCheckPrevious = null;
 	hbsApp.imagesLoading = false;
 	hbsApp.page_title = false;
 
 	// initialize app
 	hbsApp.catalogInitCol(hbsApp.catalogColWidth());
   hbsApp.checkImgLoading("", function () {
-  	hbsApp.fpAdjustCol();
-  	hbsApp.catalogAdjustProductHeight("", hbsApp);
-  	console.log('executed?');
+  	console.log('all images are beginning to load, execute image dimension related functions:\n');
+
+    if (hbsApp.template === 'index') {
+      console.log('this is index page');
+      hbsApp.fpAdjustCol();
+      hbsApp.fp_adjustEventsInfoDescription()
+    } else if (hbsApp.template === 'collection') {
+      console.log('this is collection page');
+      hbsApp.catalogAdjustProductHeight("", hbsApp);
+    } 
   }, [], hbsApp);
+
+  // initialize control panel
   hbsApp.controlPanelInit(hbsApp);
 
   // page specific initiaion
@@ -38,17 +50,19 @@ $(function () {
 			clearTimeout(timeoutPointer);
 			timeoutPointer = setTimeout(function () {
 				console.log("\n");
-				var oldWidth = hbsApp.docWidth;
+				hbsApp.docWidthPrevious = hbsApp.docWidth;
 				hbsApp.docWidth = $(document).width()
-				var diff = hbsApp.docWidth - oldWidth;
-				console.log('Window resized, new width:', hbsApp.docWidth, ', old: ', oldWidth, ', diff px:', diff, ', diff %:', (diff/oldWidth*100).toFixed(4));
+				var diff = hbsApp.docWidth - hbsApp.docWidthPrevious;
+				console.log('Window resized, new width:', hbsApp.docWidth, ', old: ', hbsApp.docWidthPrevious, ', diff px:', diff, ', diff %:', (diff/hbsApp.docWidthPrevious*100).toFixed(4));
 
-				var oldMobileCheck = hbsApp.mobileCheck;
+        // mobile check has to be close to the top of the resize function because it is used by other functions
+				hbsApp.mobileCheckPrevious = hbsApp.mobileCheck;
 				hbsApp.mobileCheck = hbsApp.getMobileCheck();
-				console.log('Window resized, new grid: ', hbsApp.mobileCheck, ', old: ', oldMobileCheck);
+				console.log('Window resized, new grid: ', hbsApp.mobileCheck, ', old: ', hbsApp.mobileCheckPrevious);
 
 				// for front page
 				hbsApp.fpAdjustCol();
+        hbsApp.fp_adjustEventsInfoDescription();
 
 				// for catalog.all page
 		  	hbsApp.catalogAdjustProductHeight(hbsApp.imageObj, hbsApp);
@@ -56,6 +70,6 @@ $(function () {
 			}, 100);
 		}
 	})()); // end of resizing update functions
-	
+
 	console.log('\n\n**** /END javascript main.js ********\n\n');
 });
