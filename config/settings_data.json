@@ -2,6 +2,7 @@
   "current": "HbsSA",
   "presets": {
     "HbsSA": {
+      "homepage_slideshow_pic_0_checkbox": true,
       "debugger_display": true,
       "aboutus_execprofile_row_sequence": "2, 4, 3, 4",
       "aboutus_execprofile_0_name": "Linda Li",
