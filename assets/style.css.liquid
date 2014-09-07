@@ -3,7 +3,7 @@
   Universal
 ******************************************************************************/
 
-body, .container, .container-fluid, #page_container {
+.container, .container-fluid, #page_container {
 	margin-bottom: 40px;
 	/*font-family: "Lato", sans-serif;*/
 }
@@ -30,7 +30,6 @@ img {
 
 .hbs_headers {
 	padding-top: 10px;
-	/*padding-bottom: 10px;*/
 	box-shadow: 0px 5px 2px -2px rgba(200,200,200,0.75);
 }
 
@@ -88,9 +87,47 @@ img {
   }
 }
 
+@media (max-width: 1100px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+		margin-top: 7.5px;
+	}
+	.navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+  		display:block !important;
+	}
+}
+
 /******************************************************************************
   FRONT PAGE
 ******************************************************************************/
+
 /*-------------------------------------
   FRONTPAGE ALL
 -------------------------------------*/
@@ -147,6 +184,13 @@ img {
 	color: rgb(0, 100, 25);
 }
 
+/*----------------------
+  PULSE FEATURE IMG
+-----------------------*/
+.frontpage_md_pulseFeature img {
+	width: 60vw;
+	height: auto;
+}
 
 /*-------------------------------------
   UPCOMING EVENTS GRID
@@ -186,13 +230,25 @@ img {
 	text-align: center;
 }
 
+
+
 /*-------------------------------------
   MEDIA QUERIES
+    .container
+    .leftColumn h3 align left
+    .upcomingEvents .pulseFeature images size scaling
+    .upcomingEvents linear gradient
 -------------------------------------*/
 
+/* if the container is non-fluid, and on the index template, then its max width will be 1000px */
+.container.index {
+	max-width: 1000px;
+}
+
 @media screen and (min-width: 768px) {
-  .container.index {
-  	max-width: 1000px;
+  /* starting from a viewport of 768px, the container will be 95% width of container, but no more than 1000px */
+	.container.index {
+	  width: 95%;
   }
 
 	.frontpage_md_leftColumn h3 {
@@ -213,7 +269,16 @@ img {
   .frontpage_md_upcomingEvents .img-right {
   	background-image: linear-gradient(to left, rgb(164, 16, 52), rgb(220,220,220) 10%, white);
   }
+
+	/*----------------------
+	  PULSE FEATURE IMG
+	-----------------------*/
+	.frontpage_md_pulseFeature img {
+		width: auto;
+	}
 }
+
+
 
 /******************************************************************************
   ABOUT US PAGE: EXEC TEAM PROFILE
@@ -585,6 +650,7 @@ OVERWRITING BOOTSTRAP TABLE
 
 .collection-grid-title {
 	margin-top: 0px;
+	margin-left: 15px;
 }
 
 .collection-grid-title span {
@@ -619,11 +685,53 @@ OVERWRITING BOOTSTRAP TABLE
      .product-page-row1
      .product-page-tabs
 ******************************************************************************/
-
-.product-page-product-Picture {
-	width: 100%;
-
+.product-page-row1 {
+	margin-bottom: 20px;
 }
+
+.product-page-productPicture.horizRect img {
+	width: 100%;
+	height: auto;
+}
+
+.product-page-productPicture.vertRect img {
+  width: auto;
+  height: 100%;
+}
+
+.product-page-productPicture.square, .product-page-productPicture.horizRect, .product-page-productPicture.vertRect {
+	width: 70vw;
+	height: 70vw;
+}
+
+/* small devices - tablets, col-width ~= 62px */
+@media screen and (min-width: 768px) {
+	.product-page-productPicture.square, .product-page-productPicture.horizRect,
+	 .product-page-productPicture.vertRect {
+		width: 350px;
+		height: 350px;
+  }
+}
+
+/* medium - desktop, col-width ~= 81px */
+@media screen and (min-width: 992px) {
+	.product-page-productPicture.square, .product-page-productPicture.horizRect,
+	 .product-page-productPicture.vertRect {
+  	width: 400px;
+		height: 400px;
+	}
+}
+
+/* large desktops */
+@media screen and (min-width: 1200px) {
+	.product-page-productPicture.horizRect {
+  }
+
+	.product-page-productPicture.vertRect {
+	}
+}
+
+
 
 /******************************************************************************
   DEBUGGER PANEL and MOBILE CHECK
@@ -685,4 +793,16 @@ OVERWRITING BOOTSTRAP TABLE
 /* large desktops */
 @media screen and (min-width: 1200px) {
 	.mobileCheck { background-color: white; }
+}
+
+/******************************************************************************
+  CART
+******************************************************************************/
+
+.cart-table input.quantity {
+	width: 50px;
+}
+
+.cart-table .cart-productPicture img {
+	width: auto;
 }

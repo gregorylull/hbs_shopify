@@ -20,7 +20,8 @@ $(function () {
 	hbsApp.imagesLoading = false;
 	hbsApp.page_title = false;
 
-	// initialize app
+/*
+	// initialize app with image depdendent functions
 	hbsApp.catalogInitCol(hbsApp.catalogColWidth());
   hbsApp.checkImgLoading("", function () {
   	console.log('all images are beginning to load, execute image dimension related functions:\n');
@@ -28,17 +29,43 @@ $(function () {
     if (hbsApp.template === 'index') {
       console.log('this is index page');
       hbsApp.fpAdjustCol();
-      hbsApp.fp_adjustEventsInfoDescription()
+      hbsApp.fp_adjustEventsInfoDescription();
+      hbsApp.fp_centerPulseFeatureImg();
+
     } else if (hbsApp.template === 'collection') {
       console.log('this is collection page');
       hbsApp.catalogAdjustProductHeight("", hbsApp);
-    } 
+
+    } else if (hbsApp.template === 'product') {
+      hbsApp.product_adjustMaxDimensions(hbsApp);
+    }
   }, [], hbsApp);
+*/
+
+  // test
+  $(window).load(function () {
+    if (hbsApp.template === 'index') {
+      console.log('this is index page');
+      hbsApp.fpAdjustCol();
+      hbsApp.fp_adjustEventsInfoDescription();
+      hbsApp.fp_centerPulseFeatureImg();
+
+    } else if (hbsApp.template === 'collection') {
+      console.log('this is collection page');
+      hbsApp.catalogAdjustProductHeight("", hbsApp);
+
+    } else if (hbsApp.template === 'product') {
+      hbsApp.product_adjustMaxDimensions(hbsApp);
+    }
+  });
 
   // initialize control panel
-  hbsApp.controlPanelInit(hbsApp);
+  var displayDebugger = JSON.parse({{settings['debugger_display'] | json }});
+  if (displayDebugger) {
+    hbsApp.controlPanelInit(hbsApp);
+  }
 
-  // page specific initiaion
+  // page specific initiaion that is not images dependentn
   if (hbsApp.page === 'about-us') {
   	hbsApp.sortProfiles(hbsApp);
   }

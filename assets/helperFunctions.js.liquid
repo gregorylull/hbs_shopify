@@ -3,17 +3,6 @@
 window.hbsApp = {} ;
 var hbsApp = window.hbsApp
 
-	/*
-	  RIGHT COLUMN FRONT PAGE SCROLL HEIGHT DETECTION
-	    + we will plant a invisible div on screen (.mobileCheck), that changes its background-color using bootstrap's media query breakpoints
-	    + we will check the color on that div everytime there is a window resize;
-
-    red: rgb(255, 0, 0) === 'xs' < 768px
-    green: rgb(0, 128, 0) === 'sm' < 992px
-    blue: rgb(0, 0, 255) === 'md' < 1200px
-    white: rgb(255, 255, 255) === 'lg'
-  */
-
   /****************************************************************************
     UNIVERSAL
   ****************************************************************************/
@@ -57,7 +46,7 @@ var hbsApp = window.hbsApp
   	}
   };
 
-  // returns 'xs', 'sm', 'md', or 'lg', depending on the current viewport
+  // returns 'xs', 'sm', 'md', or 'lg', depending on the current viewport. this is based on a hidden div in the header that changes background color according to css media queries
   hbsApp.getMobileCheck = function () {
 	  return hbsApp.rgbaToName($('.mobileCheck', hbsApp.headers).css('background-color'));
   };
@@ -100,138 +89,6 @@ var hbsApp = window.hbsApp
   };
 
   /*
-    frontpage column adjustment
-    - right column always has to be gte the left column (height: fixed)
-      + except on mobile (height: auto)
-      + except when the left column is naturally shorter because of its contents
-  */
-
-  hbsApp.fpAdjustCol = function () {
-    var toLog = true;
-    if ($('#frontpage_container').length > 0) {
-      hbsApp.cLog(toLog, 'fpAdjustCol executed');
-      var leftCol = $(".frontpage_md_leftColumn")[0];
-      var rightCol = $(".frontpage_md_rightColumn")[0];
-      $(rightCol).css('height', 'auto');
-
-      var leftColHeight = leftCol.scrollHeight;
-      var rightColHeight = rightCol.scrollHeight;
-      hbsApp.cLog(toLog, 'col left:', leftColHeight, ', right:',rightColHeight);
-
-      if (hbsApp.mobileCheck === 'xs') {
-        $(rightCol).css('height', 'auto');
-        hbsApp.cLog(toLog, 'currently small?');
-      } else if (rightColHeight < leftColHeight) {
-        hbsApp.cLog(toLog, 'right before adj', rightCol.scrollHeight);
-        $(rightCol).css('height', leftColHeight + 'px');
-        hbsApp.cLog(toLog, 'right after adj', rightCol.scrollHeight);
-      } else if (rightColHeight >= leftColHeight) {
-        $(rightCol).css('height', 'auto');
-      } else {
-        $(rightCol).css('height', leftColHeight + 'px');
-      }
-    }
-  };
-
-  /*
-    Catalog page adjust images just in case aspect ratio is not the same when merchant uploaded
-    - look for images under the .collection-grid-row
-    - useful for container-fluid    
-  */
-  hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp, imageSelector) {
-    var toLog = true;
-    imageSelector = imageSelector || '.collection-grid-row .product-image-wrapper img';
-    if (!imageObj) {
-      hbsApp.imageObj = {};
-      var imageObj = hbsApp.imageObj;
-      imageObj.images = $(imageSelector);
-      imageObj.ideal = null;
-      imageObj.unevenImages = [];
-      imageObj.evenImages = [];
-      imageObj.firstTime = true;
-      imageObj.images.each(function (index) {
-        if (!hbsApp.imageObj.ideal && this.naturalHeight % this.naturalWidth === 0) {
-          hbsApp.imageObj.ideal = this;
-          imageObj.evenImages.push(this);
-        } else {
-          if (this.naturalHeight % this.naturalWidth === 0) { 
-            imageObj.evenImages.push(this)
-          } else { 
-            imageObj.unevenImages.push(this) 
-          }
-        }
-      });
-    }
-
-    if (hbsApp.imageObj.ideal === null) {
-      var idealHeight = hbsApp.catalogColWidth();
-    } else {
-      var idealHeight = $(hbsApp.imageObj.ideal).css({width: "100%", height: 'auto'}).css('height');
-    }
-
-    if (imageObj.firstTime) {
-      $(imageObj.evenImages).css({width: '100%', height: 'auto'});
-    }
-  
-    /* 
-      if height/width is gt 1, then image is vertical rect, set height to fix, width to auto
-      if height/width is lt 1, then image is horizontal rect, set width to fix, height to auto
-    */
-    $(imageObj.unevenImages).each(function (index) {
-      var aspectRatio = this.naturalHeight / this.naturalWidth;
-
-      // vertical rectangle
-      if (aspectRatio > 1) {
-        $(this).css({height: idealHeight, width: 'auto'});
-
-      // horizontal rectangle
-      } else {
-        $(this).parent().css({height: idealHeight, width: 'auto'});
-        $(this).css({height: 'auto', width: idealHeight});
-        if (imageObj.firstTime) {
-          $(this).parent().addClass('unevenHorizontalParent');
-        }
-      }
-    });
-    imageObj.firstTime = false;
-  };
-
-  /*
-    calculate current column width, fixed or fluid will both have the same width once the dom is loaded
-  */
-  hbsApp.catalogColWidth = function (colSelector) {
-    var toLog = true;
-    colSelector = colSelector || '.product-grid-wrapper';
-    var col = $(colSelector);
-    if (col.length > 0) {
-      col = $(col[0]);
-      var finalWidth = parseInt(col.css('width'), 10);
-      var checkStyles = ['border-left', 'border-right', 'padding-left', 'padding-right']
-      for (var i = 0; i < checkStyles.length; i++) {
-        finalWidth -= parseInt(col.css(checkStyles[i]), 10);
-      }
-      return finalWidth;
-    }
-  }
-
-  /*
-    Because img loading time is asychronous, the pictures will jitter, so we have to set all the pictures to an initial width
-    - this executes ONCE only
-  */
-  hbsApp.catalogInitCol = function (idealHeight, imageSelector) {
-    imageSelector = imageSelector || '.product-grid-wrapper img';
-    $(imageSelector).css({height: idealHeight + 'px', width: 'auto'});
-  };
-
-  /*
-    creates an on click event for catalog page, hides all the rows of the products
-    - should run everytime a product is clicked
-  */
-  hbsApp.catalogDisplayProduct = function () {
-    hbsApp.catalogRows = $('.collection-grid-row');
-  };
-
-  /*
     return the container, strips away the $() wrap
   */
   hbsApp.getContainerDOM = function () {
@@ -269,8 +126,53 @@ var hbsApp = window.hbsApp
   ****************************************************************************/
 
   /*---------------------------------------------------------------------------
-    ABOUT US PAGE
+    HOMEPAGE / FRONTPAGE / LANDING 
   ---------------------------------------------------------------------------*/
+  /*
+    homepage/frontpage column adjustment
+    - right column always has to be gte the left column (height: fixed)
+      + except on mobile (height: auto)
+      + except when the left column is naturally shorter because of its contents
+  */
+
+  hbsApp.fpAdjustCol = function () {
+    var toLog = true;
+    if ($('#frontpage_container').length > 0) {
+      hbsApp.cLog(toLog, 'fpAdjustCol executed');
+      var leftCol = $(".frontpage_md_leftColumn")[0];
+      var rightCol = $(".frontpage_md_rightColumn")[0];
+      $(rightCol).css('height', 'auto');
+
+      var leftColHeight = leftCol.scrollHeight;
+      var rightColHeight = rightCol.scrollHeight;
+      hbsApp.cLog(toLog, 'col left:', leftColHeight, ', right:',rightColHeight);
+
+      if (hbsApp.mobileCheck === 'xs') {
+        $(rightCol).css('height', 'auto');
+        hbsApp.cLog(toLog, 'currently small?');
+      } else if (rightColHeight < leftColHeight) {
+        hbsApp.cLog(toLog, 'right before adj', rightCol.scrollHeight);
+        $(rightCol).css('height', leftColHeight + 'px');
+        hbsApp.cLog(toLog, 'right after adj', rightCol.scrollHeight);
+      } else if (rightColHeight >= leftColHeight) {
+        $(rightCol).css('height', 'auto');
+      } else {
+        $(rightCol).css('height', leftColHeight + 'px');
+      }
+    }
+  };
+
+  /*
+    Set all images within the pulse feature to be centered
+  */
+  hbsApp.fp_centerPulseFeatureImg = function () {
+    var pulseImages = $('.frontpage_md_pulseFeature img');
+    pulseImages.addClass('center-block').parent().addClass('center-block');
+  };
+
+  /*
+    this function breaks the description line in the upcoming events info container to a new line if it is determined that the picture size is too small in comparison to the info container
+  */
   hbsApp.fp_adjustEventsInfoDescription = function (thresholdMax) {
     var toLog = false; // set to false to turn off debuggin console logs (breakpoints don't work on shopoify);
     var thresholdMax = thresholdMax || 1;
@@ -381,4 +283,119 @@ var hbsApp = window.hbsApp
   /*---------------------------------------------------------------------------
     EVENTS PAGE
   ---------------------------------------------------------------------------*/
+
+  /*---------------------------------------------------------------------------
+    CATALOG / COLLECTIONS
+  ---------------------------------------------------------------------------*/
+  /*
+    Catalog page adjust images just in case aspect ratio is not the same when merchant uploaded
+    - look for images under the .collection-grid-row
+    - useful for container-fluid    
+  */
+  hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp, imageSelector) {
+    console.log('is this executed?');
+    var toLog = true;
+    imageSelector = imageSelector || '.collection-grid-row .product-image-wrapper img';
+    if (!imageObj) {
+      hbsApp.imageObj = {};
+      var imageObj = hbsApp.imageObj;
+      imageObj.images = $(imageSelector);
+      imageObj.ideal = null;
+      imageObj.unevenImages = [];
+      imageObj.evenImages = [];
+      imageObj.firstTime = true;
+      imageObj.images.each(function (index) {
+        if (!hbsApp.imageObj.ideal && this.naturalHeight % this.naturalWidth === 0) {
+          hbsApp.imageObj.ideal = this;
+          imageObj.evenImages.push(this);
+        } else {
+          if (this.naturalHeight % this.naturalWidth === 0) { 
+            imageObj.evenImages.push(this)
+          } else { 
+            imageObj.unevenImages.push(this) 
+          }
+        }
+      });
+    }
+
+    if (hbsApp.imageObj.ideal === null) {
+      var idealHeight = hbsApp.catalogColWidth();
+    } else {
+      var idealHeight = $(hbsApp.imageObj.ideal).css({width: "100%", height: 'auto'}).css('height');
+    }
+
+    if (imageObj.firstTime) {
+      $(imageObj.evenImages).css({width: '100%', height: 'auto'});
+    }
+  
+    /* 
+      if height/width is gt 1, then image is vertical rect, set height to fix, width to auto
+      if height/width is lt 1, then image is horizontal rect, set width to fix, height to auto
+    */
+    $(imageObj.unevenImages).each(function (index) {
+      var aspectRatio = this.naturalHeight / this.naturalWidth;
+
+      // vertical rectangle
+      if (aspectRatio > 1) {
+        $(this).css({height: idealHeight, width: 'auto'});
+
+      // horizontal rectangle
+      } else {
+        $(this).parent().css({height: idealHeight, width: 'auto'});
+        $(this).css({height: 'auto', width: idealHeight});
+        if (imageObj.firstTime) {
+          $(this).parent().addClass('unevenHorizontalParent');
+        }
+      }
+    });
+    imageObj.firstTime = false;
+  };
+
+  /*
+    calculate current column width, fixed or fluid will both have the same width once the dom is loaded
+  */
+  hbsApp.catalogColWidth = function (colSelector) {
+    var toLog = true;
+    colSelector = colSelector || '.product-grid-wrapper';
+    var col = $(colSelector);
+    if (col.length > 0) {
+      col = $(col[0]);
+      var finalWidth = parseInt(col.css('width'), 10);
+      var checkStyles = ['border-left', 'border-right', 'padding-left', 'padding-right']
+      for (var i = 0; i < checkStyles.length; i++) {
+        finalWidth -= parseInt(col.css(checkStyles[i]), 10);
+      }
+      return finalWidth;
+    }
+  }
+
+  /*
+    Because img loading time is asychronous, the pictures will jitter, so we have to set all the pictures to an initial width
+    - this executes ONCE only
+  */
+  hbsApp.catalogInitCol = function (idealHeight, imageSelector) {
+    imageSelector = imageSelector || '.product-grid-wrapper img';
+    $(imageSelector).css({height: idealHeight + 'px', width: 'auto'});
+  };
+
+  /*---------------------------------------------------------------------------
+    PRODUCT / INDIVIDUAL
+  ---------------------------------------------------------------------------*/
+  hbsApp.product_adjustMaxDimensions = function (hbsApp) {
+    hbsApp = hbsApp || window.hbsApp;
+    var image = $('.product-page-productPicture img')[0];
+    var aspectRatio = image.naturalWidth / image.naturalHeight;
+    // if aspect ratio is square, then set max width
+    if (aspectRatio === 1) {
+      $(image).parent().addClass('square');
+
+    // if aspect ratio is horizontal rectangle, then set max width
+    } else if (aspectRatio > 1) {
+      $(image).parent().addClass('horizRect');
+
+    // if aspect ratio is vertical rectangle, then set max height
+    } else if (aspectRatio < 1) {
+      $(image).parent().addClass('vertRect');
+    }
+  }
 })();

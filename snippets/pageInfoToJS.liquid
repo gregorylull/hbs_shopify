@@ -1,0 +1,5 @@
+<script>
+  console.log( 'page: ', {{ page.handle | json }}, ', template:', {{ template | json }}, ', pageInfo: ', {{ pageInfoToJS | json }});
+  hbsApp.page = {{ page.handle | json }};
+  hbsApp.template = {{ template | json }};
+</script>

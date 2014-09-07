@@ -1,8 +1,10 @@
 {% if template != "" %}{% assign templateClass = template %}{% endif %}
 {% if page.handle != "" %}{% assign pageClass = page.handle %}{% endif %}
 
+{% include 'pageInfoToJS' with 'index' %}
+
+{% include 'header' %}
 <div id="page_container" class="container {{templateClass}} {{pageClass}}">
-  {% include 'header' %}
 
   <div class="row frontpage_md_slideshow">
     {% include 'picture_carousel' %}
@@ -84,11 +86,6 @@
 
   </div> <!-- end row -->
 </div>
-
-<script>
-  window.hbsApp.template = {{ template | json }};
-  window.hbsApp.page = {{ page | json }};
-</script>
 
 {% comment %}
 ===============================================================================================
