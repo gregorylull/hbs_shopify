@@ -381,6 +381,7 @@ var hbsApp = window.hbsApp
   /*---------------------------------------------------------------------------
     PRODUCT / INDIVIDUAL
   ---------------------------------------------------------------------------*/
+  // pictures can only be of a certain size, but we dont' know what ratio the pictures will be, so we give them predefined sizes
   hbsApp.product_adjustMaxDimensions = function (hbsApp) {
     hbsApp = hbsApp || window.hbsApp;
     var image = $('.product-page-productPicture img')[0];
@@ -398,4 +399,12 @@ var hbsApp = window.hbsApp
       $(image).parent().addClass('vertRect');
     }
   }
+
+  // read product.description and retrieve relevant information to insert into proper place and create fields
+  hbsApp.product_getDescription = function () {
+    $('.variantImages img').on('click', function () {
+      $('.product-page-productPicture img').detach();
+      $('<img/>').attr('src', $(this).attr('src')).appendTo('.product-age-productPicture');
+    });
+  };
 })();

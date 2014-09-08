@@ -58,14 +58,17 @@
       {% if product.handle == "business-card"%}
       <div>            
         <p><label for="cardName">Name on card:</label></p>
-        <p><input type="text" id="cardName" name="properties[CardName]" /></p>
+        <p><input type="text" id="cardName" name="properties[Name on Card]" /></p>
 
         <p><label for="email">Email on card:</label></p>
-        <p><input type="text" id="email" name="properties[CardEmail]" /></p>
+        <p><input type="text" id="email" name="properties[Personal Email]" /></p>
 
         <p><label for="position">Your position on card: </label></p>
-        <p><input type="text" id="position" name="properties[CardPosition]" /></p>             
+        <p><input type="text" id="position" name="properties[SA Position]" /></p>             
       </div>
+      <script>
+        console.log('descrip: ', hbsApp.description = $({{ product.description | json }}));
+      </script>
       {% endif %}
 
       <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">

@@ -5,6 +5,14 @@
     <div class="center-block product-page-productPicture">
       <img class="center-block thumbnail" src="{{product.featured_image | img_url: 'large' }}"/>
     </div> <!-- END ./product-page-productPicture -->
+
+    {% if product.handle == 'jansport-custom-bag' %}
+      <div class="center-block variantImages">
+        {% for image in product.images %}
+            <img src="{{ image.src | product_img_url: 'thumb' }}">
+        {% endfor %}    
+      </div>
+    {% endif %}
   </div> <!-- END ./col-sm-7 -->
   <div class="col-sm-4 product-page-rightColumn">
     <div class="product-page-form">

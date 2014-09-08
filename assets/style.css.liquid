@@ -64,6 +64,12 @@ img {
 	height: auto;
 }
 
+@media (max-width: 767px) {
+  .navbar-nav.navbar-right {
+    float: right;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .hbs_headers.index .navbar {
 	  margin-bottom: 20px;
@@ -89,39 +95,36 @@ img {
 
 @media (max-width: 1100px) {
     .navbar-header {
-        float: none;
+      float: none;
     }
-    .navbar-left,.navbar-right {
-        float: none !important;
-    }
+
     .navbar-toggle {
-        display: block;
+      display: block;
     }
     .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
     }
     .navbar-fixed-top {
-		top: 0;
-		border-width: 0 0 1px;
-	}
+			top: 0;
+			border-width: 0 0 1px;
+		}
     .navbar-collapse.collapse {
         display: none!important;
     }
     .navbar-nav {
-        float: none!important;
-		margin-top: 7.5px;
-	}
-	.navbar-nav>li {
-        float: none;
+			margin-top: 7.5px;
+		}
+	  .navbar-nav > li {
+      float: left;
     }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
+    .navbar-nav > li > a {
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
     .collapse.in{
   		display:block !important;
-	}
+		}
 }
 
 /******************************************************************************
@@ -143,6 +146,78 @@ img {
 .frontpage_separator {
 	width: 100%;
 	margin: 15px auto;
+}
+
+/*-------------------------------------
+  SLIDE SHOW
+-------------------------------------*/
+
+.carousel.fade {
+  opacity: 1;
+}
+.carousel.fade .item {
+  -moz-transition: opacity ease-in-out .7s;
+  -o-transition: opacity ease-in-out .7s;
+  -webkit-transition: opacity ease-in-out .7s;
+  transition: opacity ease-in-out .7s;
+  left: 0 !important;
+  opacity: 0;
+  top:0;
+  position:absolute;
+  width: 100%;
+  display:block !important;
+  z-index:1;
+}
+.carousel.fade .item:first-child {
+  top:auto;
+  position:relative;
+}
+.carousel.fade .item.active {
+  opacity: 1;
+  -moz-transition: opacity ease-in-out .7s;
+  -o-transition: opacity ease-in-out .7s;
+  -webkit-transition: opacity ease-in-out .7s;
+  transition: opacity ease-in-out .7s;
+  z-index:2;
+}
+
+/* CAROUSEL BUTTONS LEFT RIGHT */
+.carousel-control {
+	z-index: 3;
+}
+
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+}
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  margin-right: -10px;
+  /*right: 50%;*/
+  font-size: 1em;
+  right: 20%;
+}
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  font-family: serif;
+}
+
+/* Carousel bottom indicator */
+.carousel-indicators {
+	bottom: 0px;
 }
 
 /*-------------------------------------
@@ -252,7 +327,7 @@ img {
   }
 
 	.frontpage_md_leftColumn h3 {
-		text-align: left;
+		/*text-align: left;*/
 	}
 
 	/*----------------------
@@ -264,10 +339,10 @@ img {
 		height: auto;
   }
   .frontpage_md_upcomingEvents .img-left {
-  	background-image: linear-gradient(to right, rgb(164, 16, 52), rgb(220,220,220) 10%, white);
+  	/*background-image: linear-gradient(to right, rgb(164, 16, 52), rgb(220,220,220) 10%, white);*/
   }
   .frontpage_md_upcomingEvents .img-right {
-  	background-image: linear-gradient(to left, rgb(164, 16, 52), rgb(220,220,220) 10%, white);
+  	/*background-image: linear-gradient(to left, rgb(164, 16, 52), rgb(220,220,220) 10%, white);*/
   }
 
 	/*----------------------
@@ -700,8 +775,8 @@ OVERWRITING BOOTSTRAP TABLE
 }
 
 .product-page-productPicture.square, .product-page-productPicture.horizRect, .product-page-productPicture.vertRect {
-	width: 70vw;
-	height: 70vw;
+/*	width: 70vw;
+	height: 70vw;*/
 }
 
 /* small devices - tablets, col-width ~= 62px */
@@ -729,6 +804,14 @@ OVERWRITING BOOTSTRAP TABLE
 
 	.product-page-productPicture.vertRect {
 	}
+}
+
+.variantImages {
+	text-align: center;
+}
+
+.variantImages img {
+	width: auto;
 }
 
 

@@ -98,29 +98,58 @@ Navigation:
 </fieldset>
 
 <fieldset>
-  <legend>Typography</legend>
+  <legend>Typography General</legend>
+  <small>Font families uploaded here will be accessible in all pages. Font sizes are in percentages, 1 is the same as 100% (default), 1.1 is 110%</small>
+  <h3>Google Fonts</h3>
   <table>
-    <tr>
-      <th><label for="base_font_family">Typeface</label></th>
-      <td>
-        <select id="base_font_family" name="base_font_family" class="font">
-          <optgroup label="Google Fonts">
-            <option value="'Source Sans Pro', sans-serif">Source Sans Pro</option>
-          </optgroup>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <th><label for="base_font_size">Base font size</label></th>
-      <td>
-        <select id="base_font_size" name="base_font_size">
-          <option value="13px">13px</option>
-          <option value="14px">14px</option>
-          <option value="15px">15px</option>
-          <option value="16px">16px</option>
-        </select>
-       </td>
-    </tr>
+    <tbody>
+      <tr>
+        <td><label for="googleFontLink_0">Google fonts link, copy and paste the 'Standard' into here</label></td>
+        <td><input type="text" name="googleFontLink_0" id="googleFontLink_0" /></td>
+      </tr>
+      <tr>
+        <td><label for="googleFontLink_1">Google fonts link, copy and paste the 'Standard' into here</label></td>
+        <td><input type="text" name="googleFontLink_1" id="googleFontLink_1" /></td>
+      </tr>
+      <tr>
+        <td><label for="googleFontLink_2">Google fonts link, copy and paste the 'Standard' into here</label></td>
+        <td><input type="text" name="googleFontLink_2" id="googleFontLink_2" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Default Section Header Options</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_default_sectionHeader_font-family">Section header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_default_sectionHeader_font-family" id="type_default_sectionHeader_font-family" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_default_sectionHeader_font-size">Section header font size, enter number from 0.1 to 5 (this is a multiplier, 5 means 'increase current font size by 500%')</label></td>
+        <td><input type="text" name="type_default_sectionHeader_font-size" id="type_default_sectionHeader_font-size" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_default_sectionHeader_color">Section header color</label></td>
+        <td><input type="text" name="type_default_sectionHeader_color" id="type_default_sectionHeader_color" class="color" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Default Page Font Options</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_default_page_font-family">Page font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_default_page_font-family" id="type_default_page_font-family" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_default_page_font-size">Page font size, enter number from 0.1 to 5 (this is a multiplier, 5 means 'increase current font size by 500%')</label></td>
+        <td><input type="text" name="type_default_page_font-size" id="type_default_page_font-size" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_default_page_color">Page color</label></td>
+        <td><input type="text" name="type_default_page_color" id="type_default_page_color" class="color" /></td>
+      </tr>
+    </tbody>
   </table>
 </fieldset>
 
