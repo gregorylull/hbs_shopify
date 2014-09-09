@@ -213,13 +213,87 @@ img {
 /******************************************************************************
   FRONT PAGE / HOMEPAGE
 
+  type_homepage_slideshow_
+    header_
+    text_
   type_homepage_upcomingEvents_
     header_
     title_
     date_
     location_
     description_
+  type_homepage_featuredProducts_
+  type_homepage_contactUs_
+  type_homepage_pulseFeatures_
 ******************************************************************************/
+
+
+/* ----------------- SLIDESHOW HEADER ---------------*/
+/* type_homepage_slideshow_header_ */
+/* fontFamily */
+{% assign type_homepage_slideshow_header_fontFamily = settings["type_homepage_slideshow_header_fontFamily"] %}
+{% if type_homepage_slideshow_header_fontFamily == "" %}
+  {% assign type_homepage_slideshow_header_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign type_homepage_slideshow_header_fontSize = settings["type_homepage_slideshow_header_fontSize"] %}
+{% if type_homepage_slideshow_header_fontSize == "" %}
+  {% assign type_homepage_slideshow_header_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign type_homepage_slideshow_header_color = settings["type_homepage_slideshow_header_color"] %}
+{% if type_homepage_slideshow_header_color == "" %}
+  {% assign type_homepage_slideshow_header_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign type_homepage_slideshow_header_weight = settings["type_homepage_slideshow_header_weight"] %}
+{% if type_homepage_slideshow_header_weight == "" %}
+  {% assign type_homepage_slideshow_header_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign type_homepage_slideshow_header_style = settings["type_homepage_slideshow_header_style"] %}
+{% if type_homepage_slideshow_header_style == "" %}
+  {% assign type_homepage_slideshow_header_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- SLIDESHOW TEXT ---------------*/
+/* type_homepage_slideshow_text_ */
+/* fontFamily */
+{% assign type_homepage_slideshow_text_fontFamily = settings["type_homepage_slideshow_text_fontFamily"] %}
+{% if type_homepage_slideshow_text_fontFamily == "" %}
+  {% assign type_homepage_slideshow_text_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign type_homepage_slideshow_text_fontSize = settings["type_homepage_slideshow_text_fontSize"] %}
+{% if type_homepage_slideshow_text_fontSize == "" %}
+  {% assign type_homepage_slideshow_text_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign type_homepage_slideshow_text_color = settings["type_homepage_slideshow_text_color"] %}
+{% if type_homepage_slideshow_text_color == "" %}
+  {% assign type_homepage_slideshow_text_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign type_homepage_slideshow_text_weight = settings["type_homepage_slideshow_text_weight"] %}
+{% if type_homepage_slideshow_text_weight == "" %}
+  {% assign type_homepage_slideshow_text_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign type_homepage_slideshow_text_style = settings["type_homepage_slideshow_text_style"] %}
+{% if type_homepage_slideshow_text_style == "" %}
+  {% assign type_homepage_slideshow_text_style = type_default_page_style %}
+{% endif %}
+
+/******************************************************************************************************/
+/******************************************************************************************************/
 
 /* ----------------- UPCOMING EVENTS HEADER ---------------*/
 /* type_homepage_upcomingEvents_header_ */
@@ -536,6 +610,26 @@ img {
 /*-------------------------------------
   SLIDE SHOW
 -------------------------------------*/
+
+.carousel .block-title, .carousel .block-text {
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.carousel .block-title {
+  font-family: "{{ type_homepage_slideshow_header_fontFamily }}";
+  font-size: {{ type_homepage_slideshow_header_fontSize }};
+  color: {{ type_homepage_slideshow_header_color }};
+  font-weight: {{ type_homepage_slideshow_header_weight }};
+  font-style: {{ type_homepage_slideshow_header_style }}; 
+}
+
+.carousel .block-text {
+  font-family: "{{ type_homepage_slideshow_text_fontFamily }}";
+  font-size: {{ type_homepage_slideshow_text_fontSize }};
+  color: {{ type_homepage_slideshow_text_color }};
+  font-weight: {{ type_homepage_slideshow_text_weight }};
+  font-style: {{ type_homepage_slideshow_text_style }}; 
+}
 
 .carousel.fade {
   opacity: 1;

@@ -250,8 +250,321 @@ Navigation:
 </fieldset>
 
 <fieldset>
+  <legend>Homepage Content Settings</legend>
+  <h3>Slide Show Pictures</h3>
+  <small>Slide show pictures should generally have a width:height aspect ratio of 3:1. ALL pictures MUST have the same exact aspect ratio</small>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="homepage_slideshow_interval">Slideshow interval speed (milliseconds, defaults to 4000 ms)</label></td>
+        <td><input type="text" name="homepage_slideshow_interval" id="homepage_slideshow_interval" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>If your input is 3500, that means every 3.5 seconds the next slide will appear. There is an initial delay because picture are still loading</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Slide Show Picture 1</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="homepage_slideshow_pic_0_display">Display picture #1 ?</label></td>
+        <td><input type="checkbox" name="homepage_slideshow_pic_0_display" id="homepage_slideshow_pic_0_display" value="1" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_0_upload">Slideshow picture file upload: </label></td>
+        <td><input name="homepage_slideshow_pic_0.png" id="homepage_slideshow_pic_0_upload" type="file" data-max-width="1800" data-max-height="1800" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_0_link">Slideshow picture URL (if there isn't a local file)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_0_link" id="homepage_slideshow_pic_0_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Picture URLs take precedence over locally upload pictures</small></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_0_captionHeader">Slideshow picture caption header (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_0_captionHeader" id="homepage_slideshow_pic_0_captionHeader" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_0_caption">Slideshow picture caption (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_0_caption" id="homepage_slideshow_pic_0_caption" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_0_navLink">Slideshow picture can link to another page on this site (optional)</label></td>
+        <td><select name="homepage_slideshow_pic_0_navLink" id="homepage_slideshow_pic_0_navLink" class="linklist" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_0_urlLink">Slideshow picture can link to another website (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_0_urlLink" id="homepage_slideshow_pic_0_urlLink" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An offsite url link will take precedence over a site navigation link. Make sure link begins with //www and not http://</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Slide Show Picture 2</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="homepage_slideshow_pic_1_display">Display picture #2 ?</label></td>
+        <td><input type="checkbox" name="homepage_slideshow_pic_1_display" id="homepage_slideshow_pic_1_display" value="1" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_1_upload">Slideshow picture file upload: </label></td>
+        <td><input name="homepage_slideshow_pic_1.png" id="homepage_slideshow_pic_1_upload" type="file" data-max-width="1800" data-max-height="1800" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_1_link">Slideshow picture URL (if there isn't a local file)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_1_link" id="homepage_slideshow_pic_1_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Picture URLs take precedence over locally upload pictures</small></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_1_captionHeader">Slideshow picture caption header (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_1_captionHeader" id="homepage_slideshow_pic_1_captionHeader" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_1_caption">Slideshow picture caption (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_1_caption" id="homepage_slideshow_pic_1_caption" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_1_navLink">Slideshow picture can link to another page on this site (optional)</label></td>
+        <td><select name="homepage_slideshow_pic_1_navLink" id="homepage_slideshow_pic_1_navLink" class="linklist" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_1_urlLink">Slideshow picture can link to another website (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_1_urlLink" id="homepage_slideshow_pic_1_urlLink" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An offsite url link will take precedence over a site navigation link. Make sure link begins with //www and not http://</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Slide Show Picture 3</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="homepage_slideshow_pic_2_display">Display picture #3 ?</label></td>
+        <td><input type="checkbox" name="homepage_slideshow_pic_2_display" id="homepage_slideshow_pic_2_display" value="1" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_2_upload">Slideshow picture file upload: </label></td>
+        <td><input name="homepage_slideshow_pic_2.png" id="homepage_slideshow_pic_2_upload" type="file" data-max-width="1800" data-max-height="1800" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_2_link">Slideshow picture URL (if there isn't a local file)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_2_link" id="homepage_slideshow_pic_2_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Picture URLs take precedence over locally upload pictures</small></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_2_captionHeader">Slideshow picture caption header (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_2_captionHeader" id="homepage_slideshow_pic_2_captionHeader" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_2_caption">Slideshow picture caption (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_2_caption" id="homepage_slideshow_pic_2_caption" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_2_navLink">Slideshow picture can link to another page on this site (optional)</label></td>
+        <td><select name="homepage_slideshow_pic_2_navLink" id="homepage_slideshow_pic_2_navLink" class="linklist" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_2_urlLink">Slideshow picture can link to another website (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_2_urlLink" id="homepage_slideshow_pic_2_urlLink" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An offsite url link will take precedence over a site navigation link. Make sure link begins with //www and not http://</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Slide Show Picture 4</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="homepage_slideshow_pic_3_display">Display picture #4 ?</label></td>
+        <td><input type="checkbox" name="homepage_slideshow_pic_3_display" id="homepage_slideshow_pic_3_display" value="1" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_3_upload">Slideshow picture file upload: </label></td>
+        <td><input name="homepage_slideshow_pic_3.png" id="homepage_slideshow_pic_3_upload" type="file" data-max-width="1800" data-max-height="1800" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_3_link">Slideshow picture URL (if there isn't a local file)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_3_link" id="homepage_slideshow_pic_3_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Picture URLs take precedence over locally upload pictures</small></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_3_captionHeader">Slideshow picture caption header (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_3_captionHeader" id="homepage_slideshow_pic_3_captionHeader" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_3_caption">Slideshow picture caption (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_3_caption" id="homepage_slideshow_pic_3_caption" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_3_navLink">Slideshow picture can link to another page on this site (optional)</label></td>
+        <td><select name="homepage_slideshow_pic_3_navLink" id="homepage_slideshow_pic_3_navLink" class="linklist" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_3_urlLink">Slideshow picture can link to another website (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_3_urlLink" id="homepage_slideshow_pic_3_urlLink" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An offsite url link will take precedence over a site navigation link. Make sure link begins with //www and not http://</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Slide Show Picture 5</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="homepage_slideshow_pic_4_display">Display picture #5 ?</label></td>
+        <td><input type="checkbox" name="homepage_slideshow_pic_4_display" id="homepage_slideshow_pic_4_display" value="1" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_4_upload">Slideshow picture file upload: </label></td>
+        <td><input name="homepage_slideshow_pic_4.png" id="homepage_slideshow_pic_4_upload" type="file" data-max-width="1800" data-max-height="1800" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_4_link">Slideshow picture URL (if there isn't a local file)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_4_link" id="homepage_slideshow_pic_4_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Picture URLs take precedence over locally upload pictures</small></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_4_captionHeader">Slideshow picture caption header (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_4_captionHeader" id="homepage_slideshow_pic_4_captionHeader" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_4_caption">Slideshow picture caption (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_4_caption" id="homepage_slideshow_pic_4_caption" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_4_navLink">Slideshow picture can link to another page on this site (optional)</label></td>
+        <td><select name="homepage_slideshow_pic_4_navLink" id="homepage_slideshow_pic_4_navLink" class="linklist" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_4_urlLink">Slideshow picture can link to another website (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_4_urlLink" id="homepage_slideshow_pic_4_urlLink" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An offsite url link will take precedence over a site navigation link. Make sure link begins with //www and not http://</small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Slide Show Picture 6</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="homepage_slideshow_pic_5_display">Display picture #6 ?</label></td>
+        <td><input type="checkbox" name="homepage_slideshow_pic_5_display" id="homepage_slideshow_pic_5_display" value="1" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_5_upload">Slideshow picture file upload: </label></td>
+        <td><input name="homepage_slideshow_pic_5.png" id="homepage_slideshow_pic_5_upload" type="file" data-max-width="1800" data-max-height="1800" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_5_link">Slideshow picture URL (if there isn't a local file)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_5_link" id="homepage_slideshow_pic_5_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Picture URLs take precedence over locally upload pictures</small></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_5_captionHeader">Slideshow picture caption header (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_5_captionHeader" id="homepage_slideshow_pic_5_captionHeader" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_5_caption">Slideshow picture caption (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_5_caption" id="homepage_slideshow_pic_5_caption" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_5_navLink">Slideshow picture can link to another page on this site (optional)</label></td>
+        <td><select name="homepage_slideshow_pic_5_navLink" id="homepage_slideshow_pic_5_navLink" class="linklist" /></td>
+      </tr>
+      <tr>
+        <td><label for="homepage_slideshow_pic_5_urlLink">Slideshow picture can link to another website (optional)</label></td>
+        <td><input type="text" name="homepage_slideshow_pic_5_urlLink" id="homepage_slideshow_pic_5_urlLink" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An offsite url link will take precedence over a site navigation link. Make sure link begins with //www and not http://</small></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<fieldset>
   <legend>Homepage Typography Options</legend>
-  <small>Font sizes are in percentages, 1 is the same as 100% which defaults to 16px, 2.5 is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.</small>
+  <small>Font sizes are in percentages, 1em is the same as 100% which defaults to 16px, 2.5em is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.</small>
+  <h3>Carousel / Slideshow: Caption Header</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_homepage_slideshow_header_fontFamily">Caption Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_homepage_slideshow_header_fontFamily" id="type_homepage_slideshow_header_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_header_fontSize">Caption Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="type_homepage_slideshow_header_fontSize" id="type_homepage_slideshow_header_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_header_color">Caption Header color</label></td>
+        <td><input type="text" name="type_homepage_slideshow_header_color" id="type_homepage_slideshow_header_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_header_weight">Caption Header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_homepage_slideshow_header_weight" id="type_homepage_slideshow_header_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_header_style">Caption Header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_homepage_slideshow_header_style" id="type_homepage_slideshow_header_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Carousel / Slideshow: Caption</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_homepage_slideshow_text_fontFamily">Caption font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_homepage_slideshow_text_fontFamily" id="type_homepage_slideshow_text_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_text_fontSize">Caption font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="type_homepage_slideshow_text_fontSize" id="type_homepage_slideshow_text_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_text_color">Caption color</label></td>
+        <td><input type="text" name="type_homepage_slideshow_text_color" id="type_homepage_slideshow_text_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_text_weight">Caption weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_homepage_slideshow_text_weight" id="type_homepage_slideshow_text_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_slideshow_text_style">Caption style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_homepage_slideshow_text_style" id="type_homepage_slideshow_text_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
   <h3>Upcoming Events: Section Header</h3>
   <table>
     <tbody>
@@ -260,7 +573,7 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_header_fontFamily" id="type_homepage_upcomingEvents_header_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_upcomingEvents_header_fontSize">Section Header font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_upcomingEvents_header_fontSize">Section Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_header_fontSize" id="type_homepage_upcomingEvents_header_fontSize" /></td>
       </tr>
       <tr>
@@ -272,14 +585,14 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_header_weight" id="type_homepage_upcomingEvents_header_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_upcomingEvents_header_style">Section Header style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_header_style" id="type_homepage_upcomingEvents_header_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -291,7 +604,7 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_title_fontFamily" id="type_homepage_upcomingEvents_title_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_upcomingEvents_title_fontSize">Event Title font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_upcomingEvents_title_fontSize">Event Title font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_title_fontSize" id="type_homepage_upcomingEvents_title_fontSize" /></td>
       </tr>
       <tr>
@@ -303,14 +616,14 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_title_weight" id="type_homepage_upcomingEvents_title_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_upcomingEvents_title_style">Event Title style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_title_style" id="type_homepage_upcomingEvents_title_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -322,7 +635,7 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_date_fontFamily" id="type_homepage_upcomingEvents_date_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_upcomingEvents_date_fontSize">Event Date font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_upcomingEvents_date_fontSize">Event Date font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_date_fontSize" id="type_homepage_upcomingEvents_date_fontSize" /></td>
       </tr>
       <tr>
@@ -334,14 +647,14 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_date_weight" id="type_homepage_upcomingEvents_date_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_upcomingEvents_date_style">Event Date style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_date_style" id="type_homepage_upcomingEvents_date_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -353,7 +666,7 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_location_fontFamily" id="type_homepage_upcomingEvents_location_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_upcomingEvents_location_fontSize">Event Location font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_upcomingEvents_location_fontSize">Event Location font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_location_fontSize" id="type_homepage_upcomingEvents_location_fontSize" /></td>
       </tr>
       <tr>
@@ -365,14 +678,14 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_location_weight" id="type_homepage_upcomingEvents_location_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_upcomingEvents_location_style">Event Location style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_location_style" id="type_homepage_upcomingEvents_location_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -384,7 +697,7 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_description_fontFamily" id="type_homepage_upcomingEvents_description_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_upcomingEvents_description_fontSize">Event Description font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_upcomingEvents_description_fontSize">Event Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_description_fontSize" id="type_homepage_upcomingEvents_description_fontSize" /></td>
       </tr>
       <tr>
@@ -396,14 +709,14 @@ Navigation:
         <td><input type="text" name="type_homepage_upcomingEvents_description_weight" id="type_homepage_upcomingEvents_description_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_upcomingEvents_description_style">Event Description style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_upcomingEvents_description_style" id="type_homepage_upcomingEvents_description_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -415,7 +728,7 @@ Navigation:
         <td><input type="text" name="type_homepage_featuredProducts_header_fontFamily" id="type_homepage_featuredProducts_header_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_featuredProducts_header_fontSize">Section Header font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_featuredProducts_header_fontSize">Section Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_featuredProducts_header_fontSize" id="type_homepage_featuredProducts_header_fontSize" /></td>
       </tr>
       <tr>
@@ -427,14 +740,14 @@ Navigation:
         <td><input type="text" name="type_homepage_featuredProducts_header_weight" id="type_homepage_featuredProducts_header_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_featuredProducts_header_style">Section Header style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_featuredProducts_header_style" id="type_homepage_featuredProducts_header_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -446,7 +759,7 @@ Navigation:
         <td><input type="text" name="type_homepage_featuredProducts_title_fontFamily" id="type_homepage_featuredProducts_title_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_featuredProducts_title_fontSize">Item Name font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_featuredProducts_title_fontSize">Item Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_featuredProducts_title_fontSize" id="type_homepage_featuredProducts_title_fontSize" /></td>
       </tr>
       <tr>
@@ -458,14 +771,14 @@ Navigation:
         <td><input type="text" name="type_homepage_featuredProducts_title_weight" id="type_homepage_featuredProducts_title_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_featuredProducts_title_style">Item Name style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_featuredProducts_title_style" id="type_homepage_featuredProducts_title_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -477,7 +790,7 @@ Navigation:
         <td><input type="text" name="type_homepage_contactUs_header_fontFamily" id="type_homepage_contactUs_header_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_contactUs_header_fontSize">Section Header font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_contactUs_header_fontSize">Section Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_contactUs_header_fontSize" id="type_homepage_contactUs_header_fontSize" /></td>
       </tr>
       <tr>
@@ -489,14 +802,14 @@ Navigation:
         <td><input type="text" name="type_homepage_contactUs_header_weight" id="type_homepage_contactUs_header_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_contactUs_header_style">Section Header style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_contactUs_header_style" id="type_homepage_contactUs_header_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
   </table>
@@ -508,7 +821,7 @@ Navigation:
         <td><input type="text" name="type_homepage_pulseFeature_header_fontFamily" id="type_homepage_pulseFeature_header_fontFamily" /></td>
       </tr>
       <tr>
-        <td><label for="type_homepage_pulseFeature_header_fontSize">Section Header font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><label for="type_homepage_pulseFeature_header_fontSize">Section Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
         <td><input type="text" name="type_homepage_pulseFeature_header_fontSize" id="type_homepage_pulseFeature_header_fontSize" /></td>
       </tr>
       <tr>
@@ -520,78 +833,16 @@ Navigation:
         <td><input type="text" name="type_homepage_pulseFeature_header_weight" id="type_homepage_pulseFeature_header_weight" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
       </tr>
       <tr>
         <td><label for="type_homepage_pulseFeature_header_style">Section Header style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="type_homepage_pulseFeature_header_style" id="type_homepage_pulseFeature_header_style" /></td>
       </tr>
       <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, potential options are: italic or oblique </small></td>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
       </tr>
     </tbody>
-  </table>
-</fieldset>
-
-<fieldset>
-  <legend>Homepage</legend>
-  
-  <!-- everything below this was not included in the skeleton theme -->
-  <!-- pictures for the slide show, max is 6 -->
-  <h3>Slide Show</h3>
-  <table>
-    <tr>
-      <th>
-        <label for="my_file">File Upload, picture 1</label>
-      </th>
-      <td>
-          <input type="file" name="homepage_slideshow_pic_0.png"/>
-      </td>
-    </tr>
-    <tr>
-      <th>
-        <label for="my_checkbox">Use picture 1?</label>
-      </th>      
-      <td>
-        <input type="checkbox" name="homepage_slideshow_pic_0_checkbox" value="1" />
-      </td>
-    </tr>
-  </table>
-    <table>
-    <tr>
-      <th>
-        <label for="my_file">File Upload, picture 2</label>
-      </th>
-      <td>
-          <input type="file" name="homepage_slideshow_pic_1.png"/>
-      </td>
-    </tr>
-    <tr>
-      <th>
-        <label for="my_checkbox">Use picture 2?</label>
-      </th>      
-      <td>
-        <input type="checkbox" name="homepage_slideshow_pic_1_checkbox" value="1" />
-      </td>
-    </tr>
-  </table>
-    <table>
-    <tr>
-      <th>
-        <label for="my_file">File Upload, picture 3</label>
-      </th>
-      <td>
-          <input type="file" name="homepage_slideshow_pic_2.png"/>
-      </td>
-    </tr>
-    <tr>
-      <th>
-        <label for="my_checkbox">Use picture 3?</label>
-      </th>      
-      <td>
-        <input type="checkbox" name="homepage_slideshow_pic_2_checkbox" value="1" />
-      </td>
-    </tr>
   </table>
 </fieldset>
 

@@ -1,41 +1,76 @@
+{% assign dataInterval = settings["homepage_slideshow_interval"] %}
+{% if dataInterval == blank or dataInterval == "" %}
+  {% assign dataInterval = 4000 %}
+{% endif %}
 
-<div id="frontpage_carousel" class="carousel fade" data-ride="carousel">
+<div id="frontpage_carousel" class="carousel fade" data-interval="{{ dataInterval }}" data-ride="carousel">
   <!-- Indicators -->
   {% assign once_carousel = true %}
   <ol class="carousel-indicators">
   {% for i in (0..5) %}
     {% assign base = "homepage_slideshow_pic_" | append: i %}
-    {% assign checkbox = base | append: "_checkbox" %}
-    {% if settings[checkbox] == true %}
-      {% assign picture = base | append: ".png" %}
+    {% assign display = base | append: "_display" %}
+    {% if settings[display] == true %}
       {% if once_carousel == true %}
         <li data-target="#frontpage_carousel" data-slide-to="{% increment counter %}" class="active"></li>
-        {% assign display_list = picture %}
         {% assign once_carousel = false %}
       {% else %}
         <li data-target="#frontpage_carousel" data-slide-to="{% increment counter %}"></li>
-        {% assign display_list = display_list | append: "," | append: picture %}
       {% endif %}
     {% endif %}
   {% endfor %}
   </ol>
 
-  <!-- Wrapper for slides -->
+  {% assign once_carousel = true %}
   <div class="carousel-inner">
-    {% assign picture_list = display_list | split: "," %}
-      {% comment %}
-        <script>console.log( "slideshow picture_list: ", {{picture_list | json}} )</script>  
-      {% endcomment %}
-      {% for picture_file in picture_list %}
-        {% if forloop.first == true %}
-          <div class="item active">
-        {% else %}
-          <div class="item">
-        {% endif %}
-          {{ picture_file | asset_url | img_tag }}
-            <div class="carousel-caption"></div>
+  {% for i in (0..5) %}
+    {% assign base = "homepage_slideshow_pic_" | append: i %}
+    {% assign display = base | append: "_display" %}
+
+    {% if settings[display] == true %}
+      {% assign picture_file = base | append: ".png" %}
+      {% assign pictureURL = base | append: "_link"%}
+      {% assign pictureCaptionHeader = base | append: "_captionHeader" %}
+      {% assign pictureCaption = base | append: "_caption" %}
+      {% assign pictureNavLink = base | append: "_navLink"%}
+      {% assign pictureUrlLink = base | append: "_urlLink"%}
+      {% if settings[pictureUrlLink] != "" or settings[pictureUrlLink] != blank %}
+        {% assign href = settings[pictureUrlLink] %}
+      {% else %}
+        {% assign href = settings[pictureNavLink] %}
+      {% endif %}
+
+      {% if once_carousel == true %}
+        <div class="item active">
+        {% assign once_carousel = false %}
+      {% else %}
+        <div class="item">
+      {% endif %}
+
+      {% if href != blank and href != "" %} <a href="{{href}}"> {% endif %}
+      {% if settings[pictureURL] != blank %}
+          <img src="{{settings[pictureURL]}}" alt="{{ 'slideshow file picture' | append: i}}"/>
+      {% else %}
+        {{ picture_file | asset_url | img_tag: "file upload picture" }}
+      {% endif %}
+        
+          <div class="carousel-caption">
+
+            {% assign captionHeader = settings[pictureCaptionHeader]%}
+            {% if  captionHeader != blank and captionHeader != "" %}
+              <h4 class="block-title">{{captionHeader}}</h4>
+            {% endif %}
+
+            {% assign caption = settings[pictureCaption]%}
+            {% if  caption != blank and caption != "" %}
+              <p class="block-text">{{caption}}</p>
+            {% endif %}
+
           </div>
-      {% endfor %}
+      {% if href != blank and href != "" %} </a> {% endif %}
+        </div>
+    {% endif %}
+  {% endfor %}
   </div>
 
   <!-- Controls -->
@@ -46,3 +81,12 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
+
+<script>
+  $("#frontpage_carousel .carousel-caption").each(function (index) {
+    var prev = $(this).prev();
+    if (prev && prev.attr('href')) {
+      var anchor = $('<a></a>')
+    }
+  });
+</script>
