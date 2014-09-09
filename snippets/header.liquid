@@ -13,13 +13,23 @@
 		    <span class="icon-bar"></span>
 		  </button>
 
+		  {% assign logoShieldURL = settings["header_logo_shield_link"] %}
+		  {% if logoShieldURL == blank or logoShieldURL == "" %}
+		    {% assign logoShieldURL = 'header_logo_shield.png' | asset_url %}
+		  {% endif %}
+
+		  {% assign logoWordsURL = settings["header_logo_words_link"] %}
+		  {% if logoWordsURL == blank or logoWordsURL == "" %}
+		    {% assign logoWordsURL = 'header_logo_words.png' | asset_url %}
+		  {% endif %}
+
 		  <!-- navbar brand, left logo -->
 		  <div class="navbar-brand">
 			  <a href="/">
-			  	<img class="navbar_logo" src="{{'logo.png' | asset_url }}" alt="HBS logo: student association shield"/>
+			  	<img class="navbar_logo" src="{{logoShieldURL}}" alt="HBS logo: student association shield"/>
 			  </a>
 			  <a href="/">
-			  	<img class="navbar_logoWords" src="{{'logoWords.png' | asset_url}}" alt="HBS student association"/>
+			  	<img class="navbar_logoWords" src="{{logoWordsURL}}" alt="HBS student association"/>
 			  </a>
 		  </div> <!-- /.navbar-brand -->
 		</div> <!-- /.navbar-header -->

@@ -8,6 +8,7 @@
     {% capture event_date %}{{ base_string | append: 'date' }}{% endcapture %}
     {% capture event_description %}{{ base_string | append: 'description' }}{% endcapture %}
     {% capture event_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
+    {% assign event_picture_link = base_string | append: 'picture_link' %}
     {% capture event_rsvp_link %}{{ base_string | append: 'rsvp'}}{% endcapture %}
     {% capture event_rsvp_display %}{{ base_string | append: 'rsvp_display'}}{% endcapture %}
     {% assign event_location = base_string | append: 'location' %}
@@ -26,9 +27,14 @@
           </div>
       </div> <!-- END events info /.col-xs-8 -->
 
+      {% assign eventPictureURL = settings[event_picture_link] %}
+      {% if eventPictureURL == blank or eventPictureURL == "" %}
+          {% assign eventPictureURL = event_picture | asset_url %}
+      {% endif %}
+
       <div class="col-xs-4 {% cycle 'col-xs-pull-8', '' %}">
           <div class="eventPicture center-block">
-            <img class="frontpage_upcomingevents_picture" src="{{ event_picture | asset_url }}" alt="event picture {{i}}"/>    
+            <img class="frontpage_upcomingevents_picture" src="{{ eventPictureURL }}" alt="event picture {{i}}"/>    
           </div>
       </div> <!-- END event img /.col-xs-4 -->
       <div class="col-xs-12 event_descriptionTemp"></div>
