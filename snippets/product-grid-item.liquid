@@ -16,7 +16,7 @@
 {% endif %}
 
 <div class="row collection-grid-row">
-<h4 class="collection-grid-title"> Collection: <span>{{collections[product-grid-item].title}}</span></h4>
+<h4 class="collection-grid-title"> Collection: <span class="collection-grid-current-displayed">{{collections[product-grid-item].title}}</span></h4>
 {% for product in collections[product-grid-item].products %}
   <div class="{{ classes }}">
     <div class="product-grid-wrapper">
@@ -25,7 +25,7 @@
       <div class="product-image-wrapper" style="text-align: center">
         <img class="img-thumbnail" src="{{product.featured_image.src | img_url: 'large' }}" alt="{{product.featured_image.alt}}"/>
       </div>
-      <h4 class="product-title">{{ product.title }}</h4>
+      <h4 class="product-title block-title">{{ product.title }}</h4>
       {% if template != 'index' %}
         {% if product.price_varies %}
           <h5 class="product-price">From {{product.price_min | money}} - {{product.price_max | money}}</h5>

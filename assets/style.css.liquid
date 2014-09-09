@@ -27,7 +27,7 @@
 /* color */
 {% assign type_default_sectionHeader_color = settings["type_default_sectionHeader_color"] %}
 {% if type_default_sectionHeader_color == "" %}
-  {% assign type_default_sectionHeader_color = "black" %}
+  {% assign type_default_sectionHeader_color = "" %}
 {% endif %}
 
 /* weight */
@@ -42,7 +42,7 @@
   {% assign type_default_sectionHeader_style = "normal" %}
 {% endif %}
 
-/* ----------------- UNIVERSAL HEADER ---------------*/
+/* ----------------- UNIVERSAL PAGE / BODY ---------------*/
 /* type_default_page_ */
 /* fontFamily */
 {% assign type_default_page_fontFamily = settings["type_default_page_fontFamily"] %}
@@ -53,7 +53,7 @@
 /* color */
 {% assign type_default_page_color = settings["type_default_page_color"] %}
 {% if type_default_page_color == "" %}
-  {% assign type_default_page_color = "black" %}
+  {% assign type_default_page_color = "" %}
 {% endif %}
 
 /* weight */
@@ -110,10 +110,49 @@ img {
 /******************************************************************************
   HEADER / BANNER / LOGO
 ******************************************************************************/
+/* header_menu_item_ */
+
+{% assign header_menu_item_fontFamily = settings["header_menu_item_fontFamily"] %}
+{% if header_menu_item_fontFamily == "" %}
+  {% assign header_menu_item_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign header_menu_item_fontSize = settings["header_menu_item_fontSize"] %}
+{% if header_menu_item_fontSize == "" %}
+  {% assign header_menu_item_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign header_menu_item_color = settings["header_menu_item_color"] %}
+{% if header_menu_item_color == "" %}
+  {% assign header_menu_item_color = "" %}
+{% endif %}
+
+/* weight */
+{% assign header_menu_item_weight = settings["header_menu_item_weight"] %}
+{% if header_menu_item_weight == "" %}
+  {% assign header_menu_item_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign header_menu_item_style = settings["header_menu_item_style"] %}
+{% if header_menu_item_style == "" %}
+  {% assign header_menu_item_style = type_default_page_style %}
+{% endif %}
+
 
 .hbs_headers {
 	padding-top: 10px;
 	box-shadow: 0px 5px 2px -2px rgba(200,200,200,0.75);
+}
+
+.hbs_headers li a {
+  font-family: "{{ header_menu_item_fontFamily }}";
+  font-size: {{ header_menu_item_fontSize }};
+  color: {{ header_menu_item_color }};
+  font-weight: {{ header_menu_item_weight }};
+  font-style: {{ header_menu_item_style }}; 
 }
 
 /* FOR FRONT PAGE ONLY, header will have NO bottom shadow, conflicts with slideshow pic*/
@@ -1245,43 +1284,402 @@ OVERWRITING BOOTSTRAP TABLE
 }
 
 /******************************************************************************
-  CATALOG / COLLECTIONS.all
+  PRODUCTS / CATALOG / COLLECTIONS.all
 ******************************************************************************/
-.catalog_all_container {
-	/*background-image: url({{ 'default_background_3_picture.png' | asset_url }});*/
+/* ----------------- LEFT FRAME BLURB HEADER ---------------*/
+/* products_frame_blurb_header_ */
+/* fontFamily */
+{% assign products_frame_blurb_header_fontFamily = settings["products_frame_blurb_header_fontFamily"] %}
+{% if products_frame_blurb_header_fontFamily == "" %}
+  {% assign products_frame_blurb_header_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_frame_blurb_header_fontSize = settings["products_frame_blurb_header_fontSize"] %}
+{% if products_frame_blurb_header_fontSize == "" %}
+  {% assign products_frame_blurb_header_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_frame_blurb_header_color = settings["products_frame_blurb_header_color"] %}
+{% if products_frame_blurb_header_color == "" %}
+  {% assign products_frame_blurb_header_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign products_frame_blurb_header_weight = settings["products_frame_blurb_header_weight"] %}
+{% if products_frame_blurb_header_weight == "" %}
+  {% assign products_frame_blurb_header_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign products_frame_blurb_header_style = settings["products_frame_blurb_header_style"] %}
+{% if products_frame_blurb_header_style == "" %}
+  {% assign products_frame_blurb_header_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- LEFT FRAME BLURB TEXT ---------------*/
+/* products_frame_blurb_text_ */
+/* fontFamily */
+{% assign products_frame_blurb_text_fontFamily = settings["products_frame_blurb_text_fontFamily"] %}
+{% if products_frame_blurb_text_fontFamily == "" %}
+  {% assign products_frame_blurb_text_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_frame_blurb_text_fontSize = settings["products_frame_blurb_text_fontSize"] %}
+{% if products_frame_blurb_text_fontSize == "" %}
+  {% assign products_frame_blurb_text_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_frame_blurb_text_color = settings["products_frame_blurb_text_color"] %}
+{% if products_frame_blurb_text_color == "" %}
+  {% assign products_frame_blurb_text_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign products_frame_blurb_text_weight = settings["products_frame_blurb_text_weight"] %}
+{% if products_frame_blurb_text_weight == "" %}
+  {% assign products_frame_blurb_text_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign products_frame_blurb_text_style = settings["products_frame_blurb_text_style"] %}
+{% if products_frame_blurb_text_style == "" %}
+  {% assign products_frame_blurb_text_style = type_default_page_style %}
+{% endif %}
+
+/*****************************************************************************/
+/*****************************************************************************/
+
+/* ----------------- LEFT FRAME MENU HEADER ---------------*/
+/* products_frame_menu_header_ */
+/* fontFamily */
+{% assign products_frame_menu_header_fontFamily = settings["products_frame_menu_header_fontFamily"] %}
+{% if products_frame_menu_header_fontFamily == "" %}
+  {% assign products_frame_menu_header_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_frame_menu_header_fontSize = settings["products_frame_menu_header_fontSize"] %}
+{% if products_frame_menu_header_fontSize == "" %}
+  {% assign products_frame_menu_header_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_frame_menu_header_color = settings["products_frame_menu_header_color"] %}
+{% if products_frame_menu_header_color == "" %}
+  {% assign products_frame_menu_header_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign products_frame_menu_header_weight = settings["products_frame_menu_header_weight"] %}
+{% if products_frame_menu_header_weight == "" %}
+  {% assign products_frame_menu_header_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign products_frame_menu_header_style = settings["products_frame_menu_header_style"] %}
+{% if products_frame_menu_header_style == "" %}
+  {% assign products_frame_menu_header_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- LEFT FRAME MENU ITEM ---------------*/
+/* products_frame_menu_item_ */
+/* fontFamily */
+{% assign products_frame_menu_item_fontFamily = settings["products_frame_menu_item_fontFamily"] %}
+{% if products_frame_menu_item_fontFamily == "" %}
+  {% assign products_frame_menu_item_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_frame_menu_item_fontSize = settings["products_frame_menu_item_fontSize"] %}
+{% if products_frame_menu_item_fontSize == "" %}
+  {% assign products_frame_menu_item_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_frame_menu_item_color = settings["products_frame_menu_item_color"] %}
+{% if products_frame_menu_item_color == "" %}
+  {% assign products_frame_menu_item_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign products_frame_menu_item_weight = settings["products_frame_menu_item_weight"] %}
+{% if products_frame_menu_item_weight == "" %}
+  {% assign products_frame_menu_item_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign products_frame_menu_item_style = settings["products_frame_menu_item_style"] %}
+{% if products_frame_menu_item_style == "" %}
+  {% assign products_frame_menu_item_style = type_default_page_style %}
+{% endif %}
+
+/*****************************************************************************/
+/*****************************************************************************/
+
+/* ----------------- PRODUCTS GRID HEADER ---------------*/
+/* products_grid_header_ */
+/* fontFamily */
+{% assign products_grid_header_fontFamily = settings["products_grid_header_fontFamily"] %}
+{% if products_grid_header_fontFamily == "" %}
+  {% assign products_grid_header_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_grid_header_fontSize = settings["products_grid_header_fontSize"] %}
+{% if products_grid_header_fontSize == "" %}
+  {% assign products_grid_header_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_grid_header_color = settings["products_grid_header_color"] %}
+{% if products_grid_header_color == "" %}
+  {% assign products_grid_header_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign products_grid_header_weight = settings["products_grid_header_weight"] %}
+{% if products_grid_header_weight == "" %}
+  {% assign products_grid_header_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign products_grid_header_style = settings["products_grid_header_style"] %}
+{% if products_grid_header_style == "" %}
+  {% assign products_grid_header_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- PRODUCTS GRID HEADER CURRENTLY DISPLAYED ---------------*/
+/* products_grid_header_current_ */
+/* fontFamily */
+{% assign products_grid_header_current_fontFamily = settings["products_grid_header_current_fontFamily"] %}
+{% if products_grid_header_current_fontFamily == "" %}
+  {% assign products_grid_header_current_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_grid_header_current_fontSize = settings["products_grid_header_current_fontSize"] %}
+{% if products_grid_header_current_fontSize == "" %}
+  {% assign products_grid_header_current_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_grid_header_current_color = settings["products_grid_header_current_color"] %}
+{% if products_grid_header_current_color == "" %}
+  {% assign products_grid_header_current_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign products_grid_header_current_weight = settings["products_grid_header_current_weight"] %}
+{% if products_grid_header_current_weight == "" %}
+  {% assign products_grid_header_current_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign products_grid_header_current_style = settings["products_grid_header_current_style"] %}
+{% if products_grid_header_current_style == "" %}
+  {% assign products_grid_header_current_style = type_default_page_style %}
+{% endif %}
+
+/*****************************************************************************/
+/*****************************************************************************/
+/* ----------------- PRODUCTS GRID: PRODUCT NAME ---------------*/
+/* products_grid_product_name_ */
+/* fontFamily */
+{% assign products_grid_product_name_fontFamily = settings["products_grid_product_name_fontFamily"] %}
+{% if products_grid_product_name_fontFamily == "" %}
+  {% assign products_grid_product_name_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_grid_product_name_fontSize = settings["products_grid_product_name_fontSize"] %}
+{% if products_grid_product_name_fontSize == "" %}
+  {% assign products_grid_product_name_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_grid_product_name_color = settings["products_grid_product_name_color"] %}
+{% if products_grid_product_name_color == "" %}
+  {% assign products_grid_product_name_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign products_grid_product_name_weight = settings["products_grid_product_name_weight"] %}
+{% if products_grid_product_name_weight == "" %}
+  {% assign products_grid_product_name_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign products_grid_product_name_style = settings["products_grid_product_name_style"] %}
+{% if products_grid_product_name_style == "" %}
+  {% assign products_grid_product_name_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- PRODUCTS GRID: PRICE  ---------------*/
+/* products_grid_product_price_ */
+/* fontFamily */
+{% assign products_grid_product_price_fontFamily = settings["products_grid_product_price_fontFamily"] %}
+{% if products_grid_product_price_fontFamily == "" %}
+  {% assign products_grid_product_price_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_grid_product_price_fontSize = settings["products_grid_product_price_fontSize"] %}
+{% if products_grid_product_price_fontSize == "" %}
+  {% assign products_grid_product_price_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_grid_product_price_color = settings["products_grid_product_price_color"] %}
+{% if products_grid_product_price_color == "" %}
+  {% assign products_grid_product_price_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign products_grid_product_price_weight = settings["products_grid_product_price_weight"] %}
+{% if products_grid_product_price_weight == "" %}
+  {% assign products_grid_product_price_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign products_grid_product_price_style = settings["products_grid_product_price_style"] %}
+{% if products_grid_product_price_style == "" %}
+  {% assign products_grid_product_price_style = type_default_page_style %}
+{% endif %}
+
+/* ----------------- PRODUCTS GRID: PRICE COMPARE  ---------------*/
+/* products_grid_product_price_compare_ */
+/* fontFamily */
+{% assign products_grid_product_price_compare_fontFamily = settings["products_grid_product_price_compare_fontFamily"] %}
+{% if products_grid_product_price_compare_fontFamily == "" %}
+  {% assign products_grid_product_price_compare_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_grid_product_price_compare_fontSize = settings["products_grid_product_price_compare_fontSize"] %}
+{% if products_grid_product_price_compare_fontSize == "" %}
+  {% assign products_grid_product_price_compare_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_grid_product_price_compare_color = settings["products_grid_product_price_compare_color"] %}
+{% if products_grid_product_price_compare_color == "" %}
+  {% assign products_grid_product_price_compare_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign products_grid_product_price_compare_weight = settings["products_grid_product_price_compare_weight"] %}
+{% if products_grid_product_price_compare_weight == "" %}
+  {% assign products_grid_product_price_compare_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign products_grid_product_price_compare_style = settings["products_grid_product_price_compare_style"] %}
+{% if products_grid_product_price_compare_style == "" %}
+  {% assign products_grid_product_price_compare_style = type_default_page_style %}
+{% endif %}
+
+/*****************************************************************************/
+/*****************************************************************************/
+
+.catalog_all_hbs_description .block-title {
+  font-family: "{{ products_frame_blurb_header_fontFamily }}";
+  font-size: {{ products_frame_blurb_header_fontSize }};
+  color: {{ products_frame_blurb_header_color }};
+  font-weight: {{ products_frame_blurb_header_weight }};
+  font-style: {{ products_frame_blurb_header_style }}; 
 }
 
-.collection-grid-row .product-price {
-  margin-bottom: 0px;
+.catalog_all_hbs_description .block-text {
+  font-family: "{{ products_frame_blurb_text_fontFamily }}";
+  font-size: {{ products_frame_blurb_text_fontSize }};
+  color: {{ products_frame_blurb_text_color }};
+  font-weight: {{ products_frame_blurb_text_weight }};
+  font-style: {{ products_frame_blurb_text_style }};   
 }
 
-.collection-grid-row {
-	margin-top: 20px;
+.collections_header.block-title {
+  font-family: "{{ products_frame_menu_header_fontFamily }}";
+  font-size: {{ products_frame_menu_header_fontSize }};
+  color: {{ products_frame_menu_header_color }};
+  font-weight: {{ products_frame_menu_header_weight }};
+  font-style: {{ products_frame_menu_header_style }}; 
 }
 
-.product-grid-wrapper {
-  /*border: 1px dotted red;*/
-  margin-bottom: 20px;
-}
-
-.unevenHorizontalParent {
-	position: relative;
-}
-
-.unevenHorizontalParent img {
-	position: absolute;
-	left: 0px;
-	bottom: 0px;
+.collections_list.block-text {
+  font-family: "{{ products_frame_menu_item_fontFamily }}";
+  font-size: {{ products_frame_menu_item_fontSize }};
+  color: {{ products_frame_menu_item_color }};
+  font-weight: {{ products_frame_menu_item_weight }};
+  font-style: {{ products_frame_menu_item_style }}; 
 }
 
 .collection-grid-title {
 	margin-top: 0px;
 	margin-left: 15px;
+
+  font-family: "{{ products_grid_header_fontFamily }}";
+  font-size: {{ products_grid_header_fontSize }};
+  color: {{ products_grid_header_color }};
+  font-weight: {{ products_grid_header_weight }};
+  font-style: {{ products_grid_header_style }}; 
 }
 
 .collection-grid-title span {
-	color: rgb(128, 130, 133);
+  font-family: "{{ products_grid_header_current_fontFamily }}";
+  font-size: {{ products_grid_header_current_fontSize }};
+  color: {{ products_grid_header_current_color }};
+  font-weight: {{ products_grid_header_current_weight }};
+  font-style: {{ products_grid_header_current_style }}; 
 }
+
+.collection-grid-row .product-title {
+  font-family: "{{ products_grid_product_name_fontFamily }}";
+  font-size: {{ products_grid_product_name_fontSize }};
+  color: {{ products_grid_product_name_color }};
+  font-weight: {{ products_grid_product_name_weight }};
+  font-style: {{ products_grid_product_name_style }}; 
+}
+
+.collection-grid-row .product-price {
+  margin-bottom: 0px;
+  font-family: "{{ products_grid_product_price_fontFamily }}";
+  font-size: {{ products_grid_product_price_fontSize }};
+  color: {{ products_grid_product_price_color }};
+  font-weight: {{ products_grid_product_price_weight }};
+  font-style: {{ products_grid_product_price_style }}; 
+}
+
+.collection-grid-row .product-compare {
+  font-family: "{{ products_grid_product_price_compare_fontFamily }}";
+  font-size: {{ products_grid_product_price_compare_fontSize }};
+  color: {{ products_grid_product_price_compare_color }};
+  font-weight: {{ products_grid_product_price_compare_weight }};
+  font-style: {{ products_grid_product_price_compare_style }}; 
+}
+
+.collection-grid-row {
+  margin-top: 20px;
+}
+
+.product-grid-wrapper {
+  margin-bottom: 20px;
+}
+
+.unevenHorizontalParent {
+  position: relative;
+}
+
+.unevenHorizontalParent img {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+
 
 /* MENU bar */
 .catalog_all_leftMenu_collections li {

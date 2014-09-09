@@ -153,22 +153,69 @@ Navigation:
 </fieldset>
 
 <fieldset>
-  <legend>Header</legend>
-  <h3>Logo Options</h3>
+  <legend>Header Logo and Typography</legend>
+  <h3>Header Shield and Banner</h3>
   <table>
-    <tr>
-      <td colspan="2"><small>Shield on the left, words on the right</small></td>
-    </tr>
-    <tr>
-      <td><label for="logo_image">Logo Shield Only</label></td>
-      <td><input type="file" name="logo.png" id="logo_image" data-max-width="1200" data-max-height="1200" /></td>
-    </tr>
-    <tr>
-      <td><label for="logo_imageWords">Logo Words Only</label></td>
-      <td><input type="file" name="logoWords.png" id="logo_imageWords" data-max-width="1200" data-max-height="1200" /></td>
-    </tr>
+    <tbody>
+      <tr>
+        <td><label for="header_logo_shield">Logo shield, upload a file</label></td>
+        <td><input name="header_logo_shield" id="header_logo_shield" type="file" data-max-width="500" data-max-height="500" /></td>
+      </tr>
+      <tr>
+        <td><label for="header_logo_shield_link">Logo shield URL link (MUST start with //www and not http://)</label></td>
+        <td><input type="text" name="header_logo_shield_link" id="header_logo_shield_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An URL link will take precedence over a local file</small></td>
+      </tr>
+      <tr>
+        <td><label for="header_logo_words">Logo words, upload a file</label></td>
+        <td><input name="header_logo_words" id="header_logo_words" type="file" data-max-width="500" data-max-height="500" /></td>
+      </tr>
+      <tr>
+        <td><label for="header_logo_words_link">Logo words picture URL link (MUST start with //www and not http://)</label></td>
+        <td><input type="text" name="header_logo_words_link" id="header_logo_words_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>An URL link will take precedence over a local file</small></td>
+      </tr>
+    </tbody>
   </table>
-  <h3>Social links</h3>
+  <h3>Header: Menu Items</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="header_menu_item_fontFamily">Menu Items font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="header_menu_item_fontFamily" id="header_menu_item_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="header_menu_item_fontSize">Menu Items font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="header_menu_item_fontSize" id="header_menu_item_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="header_menu_item_color">Menu Items color</label></td>
+        <td><input type="text" name="header_menu_item_color" id="header_menu_item_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="header_menu_item_weight">Menu Items weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="header_menu_item_weight" id="header_menu_item_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="header_menu_item_style">Menu Items style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="header_menu_item_style" id="header_menu_item_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<fieldset>  
+  <legend>Social Links</legend>
   <table>
     <tr>
       <td colspan="2"><small>All links, except the email one, must begin with <i>http://</i>, <i>https://</i> or <i>//</i>. The email must be your email address with no <i>mailto:</i> prefix. Leave the text box blank if you don't want to use the corresponding icon.</small></td>
@@ -2635,8 +2682,255 @@ Navigation:
 </fieldset>
 
 <fieldset>
-  <legend>Product pages</legend>
+  <legend>Products / Collections Page Typography</legend>
+  <small>The individual products page (/products/*item) will inherit the Left Frame font settings through here</small>
+  <h3>Left Frame - HBS SA Products Blurb: Header</h3>
   <table>
+    <tbody>
+      <tr>
+        <td><label for="products_frame_blurb_header_fontFamily">Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_frame_blurb_header_fontFamily" id="products_frame_blurb_header_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_header_fontSize">Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_frame_blurb_header_fontSize" id="products_frame_blurb_header_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_header_color">Header color</label></td>
+        <td><input type="text" name="products_frame_blurb_header_color" id="products_frame_blurb_header_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_header_weight">Header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_frame_blurb_header_weight" id="products_frame_blurb_header_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_header_style">Header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_frame_blurb_header_style" id="products_frame_blurb_header_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Left Frame - HBS SA Products Blurb: Description</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_frame_blurb_text_fontFamily">Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_frame_blurb_text_fontFamily" id="products_frame_blurb_text_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_text_fontSize">Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_frame_blurb_text_fontSize" id="products_frame_blurb_text_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_text_color">Description color</label></td>
+        <td><input type="text" name="products_frame_blurb_text_color" id="products_frame_blurb_text_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_text_weight">Description weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_frame_blurb_text_weight" id="products_frame_blurb_text_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_blurb_text_style">Description style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_frame_blurb_text_style" id="products_frame_blurb_text_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Left Frame - Collections Menu: Header</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_frame_menu_header_fontFamily">Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_frame_menu_header_fontFamily" id="products_frame_menu_header_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_header_fontSize">Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_frame_menu_header_fontSize" id="products_frame_menu_header_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_header_color">Header color</label></td>
+        <td><input type="text" name="products_frame_menu_header_color" id="products_frame_menu_header_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_header_weight">Header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_frame_menu_header_weight" id="products_frame_menu_header_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_header_style">Header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_frame_menu_header_style" id="products_frame_menu_header_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Left Frame - Collections Menu: Menu Items</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_frame_menu_item_fontFamily">Menu Items font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_frame_menu_item_fontFamily" id="products_frame_menu_item_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_item_fontSize">Menu Items font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_frame_menu_item_fontSize" id="products_frame_menu_item_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_item_color">Menu Items color</label></td>
+        <td><input type="text" name="products_frame_menu_item_color" id="products_frame_menu_item_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_item_weight">Menu Items weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_frame_menu_item_weight" id="products_frame_menu_item_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_frame_menu_item_style">Menu Items style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_frame_menu_item_style" id="products_frame_menu_item_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Products Grid: Header</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_grid_header_fontFamily">Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_grid_header_fontFamily" id="products_grid_header_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_fontSize">Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_grid_header_fontSize" id="products_grid_header_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_color">Header color</label></td>
+        <td><input type="text" name="products_grid_header_color" id="products_grid_header_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_weight">Header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_grid_header_weight" id="products_grid_header_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_style">Header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_grid_header_style" id="products_grid_header_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Products Grid: Header - Currently Displayed</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_grid_header_current_fontFamily">Header - Currently Displayed font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_grid_header_current_fontFamily" id="products_grid_header_current_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_current_fontSize">Header - Currently Displayed font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_grid_header_current_fontSize" id="products_grid_header_current_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_current_color">Header - Currently Displayed color</label></td>
+        <td><input type="text" name="products_grid_header_current_color" id="products_grid_header_current_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_current_weight">Header - Currently Displayed weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_grid_header_current_weight" id="products_grid_header_current_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_header_current_style">Header - Currently Displayed style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_grid_header_current_style" id="products_grid_header_current_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Products Grid: Product Name</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_grid_product_name_fontFamily">Product Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_grid_product_name_fontFamily" id="products_grid_product_name_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_name_fontSize">Product Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_grid_product_name_fontSize" id="products_grid_product_name_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_name_color">Product Name color</label></td>
+        <td><input type="text" name="products_grid_product_name_color" id="products_grid_product_name_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_name_weight">Product Name weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_grid_product_name_weight" id="products_grid_product_name_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_name_style">Product Name style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_grid_product_name_style" id="products_grid_product_name_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Products Grid: Product Price</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_grid_product_price_fontFamily">Product Price font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="products_grid_product_price_fontFamily" id="products_grid_product_price_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_price_fontSize">Product Price font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="products_grid_product_price_fontSize" id="products_grid_product_price_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_price_color">Product Price color</label></td>
+        <td><input type="text" name="products_grid_product_price_color" id="products_grid_product_price_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_price_weight">Product Price weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="products_grid_product_price_weight" id="products_grid_product_price_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="products_grid_product_price_style">Product Price style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="products_grid_product_price_style" id="products_grid_product_price_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
   </table>
 </fieldset>
 

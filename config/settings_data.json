@@ -2,11 +2,14 @@
   "current": "HbsSA",
   "presets": {
     "HbsSA": {
-      "REAL": "NOT DEVELOPMENT",
+"REAL": "NOT DEVELOPMENT",
     "googleFontLink_2": "<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Shadows+Into+Light|Gloria+Hallelujah|Pacifico|Titillium+Web:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>",
+"br header": "**********************************************************************",
+    "header_logo_shield_link": "//cdn.shopify.com/s/files/1/0554/7965/files/logoOnly_NA.png?698",
+    "header_logo_words_link": "//cdn.shopify.com/s/files/1/0554/7965/files/logoHBSSA_NA.png?698",
 "br social": "**********************************************************************",
-      "facebook_url": "//www.facebook.com/HBSSA",
-      "contact_email": "mailto:askthesa@hbs.edu",
+    "facebook_url": "//www.facebook.com/HBSSA",
+    "contact_email": "mailto:askthesa@hbs.edu",
 "br homepage - slideshow": "******************************************************************",
     "homepage_slideshow_pic_0_captionHeader": "Picture 1 Header",
     "homepage_slideshow_pic_0_caption": "Picture 1 Caption: Longer and longer text",
@@ -191,7 +194,9 @@
     "eventspage_9_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
     "eventspage_10_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
     "eventspage_11_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
-"br": "*******************************************"
+"br Products-Collections": "***********************************************",
+
+"br end": "******************************************************************"
     },
     "Slate": {
       "customer_layout": "theme",
