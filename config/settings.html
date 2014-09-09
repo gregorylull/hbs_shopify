@@ -76,31 +76,10 @@ Navigation:
 </fieldset>
 
 <fieldset>
-  <legend>Background General</legend>
-  <h3>Background Color</h3>
-  <table>
-    <tr>
-      <th><label for="background_color">Background color</label></th>
-      <td><input id="background_color" name="background_color" type="text" class="color" /></td>
-    </tr>
-  </table>
-  <h3>Text</h3>
-  <table>
-    <tr>
-      <th><label for="text_color">Text color</label></th>
-      <td><input id="text_color" name="text_color" type="text" class="color" /></td>
-    </tr>
-    <tr>
-      <th><label for="link_color">Link color</label></th>
-      <td><input id="link_color" name="link_color" type="text" class="color" /></td>
-    </tr>
-  </table>
-</fieldset>
-
-<fieldset>
   <legend>Typography General</legend>
-  <small>Font families uploaded here will be accessible in all pages. Font sizes are in percentages, 1 is the same as 100% (default), 1.1 is 110%</small>
+  <small>Font families uploaded here will be accessible in all pages. Font sizes are in percentages, 1 is the same as 100% which defaults to 16px, 2.5 is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.</small>
   <h3>Google Fonts</h3>
+  <small>Please copy and paste the Standard link (NOT @import nor Javascript), the link should look like this: </small><small>&lt;link href='http://fonts.googleapis.com/css?family=...' rel='stylesheet' type='text/css'&gt;</small>
   <table>
     <tbody>
       <tr>
@@ -118,36 +97,46 @@ Navigation:
     </tbody>
   </table>
   <h3>Default Section Header Options</h3>
+  <small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.</small><small>Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.</small>
   <table>
     <tbody>
       <tr>
-        <td><label for="type_default_sectionHeader_font-family">Section header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="type_default_sectionHeader_font-family" id="type_default_sectionHeader_font-family" /></td>
-      </tr>
-      <tr>
-        <td><label for="type_default_sectionHeader_font-size">Section header font size, enter number from 0.1 to 5 (this is a multiplier, 5 means 'increase current font size by 500%')</label></td>
-        <td><input type="text" name="type_default_sectionHeader_font-size" id="type_default_sectionHeader_font-size" /></td>
+        <td><label for="type_default_sectionHeader_fontFamily">Section header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_default_sectionHeader_fontFamily" id="type_default_sectionHeader_fontFamily" /></td>
       </tr>
       <tr>
         <td><label for="type_default_sectionHeader_color">Section header color</label></td>
         <td><input type="text" name="type_default_sectionHeader_color" id="type_default_sectionHeader_color" class="color" /></td>
       </tr>
+      <tr>
+        <td><label for="type_default_sectionHeader_weight">Section header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_default_sectionHeader_weight" id="type_default_sectionHeader_weight" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_default_sectionHeader_style">Section header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_default_sectionHeader_style" id="type_default_sectionHeader_style" /></td>
+      </tr>
     </tbody>
   </table>
   <h3>Default Page Font Options</h3>
+  <small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.</small><small>Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.</small>
   <table>
     <tbody>
       <tr>
-        <td><label for="type_default_page_font-family">Page font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="type_default_page_font-family" id="type_default_page_font-family" /></td>
-      </tr>
-      <tr>
-        <td><label for="type_default_page_font-size">Page font size, enter number from 0.1 to 5 (this is a multiplier, 5 means 'increase current font size by 500%')</label></td>
-        <td><input type="text" name="type_default_page_font-size" id="type_default_page_font-size" /></td>
+        <td><label for="type_default_page_fontFamily">Page font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_default_page_fontFamily" id="type_default_page_fontFamily" /></td>
       </tr>
       <tr>
         <td><label for="type_default_page_color">Page color</label></td>
         <td><input type="text" name="type_default_page_color" id="type_default_page_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_default_page_weight">Page font weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_default_page_weight" id="type_default_page_weight" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_default_page_style">Page font style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_default_page_style" id="type_default_page_style" /></td>
       </tr>
     </tbody>
   </table>
@@ -251,21 +240,141 @@ Navigation:
 </fieldset>
 
 <fieldset>
+  <legend>Homepage Typography Options</legend>
+  <h3>Upcoming Events: Section Header</h3>
+  <small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.</small><small>Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.</small>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_header_fontFamily">Section Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_header_fontFamily" id="type_homepage_upcomingEvents_header_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_header_fontSize">Section Header font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_header_fontSize" id="type_homepage_upcomingEvents_header_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_header_color">Section Header color</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_header_color" id="type_homepage_upcomingEvents_header_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_header_weight">Section Header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_header_weight" id="type_homepage_upcomingEvents_header_weight" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_header_style">Section Header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_header_style" id="type_homepage_upcomingEvents_header_style" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Upcoming Events: Event Title</h3>
+  <small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.</small><small>Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.</small>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_title_fontFamily">Event Title font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_title_fontFamily" id="type_homepage_upcomingEvents_title_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_title_fontSize">Event Title font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_title_fontSize" id="type_homepage_upcomingEvents_title_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_title_color">Event Title color</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_title_color" id="type_homepage_upcomingEvents_title_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_title_weight">Event Title weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_title_weight" id="type_homepage_upcomingEvents_title_weight" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_title_style">Event Title style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_title_style" id="type_homepage_upcomingEvents_title_style" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Upcoming Events: Event Date</h3>
+  <small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.</small><small>Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.</small>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_date_fontFamily">Event Date font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_date_fontFamily" id="type_homepage_upcomingEvents_date_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_date_fontSize">Event Date font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_date_fontSize" id="type_homepage_upcomingEvents_date_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_date_color">Event Date color</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_date_color" id="type_homepage_upcomingEvents_date_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_date_weight">Event Date weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_date_weight" id="type_homepage_upcomingEvents_date_weight" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_date_style">Event Date style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_date_style" id="type_homepage_upcomingEvents_date_style" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Upcoming Events: Event Location</h3>
+  <small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.</small><small>Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.</small>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_location_fontFamily">Event Location font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_location_fontFamily" id="type_homepage_upcomingEvents_location_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_location_fontSize">Event Location font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_location_fontSize" id="type_homepage_upcomingEvents_location_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_location_color">Event Location color</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_location_color" id="type_homepage_upcomingEvents_location_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_location_weight">Event Location weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_location_weight" id="type_homepage_upcomingEvents_location_weight" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_location_style">Event Location style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_location_style" id="type_homepage_upcomingEvents_location_style" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Upcoming Events: Event Description</h3>
+  <small>Using 'Lato' family as an example, options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on). Also note that not all families have options, check google fonts.</small><small>Using 'Lato' family as an example, options are: italic. Also note that not all families have the italic option.</small>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_description_fontFamily">Event Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_description_fontFamily" id="type_homepage_upcomingEvents_description_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_description_fontSize">Event Description font size, enter number starting from 0.1 (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_description_fontSize" id="type_homepage_upcomingEvents_description_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_description_color">Event Description color</label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_description_color" id="type_homepage_upcomingEvents_description_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_description_weight">Event Description weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_description_weight" id="type_homepage_upcomingEvents_description_weight" /></td>
+      </tr>
+      <tr>
+        <td><label for="type_homepage_upcomingEvents_description_style">Event Description style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="type_homepage_upcomingEvents_description_style" id="type_homepage_upcomingEvents_description_style" /></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<fieldset>
   <legend>Homepage</legend>
-  <h3>Content</h3>
-  <table>
-    <tr>
-      <th><label for="homepage_page">Show content of this page</label></th>
-      <td><select id="homepage_page" class="page" name="homepage_page" value="frontpage" /></td>
-    </tr>
-  </table>
-  <h3>Featured collection</h3>
-  <table>
-    <tr>
-      <th><label for="homepage_collection">Feature products from this collection</label></th>
-      <td><select id="homepage_collection" class="collection" name="homepage_collection" value="frontpage" /></td>
-    </tr>
-  </table>
   
   <!-- everything below this was not included in the skeleton theme -->
   <!-- pictures for the slide show, max is 6 -->
@@ -327,63 +436,9 @@ Navigation:
 </fieldset>
 
 <fieldset>
-  <legend>Product pages</legend>
-  <table>
-  </table>
-</fieldset>
-
-<fieldset>
-  <legend>Collection pages</legend>
-  <h3>Product Grid</h3>
-  <table>
-    <tr>
-      <th><label for="products_per_row">Number of products per row</label></th>
-      <td>
-        <select id="products_per_row" name="products_per_row">
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4" selected="selected">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <th><label for="number_of_rows">Number of rows</label></th>
-      <td>
-        <select id="number_of_rows" name="number_of_rows">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3" selected="selected">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select>
-      </td>
-    </tr>
-  </table>
-</fieldset>
-
-<fieldset>
     <legend>About Us: Executive Team Profiles</legend>
     <h3>Exec Team Profile Layout</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td><label for="aboutus_execprofile_row_sequence">Specifiy how many profiles per row (comma separated). If empty, the default* will be used.</label></td>
-                <td><input type="text" name="aboutus_execprofile_row_sequence" id="aboutus_execprofile_row_sequence" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><small>*default layout for 2 co-presidents and 11 other members is: 2,4,3,4</small></td>
-            </tr>
-            <tr>
-                <td><label for="aboutus_execprofile_display_alphabetical">Check this to display profiles in the order entered below (default is alphabetical)</label></td>
-                <td><input type="checkbox" name="aboutus_execprofile_display_alphabetical" id="aboutus_execprofile_display_alphabetical" value="1" /></td>
-            </tr>
-        </tbody>
-    </table>
+
     <h3>Member #1</h3>
     <table>
         <tbody>
@@ -1924,6 +1979,12 @@ Navigation:
         </tbody>
     </table>
 </fieldset> <!-- events page-->
+
+<fieldset>
+  <legend>Product pages</legend>
+  <table>
+  </table>
+</fieldset>
 
 <fieldset>
   <legend>Blog pages</legend>
