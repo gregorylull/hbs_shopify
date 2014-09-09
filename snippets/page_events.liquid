@@ -25,6 +25,7 @@
 	    {% capture event_date %}{{ base_string | append: 'date' }}{% endcapture %}
 	    {% capture event_description %}{{ base_string | append: 'description' }}{% endcapture %}
 	    {% capture event_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
+	    {% assign event_pictureURL = base_string | append: 'picture_link' %}
 	    {% capture event_rsvp_link %}{{ base_string | append: 'rsvp'}}{% endcapture %}
 	    {% capture event_rsvp_display %}{{ base_string | append: 'rsvp_display'}}{% endcapture %}
 	    {% assign event_location = base_string | append: 'location' %}
@@ -37,7 +38,11 @@
 	    <div class="eventspage_event_wrapper">
 	      <p class="eventspage_event_date">{{ settings[event_date] }}</p>
 	      <div class="eventspage_event_info">
-	        {{ event_picture | asset_url | img_tag: event_title }}
+	        {% if settings[event_pictureURL] != "" %}
+		        <img src="{{settings[event_pictureURL]}}" alt="event picture file" />
+	        {% else %}
+		        {{ event_picture | asset_url | img_tag: event_title }}
+	        {% endif %}
 	        <p class="eventspage_event_description">{{ settings[event_description] }}</p>
 		      <div class="eventspage_event_title">{{ settings[event_title] }}</div>
 	      </div>

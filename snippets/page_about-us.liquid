@@ -36,6 +36,7 @@
 	      {% if i == 1 %} {% assign specialClass = ' special-break' %} {% endif %}
 			    <div class="aboutus_execprofile_profile_wrapper{{specialClass}}">
 			      <div class="aboutus_execprofile_profile_info">
+			      <script>console.log( "profile_pictureURL: ", {{ settings[profile_pictureURL] | json }})</script>
 			        {% if settings[profile_pictureURL] != "" %}
 			          <img src="{{settings[profile_pictureURL]}}" alt="file picture: {{profile_name}}"/>
 			        {% else %}
