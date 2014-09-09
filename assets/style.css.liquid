@@ -1174,6 +1174,236 @@ OVERWRITING BOOTSTRAP TABLE
 /******************************************************************************
   EVENTS PAGE
 ******************************************************************************/
+/* ----------------- EVENTS PAGE HEADER ---------------*/
+/* eventspage_type_page_title_ */
+/* fontFamily */
+{% assign eventspage_type_page_title_fontFamily = settings["eventspage_type_page_title_fontFamily"] %}
+{% if eventspage_type_page_title_fontFamily == "" %}
+  {% assign eventspage_type_page_title_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign eventspage_type_page_title_fontSize = settings["eventspage_type_page_title_fontSize"] %}
+{% if eventspage_type_page_title_fontSize == "" %}
+  {% assign eventspage_type_page_title_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign eventspage_type_page_title_color = settings["eventspage_type_page_title_color"] %}
+{% if eventspage_type_page_title_color == "" %}
+  {% assign eventspage_type_page_title_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign eventspage_type_page_title_weight = settings["eventspage_type_page_title_weight"] %}
+{% if eventspage_type_page_title_weight == "" %}
+  {% assign eventspage_type_page_title_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign eventspage_type_page_title_style = settings["eventspage_type_page_title_style"] %}
+{% if eventspage_type_page_title_style == "" %}
+  {% assign eventspage_type_page_title_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- EVENTS PAGE TEXT ---------------*/
+/* eventspage_type_page_text_ */
+/* fontFamily */
+{% assign eventspage_type_page_text_fontFamily = settings["eventspage_type_page_text_fontFamily"] %}
+{% if eventspage_type_page_text_fontFamily == "" %}
+  {% assign eventspage_type_page_text_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign eventspage_type_page_text_fontSize = settings["eventspage_type_page_text_fontSize"] %}
+{% if eventspage_type_page_text_fontSize == "" %}
+  {% assign eventspage_type_page_text_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign eventspage_type_page_text_color = settings["eventspage_type_page_text_color"] %}
+{% if eventspage_type_page_text_color == "" %}
+  {% assign eventspage_type_page_text_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign eventspage_type_page_text_weight = settings["eventspage_type_page_text_weight"] %}
+{% if eventspage_type_page_text_weight == "" %}
+  {% assign eventspage_type_page_text_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign eventspage_type_page_text_style = settings["eventspage_type_page_text_style"] %}
+{% if eventspage_type_page_text_style == "" %}
+  {% assign eventspage_type_page_text_style = type_default_page_style %}
+{% endif %}
+
+/*****************************************************************************/
+/*****************************************************************************/
+
+/* ----------------- EVENT NAME ---------------*/
+/* eventspage_type_event_name_ */
+/* fontFamily */
+{% assign eventspage_type_event_name_fontFamily = settings["eventspage_type_event_name_fontFamily"] %}
+{% if eventspage_type_event_name_fontFamily == "" %}
+  {% assign eventspage_type_event_name_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign eventspage_type_event_name_fontSize = settings["eventspage_type_event_name_fontSize"] %}
+{% if eventspage_type_event_name_fontSize == "" %}
+  {% assign eventspage_type_event_name_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign eventspage_type_event_name_color = settings["eventspage_type_event_name_color"] %}
+{% if eventspage_type_event_name_color == "" %}
+  {% assign eventspage_type_event_name_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign eventspage_type_event_name_weight = settings["eventspage_type_event_name_weight"] %}
+{% if eventspage_type_event_name_weight == "" %}
+  {% assign eventspage_type_event_name_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign eventspage_type_event_name_style = settings["eventspage_type_event_name_style"] %}
+{% if eventspage_type_event_name_style == "" %}
+  {% assign eventspage_type_event_name_style = type_default_page_style %}
+{% endif %}
+
+/* ----------------- EVENT DATE ---------------*/
+/* eventspage_type_event_date_ */
+/* fontFamily */
+{% assign eventspage_type_event_date_fontFamily = settings["eventspage_type_event_date_fontFamily"] %}
+{% if eventspage_type_event_date_fontFamily == "" %}
+  {% assign eventspage_type_event_date_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign eventspage_type_event_date_fontSize = settings["eventspage_type_event_date_fontSize"] %}
+{% if eventspage_type_event_date_fontSize == "" %}
+  {% assign eventspage_type_event_date_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign eventspage_type_event_date_color = settings["eventspage_type_event_date_color"] %}
+{% if eventspage_type_event_date_color == "" %}
+  {% assign eventspage_type_event_date_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign eventspage_type_event_date_weight = settings["eventspage_type_event_date_weight"] %}
+{% if eventspage_type_event_date_weight == "" %}
+  {% assign eventspage_type_event_date_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign eventspage_type_event_date_style = settings["eventspage_type_event_date_style"] %}
+{% if eventspage_type_event_date_style == "" %}
+  {% assign eventspage_type_event_date_style = type_default_page_style %}
+{% endif %}
+
+/* ----------------- EVENT LOCATION ---------------*/
+/* eventspage_type_event_location_ */
+/* fontFamily */
+{% assign eventspage_type_event_location_fontFamily = settings["eventspage_type_event_location_fontFamily"] %}
+{% if eventspage_type_event_location_fontFamily == "" %}
+  {% assign eventspage_type_event_location_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign eventspage_type_event_location_fontSize = settings["eventspage_type_event_location_fontSize"] %}
+{% if eventspage_type_event_location_fontSize == "" %}
+  {% assign eventspage_type_event_location_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign eventspage_type_event_location_color = settings["eventspage_type_event_location_color"] %}
+{% if eventspage_type_event_location_color == "" %}
+  {% assign eventspage_type_event_location_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign eventspage_type_event_location_weight = settings["eventspage_type_event_location_weight"] %}
+{% if eventspage_type_event_location_weight == "" %}
+  {% assign eventspage_type_event_location_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign eventspage_type_event_location_style = settings["eventspage_type_event_location_style"] %}
+{% if eventspage_type_event_location_style == "" %}
+  {% assign eventspage_type_event_location_style = type_default_page_style %}
+{% endif %}
+
+/* ----------------- EVENT TEXT ---------------*/
+/* eventspage_type_event_text_ */
+/* fontFamily */
+{% assign eventspage_type_event_text_fontFamily = settings["eventspage_type_event_text_fontFamily"] %}
+{% if eventspage_type_event_text_fontFamily == "" %}
+  {% assign eventspage_type_event_text_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign eventspage_type_event_text_fontSize = settings["eventspage_type_event_text_fontSize"] %}
+{% if eventspage_type_event_text_fontSize == "" %}
+  {% assign eventspage_type_event_text_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign eventspage_type_event_text_color = settings["eventspage_type_event_text_color"] %}
+{% if eventspage_type_event_text_color == "" %}
+  {% assign eventspage_type_event_text_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign eventspage_type_event_text_weight = settings["eventspage_type_event_text_weight"] %}
+{% if eventspage_type_event_text_weight == "" %}
+  {% assign eventspage_type_event_text_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign eventspage_type_event_text_style = settings["eventspage_type_event_text_style"] %}
+{% if eventspage_type_event_text_style == "" %}
+  {% assign eventspage_type_event_text_style = type_default_page_style %}
+{% endif %}
+
+/* ----------------- EVENT RSVP ---------------*/
+/* eventspage_type_event_rsvp_ */
+/* fontFamily */
+{% assign eventspage_type_event_rsvp_fontFamily = settings["eventspage_type_event_rsvp_fontFamily"] %}
+{% if eventspage_type_event_rsvp_fontFamily == "" %}
+  {% assign eventspage_type_event_rsvp_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign eventspage_type_event_rsvp_fontSize = settings["eventspage_type_event_rsvp_fontSize"] %}
+{% if eventspage_type_event_rsvp_fontSize == "" %}
+  {% assign eventspage_type_event_rsvp_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign eventspage_type_event_rsvp_color = settings["eventspage_type_event_rsvp_color"] %}
+{% if eventspage_type_event_rsvp_color == "" %}
+  {% assign eventspage_type_event_rsvp_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign eventspage_type_event_rsvp_weight = settings["eventspage_type_event_rsvp_weight"] %}
+{% if eventspage_type_event_rsvp_weight == "" %}
+  {% assign eventspage_type_event_rsvp_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign eventspage_type_event_rsvp_style = settings["eventspage_type_event_rsvp_style"] %}
+{% if eventspage_type_event_rsvp_style == "" %}
+  {% assign eventspage_type_event_rsvp_style = type_default_page_style %}
+{% endif %}
+
+/*****************************************************************************/
+/*****************************************************************************/
+
 
 /* mobile first */
 .eventspage_container {
@@ -1181,11 +1411,24 @@ OVERWRITING BOOTSTRAP TABLE
 	margin-left: auto;
 	margin-right: auto;
 	text-align: justify;
-  /*background-image: url({{ 'default_background_3_picture.png' | asset_url }});*/
 }
 
 .eventspage_page_title {
   margin-top: 20px;
+
+  font-family: "{{ eventspage_type_page_title_fontFamily }}";
+  font-size: {{ eventspage_type_page_title_fontSize }};
+  color: {{ eventspage_type_page_title_color }};
+  font-weight: {{ eventspage_type_page_title_weight }};
+  font-style: {{ eventspage_type_page_title_style }}; 
+}
+
+.eventspage_page_description {
+  font-family: "{{ eventspage_type_page_text_fontFamily }}";
+  font-size: {{ eventspage_type_page_text_fontSize }};
+  color: {{ eventspage_type_page_text_color }};
+  font-weight: {{ eventspage_type_page_text_weight }};
+  font-style: {{ eventspage_type_page_text_style }}; 
 }
 
 .eventspage_divider {
@@ -1252,13 +1495,41 @@ OVERWRITING BOOTSTRAP TABLE
 	border-radius: 30%;
 }
 
+.eventspage_event_title {
+  font-family: "{{ eventspage_type_event_name_fontFamily }}";
+  font-size: {{ eventspage_type_event_name_fontSize }};
+  color: {{ eventspage_type_event_name_color }};
+  font-weight: {{ eventspage_type_event_name_weight }};
+  font-style: {{ eventspage_type_event_name_style }}; 
+}
+
+.eventspage_event_description {
+  font-family: "{{ eventspage_type_event_text_fontFamily }}";
+  font-size: {{ eventspage_type_event_text_fontSize }};
+  color: {{ eventspage_type_event_text_color }};
+  font-weight: {{ eventspage_type_event_text_weight }};
+  font-style: {{ eventspage_type_event_text_style }}; 
+}
+
 .eventspage_event_date {
 	font-size: 0.75em;
 	margin-bottom: 5px;
+
+  font-family: "{{ eventspage_type_event_date_fontFamily }}";
+  font-size: {{ eventspage_type_event_date_fontSize }};
+  color: {{ eventspage_type_event_date_color }};
+  font-weight: {{ eventspage_type_event_date_weight }};
+  font-style: {{ eventspage_type_event_date_style }}; 
 }
 
 .eventspage_event_rsvp_link {
 	text-decoration: none;
+
+  font-family: "{{ eventspage_type_event_rsvp_fontFamily }}";
+  font-size: {{ eventspage_type_event_rsvp_fontSize }};
+  color: {{ eventspage_type_event_rsvp_color }};
+  font-weight: {{ eventspage_type_event_rsvp_weight }};
+  font-style: {{ eventspage_type_event_rsvp_style }}; 
 }
 
 .eventspage_event_info:hover img {

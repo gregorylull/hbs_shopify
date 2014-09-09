@@ -114,6 +114,9 @@
     "aboutus_execprofile_11_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/exec_profile_paul_kalmbach.jpg?696",
     "aboutus_execprofile_12_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/icon.png?696",
     "aboutus_execprofile_2_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/icon.png?696",
+"br Events page Typography": "******************************************************************",
+ 
+
 "br EVENT": "******************************************************************",
     "eventspage_0_display": true,
     "eventspage_0_title": "Casino Night",
@@ -197,38 +200,9 @@
 "br Products-Collections": "***********************************************",
 
 "br Product Individual Purchase": "***********************************************",
-    "product_info_name_fontSize": "2em",
-    "product_info_vendor_fontSize": "2em",
-    "product_info_price_fontSize": "2em",
-    "product_info_price_compare_fontSize": "2em",
-    "product_info_addToCart_fontSize": "2em",
-    "products_tab_header_fontSize": "2em",
-    "products_tab_text_fontSize": "2em",
-    "product_tab_text_fontSize": "2em",
-    "product_tab_header_fontSize": "2em",
+
 
 "br end": "******************************************************************"
-    },
-    "Slate": {
-      "customer_layout": "theme",
-      "background_color": "#ffffff",
-      "text_color": "#555555",
-      "link_color": "#b5792b",
-      "facebook_url": "https://www.facebook.com/shopify",
-      "twitter_url": "https://twitter.com/shopify",
-      "pinterest_url": "http://pinterest.com/shopify/",
-      "instagram_url": "http://instagram.com/shopify",
-      "vimeo_url": "http://vimeo.com/shopify",
-      "youtube_url": "https://www.youtube.com/user/shopify",
-      "social_icons_style": "",
-      "use_logo": false,
-      "base_font_size": "16px",
-      "base_font_family": "'Source Sans Pro', sans-serif",
-      "featured_blog": "news",
-      "homepage_page": "frontpage",
-      "homepage_collection": "frontpage",
-      "products_per_row": "3",
-      "number_of_rows": "4"
     }
   }
 }
