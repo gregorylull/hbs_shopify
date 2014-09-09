@@ -7,7 +7,7 @@
     
     <div class="product-details">
       
-      <h2 itemprop="name">{{ product.title }}</h2>
+      <h2 itemprop="name" class="product-name block-title">{{ product.title }}</h2>
       
       {% assign product_vendor_handle = product.vendor | handle %}
       {% comment %}
@@ -20,7 +20,7 @@
       {% else %}
         {% assign vendor_url = product.vendor | url_for_vendor %}
       {% endif %}
-      <h5 itemprop="brand" class="delta">{{ product.vendor | link_to: vendor_url }}</h5>
+      <h5 itemprop="brand" class="delta product-vendor">{{ product.vendor | link_to: vendor_url }}</h5>
       
 <!--       <div id="product-description" class="rte" itemprop="description">
         {{ product.description }}

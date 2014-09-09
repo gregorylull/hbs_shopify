@@ -196,6 +196,17 @@
     "eventspage_11_picture_link": "//cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?696",
 "br Products-Collections": "***********************************************",
 
+"br Product Individual Purchase": "***********************************************",
+    "product_info_name_fontSize": "2em",
+    "product_info_vendor_fontSize": "2em",
+    "product_info_price_fontSize": "2em",
+    "product_info_price_compare_fontSize": "2em",
+    "product_info_addToCart_fontSize": "2em",
+    "products_tab_header_fontSize": "2em",
+    "products_tab_text_fontSize": "2em",
+    "product_tab_text_fontSize": "2em",
+    "product_tab_header_fontSize": "2em",
+
 "br end": "******************************************************************"
     },
     "Slate": {
