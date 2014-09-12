@@ -408,10 +408,63 @@ var hbsApp = window.hbsApp
   }
 
   // read product.description and retrieve relevant information to insert into proper place and create fields
-  hbsApp.product_getDescription = function () {
-    $('.variantImages img').on('click', function () {
-      $('.product-page-productPicture img').detach();
-      $('<img/>').attr('src', $(this).attr('src')).appendTo('.product-age-productPicture');
+  hbsApp.addExtraFormFields = {};
+  hbsApp.addExtraFormFields.init = function (descriptionSelector, afterNode) {
+    descriptionSelector = descriptionSelector || "#product-description";
+    afterNode = afterNode || "#product-price";
+
+    // closure variables
+    var count = 0;
+    var obj = hbsApp.addExtraFormFields;
+
+    // mutable properties
+    obj.masterDiv = $('<div></div>').attr('id', 'product-extra').addClass('product-extra');
+    obj.insertAfterThisNode = $(afterNode);
+    obj.productDescription = $(descriptionSelector); // obj should be liquid | json ?
+    obj.classList = {
+      'product-extra-input': true, 
+      'product-extra-note' : true
+    };
+
+    obj.increment = function (noIncrement) {
+      return noIncrement ? count : count++;
+    };
+
+    obj['product-extra-input'] = function (domNode) {
+      nodeText = domNode.text();
+      nodeID = "product-extra-input" + obj.increment();
+      var div = $('<div></div>').addClass('product-extra-input');
+
+      var label = $('<label></label>').text(nodeText).attr({"for" : nodeID});
+      var input = $('<input/>').attr({
+        "id"   : nodeID, 
+        "type" : "text",
+        "name" : "properties[" + nodeText + "]"
+      });
+      div.append(label).append(input);
+
+      domNode.remove();
+      return div;
+    };
+
+    obj['product-extra-note'] = function (domNode) {
+      var div = $('<div></div>').addClass('product-extra-note');
+      var small = $("<small></small>").text(domNode.text());
+
+      domNode.remove();
+      return div.append(small);
+    };
+
+    // LOGIC
+    var children = obj.productDescription.children();
+    children.each(function (index) {
+      for (var targetClass in obj.classList) {
+        if ($(this).hasClass(targetClass)) {   
+          var extraDiv = obj[targetClass]($(this));
+          obj.masterDiv.append(extraDiv);
+        }
+      }
     });
-  };
+    obj.insertAfterThisNode.after(obj.masterDiv);
+  }; // END OF INIT
 })();

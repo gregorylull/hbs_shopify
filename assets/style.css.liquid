@@ -264,6 +264,8 @@ img {
   type_homepage_featuredProducts_
   type_homepage_contactUs_
   type_homepage_pulseFeatures_
+
+  tags: *homepage* *front* *frontpage* ;
 ******************************************************************************/
 
 
@@ -647,7 +649,8 @@ img {
 }
 
 /*-------------------------------------
-  SLIDE SHOW
+  SLIDE SHOW 
+  *slideshow* *slide*
 -------------------------------------*/
 
 .carousel .block-title, .carousel .block-text {
@@ -802,6 +805,8 @@ img {
     date_
     location_
     description_
+
+  *upcoming* *upcoming events*
 --------------------------------------*/
 /* type_homepage_upcomingEvents_header_ */
 
@@ -857,6 +862,8 @@ img {
 
 /*-------------------------------------
   FEATURED PRODUCT GRID FRONT PAGE
+
+  *featured product* *featured*
 --------------------------------------*/
 /* type_homepage_featuredProducts_title_ */
 
@@ -952,6 +959,8 @@ img {
 
 /******************************************************************************
   ABOUT US PAGE: EXEC TEAM PROFILE
+
+  tags: *about* *aboutus* *about us* *exec*
 ******************************************************************************/
 #aboutus_video {
 	position: fixed;
@@ -1173,6 +1182,8 @@ OVERWRITING BOOTSTRAP TABLE
 
 /******************************************************************************
   EVENTS PAGE
+
+  tags: *eventspage* *event* *events page*
 ******************************************************************************/
 /* ----------------- EVENTS PAGE HEADER ---------------*/
 /* eventspage_type_page_title_ */
@@ -1556,6 +1567,8 @@ OVERWRITING BOOTSTRAP TABLE
 
 /******************************************************************************
   PRODUCTS / CATALOG / COLLECTIONS.all
+
+  tags: *collection* *products* *catalog*
 ******************************************************************************/
 /* ----------------- LEFT FRAME BLURB HEADER ---------------*/
 /* products_frame_blurb_header_ */
@@ -1979,6 +1992,8 @@ OVERWRITING BOOTSTRAP TABLE
     Main classes:
      .product-page-row1
      .product-page-tabs
+
+  tags: *product* *page* *checkout* 
 ******************************************************************************/
 /* ----------------- PRODUCT: NAME ---------------*/
 /* product_info_name_ */
@@ -2279,27 +2294,43 @@ OVERWRITING BOOTSTRAP TABLE
   margin-bottom: 20px;
 }
 
+
 .product-page-productPicture.horizRect img {
-  width: 100%;
-  height: auto;
+/*  width: 100%;
+  height: auto;*/
 }
 
 .product-page-productPicture.vertRect img {
-  width: auto;
-  height: 100%;
+/*  width: auto;
+  height: 100%;*/
 }
 
-.product-page-productPicture.square, .product-page-productPicture.horizRect, .product-page-productPicture.vertRect {
-/*	width: 70vw;
-	height: 70vw;*/
+#product-extra label {
+	display: block;
+	margin-top: 15px;
+}
+
+.product-page-productPicture {
+	width: 300px;
+	height: 300px;
+}
+
+.product-page-productPicture img {
+	width: auto;
+	height: 100%;
 }
 
 /* small devices - tablets, col-width ~= 62px */
 @media screen and (min-width: 768px) {
 	.product-page-productPicture.square, .product-page-productPicture.horizRect,
 	 .product-page-productPicture.vertRect {
-		width: 350px;
-		height: 350px;
+/*		width: 300px;
+		height: 300px;*/
+  }
+
+  .product-page-productPicture {
+	  width: 300px;
+	  height: 300px;
   }
 }
 
@@ -2307,19 +2338,16 @@ OVERWRITING BOOTSTRAP TABLE
 @media screen and (min-width: 992px) {
 	.product-page-productPicture.square, .product-page-productPicture.horizRect,
 	 .product-page-productPicture.vertRect {
-  	width: 400px;
-		height: 400px;
+/*  	width: 350px;
+		height: 350px;*/
+	}
+
+	.product-page-productPicture {
+		width: 350px;
+		height: 350px;
 	}
 }
 
-/* large desktops */
-@media screen and (min-width: 1200px) {
-	.product-page-productPicture.horizRect {
-  }
-
-	.product-page-productPicture.vertRect {
-	}
-}
 
 .variantImages {
 	text-align: center;
@@ -2332,9 +2360,10 @@ OVERWRITING BOOTSTRAP TABLE
 
 
 /******************************************************************************
-  DEBUGGER PANEL and MOBILE CHECK
+  DEBUGGER PANEL and MOBILE CHECK 
     + hbsDebuggerSwitch are for the styling buttons, can turn on in settings
     + mobile check is for internal javascript code which uses @media to accurately check what the current viewport is classified as
+  tags: *debugger* *mobile*    
 ******************************************************************************/
 
 .hbsDebuggerPanel::after {
@@ -2394,7 +2423,7 @@ OVERWRITING BOOTSTRAP TABLE
 }
 
 /******************************************************************************
-  CART
+  CART / *cart* 
 ******************************************************************************/
 
 .cart-table input.quantity {

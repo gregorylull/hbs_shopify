@@ -20,11 +20,20 @@ $(function () {
 	hbsApp.imagesLoading = false;
 	hbsApp.page_title = false;
 
+  // page specific initiaion that is not images dependentn
+  if (hbsApp.page === 'about-us') {
+  	hbsApp.sortProfiles(hbsApp);
+
+  } else if (hbsApp.template === "product") {
+    hbsApp.addExtraFormFields.init();
+    console.log('this working?');
+  }
+
 /*
-	// initialize app with image depdendent functions
-	hbsApp.catalogInitCol(hbsApp.catalogColWidth());
+  // initialize app with image depdendent functions
+  hbsApp.catalogInitCol(hbsApp.catalogColWidth());
   hbsApp.checkImgLoading("", function () {
-  	console.log('all images are beginning to load, execute image dimension related functions:\n');
+    console.log('all images are beginning to load, execute image dimension related functions:\n');
 
     if (hbsApp.template === 'index') {
       console.log('this is index page');
@@ -64,11 +73,6 @@ $(function () {
   var displayDebugger = JSON.parse({{settings['debugger_display'] | json }});
   if (displayDebugger) {
     hbsApp.controlPanelInit(hbsApp);
-  }
-
-  // page specific initiaion that is not images dependentn
-  if (hbsApp.page === 'about-us') {
-  	hbsApp.sortProfiles(hbsApp);
   }
 
 	// auto update properties upon window.resize

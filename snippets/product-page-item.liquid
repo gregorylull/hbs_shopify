@@ -3,7 +3,7 @@
 <div class="row product-page-row1">
   <div class="col-sm-8">
     <div class="center-block product-page-productPicture">
-      <img class="center-block thumbnail" src="{{product.featured_image | img_url: 'large' }}"/>
+      <img class="thumbnail" src="{{product.featured_image | img_url: 'large' }}"/>
     </div> <!-- END ./product-page-productPicture -->
 
     {% if product.handle == 'jansport-custom-bag' %}
@@ -25,7 +25,7 @@
       <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
-    <li><a href="#sizing" role="tab" data-toggle="tab">Extra Information</a></li>
+    <li><a href="#extraInformation" role="tab" data-toggle="tab">Extra Information</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -35,8 +35,10 @@
         {{ product.description }}
       </div>
     </div>
-    <div class="tab-pane" id="sizing">
-      Some sizing info, or other special info about the product itself / special instruction. Some sizing info, or other special info about the product itself / special instruction. Some sizing info, or other special info about the product itself / special instruction. Some sizing info, or other special info about the product itself / special instruction. Some sizing info, or other special info about the product itself / special instruction. Some sizing info, or other special info about the product itself / special instruction. 
+    <div class="tab-pane" id="extraInformation">
+      {% for collection in product.collections %} 
+        {{ collection.description }}
+      {% endfor %}
     </div>
   </div>  
 </div>
