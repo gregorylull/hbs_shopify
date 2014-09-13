@@ -19,9 +19,11 @@
   <h4 class="collections_header block-title"> Collections </h4>
   <ul class="collections_list block-text">
     {% for collection_handle in collections_special %}
-      <a href="/collections/{{collection_handle}}">
-        <li> {{ collections[collection_handle].title }}</li>
-      </a>
+      <li>
+        <a href="/collections/{{collection_handle}}">
+          {{ collections[collection_handle].title }}
+        </a>
+      </li>
     {% endfor %}
   </ul>
 </div>

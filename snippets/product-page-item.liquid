@@ -1,20 +1,39 @@
 {% include 'pageInfoToJS' with 'product-page-item' %}
 
-<div class="row product-page-row1">
-  <div class="col-sm-8">
-    <div class="center-block product-page-productPicture">
-      <img class="thumbnail" src="{{product.featured_image | img_url: 'large' }}"/>
-    </div> <!-- END ./product-page-productPicture -->
+{% for variant in product.variants %}
 
-    {% if product.handle == 'jansport-custom-bag' %}
-      <div class="center-block variantImages">
-        {% for image in product.images %}
-            <img src="{{ image.src | product_img_url: 'thumb' }}">
-        {% endfor %}    
-      </div>
-    {% endif %}
+  <script>console.log( "\nvariant title: ", {{ variant.title | json }})</script>
+  <script>console.log( "variant id: ", {{ variant.id | json }})</script>
+  <script>console.log( "image url: ", {{ variant.image.src | json }})</script>
+  <script>console.log( "variant opt1: ", {{ variant.option1 | json }})</script>
+  <script>console.log( "variant opt2: ", {{ variant.option2 | json }})</script>
+  <script>console.log( "variant opt3: ", {{ variant.option3 | json }})</script>
+  
+{% endfor %}
+
+
+
+<div class="row product-page-row1">
+
+  {% if product.images.size > 1 %}
+    <div id="product-variant-images" class="col-xs-3 col-sm-2 col-md-1">
+    {% for image in product.images %}
+      <img class="variant-image" alt="image.alt" src="{{image.src | img_url: "grande" }}"/>
+    {% endfor %}
+    </div>
+  {% else %}
+  <div class="col-sm-1 col-md-1">    
+  </div>
+  {% endif %}
+  
+  <div class="col-xs-9 col-sm-7 col-md-6">
+    <div class="center-block product-page-productPicture">
+      <img id="main-image" class="main-image thumbnail" src="{{product.featured_image | img_url: 'grande' }}"/>
+    </div> <!-- END ./product-page-productPicture -->
   </div> <!-- END ./col-sm-7 -->
-  <div class="col-sm-4 product-page-rightColumn">
+
+
+  <div class="col-xs-12 col-sm-3 col-md-4 product-page-rightColumn">
     <div class="product-page-form">
       {% include 'checkout-form' %}
     </div> <!-- product-page-form -->
@@ -23,25 +42,38 @@
 
 <div class="row product-page-row2">
       <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
-    <li><a href="#extraInformation" role="tab" data-toggle="tab">Extra Information</a></li>
-  </ul>
+  <div class="col-sm-7">  
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+      <li><a href="#extraInformation" role="tab" data-toggle="tab">Extra Information</a></li>
+    </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div class="tab-pane active" id="description">
-      <div id="product-description" class="rte" itemprop="description">
-        {{ product.description }}
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="description">
+        <div id="product-description" class="rte" itemprop="description">
+          {{ product.description }}
+        </div>
       </div>
-    </div>
-    <div class="tab-pane" id="extraInformation">
-      {% for collection in product.collections %} 
-        {{ collection.description }}
-      {% endfor %}
-    </div>
-  </div>  
+      <div class="tab-pane" id="extraInformation">
+        {% for collection in product.collections %} 
+          {{ collection.description }}
+        {% endfor %}
+      </div>
+    </div>  
+  </div> <!-- end of tab row ./col-sm-8-->
 </div>
 
-
+<script>
+var replaceImage = function () {
+  if ($('#main-image').attr('src') !== $(this).attr('src')) {
+    $('.main-image').remove();
+    var image = $('<img/>').attr('src', $(this).attr('src'));
+    image.addClass('thumbnail').addClass('main-image');
+    image.appendTo('.product-page-productPicture'); 
+  }
+};
+$('.variant-image').on('mouseenter', replaceImage);
+$('.variant-image').on('click', replaceImage);
+</script>
 

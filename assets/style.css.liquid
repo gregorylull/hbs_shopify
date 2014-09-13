@@ -88,7 +88,7 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 }
 
 .container, .container-fluid, #page_container {
-	margin-bottom: 40px;
+	margin-bottom: 60px;
 }
 
 img {
@@ -105,7 +105,21 @@ img {
 }
 
 @media screen and (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
 }
+@media screen and (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
 
 /******************************************************************************
   HEADER / BANNER / LOGO
@@ -144,7 +158,7 @@ img {
 
 .hbs_headers {
 	padding-top: 10px;
-	box-shadow: 0px 5px 2px -2px rgba(200,200,200,0.75);
+	box-shadow: 0px 5px 2px -5px rgba(200,200,200,0.75);
 }
 
 .hbs_headers li a {
@@ -215,7 +229,7 @@ img {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     .navbar-header {
       float: none;
     }
@@ -1421,7 +1435,7 @@ OVERWRITING BOOTSTRAP TABLE
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	text-align: justify;
+	text-align: center;
 }
 
 .eventspage_page_title {
@@ -2294,15 +2308,15 @@ OVERWRITING BOOTSTRAP TABLE
   margin-bottom: 20px;
 }
 
+#product-variant-images img {
+  margin-bottom: 10px;
+}
+
 
 .product-page-productPicture.horizRect img {
-/*  width: 100%;
-  height: auto;*/
 }
 
 .product-page-productPicture.vertRect img {
-/*  width: auto;
-  height: 100%;*/
 }
 
 #product-extra label {
@@ -2311,43 +2325,33 @@ OVERWRITING BOOTSTRAP TABLE
 }
 
 .product-page-productPicture {
-	width: 300px;
-	height: 300px;
+  text-align: center;
 }
 
 .product-page-productPicture img {
-	width: auto;
-	height: 100%;
+	width: 75%;
+	height: auto;
+  display: inline-block;
 }
 
 /* small devices - tablets, col-width ~= 62px */
 @media screen and (min-width: 768px) {
-	.product-page-productPicture.square, .product-page-productPicture.horizRect,
-	 .product-page-productPicture.vertRect {
-/*		width: 300px;
-		height: 300px;*/
+  .product-page-productPicture img {
+    width: 100%;
   }
 
-  .product-page-productPicture {
-	  width: 300px;
-	  height: 300px;
+	.product-page-productPicture.vertRect img {
+    width: 75%;
   }
 }
 
 /* medium - desktop, col-width ~= 81px */
 @media screen and (min-width: 992px) {
-	.product-page-productPicture.square, .product-page-productPicture.horizRect,
-	 .product-page-productPicture.vertRect {
-/*  	width: 350px;
-		height: 350px;*/
+	.product-page-productPicture.square img, .product-page-productPicture.horizRect img,
+	 .product-page-productPicture.vertRect img {
 	}
 
-	.product-page-productPicture {
-		width: 350px;
-		height: 350px;
-	}
 }
-
 
 .variantImages {
 	text-align: center;
@@ -2432,4 +2436,5 @@ OVERWRITING BOOTSTRAP TABLE
 
 .cart-table .cart-productPicture img {
 	width: auto;
+  height: auto;
 }
