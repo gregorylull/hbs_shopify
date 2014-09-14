@@ -229,7 +229,7 @@ img {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
     .navbar-header {
       float: none;
     }
@@ -662,6 +662,15 @@ img {
 	margin: 15px auto;
 }
 
+.frontpage_md_leftColumn .row {
+  padding-left: 15px;
+}
+
+.frontpage_md_rightColumn .row {
+  padding-right: 15px;
+}
+
+
 /*-------------------------------------
   SLIDE SHOW 
   *slideshow* *slide*
@@ -868,7 +877,6 @@ img {
   font-style: {{ type_homepage_upcomingEvents_description_style }}; 
 }
 
-
 .frontpage_md_upcomingEvents .eventPicture {
 	width: 100%;
 	height: auto;
@@ -936,15 +944,19 @@ img {
 	max-width: 1000px;
 }
 
+/*----------------------
+  PULSE FEATURE IMG
+-----------------------*/
+.frontpage_md_pulseFeature img {
+  width: auto;
+  height: auto;
+}
+
 @media screen and (min-width: 768px) {
   /* starting from a viewport of 768px, the container will be 95% width of container, but no more than 1000px */
 	.container.index {
 	  width: 95%;
   }
-
-	.frontpage_md_leftColumn h3 {
-		/*text-align: left;*/
-	}
 
 	/*----------------------
 	  UPCOMING EVENTS
@@ -954,18 +966,13 @@ img {
 		min-width: 150px;
 		height: auto;
   }
-  .frontpage_md_upcomingEvents .img-left {
-  	/*background-image: linear-gradient(to right, rgb(164, 16, 52), rgb(220,220,220) 10%, white);*/
-  }
-  .frontpage_md_upcomingEvents .img-right {
-  	/*background-image: linear-gradient(to left, rgb(164, 16, 52), rgb(220,220,220) 10%, white);*/
-  }
 
 	/*----------------------
 	  PULSE FEATURE IMG
 	-----------------------*/
 	.frontpage_md_pulseFeature img {
-		width: auto;
+		width: 100%;
+    height: auto;
 	}
 }
 

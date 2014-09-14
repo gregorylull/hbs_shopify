@@ -1,4 +1,4 @@
-{% for i in (0..4) %}
+{% for i in (0..2) %}
   {% capture base_string %}{{ 'eventspage_' | append: i | append: '_'}}{% endcapture %}
   {% capture event_display %}{{ base_string | append: 'display'}}{% endcapture %}
 
@@ -33,7 +33,7 @@
       {% endif %}
 
       <div class="col-xs-4 {% cycle 'col-xs-pull-8', '' %}">
-          <div class="eventPicture center-block">
+          <div class="eventPicture {% cycle 'pull-left', 'pull-right' %}">
             <img class="frontpage_upcomingevents_picture" src="{{ eventPictureURL }}" alt="event picture {{i}}"/>    
           </div>
       </div> <!-- END event img /.col-xs-4 -->

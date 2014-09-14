@@ -26,7 +26,13 @@
         
         <tbody>
 
-        {% for item in cart.items %}    
+        {% for item in cart.items %}
+          <script>
+            console.log( '\nitem title: ', {{ item.title | json }})
+            {% for property in item.properties %}
+              console.log( "property: ", {{ property | json }})
+            {% endfor %}
+          </script>
         
           {% comment %}
           Determining the handle of the collection that was last seen for the 'continue shopping' link.

@@ -1,8 +1,10 @@
 {% include 'pageInfoToJS' with 'page_about-us' %}
 
+<div class="container">
+	{% include 'header' %}
+</div>
 
 <div id="page_container" class="aboutus_execprofile_container gl_clearfix">
-	{% include 'header' %}
 	<!-- <h1 class="aboutus_execprofile_page_title"> {{ page.title }} </h1> -->
 	{% if page.content != blank %}
 		<h4 class="aboutus_execprofile_page_description"> {{ page.content }}</h4>

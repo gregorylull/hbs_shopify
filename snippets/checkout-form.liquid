@@ -58,12 +58,26 @@
       <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">
         <select id="product-select" name="id">
         {% for variant in product.variants %}
-          <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
+          <option 
+            {% if variant == product.selected_or_first_available_variant %}
+              selected
+            {% endif %} 
+            value="{{ variant.id }}"
+            {% if variant.image.product_id != product.id %}
+              img-source="{{product.featured_image.src | img_url: 'grande'}}"
+            {% else %}
+              img-source="{{variant.image.src | img_url: 'grande'}}"
+            {% endif %}
+            >
           {{ variant.title }} - {{ variant.price | money }}
           </option>
         {% endfor %}
         </select>
-      </div>        
+      </div>
+
+      {% for variant in product.variants %}
+        
+      {% endfor %}
              
       <div id="backorder" class="hidden">
         <p>{{ '%s is back-ordered. We will ship it separately in 10 to 15 days.' | replace: '%s', '<span id="selected-variant"></span>' }}</p>

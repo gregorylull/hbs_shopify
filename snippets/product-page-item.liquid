@@ -65,15 +65,30 @@
 </div>
 
 <script>
-var replaceImage = function () {
-  if ($('#main-image').attr('src') !== $(this).attr('src')) {
+
+// for left side variant images
+var imageReplace = function (index, src) {
+  src = src || $(this).attr('src');
+  if ($('#main-image').attr('src') !== src) {
     $('.main-image').remove();
-    var image = $('<img/>').attr('src', $(this).attr('src'));
+    var image = $('<img/>').attr('src', src);
     image.addClass('thumbnail').addClass('main-image');
     image.appendTo('.product-page-productPicture'); 
+    console.log('after: ', image.attr('src'))
   }
 };
-$('.variant-image').on('mouseenter', replaceImage);
-$('.variant-image').on('click', replaceImage);
+
+// for selected variant
+var imageSelect = function (index) {
+  var src = $("option:selected", $(this)).attr('img-source');
+  imageReplace(index, src);
+  console.log('selected: ', src);
+};
+
+$('.variant-image').on('mouseenter', imageReplace);
+$('.variant-image').on('click', imageReplace);
+$('#product-select').on('change', imageSelect);
+
+
 </script>
 

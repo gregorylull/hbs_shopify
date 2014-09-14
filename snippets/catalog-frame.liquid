@@ -3,8 +3,15 @@
   <div class="row row_all">
     <div class="col-sm-3 catalog_all_leftColumn">
       <div class="catalog_all_hbs_description">
-        <h3 class="block-title"> HBS SA Products </h3>
-        <div class="catalog_all_rte block-text"> {{page.collections.description}}</div>
+        {% assign productsHeader = settings["products_blurb_header"] %}
+        {% if productsHeader != blank and productsHeader != "" %}
+          <h3 class="block-title">{{productsHeader}}</h3>
+        {% endif %}
+
+        {% assign productsBlurb = settings["products_blurb_content"] %}
+        {% if productsHeader != blank and productsHeader != "" %}
+          <div class="catalog_all_rte block-text">{{productsBlurb}}</div>
+        {% endif %}
       </div>
       <div class="catalog_all_leftMenu">
       {% comment %} snipped used in both /product/* and /collection/* pages {% endcomment %}

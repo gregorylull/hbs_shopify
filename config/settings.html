@@ -75,7 +75,7 @@ Navigation:
         </table>
 </fieldset>
 
-<fieldset>
+<fieldset> <!-- *typography* *type general* -->
   <legend>Typography General</legend>
   <small>Font families uploaded here will be accessible in all pages. Font sizes are in percentages, 1 is the same as 100% which defaults to 16px, 2.5 is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.</small>
   <h3>Google Fonts</h3>
@@ -152,7 +152,7 @@ Navigation:
   </table>
 </fieldset>
 
-<fieldset>
+<fieldset> <!-- *header* *logo* -->
   <legend>Header Logo and Typography</legend>
   <h3>Header Shield and Banner</h3>
   <table>
@@ -2903,6 +2903,24 @@ Navigation:
 </fieldset>
 
 <fieldset>
+  <legend>Products / Collections Content</legend>
+  <small>The content here will show up on the products page and the individual-product page in the left column as a header and blurb</small>
+  <h3>Products Page: Left Column Content</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="products_blurb_header">Page header:</label></td>
+        <td><input type="text" name="products_blurb_header" id="products_blurb_header" /></td>
+      </tr>
+      <tr>
+        <td><label for="products_blurb_content">Page blurb:</label></td>
+        <td><textarea name="products_blurb_content" cols="55" rows="6" value="0" id="products_blurb_content" /></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<fieldset> <!-- *collections* *collections type* *catalog* *products* -->
   <legend>Products / Collections Page Typography</legend>
   <small>The individual products page (/products/*item) will inherit the Left Frame font settings through here</small>
   <h3>Left Frame - HBS SA Products Blurb: Header</h3>
