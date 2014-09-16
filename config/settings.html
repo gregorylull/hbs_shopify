@@ -59,8 +59,6 @@ Navigation:
 10. Additional layouts
   + customer area layout
 
-
-
 -->
 
 <fieldset>
@@ -206,6 +204,66 @@ Navigation:
       <tr>
         <td><label for="header_menu_item_style">Menu Items style (defaults to normal if not specified) </label></td>
         <td><input type="text" name="header_menu_item_style" id="header_menu_item_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<fieldset>
+  <legend>Footer: Content, BG Color, and Typography</legend>
+  <small>For mission statement, other content, and pictures go to pages/footer and edit the file</small>
+  <h3>Footer Content</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="footer_copyright">Copyright text (automatically prefixes this text with a copyright symbol)</label></td>
+        <td><input type="text" name="footer_copyright" id="footer_copyright" /></td>
+      </tr>
+      <tr>
+        <td><label for="footer_navlinks">Display page navigation links in footer? (nav links are set in Dashboard/Navigation/Footer)</label></td>
+        <td><input type="checkbox" name="footer_navlinks" id="footer_navlinks" value="1" /></td>
+      </tr>
+      <tr>
+        <td><label for="footer_logo_shield_link">Logo shield URL link (optional*, start url with // )</label></td>
+        <td><input type="text" name="footer_logo_shield_link" id="footer_logo_shield_link" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>*The logo used in the header is the default, any URL link will take precedence over it</small></td>
+      </tr>
+      <tr>
+        <td><label for="footer_bgColor">Background color, defaults to 'white' (transparent)</label></td>
+        <td><input type="text" name="footer_bgColor" id="footer_bgColor" class="color" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Footer Typography: Copyright Text</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="footer_type_copyright_fontFamily">Copyright Text font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="footer_type_copyright_fontFamily" id="footer_type_copyright_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="footer_type_copyright_fontSize">Copyright Text font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="footer_type_copyright_fontSize" id="footer_type_copyright_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="footer_type_copyright_color">Copyright Text color</label></td>
+        <td><input type="text" name="footer_type_copyright_color" id="footer_type_copyright_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="footer_type_copyright_weight">Copyright Text weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="footer_type_copyright_weight" id="footer_type_copyright_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="footer_type_copyright_style">Copyright Text style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="footer_type_copyright_style" id="footer_type_copyright_style" /></td>
       </tr>
       <tr>
         <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>

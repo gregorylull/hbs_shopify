@@ -1,0 +1,55 @@
+<footer id="footer" class="{{template}} {{page.handle}}">
+  <!-- mission statement -->
+  <div class="row">
+    <div class="col-xs-12 mission">
+      
+    </div>
+  </div>
+
+  <!-- [ content ] [navigation links]  -->
+  <div class="row">
+
+    {% if pages.footer.content != blank and pages.footer.content != "" %}
+      <div class="col-sm-12 rte block-text content">
+        {{pages.footer.content}}   
+      </div>
+    {% endif %}
+
+    {% if settings["footer_navlinks"] == true %}
+    <div class="col-sm-12 block-text "\>
+      Links: 
+      <ul class="links">
+        {% for link in linklists.footer.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+  </div>
+
+  <!-- copyright and logo line-->
+  <div class="row">    
+    <div class="col-xs-9">
+    {% assign copyright = settings["footer_copyright"] %}
+    {% if copyright != blank and copyright != "" %}
+      <small class="copyright">
+        &#0169 {{ copyright }}
+      </small>
+    {% endif %}
+    </div> <!-- END copyright -->
+
+    <div class="col-xs-3">
+      {% assign logoShield = settings["footer_logo_shield_link"] %}
+      {% if logoShield == blank or logShield == "" %}
+        {% assign logoShield = settings["header_logo_shield_link"] %}
+        {% if logoShield == blank or logoShield == "" %}
+          {% assign logoShield = settings["header_logo_shield.png"] | asset_url %}
+        {% endif %}      
+      {% endif %}
+      <div class="logo-shield pull-right">
+        <a href="/"><img src="{{logoShield}}" alt="HBS SA Logo - footer" /></a>
+      </div>
+    </div> <!-- logo shield -->
+  </div> <!-- END copyright and logo shield-->
+</footer>

@@ -87,27 +87,28 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
   font-style: {{ type_default_sectionHeader_style }};
 }
 
-.container, .container-fluid, #page_container {
-	margin-bottom: 60px;
-}
-
 img {
-	width: 100%;
-	height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .gl_clearfix::after {
-	display: block;
-	content: " ";
-	clear: both;
-	line-height: 0;
-	font-size: 0;
+  display: block;
+  content: " ";
+  clear: both;
+  line-height: 0;
+  font-size: 0;
 }
 
 @media screen and (min-width: 768px) {
   .container {
     width: 90%;
   }
+
+  .container, .container-fluid, #page_container {
+  	padding-bottom: 40px;
+  }
+
 }
 @media screen and (min-width: 992px) {
   .container {
@@ -123,6 +124,7 @@ img {
 
 /******************************************************************************
   HEADER / BANNER / LOGO
+  tags: *header* *banner* *logo*
 ******************************************************************************/
 /* header_menu_item_ */
 
@@ -261,6 +263,92 @@ img {
     .collapse.in{
   		display:block !important;
 		}
+}
+
+/******************************************************************************
+  FOOTER
+  tags: *footer*
+******************************************************************************/
+/* footer_type_copyright_ */
+
+{% assign footer_type_copyright_fontFamily = settings["footer_type_copyright_fontFamily"] %}
+{% if footer_type_copyright_fontFamily == "" %}
+  {% assign footer_type_copyright_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign footer_type_copyright_fontSize = settings["footer_type_copyright_fontSize"] %}
+{% if footer_type_copyright_fontSize == "" %}
+  {% assign footer_type_copyright_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign footer_type_copyright_color = settings["footer_type_copyright_color"] %}
+{% if footer_type_copyright_color == "" %}
+  {% assign footer_type_copyright_color = "" %}
+{% endif %}
+
+/* weight */
+{% assign footer_type_copyright_weight = settings["footer_type_copyright_weight"] %}
+{% if footer_type_copyright_weight == "" %}
+  {% assign footer_type_copyright_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign footer_type_copyright_style = settings["footer_type_copyright_style"] %}
+{% if footer_type_copyright_style == "" %}
+  {% assign footer_type_copyright_style = type_default_page_style %}
+{% endif %}
+
+/******************************************************************************************************/
+
+{% assign footer_bgColor = settings["footer_bgColor"] %}
+
+#footer {
+  box-shadow: 0px -5px 2px -5px rgba(200,200,200,0.75);
+  padding: 10px;
+  width: 100%;
+  background-color: {{footer_bgColor}};
+
+  /*position: fixed;*/
+  /*bottom: 0px;*/
+}
+
+#footer .copyright {
+  font-family: "{{ footer_type_copyright_fontFamily }}";
+  font-size: {{ footer_type_copyright_fontSize }};
+  color: {{ footer_type_copyright_color }};
+  font-weight: {{ footer_type_copyright_weight }};
+  font-style: {{ footer_type_copyright_style }}; 
+}
+
+#footer .links {
+  font-family: "{{ header_menu_item_fontFamily }}";
+  font-size: {{ header_menu_item_fontSize }};
+  color: {{ header_menu_item_color }};
+  font-weight: {{ header_menu_item_weight }};
+  font-style: {{ header_menu_item_style }}; 
+}
+
+
+#footer .content {
+  margin-bottom: 10px;
+}
+
+#footer ul {
+  list-style: none;
+}
+
+#footer .logo-shield {
+  height: 30px;
+}
+
+#footer .logo-shield img {
+  width: auto;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
 }
 
 /******************************************************************************
@@ -663,11 +751,24 @@ img {
 }
 
 .frontpage_md_leftColumn .row {
-  padding-left: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .frontpage_md_rightColumn .row {
-  padding-right: 15px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .frontpage_md_leftColumn .row {
+    padding-left: 15px;
+    padding-right: 5px;
+  }
+  .frontpage_md_rightColumn .row {
+    padding-right: 15px;
+    padding-left: 5px;
+  }
 }
 
 
@@ -813,12 +914,32 @@ img {
 	font-size: 2em;
 }
 
+.frontpage_md_contact {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .frontpage_md_contact {
+    text-align: left;
+  }
+}
+
 /*----------------------
   PULSE FEATURE IMG
 -----------------------*/
 .frontpage_md_pulseFeature img {
 	width: 60vw;
 	height: auto;
+}
+
+.frontpage_md_pulseFeature .block-title {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .frontpage_md_pulseFeature .block-title {
+    text-align: left;
+  }
 }
 
 /*-------------------------------------
