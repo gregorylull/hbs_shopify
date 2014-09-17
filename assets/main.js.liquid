@@ -20,7 +20,10 @@ $(function () {
 	hbsApp.imagesLoading = false;
 	hbsApp.page_title = false;
 
-  // page specific initiaion that is not images dependentn
+  // universal calls
+  hbsApp.navbarHighlight(); // highlights navbar links if the current page matches the href
+
+  // page specific initiaion that is not images dependent
   if (hbsApp.page === 'about-us') {
   	hbsApp.sortProfiles(hbsApp);
 
@@ -63,9 +66,11 @@ $(function () {
       console.log('this is collection page');
       hbsApp.catalogAdjustProductHeight("", hbsApp);
 
+    } else if (hbsApp.page === "community") {
+      hbsApp.community.init();
+
     } else if (hbsApp.template === 'product') {
       hbsApp.product_adjustMaxDimensions(hbsApp);
-      // hbsApp.product_getDescription();
     }
   });
 

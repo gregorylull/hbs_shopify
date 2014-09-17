@@ -106,7 +106,7 @@ img {
   }
 
   .container, .container-fluid, #page_container {
-  	padding-bottom: 40px;
+  	/*padding-bottom: 40px;*/
   }
 
 }
@@ -305,7 +305,8 @@ img {
 {% assign footer_bgColor = settings["footer_bgColor"] %}
 
 #footer {
-  box-shadow: 0px -5px 2px -5px rgba(200,200,200,0.75);
+  border-top: 3px double rgb(210, 210, 210);
+  /*box-shadow: 0px -5px 2px -5px rgba(200,200,200,0.75);*/
   padding: 10px;
   width: 100%;
   background-color: {{footer_bgColor}};
@@ -1705,6 +1706,121 @@ OVERWRITING BOOTSTRAP TABLE
 	-ms-transition: opacity 0.2s ease-in-out;
 	-o-transition: opacity 0.2s ease-in-out;
 	transition: opacity 0.2s ease-in-out;
+}
+/******************************************************************************
+  COMMUNITY
+
+  tags: *community* 
+******************************************************************************/
+/* ----------------- LEFT FRAME BLURB HEADER ---------------*/
+/* products_frame_blurb_header_ */
+/* fontFamily */
+{% assign products_frame_blurb_header_fontFamily = settings["products_frame_blurb_header_fontFamily"] %}
+{% if products_frame_blurb_header_fontFamily == "" %}
+  {% assign products_frame_blurb_header_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_frame_blurb_header_fontSize = settings["products_frame_blurb_header_fontSize"] %}
+{% if products_frame_blurb_header_fontSize == "" %}
+  {% assign products_frame_blurb_header_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_frame_blurb_header_color = settings["products_frame_blurb_header_color"] %}
+{% if products_frame_blurb_header_color == "" %}
+  {% assign products_frame_blurb_header_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign products_frame_blurb_header_weight = settings["products_frame_blurb_header_weight"] %}
+{% if products_frame_blurb_header_weight == "" %}
+  {% assign products_frame_blurb_header_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign products_frame_blurb_header_style = settings["products_frame_blurb_header_style"] %}
+{% if products_frame_blurb_header_style == "" %}
+  {% assign products_frame_blurb_header_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- LEFT FRAME BLURB TEXT ---------------*/
+/* products_frame_blurb_text_ */
+/* fontFamily */
+{% assign products_frame_blurb_text_fontFamily = settings["products_frame_blurb_text_fontFamily"] %}
+{% if products_frame_blurb_text_fontFamily == "" %}
+  {% assign products_frame_blurb_text_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign products_frame_blurb_text_fontSize = settings["products_frame_blurb_text_fontSize"] %}
+{% if products_frame_blurb_text_fontSize == "" %}
+  {% assign products_frame_blurb_text_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign products_frame_blurb_text_color = settings["products_frame_blurb_text_color"] %}
+{% if products_frame_blurb_text_color == "" %}
+  {% assign products_frame_blurb_text_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign products_frame_blurb_text_weight = settings["products_frame_blurb_text_weight"] %}
+{% if products_frame_blurb_text_weight == "" %}
+  {% assign products_frame_blurb_text_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign products_frame_blurb_text_style = settings["products_frame_blurb_text_style"] %}
+{% if products_frame_blurb_text_style == "" %}
+  {% assign products_frame_blurb_text_style = type_default_page_style %}
+{% endif %}
+
+/******************************************************************************/
+/******************************************************************************/
+
+.community .header {
+  text-align: center;
+}
+
+.community .page-content {
+  border-bottom: 2px solid rgb(240, 240, 240);
+}
+
+.community .category .header {
+  text-align: center;
+}
+
+.community .category .events .block-title {
+  /*text-align: center;*/
+}
+
+@media screen and (max-width: 768px) {
+  .category > .image {
+    text-align: center;
+  }
+  .category img {
+    width: 70vw;
+  }
+
+  .community .category .events .block-title {
+    border: none;
+  }
+
+  .community .category {
+    border-bottom: 2px solid rgb(235, 235, 235);
+  }
+
+  .community .category .header {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .community .page-content {
+    padding: 50px 5px 15px 5px;
+  }
 }
 
 /******************************************************************************

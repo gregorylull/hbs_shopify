@@ -44,6 +44,10 @@ Navigation:
     + RSVP link - text input
     + RSVP display live link?
 
+- Community
+
+- Sponsors
+
 
 6. Product page (null)
 
@@ -61,6 +65,7 @@ Navigation:
 
 -->
 
+<!-- *debugger* *style* *panel* -->
 <fieldset>
     <legend>Styling Panel</legend>
         <h3> Turn on/off Styling Panel </h3>
@@ -149,8 +154,10 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */typography* */general* -->
 
-<fieldset> <!-- *header* *logo* -->
+<!-- *header* *logo* *shield* -->
+<fieldset> 
   <legend>Header Logo and Typography</legend>
   <h3>Header Shield and Banner</h3>
   <table>
@@ -211,7 +218,9 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */header* */shield* -->
 
+<!-- *footer* -->
 <fieldset>
   <legend>Footer: Content, BG Color, and Typography</legend>
   <small>For mission statement, other content, and pictures go to pages/footer and edit the file</small>
@@ -271,7 +280,9 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */footer* -->
 
+<!-- *social* *social links* *links* *icon* -->
 <fieldset>  
   <legend>Social Links</legend>
   <table>
@@ -347,13 +358,10 @@ Navigation:
     </tr>
   </table>
 </fieldset>
+<!-- */social* */social links* */links* */icon* -->
 
-<fieldset>
-  <legend>Footer</legend>
-  <table>
-  </table>
-</fieldset>
 
+<!-- *homepage* *frontpage* *slideshow* -->
 <fieldset>
   <legend>Homepage Content Settings</legend>
   <h3>Slide Show Pictures</h3>
@@ -604,7 +612,10 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */homepage* */frontpage* */slideshow* -->
 
+
+<!-- *homepage type* *frontpage type* -->
 <fieldset>
   <legend>Homepage Typography Options</legend>
   <small>Font sizes are in percentages, 1em is the same as 100% which defaults to 16px, 2.5em is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.</small>
@@ -950,7 +961,10 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */homepage type* */frontpage type* -->
 
+
+<!-- *aboutus* *about-us* *executive* *profile*-->
 <fieldset>
   <legend>About Us: Executive Team Profiles</legend>
   <h3>Member #1</h3>
@@ -1554,7 +1568,10 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */aboutus* */about-us* */executive* */profile*-->
 
+
+<!-- *events type* *event type* *event typography*-->
 <fieldset>
   <legend>Events Page - Typography</legend>
   <h3>Page: Header</h3>
@@ -1775,7 +1792,9 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */events type* */event type* *event typography*-->
 
+<!-- *events* *events page* *event content* -->
 <fieldset>
   <legend>Events page</legend>
   <h3>Event #1</h3>
@@ -2959,7 +2978,210 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */events* */events page* */event content* -->
 
+<!-- *community* *category* -->
+<fieldset>
+  <legend>Community Categories and Typography</legend>
+  <h3>Community Page Handles</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td colspan="2"><small>For each new category of community events, a Page must be created. The page title can be anything, but the page-handle entered here MUST be the same as the handle for the page </small></td>
+      </tr>
+      <tr>
+        <td><label for="community_0_handle">Community page, category 1 handle:</label></td>
+        <td><input type="text" name="community_0_handle" id="community_0_handle" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_1_handle">Community page, category 2 handle:</label></td>
+        <td><input type="text" name="community_1_handle" id="community_1_handle" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_2_handle">Community page, category 3 handle:</label></td>
+        <td><input type="text" name="community_2_handle" id="community_2_handle" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_3_handle">Community page, category 4 handle:</label></td>
+        <td><input type="text" name="community_3_handle" id="community_3_handle" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_4_handle">Community page, category 5 handle:</label></td>
+        <td><input type="text" name="community_4_handle" id="community_4_handle" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_5_handle">Community page, category 6 handle:</label></td>
+        <td><input type="text" name="community_5_handle" id="community_5_handle" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_6_handle">Community page, category 7 handle:</label></td>
+        <td><input type="text" name="community_6_handle" id="community_6_handle" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_7_handle">Community page, category 8 handle:</label></td>
+        <td><input type="text" name="community_7_handle" id="community_7_handle" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Community: Page Header</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="community_type_header_fontFamily">Page Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="community_type_header_fontFamily" id="community_type_header_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_header_fontSize">Page Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="community_type_header_fontSize" id="community_type_header_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_header_color">Page Header color</label></td>
+        <td><input type="text" name="community_type_header_color" id="community_type_header_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_header_weight">Page Header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="community_type_header_weight" id="community_type_header_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_header_style">Page Header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="community_type_header_style" id="community_type_header_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Community: Page Description</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="community_type_content_fontFamily">Page Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="community_type_content_fontFamily" id="community_type_content_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_content_fontSize">Page Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="community_type_content_fontSize" id="community_type_content_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_content_color">Page Description color</label></td>
+        <td><input type="text" name="community_type_content_color" id="community_type_content_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_content_weight">Page Description weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="community_type_content_weight" id="community_type_content_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="community_type_content_style">Page Description style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="community_type_content_style" id="community_type_content_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Community: Category Header</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="category_type_header_fontFamily">Category Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="category_type_header_fontFamily" id="category_type_header_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_header_fontSize">Category Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="category_type_header_fontSize" id="category_type_header_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_header_color">Category Header color</label></td>
+        <td><input type="text" name="category_type_header_color" id="category_type_header_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_header_weight">Category Header weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="category_type_header_weight" id="category_type_header_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_header_style">Category Header style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="category_type_header_style" id="category_type_header_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Community: Category Description</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="category_type_description_fontFamily">Category Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="category_type_description_fontFamily" id="category_type_description_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_description_fontSize">Category Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="category_type_description_fontSize" id="category_type_description_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_description_color">Category Description color</label></td>
+        <td><input type="text" name="category_type_description_color" id="category_type_description_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_description_weight">Category Description weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="category_type_description_weight" id="category_type_description_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_description_style">Category Description style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="category_type_description_style" id="category_type_description_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Community: Category Event List</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="category_type_list_fontFamily">Category Event List font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+        <td><input type="text" name="category_type_list_fontFamily" id="category_type_list_fontFamily" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_list_fontSize">Category Event List font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+        <td><input type="text" name="category_type_list_fontSize" id="category_type_list_fontSize" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_list_color">Category Event List color</label></td>
+        <td><input type="text" name="category_type_list_color" id="category_type_list_color" class="color" /></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_list_weight">Category Event List weight (defaults to normal or 400 if not specified) </label></td>
+        <td><input type="text" name="category_type_list_weight" id="category_type_list_weight" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+      </tr>
+      <tr>
+        <td><label for="category_type_list_style">Category Event List style (defaults to normal if not specified) </label></td>
+        <td><input type="text" name="category_type_list_style" id="category_type_list_style" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+<!-- */community* -->
+
+<!-- *products* *catalog* *collections* -->
 <fieldset>
   <legend>Products / Collections Content</legend>
   <small>The content here will show up on the products page and the individual-product page in the left column as a header and blurb</small>
@@ -2978,7 +3200,8 @@ Navigation:
   </table>
 </fieldset>
 
-<fieldset> <!-- *collections* *collections type* *catalog* *products* -->
+<!-- *collections* *collections type* *catalog* *products* -->
+<fieldset> 
   <legend>Products / Collections Page Typography</legend>
   <small>The individual products page (/products/*item) will inherit the Left Frame font settings through here</small>
   <h3>Left Frame - HBS SA Products Blurb: Header</h3>
@@ -3230,7 +3453,9 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */collections* */catalog*-->
 
+<!-- *product* *purchase* *individual* -->
 <fieldset>
   <legend>Product Purchase Page - Typography</legend>
   <small>This page's Left Frame font styling inherits from the settings in 'Products / Collections Typography'</small>
@@ -3452,13 +3677,16 @@ Navigation:
     </tbody>
   </table>
 </fieldset>
+<!-- */product* */individual* -->
 
+<!-- *blog* -->
 <fieldset>
   <legend>Blog pages</legend>
   <table>
   </table>
 </fieldset>
 
+<!-- *cart* -->
 <fieldset>
   <legend>Cart page</legend>
   <table>

@@ -1,0 +1,50 @@
+{% include 'pageInfoToJS' with 'community' %}
+
+<div id="page_container" class="container {{template}} {{page.handle}}">
+  {% include 'header' %}
+
+  {% assign communityContent = pages['community'].content %}
+  {% if communityContent != blank and communityContent != "" %}
+    <div class="block-text page-content col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+      {{ pages['community'].content }}
+    </div>
+  {% endif %}
+
+  {% for i in (0..7) %}
+    {% assign base = "community_" | append: i | append: "_handle" %}
+    {% assign communityHandle = settings[base] %}
+    {% if communityHandle != blank and communityHandle != "" %}
+      {% assign page = pages[communityHandle] %}
+
+      <script>
+        var cat = hbsApp.community.categories;
+        cat["{{page.handle}}"] = {};
+        cat["{{page.handle}}"].title = {{ page.title | json }};
+        cat["{{page.handle}}"].content = {{ page.content | json }};
+      </script>
+
+      <div id="{{page.handle}}" class="category col-sm-6 col-md-4 col-lg-3">
+        <h3 class="block-title header">{{ page.title }}</h3>
+        
+        <div class="image"></div>
+        <div class="description block-text"></div>
+
+        <div class="events block-text">
+          <h4 class="page-header block-title"> Events </h4>
+        </div>
+
+      </div>
+
+      {% assign byTwo = forloop.index | modulo: 2 %}
+      {% assign byThree = forloop.index | modulo: 3 %}
+      {% assign byFour = forloop.index | modulo: 4 %}
+      {% if byTwo == 0 or byThree == 0 or byFour == 0 %}
+        {% if byTwo == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
+        {% if byThree == 0 %}<div class="clearfix visible-md-block"></div>{% endif %}
+        {% if byFour == 0 %}<div class="clearfix visible-lg-block"></div>{% endif %}
+      {% endif %}
+
+    {% endif %}    
+  {% endfor %}
+  
+</div>

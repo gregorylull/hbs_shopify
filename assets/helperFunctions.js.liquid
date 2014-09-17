@@ -129,6 +129,21 @@ var hbsApp = window.hbsApp
   };
 
   /****************************************************************************
+    HEADER
+  ****************************************************************************/
+  // header navbar link is highlighted if the link's href matches the pathname of the URL
+  hbsApp.navbarHighlight = function () {
+    var pathname = window.location.pathname;
+    $('#hbs_header .navbar-nav a').each(function (index) {
+      if ($(this).attr('href') === pathname ) {
+        $(this).css({
+          "background-color": "rgb(245, 245, 245)",
+        });
+      }
+    });
+  };
+
+  /****************************************************************************
     PAGE SPECIFIC FUNCTIONS
   ****************************************************************************/
 
@@ -290,6 +305,91 @@ var hbsApp = window.hbsApp
   /*---------------------------------------------------------------------------
     EVENTS PAGE
   ---------------------------------------------------------------------------*/
+
+  /*---------------------------------------------------------------------------
+    COMMUNITY
+  ---------------------------------------------------------------------------*/
+  /* 
+    Functions related to the community page are about extracting the description and events list, and appending them to their respective fields
+     String.prototype.search(regexp)
+       =description= :: /=\s*description\s*=/
+       =events=      :: /=\s*events\s*=/
+  */
+
+  hbsApp.community = {};
+  hbsApp.community.categories = {};
+  var categories = hbsApp.community.categories;
+
+  // targets to search for
+  hbsApp.community.targets = ['description', 'events', 'image'];
+
+  // helper functions to convert an array of strings to regular expressions for =string=
+  hbsApp.community.makeRE = function (string) {
+    return new RegExp("=\\s*" + string + "\\s*=");
+  };
+
+  hbsApp.community.toRE = function (array) {
+    var results = [];
+    for (var i = 0; i < array.length; i++) {
+      results.push(hbsApp.community.makeRE(array[i]));
+    }
+    return results;
+  };
+
+  // returns an object with properties that match the 'targets' parameter
+  // the 'target' paramenter is an array of keywords, e.g.: ['description', 'events']
+  hbsApp.community.extract = function (html, targets, targetsRE) {
+    var html = $(html);
+    var children = html;
+    var results = {};
+    var appendTarget = null;
+    var skip = true;
+
+    // create empty arrays for results to hold dom elements
+    for (var i = 0; i < targets.length; i++) {
+      results[targets[i]] = $('<div></div>').addClass(targets[i]);
+    }
+
+    window.children = children;
+
+    // if a regex match is found, 
+    children.each(function (index) {
+      skip = false;
+      for (var i = 0; i < targetsRE.length; i++) {
+        if ($(this).text().search(targetsRE[i]) >= 0) {
+          appendTarget = results[targets[i]];
+          skip = true;
+        } 
+      }
+
+      if (appendTarget && !skip) {
+        appendTarget.append($(this));
+      }
+    });
+
+    // return object, which consists of properties matching the target name, with values as an array of dom elements
+    return results;
+  };
+
+  hbsApp.community.init = function () {
+    console.log('community init');
+    var targets = hbsApp.community.targets;
+    var targetsRE = hbsApp.community.toRE(targets);
+
+    for (var category in categories) {
+      page = categories[category];
+      var id = category;
+      parsedHTML = hbsApp.community.extract(page.content, targets, targetsRE);
+      window.test = parsedHTML;
+
+      for (var target in parsedHTML) {
+        // append description
+        $('#' + id + " ." + target).append(parsedHTML[target]);
+      }
+
+    }
+  };
+
 
   /*---------------------------------------------------------------------------
     CATALOG / COLLECTIONS
@@ -466,5 +566,6 @@ var hbsApp = window.hbsApp
       }
     });
     obj.insertAfterThisNode.after(obj.masterDiv);
-  }; // END OF INIT
+  }; // END / addExtraFormFields.init
+
 })();

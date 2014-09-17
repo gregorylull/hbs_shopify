@@ -3,8 +3,11 @@
 
 {% include 'pageInfoToJS' with 'index' %}
 
-<div id="page_container" class="container {{templateClass}} {{pageClass}}">
+<div class="container">
   {% include 'header' %}
+</div>
+
+<div id="page_container" class="container {{templateClass}} {{pageClass}}">
 
   <div class="row frontpage_md_slideshow">
     {% include 'picture_carousel' %}
