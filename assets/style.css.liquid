@@ -1712,68 +1712,167 @@ OVERWRITING BOOTSTRAP TABLE
 
   tags: *community* 
 ******************************************************************************/
-/* ----------------- LEFT FRAME BLURB HEADER ---------------*/
-/* products_frame_blurb_header_ */
+/* ----------------- COMMUNITY PAGE HEADER ---------------*/
+/* community_type_header_ */
 /* fontFamily */
-{% assign products_frame_blurb_header_fontFamily = settings["products_frame_blurb_header_fontFamily"] %}
-{% if products_frame_blurb_header_fontFamily == "" %}
-  {% assign products_frame_blurb_header_fontFamily = type_default_sectionHeader_fontFamily %}
+{% assign community_type_header_fontFamily = settings["community_type_header_fontFamily"] %}
+{% if community_type_header_fontFamily == "" %}
+  {% assign community_type_header_fontFamily = type_default_sectionHeader_fontFamily %}
 {% endif %}
 
 /* fontSize */
-{% assign products_frame_blurb_header_fontSize = settings["products_frame_blurb_header_fontSize"] %}
-{% if products_frame_blurb_header_fontSize == "" %}
-  {% assign products_frame_blurb_header_fontSize = "" %}
+{% assign community_type_header_fontSize = settings["community_type_header_fontSize"] %}
+{% if community_type_header_fontSize == "" %}
+  {% assign community_type_header_fontSize = "" %}
 {% endif %}
 
 /* color */
-{% assign products_frame_blurb_header_color = settings["products_frame_blurb_header_color"] %}
-{% if products_frame_blurb_header_color == "" %}
-  {% assign products_frame_blurb_header_color = type_default_sectionHeader_color %}
+{% assign community_type_header_color = settings["community_type_header_color"] %}
+{% if community_type_header_color == "" %}
+  {% assign community_type_header_color = type_default_sectionHeader_color %}
 {% endif %}
 
 /* weight */
-{% assign products_frame_blurb_header_weight = settings["products_frame_blurb_header_weight"] %}
-{% if products_frame_blurb_header_weight == "" %}
-  {% assign products_frame_blurb_header_weight = type_default_sectionHeader_weight %}
+{% assign community_type_header_weight = settings["community_type_header_weight"] %}
+{% if community_type_header_weight == "" %}
+  {% assign community_type_header_weight = type_default_sectionHeader_weight %}
 {% endif %}
 
 /* style */
-{% assign products_frame_blurb_header_style = settings["products_frame_blurb_header_style"] %}
-{% if products_frame_blurb_header_style == "" %}
-  {% assign products_frame_blurb_header_style = type_default_sectionHeader_style %}
+{% assign community_type_header_style = settings["community_type_header_style"] %}
+{% if community_type_header_style == "" %}
+  {% assign community_type_header_style = type_default_sectionHeader_style %}
 {% endif %}
 
-/* ----------------- LEFT FRAME BLURB TEXT ---------------*/
-/* products_frame_blurb_text_ */
+/* ----------------- COMMUNITY PAGE BLURB ---------------*/
+/* community_type_content_ */
 /* fontFamily */
-{% assign products_frame_blurb_text_fontFamily = settings["products_frame_blurb_text_fontFamily"] %}
-{% if products_frame_blurb_text_fontFamily == "" %}
-  {% assign products_frame_blurb_text_fontFamily = type_default_page_fontFamily %}
+{% assign community_type_content_fontFamily = settings["community_type_content_fontFamily"] %}
+{% if community_type_content_fontFamily == "" %}
+  {% assign community_type_content_fontFamily = type_default_page_fontFamily %}
 {% endif %}
 
 /* fontSize */
-{% assign products_frame_blurb_text_fontSize = settings["products_frame_blurb_text_fontSize"] %}
-{% if products_frame_blurb_text_fontSize == "" %}
-  {% assign products_frame_blurb_text_fontSize = "" %}
+{% assign community_type_content_fontSize = settings["community_type_content_fontSize"] %}
+{% if community_type_content_fontSize == "" %}
+  {% assign community_type_content_fontSize = "" %}
 {% endif %}
 
 /* color */
-{% assign products_frame_blurb_text_color = settings["products_frame_blurb_text_color"] %}
-{% if products_frame_blurb_text_color == "" %}
-  {% assign products_frame_blurb_text_color = type_default_page_color %}
+{% assign community_type_content_color = settings["community_type_content_color"] %}
+{% if community_type_content_color == "" %}
+  {% assign community_type_content_color = type_default_page_color %}
 {% endif %}
 
 /* weight */
-{% assign products_frame_blurb_text_weight = settings["products_frame_blurb_text_weight"] %}
-{% if products_frame_blurb_text_weight == "" %}
-  {% assign products_frame_blurb_text_weight = type_default_page_weight %}
+{% assign community_type_content_weight = settings["community_type_content_weight"] %}
+{% if community_type_content_weight == "" %}
+  {% assign community_type_content_weight = type_default_page_weight %}
 {% endif %}
 
 /* style */
-{% assign products_frame_blurb_text_style = settings["products_frame_blurb_text_style"] %}
-{% if products_frame_blurb_text_style == "" %}
-  {% assign products_frame_blurb_text_style = type_default_page_style %}
+{% assign community_type_content_style = settings["community_type_content_style"] %}
+{% if community_type_content_style == "" %}
+  {% assign community_type_content_style = type_default_page_style %}
+{% endif %}
+
+/******************************************************************************/
+/******************************************************************************/
+
+/* ----------------- COMMUNITY CATEGORY HEADER ---------------*/
+/* category_type_header_ */
+/* fontFamily */
+{% assign category_type_header_fontFamily = settings["category_type_header_fontFamily"] %}
+{% if category_type_header_fontFamily == "" %}
+  {% assign category_type_header_fontFamily = type_default_sectionHeader_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign category_type_header_fontSize = settings["category_type_header_fontSize"] %}
+{% if category_type_header_fontSize == "" %}
+  {% assign category_type_header_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign category_type_header_color = settings["category_type_header_color"] %}
+{% if category_type_header_color == "" %}
+  {% assign category_type_header_color = type_default_sectionHeader_color %}
+{% endif %}
+
+/* weight */
+{% assign category_type_header_weight = settings["category_type_header_weight"] %}
+{% if category_type_header_weight == "" %}
+  {% assign category_type_header_weight = type_default_sectionHeader_weight %}
+{% endif %}
+
+/* style */
+{% assign category_type_header_style = settings["category_type_header_style"] %}
+{% if category_type_header_style == "" %}
+  {% assign category_type_header_style = type_default_sectionHeader_style %}
+{% endif %}
+
+/* ----------------- COMMUNITY CATEGORY DESCRIPTION ---------------*/
+/* category_type_description_ */
+/* fontFamily */
+{% assign category_type_description_fontFamily = settings["category_type_description_fontFamily"] %}
+{% if category_type_description_fontFamily == "" %}
+  {% assign category_type_description_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign category_type_description_fontSize = settings["category_type_description_fontSize"] %}
+{% if category_type_description_fontSize == "" %}
+  {% assign category_type_description_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign category_type_description_color = settings["category_type_description_color"] %}
+{% if category_type_description_color == "" %}
+  {% assign category_type_description_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign category_type_description_weight = settings["category_type_description_weight"] %}
+{% if category_type_description_weight == "" %}
+  {% assign category_type_description_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign category_type_description_style = settings["category_type_description_style"] %}
+{% if category_type_description_style == "" %}
+  {% assign category_type_description_style = type_default_page_style %}
+{% endif %}
+
+/* ----------------- COMMUNITY CATEGORY EVENTS ---------------*/
+/* category_type_list_ */
+/* fontFamily */
+{% assign category_type_list_fontFamily = settings["category_type_list_fontFamily"] %}
+{% if category_type_list_fontFamily == "" %}
+  {% assign category_type_list_fontFamily = type_default_page_fontFamily %}
+{% endif %}
+
+/* fontSize */
+{% assign category_type_list_fontSize = settings["category_type_list_fontSize"] %}
+{% if category_type_list_fontSize == "" %}
+  {% assign category_type_list_fontSize = "" %}
+{% endif %}
+
+/* color */
+{% assign category_type_list_color = settings["category_type_list_color"] %}
+{% if category_type_list_color == "" %}
+  {% assign category_type_list_color = type_default_page_color %}
+{% endif %}
+
+/* weight */
+{% assign category_type_list_weight = settings["category_type_list_weight"] %}
+{% if category_type_list_weight == "" %}
+  {% assign category_type_list_weight = type_default_page_weight %}
+{% endif %}
+
+/* style */
+{% assign category_type_list_style = settings["category_type_list_style"] %}
+{% if category_type_list_style == "" %}
+  {% assign category_type_list_style = type_default_page_style %}
 {% endif %}
 
 /******************************************************************************/
@@ -1781,19 +1880,54 @@ OVERWRITING BOOTSTRAP TABLE
 
 .community .header {
   text-align: center;
+  font-family: "{{ community_type_header_fontFamily }}";
+  font-size: {{ community_type_header_fontSize }};
+  color: {{ community_type_header_color }};
+  font-weight: {{ community_type_header_weight }};
+  font-style: {{ community_type_header_style }}; 
 }
 
 .community .page-content {
   border-bottom: 2px solid rgb(240, 240, 240);
+  font-family: "{{ community_type_content_fontFamily }}";
+  font-size: {{ community_type_content_fontSize }};
+  color: {{ community_type_content_color }};
+  font-weight: {{ community_type_content_weight }};
+  font-style: {{ community_type_content_style }}; 
 }
 
 .community .category .header {
   text-align: center;
+  font-family: "{{ category_type_header_fontFamily }}";
+  font-size: {{ category_type_header_fontSize }};
+  color: {{ category_type_header_color }};
+  font-weight: {{ category_type_header_weight }};
+  font-style: {{ category_type_header_style }}; 
+}
+
+.community .category .description {
+  font-family: "{{ category_type_description_fontFamily }}";
+  font-size: {{ category_type_description_fontSize }};
+  color: {{ category_type_description_color }};
+  font-weight: {{ category_type_description_weight }};
+  font-style: {{ category_type_description_style }}; 
+}
+
+.community .category .events {
+  font-family: "{{ category_type_list_fontFamily }}";
+  font-size: {{ category_type_list_fontSize }};
+  color: {{ category_type_list_color }};
+  font-weight: {{ category_type_list_weight }};
+  font-style: {{ category_type_list_style }};  
 }
 
 .community .category .events .block-title {
   /*text-align: center;*/
 }
+
+.community .separator {
+}
+
 
 @media screen and (max-width: 768px) {
   .category > .image {
@@ -1801,6 +1935,7 @@ OVERWRITING BOOTSTRAP TABLE
   }
   .category img {
     width: 70vw;
+    max-width: 400px;
   }
 
   .community .category .events .block-title {

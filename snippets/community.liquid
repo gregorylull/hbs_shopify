@@ -39,9 +39,9 @@
       {% assign byThree = forloop.index | modulo: 3 %}
       {% assign byFour = forloop.index | modulo: 4 %}
       {% if byTwo == 0 or byThree == 0 or byFour == 0 %}
-        {% if byTwo == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
-        {% if byThree == 0 %}<div class="clearfix visible-md-block"></div>{% endif %}
-        {% if byFour == 0 %}<div class="clearfix visible-lg-block"></div>{% endif %}
+        {% if byTwo == 0 %}<div class="separator clearfix visible-sm-block"></div>{% endif %}
+        {% if byThree == 0 %}<div class="separator clearfix visible-md-block"></div>{% endif %}
+        {% if byFour == 0 %}<div class="separator clearfix visible-lg-block"></div>{% endif %}
       {% endif %}
 
     {% endif %}    
