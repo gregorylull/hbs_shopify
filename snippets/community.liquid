@@ -5,12 +5,12 @@
 
   {% assign communityContent = pages['community'].content %}
   {% if communityContent != blank and communityContent != "" %}
-    <div class="block-text page-content col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+    <div class="block-text page-content col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
       {{ pages['community'].content }}
     </div>
   {% endif %}
 
-  {% for i in (0..7) %}
+  {% for i in (0..20) %}
     {% assign base = "community_" | append: i | append: "_handle" %}
     {% assign communityHandle = settings[base] %}
     {% if communityHandle != blank and communityHandle != "" %}
@@ -38,7 +38,8 @@
       {% assign byTwo = forloop.index | modulo: 2 %}
       {% assign byThree = forloop.index | modulo: 3 %}
       {% assign byFour = forloop.index | modulo: 4 %}
-      {% if byTwo == 0 or byThree == 0 or byFour == 0 %}
+
+      {% if byTwo == 0 or byThree == 0 or byFour == 0 or forloop.last == true %}
         {% if byTwo == 0 %}<div class="separator clearfix visible-sm-block"></div>{% endif %}
         {% if byThree == 0 %}<div class="separator clearfix visible-md-block"></div>{% endif %}
         {% if byFour == 0 %}<div class="separator clearfix visible-lg-block"></div>{% endif %}

@@ -51,6 +51,18 @@ var hbsApp = window.hbsApp
 	  return hbsApp.rgbaToName($('.mobileCheck', hbsApp.headers).css('background-color'));
   };
 
+  // converts a string of comma separated strings (default) to an array of numbers
+  hbsApp.numStrToArray = function (str, delimiter) {
+    delimiter = delimiter || ",";
+
+    var array = str.split(delimiter);
+    array.forEach(function (el, index, array) {
+      array[index] = parseInt(el, 10);
+    });
+
+    return array;
+  };
+
   /*
     check if images are still loading
     // timesChecked specifies max amount of time this function will run, just in case an image can't be found, the page won't stop loading
@@ -246,24 +258,19 @@ var hbsApp = window.hbsApp
 
   /*---------------------------------------------------------------------------
     ABOUT US PAGE
+    *aboutus*
   ---------------------------------------------------------------------------*/
-  hbsApp.sortProfiles = function (hbsApp) {
+  hbsApp.sortProfiles = function (hbsApp, order) {
     // detaching and reattaching a sorted grid of profile names
     var toLog = false;
     var breakerIndexes = [];
     var previousSibling = [];
-    var breakers = $('.aboutus_execprofiles > *').filter(function (index) {
-      if ($(this).hasClass('breaker')) {
-        breakerIndexes.push(index);
-        hbsApp.cLog(toLog, 'index: ', index);
-        return true; 
-      }
-    }).detach();
-    hbsApp.cLog(toLog, 'breaker index: ', breakerIndexes, ', breakers: ', breakers);
 
-    // get profile wrappers and detach
+    // get profile wrappers and detach from the dom, sort, then append back
+    // HOWEVER only profiles after the first row should be sorted
+    var afterFirstRow = hbsApp.numStrToArray(order)[0];
     var profileWrappers = $('.aboutus_execprofile_profile_wrapper').filter(function (index) {
-      if (index > 1) {
+      if (index > afterFirstRow-1) {
         return true;
       }
     }).detach();
@@ -274,6 +281,7 @@ var hbsApp = window.hbsApp
       var name1 = $('.aboutus_execprofile_profile_name', $(profile1)).text().split(' ')[1];
       var name2 = $('.aboutus_execprofile_profile_name', $(profile2)).text().split(' ')[1];
 
+      // alphabetical A-Z
       if (name1 < name2) {
         return -1;
       } else if (name1 > name2 ) {
@@ -288,26 +296,37 @@ var hbsApp = window.hbsApp
     // reinsert/reattach profile wrappers
     profileWrappers.appendTo($('.aboutus_execprofiles'));
 
-    // reinsert/reattach breakers
-    breakerIndexes = [0, 3, 6];
-    hbsApp.cLog(toLog, 'new breakerIndexes: ', breakerIndexes);
-    var first = true;
-    for (var i = 0; i < breakerIndexes.length; i++) {
-      if (i === 0) {
-        $(breakers[i]).insertAfter($('.special-break'));
-      } else {
-        $(breakers[i]).insertAfter($(profileWrappers[breakerIndexes[i]]));
-      }  
-    }
-
   }; // end of sortProfiles
+
+  hbsApp.createBreaks = function (orderStr) {
+
+    var order = hbsApp.numStrToArray(orderStr, ',');
+    var wrappers = $("#wrapAll .aboutus_execprofile_profile_wrapper");
+
+    // all even numbers must have a division
+    var two = "visible-sm-block two";
+    wrappers.each(function (index) {
+      if ( (index+1) % 2 === 0 ) {
+        $(this).after($("<div></div>").addClass(two));
+      }
+    });
+
+    // skip all numbers equal to 2, since the previous one has included it already
+    for (var i = 0, index = 0; i < order.length; i++) {
+      index += order[i];
+      var divide = $('<div></div>').addClass('hidden-sm order');
+      $(wrappers[index-1]).after(divide);
+    }
+  };
 
   /*---------------------------------------------------------------------------
     EVENTS PAGE
+    *events*
   ---------------------------------------------------------------------------*/
 
   /*---------------------------------------------------------------------------
     COMMUNITY
+    *community*
   ---------------------------------------------------------------------------*/
   /* 
     Functions related to the community page are about extracting the description and events list, and appending them to their respective fields
@@ -371,6 +390,56 @@ var hbsApp = window.hbsApp
     return results;
   };
 
+  hbsApp.community.toggleSeparator = function () {
+    var children = $(".community").children();
+    for (var i = children.length-1; i >= 0; i--) {
+      var child = children[i];
+      // we only want to toggle separator elements AFTER the category elements
+      if ($(child).hasClass('category')) {
+        return;
+      }
+
+      if ($(child).hasClass('separator')) {
+        $(child).toggleClass('separator');
+      }
+    }
+  };
+
+  hbsApp.community.makeBreaks = function (widthArray) {
+    var breaker = $('<div></div>');
+    for (var i = 0; i < widthArray.length; i++) {
+      var val = widthArray[i];
+      var offset = (12 - val) / 2;
+      switch (i) {
+        case 0:
+          var offset = offset > 0 ? " col-xs-offset-" + offset : "";
+          breaker.addClass('col-xs-' + val + offset);
+          break;
+        case 1:
+          var offset = offset > 0 ? " col-sm-offset-" + offset : "";
+          breaker.addClass('col-sm-' + val + offset);
+          break;
+        case 2:
+          var offset = offset > 0 ? " col-md-offset-" + offset : "";
+          breaker.addClass('col-md-' + val + offset);
+          break;
+        case 3:;
+          var offset = offset > 0 ? " col-lg-offset-" + offset : "";
+          breaker.addClass('col-lg-' + val + offset);
+          break;
+      }
+    }
+    return breaker;
+  };
+
+  hbsApp.community.addBreaks = function (widthArray) {
+    widthArray = widthArray || [10, 10, 8, 8];
+    var categories = $(".category");
+    categories.each(function (index) {
+    });
+
+  };
+
   hbsApp.community.init = function () {
     console.log('community init');
     var targets = hbsApp.community.targets;
@@ -386,8 +455,8 @@ var hbsApp = window.hbsApp
         // append description
         $('#' + id + " ." + target).append(parsedHTML[target]);
       }
-
     }
+
   };
 
 

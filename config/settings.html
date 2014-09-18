@@ -60,8 +60,6 @@ Navigation:
 
 9. Cart pages (null)
 
-10. Additional layouts
-  + customer area layout
 
 -->
 
@@ -967,6 +965,25 @@ Navigation:
 <!-- *aboutus* *about-us* *executive* *profile*-->
 <fieldset>
   <legend>About Us: Executive Team Profiles</legend>
+  <h3>Exec Team Profile Layout</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="aboutus_execprofile_row_sequence">Specifiy how many profiles per row (comma separated). If empty, the default* will be used.</label></td>
+        <td><input type="text" name="aboutus_execprofile_row_sequence" id="aboutus_execprofile_row_sequence" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>*default layout for 2 co-presidents and 11 other members is: 2,4,3,4</small></td>
+      </tr>
+      <tr>
+        <td><label for="aboutus_execprofile_display_alphabetical">Check this to display profiles in the order entered below (default is alphabetical)</label></td>
+        <td><input type="checkbox" name="aboutus_execprofile_display_alphabetical" id="aboutus_execprofile_display_alphabetical" value="1" /></td>
+      </tr>
+      <tr>
+        <td colspan="2"><small>Top row is NOT affected by alphabetical sorting. It is the executive level and order could be important, so the user must make sure the order listed below is in the correct order</small></td>
+      </tr>
+    </tbody>
+  </table>
   <h3>Member #1</h3>
   <table>
     <tbody>

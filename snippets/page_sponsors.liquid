@@ -1,0 +1,67 @@
+{% include 'pageInfoToJS' with 'page_sponsors' %}
+<div id="page_container" class="container">
+  {% include 'header' %}
+
+  {% comment %}
+    levels
+  {% endcomment %}
+  {% for i in (0..7) %}
+    {% assign base = "sponsor_level_" | append: i | append: "_" %}
+    {% assign title = base | append: "title" %}
+
+    {% assign level = settings[title] %}
+    {% if level != blank and level != "" %}
+      {% assign blurb = base | append: "blurb" %}
+      {% assign blurb = settings[blurb] %}
+
+      <div id="{{level}}" class="row level">
+        <h3 class="block-title">{{ level }} </h3>
+        
+        {% if blurb != blank and blurb != "" %}
+          <h4 class="block-title"> {{ blurb }}</h4>
+        {% endif %}
+        {% for j in (0..5) %}
+
+          {% assign ibase = "sponsor_" | append: j | append: "_" %}
+          {% assign iname = ibase | append: "name" %}
+          {% assign ilevel = ibase | append: "level" %}
+          {% assign ievents = ibase | append: "events" %}
+          {% assign iblurb = ibase | append: "blurb" %}
+          {% assign ilogo = ibase | append: "logo" %}
+          {% assign ilogo_link = ibase | append: "logo_link" %}
+
+          <script>console.log( "before, level: ", {{ ilevel | json }})</script>
+
+          {% assign iname = settings[iname] %}
+          {% assign ilevel = settings[ilevel] %}
+          {% assign ievents = settings[ievents] %}
+          {% assign ilogo = settings[ilogo] %}
+          {% assign ilogo_link = settings[ilogo_link] %}
+          <script>console.log( "sponsor: ", {{ j | plus: 1 }}, ", ilevel:", {{ ilevel| json }}, ", level:", {{ level | json }} )</script>
+          {% if ilevel != blank and ilevel != "" and ilevel == level %}
+            <div class="wrapper col-sm-6 col-md-4 col-lg-3">
+              {% if ilogo_link != blank and ilogo_link != "" %}
+                {% assign isrc = ilogo_link %}
+              {% else %}
+                {% assign isrc = ilogo | asset_url %}
+              {% endif %}
+
+              <img src="{{isrc}}"/>
+
+              {% if iname != blank and iname != "" %}
+                <h4 class="block-title name">{{iname}}</h4>
+              {% endif %}
+
+              {% if ievents != blank and ievents != "" %}
+                <h5 class="block-title events">{{ievents}}</h4>
+              {% endif %}
+
+            </div> <!-- END /.wrapper -->
+          {% endif %}
+        {% endfor %}
+
+      </div> <!-- END /.row level-->
+    {% endif %}
+  {% endfor %}
+</div> <!-- END /.container-->
+

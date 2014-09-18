@@ -25,7 +25,14 @@ $(function () {
 
   // page specific initiaion that is not images dependent
   if (hbsApp.page === 'about-us') {
-  	hbsApp.sortProfiles(hbsApp);
+    hbsApp.alphabetical = !{{ settings["aboutus_execprofile_display_alphabetical"] | json }};
+    hbsApp.order = {{ settings["aboutus_execprofile_row_sequence"] | json }};
+
+    {% if hbsApp.alphabetical %}
+    	hbsApp.sortProfiles(hbsApp, hbsApp.order);
+    {% endif %}
+
+    hbsApp.createBreaks(hbsApp.order); // str
 
   } else if (hbsApp.template === "product") {
     hbsApp.addExtraFormFields.init();
@@ -68,6 +75,7 @@ $(function () {
 
     } else if (hbsApp.page === "community") {
       hbsApp.community.init();
+      hbsApp.community.toggleSeparator();
 
     } else if (hbsApp.template === 'product') {
       hbsApp.product_adjustMaxDimensions(hbsApp);

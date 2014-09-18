@@ -15,7 +15,7 @@
 	{% endunless%}
 	<h4 class="aboutus_execprofile_meet_blurb">Meet the Executive Team </h4>
 
-	<div class="aboutus_execprofiles">
+	<div id="wrapAll" class="aboutus_execprofiles">
 		{% for i in (0...14) %}
 		  {% capture base_string %}{{ 'aboutus_execprofile_' | append: i | append: '_'}}{% endcapture %}
 
@@ -38,7 +38,6 @@
 	      {% if i == 1 %} {% assign specialClass = ' special-break' %} {% endif %}
 			    <div class="aboutus_execprofile_profile_wrapper{{specialClass}}">
 			      <div class="aboutus_execprofile_profile_info">
-			      <script>console.log( "profile_pictureURL: ", {{ settings[profile_pictureURL] | json }})</script>
 			        {% if settings[profile_pictureURL] != "" %}
 			          <img src="{{settings[profile_pictureURL]}}" alt="file picture: {{profile_name}}"/>
 			        {% else %}
@@ -63,9 +62,11 @@
 				    </div>
 		      </div> {% comment %}<!-- /.aboutus_execprofile_profile_wrapper -->{% endcomment %}
 		      
-	      {% if i == 1 or i == 5 or i == 8 %}
-	        <div class="breaker"></div>
-	      {% endif %}
+		    {% comment %}      
+		      {% if i == 1 or i == 5 or i == 8 %}
+		        <div class="breaker"></div>
+		      {% endif %}
+		    {% endcomment %}  
 
 		  {% endif %}
 		{% endfor %}
@@ -92,6 +93,7 @@
 	$('.aboutus_execprofile_profile_info').on('click', function () {
 		$(this).hover();
 	});
+
 
   // this is to to reaculate wrapping / separator NOT WORKING
 	var calculateWrap = function () {

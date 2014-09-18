@@ -1925,9 +1925,22 @@ OVERWRITING BOOTSTRAP TABLE
   /*text-align: center;*/
 }
 
-.community .separator {
+.community .category {
+  margin-bottom: 2em;
+  margin-top: 1em;
 }
 
+.community .separator::after {
+  content: "";
+  display: block;
+  width: 70%;
+  margin: 0px auto;
+  border-bottom: 2px solid rgb(200, 200, 200);
+}
+
+.community .separator::after:last-child {
+  border-bottom: none;
+}
 
 @media screen and (max-width: 768px) {
   .category > .image {
