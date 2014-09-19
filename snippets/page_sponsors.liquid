@@ -1,6 +1,14 @@
 {% include 'pageInfoToJS' with 'page_sponsors' %}
-<div id="page_container" class="container">
+
+<div class="container">
   {% include 'header' %}
+</div>
+
+<div id="page_container" class="container {{page.handle}} {{template}}">
+
+  {% if page.content != blank and page.content != ""  %}
+    <h4 id="page-content" class="block-text"><span>{{page.content}}<span></h4>
+  {% endif %}
 
   {% comment %}
     levels
@@ -14,12 +22,13 @@
       {% assign blurb = base | append: "blurb" %}
       {% assign blurb = settings[blurb] %}
 
-      <div id="{{level}}" class="row level">
+      <div id="{{level}}" class="level {{level}}">
         <h3 class="block-title">{{ level }} </h3>
         
         {% if blurb != blank and blurb != "" %}
-          <h4 class="block-title"> {{ blurb }}</h4>
+          <p class="block-text"> {{ blurb }}</p>
         {% endif %}
+
         {% for j in (0..5) %}
 
           {% assign ibase = "sponsor_" | append: j | append: "_" %}
@@ -30,30 +39,40 @@
           {% assign ilogo = ibase | append: "logo" %}
           {% assign ilogo_link = ibase | append: "logo_link" %}
 
-          <script>console.log( "before, level: ", {{ ilevel | json }})</script>
-
           {% assign iname = settings[iname] %}
           {% assign ilevel = settings[ilevel] %}
           {% assign ievents = settings[ievents] %}
           {% assign ilogo = settings[ilogo] %}
           {% assign ilogo_link = settings[ilogo_link] %}
-          <script>console.log( "sponsor: ", {{ j | plus: 1 }}, ", ilevel:", {{ ilevel| json }}, ", level:", {{ level | json }} )</script>
+
           {% if ilevel != blank and ilevel != "" and ilevel == level %}
-            <div class="wrapper col-sm-6 col-md-4 col-lg-3">
+            {% comment %} <div class="wrapper col-sm-6 col-md-4 col-lg-3"> {% endcomment %}
+            <div class="wrapper">
+
               {% if ilogo_link != blank and ilogo_link != "" %}
                 {% assign isrc = ilogo_link %}
               {% else %}
                 {% assign isrc = ilogo | asset_url %}
               {% endif %}
 
-              <img src="{{isrc}}"/>
+              <div class="image">
+                <img src="{{isrc}}"/>
+              </div>
 
               {% if iname != blank and iname != "" %}
                 <h4 class="block-title name">{{iname}}</h4>
               {% endif %}
 
+              {% comment %} if there are multiple events, then pluralize events {% endcomment %}
+              {% assign length = ievents | split: ',' | size %}
+              {% if length > 1 %}
+                {% assign plural = "s" %}
+              {% else %}
+                {% assign plural = "" %}
+              {% endif %}
+
               {% if ievents != blank and ievents != "" %}
-                <h5 class="block-title events">{{ievents}}</h4>
+                <p class="block-title events"><span>Sponsored {{"event" | append: plural }}:</span> {{ievents}}</p>
               {% endif %}
 
             </div> <!-- END /.wrapper -->
@@ -61,6 +80,7 @@
         {% endfor %}
 
       </div> <!-- END /.row level-->
+      <div class="separator"><div></div></div>
     {% endif %}
   {% endfor %}
 </div> <!-- END /.container-->

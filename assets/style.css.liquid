@@ -1105,18 +1105,6 @@ img {
 
   tags: *about* *aboutus* *about us* *exec*
 ******************************************************************************/
-#aboutus_video {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -1000;
-	overflow: hidden;
-	opacity: 0.5;
-}
 
 /* mobile first */
 .aboutus_execprofile_container {
@@ -1930,16 +1918,20 @@ OVERWRITING BOOTSTRAP TABLE
   margin-top: 1em;
 }
 
+.community .category .events.block-text {
+  padding-top: 15px;
+}
+
+.community .category .events .block-title > span {
+  border-bottom: 2px solid rgb(225, 225, 225);
+}
+
 .community .separator::after {
   content: "";
   display: block;
   width: 70%;
   margin: 0px auto;
   border-bottom: 2px solid rgb(200, 200, 200);
-}
-
-.community .separator::after:last-child {
-  border-bottom: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -1968,6 +1960,59 @@ OVERWRITING BOOTSTRAP TABLE
 @media screen and (min-width: 768px) {
   .community .page-content {
     padding: 50px 5px 15px 5px;
+  }
+}
+
+/******************************************************************************
+  SPONSORS
+
+  tags: *sponsors*
+******************************************************************************/
+
+#page-content {
+  text-align: justify;
+  padding: 20px 10%;
+}
+
+.level {
+  width: 100%;
+  text-align: center;
+}
+
+.level::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  line-height: 0;
+  font-size: 0;
+}
+
+.level .wrapper {
+  width: 250px;
+  display: inline-block;
+  margin: 15px 10px;
+}
+
+.sponsors .separator {
+  width: 70%;
+  margin: auto;
+  border-top: 2px dotted rgb(230, 230, 230);
+}
+
+/* 15 + x +15 + 15 + x + 15 === 60 + 2x. x === 250px; 560px */
+@media screen and (min-width: 590px) {
+  #page_container.sponsors {
+    width: 580px;
+    margin: 0px auto;
+  }
+}
+
+/* desktop? 15 + x + 15 + 15 + x + 15 + 15 + x + 15 === 90 + 3x. x === 250px; 840px */
+/* 280 * 3 === 840*/
+@media screen and (min-width: 880px) {
+  #page_container.sponsors {
+    width: 875px;
+    margin: 0px auto;
   }
 }
 

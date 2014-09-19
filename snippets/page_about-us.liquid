@@ -4,7 +4,7 @@
 	{% include 'header' %}
 </div>
 
-<div id="page_container" class="aboutus_execprofile_container gl_clearfix">
+<div id="page_container" class="aboutus_execprofile_container {{page.handle}} {{template}} gl_clearfix">
 	<!-- <h1 class="aboutus_execprofile_page_title"> {{ page.title }} </h1> -->
 	{% if page.content != blank %}
 		<h4 class="aboutus_execprofile_page_description"> {{ page.content }}</h4>

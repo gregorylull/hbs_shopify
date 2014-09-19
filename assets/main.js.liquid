@@ -34,10 +34,14 @@ $(function () {
 
     hbsApp.createBreaks(hbsApp.order); // str
 
+  } else if (hbsApp.page === "sponsors") {
+    hbsApp.toggleSeparator('#page_container', 'separator', 'level');
+
   } else if (hbsApp.template === "product") {
     hbsApp.addExtraFormFields.init();
     console.log('this working?');
-  }
+
+  } 
 
 /*
   // initialize app with image depdendent functions
@@ -75,7 +79,7 @@ $(function () {
 
     } else if (hbsApp.page === "community") {
       hbsApp.community.init();
-      hbsApp.community.toggleSeparator();
+      hbsApp.toggleSeparator('.community', 'separator', 'category');
 
     } else if (hbsApp.template === 'product') {
       hbsApp.product_adjustMaxDimensions(hbsApp);

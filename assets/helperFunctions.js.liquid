@@ -133,6 +133,25 @@ var hbsApp = window.hbsApp
     else { return "#page_container"; }
   };
 
+  // this is one layer deep, there's usually some separator on the pages
+  // container :: is where everything is contained, the items to be toggled mixed with other elements
+  // toggle :: a class to be toggled OFF
+  // before :: starting from the last child, we will toggle the specified class off UNTIL with the 'before' limiter
+  hbsApp.toggleSeparator = function (container, toggle, before) {
+    var children = $(container).children();
+    for (var i = children.length-1; i >= 0; i--) {
+      var child = children[i];
+      // we only want to toggle separator elements AFTER the category elements
+      if ($(child).hasClass(before)) {
+        return;
+      }
+
+      if ($(child).hasClass(toggle)) {
+        $(child).toggleClass(toggle);
+      }
+    }
+  };
+
   /****************************************************************************
     SETTINGS: DEFAULT FONTS
   ****************************************************************************/
@@ -390,56 +409,6 @@ var hbsApp = window.hbsApp
     return results;
   };
 
-  hbsApp.community.toggleSeparator = function () {
-    var children = $(".community").children();
-    for (var i = children.length-1; i >= 0; i--) {
-      var child = children[i];
-      // we only want to toggle separator elements AFTER the category elements
-      if ($(child).hasClass('category')) {
-        return;
-      }
-
-      if ($(child).hasClass('separator')) {
-        $(child).toggleClass('separator');
-      }
-    }
-  };
-
-  hbsApp.community.makeBreaks = function (widthArray) {
-    var breaker = $('<div></div>');
-    for (var i = 0; i < widthArray.length; i++) {
-      var val = widthArray[i];
-      var offset = (12 - val) / 2;
-      switch (i) {
-        case 0:
-          var offset = offset > 0 ? " col-xs-offset-" + offset : "";
-          breaker.addClass('col-xs-' + val + offset);
-          break;
-        case 1:
-          var offset = offset > 0 ? " col-sm-offset-" + offset : "";
-          breaker.addClass('col-sm-' + val + offset);
-          break;
-        case 2:
-          var offset = offset > 0 ? " col-md-offset-" + offset : "";
-          breaker.addClass('col-md-' + val + offset);
-          break;
-        case 3:;
-          var offset = offset > 0 ? " col-lg-offset-" + offset : "";
-          breaker.addClass('col-lg-' + val + offset);
-          break;
-      }
-    }
-    return breaker;
-  };
-
-  hbsApp.community.addBreaks = function (widthArray) {
-    widthArray = widthArray || [10, 10, 8, 8];
-    var categories = $(".category");
-    categories.each(function (index) {
-    });
-
-  };
-
   hbsApp.community.init = function () {
     console.log('community init');
     var targets = hbsApp.community.targets;
@@ -459,9 +428,15 @@ var hbsApp = window.hbsApp
 
   };
 
+  /*---------------------------------------------------------------------------
+    SPONSORS
+    tags: *sponsors*
+  ---------------------------------------------------------------------------*/
+
 
   /*---------------------------------------------------------------------------
     CATALOG / COLLECTIONS
+    tags: *catalog* *collections* *products*
   ---------------------------------------------------------------------------*/
   /*
     Catalog page adjust images just in case aspect ratio is not the same when merchant uploaded
