@@ -10,11 +10,17 @@
 </div>
 
 <!-- outer container to limit the width, margin, and padding of events, 250px * 250px for pics, 3 on md devices, 2 on sm devices, 1 on xs -->
-<div  id="page_container" class="eventspage_container gl_clearfix">
+<div  id="page_container" class="eventspage_container {{page.handle}} {{template}} gl_clearfix">
+  {% comment %}
 	<h1 class="eventspage_page_title block-title"> {{ page.title }} </h1>
+  {% endcomment %}
+
 	{% if page.content != blank %}
-		<div class="eventspage_page_description block-text"> {{ page.content }}</div>
+		<div class="eventspage_page_description">
+			<h4 class="block-text">{{ page.content }}<h4>
+		</div>
 	{% endif %}
+
 	<div class="eventspage_divider"></div>
 
 	{% for i in (0...14) %}

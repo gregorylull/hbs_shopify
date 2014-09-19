@@ -531,6 +531,7 @@ var hbsApp = window.hbsApp
 
   /*---------------------------------------------------------------------------
     PRODUCT / INDIVIDUAL
+    tags: *product* *individual*
   ---------------------------------------------------------------------------*/
   // pictures can only be of a certain size, but we dont' know what ratio the pictures will be, so we give them predefined sizes
   hbsApp.product_adjustMaxDimensions = function (hbsApp) {
@@ -550,6 +551,37 @@ var hbsApp = window.hbsApp
       $(image).parent().addClass('vertRect');
     }
   }
+
+  // split variants into separate selection menus
+  hbsApp.splitVariants = function () {
+
+  };
+
+  // variant images on enter
+  // for left side variant images
+  hbsApp.imageReplace = function (index, src) {
+    src = src || $(this).attr('src');
+    if ($('#main-image').attr('src') !== src) {
+      $('.main-image').remove();
+      var image = $('<img/>').attr('src', src);
+      image.addClass('thumbnail').addClass('main-image');
+      image.appendTo('.product-page-productPicture'); 
+      console.log('after: ', image.attr('src'))
+    }
+  };
+
+  // for selected variant
+  hbsApp.imageSelect = function (index) {
+    var src = $("option:selected", $(this)).attr('img-source');
+    imageReplace(index, src);
+    console.log('selected: ', src);
+  };
+
+  hbsApp.variantImageReplace = function () {
+    $('.variant-image').on('mouseenter', hbsApp.imageReplace);
+    $('.variant-image').on('click', hbsApp.imageReplace);
+    $('#product-select').on('change', hbsApp.imageSelect);
+  };
 
   // read product.description and retrieve relevant information to insert into proper place and create fields
   hbsApp.addExtraFormFields = {};

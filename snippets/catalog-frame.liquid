@@ -1,4 +1,4 @@
-<div id="page_container" class='container catalog_all_container'>
+<div id="page_container" class='container catalog_all_container {{template}}'>
   {% include 'header' %}
   <div class="row row_all">
     <div class="col-sm-3 catalog_all_leftColumn">
@@ -19,12 +19,13 @@
       </div>
     </div> <!-- ./catalog_hbs_leftmenu col-sm-3 -->
 
-  <div class="col-sm-9 catalog_all_rightColumn">
-    {% if template contains 'product' %}
-      {% include 'product-page-item' with product.handle %}
-    {% elsif template contains 'collection' %}
-      {% include 'product-grid-item' with collection.handle %} <!-- -->
-    {% endif %}
-  </div>
+    <div class="col-sm-9 catalog_all_rightColumn">
+      {% if template contains 'product' %}
+        {% include 'product-page-item' with product.handle %}
+      {% elsif template contains 'collection' %}
+        {% include 'product-grid-item' with collection.handle %} <!-- -->
+      {% endif %}
+    </div>
   </div> <!-- /.row_all-->
-</div> <!-- /.container-fluid -->
+  {% include 'footer' %}
+</div> <!-- /.container -->
