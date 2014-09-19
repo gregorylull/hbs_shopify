@@ -552,9 +552,16 @@ var hbsApp = window.hbsApp
     }
   }
 
-  // split variants into separate selection menus
-  hbsApp.splitVariants = function () {
+  // split variants
+  hbsApp.variants = {};
+  
+  hbsApp.variants.options;
 
+  // split variants into separate selection menus
+  hbsApp.variants.getVariantTitles = function (data) {
+    for (var i = 0; i < data.options.length; i++) {
+      hbsApp.variants.options = []
+    }
   };
 
   // variant images on enter
