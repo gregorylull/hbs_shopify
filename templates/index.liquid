@@ -14,7 +14,7 @@
   </div>
 
   <div id="frontpage_row" class="row">
-    <div class="col-sm-9 frontpage_md_leftColumn">
+    <div class="col-sm-8 frontpage_md_leftColumn">
 
       <div class="frontpage_separator hidden-xs"></div>
 
@@ -55,7 +55,7 @@
     <div class="frontpage_separator hidden-sm hidden-md hidden-lg">
     </div>
 
-    <div class="col-sm-3 frontpage_md_rightColumn">
+    <div class="col-sm-4 frontpage_md_rightColumn">
       
       <div class="row">
         <div class="col-xs-12 frontpage_md_contact frontpage_block_content">
@@ -84,11 +84,56 @@
         </div>
       </div>
 
+      {% assign facebook_url = settings['facebook_url'] %}
+      {% if facebook_url != blank and facebook_url != "" %}
+        <div class="row">
+          <div id="fb-wrap" class="fb-like-box" data-href="http:{{facebook_url}}" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
+        </div>
+      {% endif %}
+
+
     </div> <!-- end col-sm-3 right column-->
 
   </div> <!-- end row -->
 {% include 'footer' %}
 </div> <!-- END /.container #page_container -->
+
+<script>
+  $(function () {
+    var prevSize = null;
+    var oldSpanWidth, oldIframeWidth;
+
+    $(window).on("resize", function () {
+      if (!oldSpanWidth || !oldIframeWidth) {
+        console.log("\nold span" ,oldSpanWidth, ", old iframe", oldIframeWidth, ', exp:', !oldSpanWidth || !oldIframeWidth);
+        oldSpanWidth = $("#fb-wrap > span").css('width');
+        oldIframeWidth = $("#fb-wrap iframe").css('width');
+
+      } else {      
+        var check = hbsApp.getMobileCheck();
+        console.log("resize triggered, now: ", check, ", previous: ", prevSize);
+        if (check === "xs" && prevSize !== 'xs') {
+          console.log('to xs');
+          $("#fb-wrap > span").css({
+            width: "100%"
+          });
+          $("#fb-wrap iframe").css({
+            width: "100%"
+          });
+        } else if (check !== 'xs' && prevSize === 'xs') {
+          console.log('back to original: ', oldSpanWidth, oldIframeWidth);
+          $("#fb-wrap > span").css({
+            width: oldSpanWidth
+          });
+          $("#fb-wrap iframe").css({
+            width: oldIframeWidth
+          });
+        }
+      }
+      prevSize = check;
+    });
+  });
+</script>
 
 {% comment %}
 ===============================================================================================

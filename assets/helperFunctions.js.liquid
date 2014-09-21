@@ -444,7 +444,6 @@ var hbsApp = window.hbsApp
     - useful for container-fluid    
   */
   hbsApp.catalogAdjustProductHeight = function (imageObj, hbsApp, imageSelector) {
-    console.log('is this executed?');
     var toLog = true;
     imageSelector = imageSelector || '.collection-grid-row .product-image-wrapper img';
     if (!imageObj) {
@@ -552,16 +551,119 @@ var hbsApp = window.hbsApp
     }
   }
 
+  /*
+    PLAN: 
+    DATA
+      append .js to pathname
+      jquery get 
+
+    DOM
+      <div id="variantOptions">
+        <p class="optionName"> option name </p>
+        <ul class="option1">  <!-- list-style none, display: inline-block -->
+          <li variant-data="s"> s </li>
+          <li variant-data="m"> m </li>
+          <li variant-data="l"> l </li>
+        </ul>
+      </div>
+
+    data, currently highlighted: 
+
+    LOGIC
+      :: on li click, get current option, in the right combination, get ID number, update some form element
+        <input type="hidden" name="id" value="VARIANT-ID">
+        <input type="hidden" image-src="">
+
+      :: if no default --> then just have an add button.
+
+      :: visual price update
+
+
+    NOTE**
+
+    *remember* completely comment out current product select down mneu in chekcout-form
+
+    *ONLY execute this function if variants > 0? 1?, so...during template creation...
+
+    *if a variant is unavaible, make the addToCart button unclickable / preventDefault..
+  */
+
   // split variants
   hbsApp.variants = {};
-  
-  hbsApp.variants.options;
 
-  // split variants into separate selection menus
-  hbsApp.variants.getVariantTitles = function (data) {
-    for (var i = 0; i < data.options.length; i++) {
-      hbsApp.variants.options = []
+  // processData
+  hbsApp.variants.processData = function (data) {
+    hbsApp.variants.hashID = {};
+    hbsApp.variants.idHash = {};
+
+    // create a hash table for quick access
+    for (var i = 0, len = data.variants.length; i < len; i++) {
+      var variant = data.variants[i];
+
+      hbsApp.variants.hashID[variant.title] = variant;
+      hbsApp.variants.idHash[variant.id] = variant;
     }
+
+    // dirty is the FIRST thing to be checked, and has to be resolved
+    // starts as true? so we can trigger it?
+    hbsApp.variants.dirty = false;
+
+    // each time an item is changed, these are changed to reflect the product
+    hbsApp.variants.option1 = null;
+    hbsApp.variants.option2 = null;
+    hbsApp.variants.option3 = null;
+
+    // current variant
+    hbsApp.variant.current = {
+      title: null,
+      id: null,
+      obj: null
+    };
+
+  };
+
+  hbsApp.variants.getID = function (option1, option2, option3) {
+
+  };
+
+  // createDOM, called ONCE
+  hbsApp.variants.createDOM = function (data) {
+  };
+  
+  // split variants into separate selection menus
+  hbsApp.variants.ajax = function (productHandle, triesLeft) {
+    // no, this is bad, i should construct the url
+    // need {{ product.handle }}
+    triesLeft = triesLeft === undefined ? 3 : triesLeft;
+
+    url = url || window.location.origin + window.location.pathname; 
+    ajaxURL = url + ".js";
+
+    // 3 tries, otherwise error
+    var failCallback = function (data) {
+      if (triesLeft > 0) {
+        hbsApp.variants.ajax(productHandle, triesLeft-1);
+      } else {
+        console.log("Cannot get variant data, error: \n", data);
+      }
+    };
+
+    // on success, our success function will call an init function that takes care of DATA, DOM, and LOGIC
+    var successCallback = function (data) {
+      if (data) {
+        var parsed = JSON.parse(data);
+        hbsApp.variants.processData(parsed);
+        hbsApp.variants.createDOM(parsed);
+      }
+    };
+
+    // ajax call
+    $.ajax({
+      url: ajaxURL,
+      method: "GET",
+      success: successCallback,
+      fail: failCallback
+    });
   };
 
   // variant images on enter

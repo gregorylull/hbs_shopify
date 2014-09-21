@@ -368,7 +368,7 @@ img {
   type_homepage_contactUs_
   type_homepage_pulseFeatures_
 
-  tags: *homepage* *front* *frontpage* ;
+  tags: *homepage* *front* *frontpage* *index*;
 ******************************************************************************/
 
 
@@ -1073,6 +1073,21 @@ img {
   width: auto;
   height: auto;
 }
+
+@media screen and (max-width: 768px) {
+  #fb-wrap {
+    width: 100%;
+  }
+
+  #fb-wrap span{
+    width: 500px;
+  }
+
+  #fb-wrap iframe {
+    width: 100%;
+  }
+}
+
 
 @media screen and (min-width: 768px) {
   /* starting from a viewport of 768px, the container will be 95% width of container, but no more than 1000px */

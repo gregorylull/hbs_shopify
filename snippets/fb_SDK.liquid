@@ -1,0 +1,80 @@
+{% comment %}
+  FB javascript SDK
+{% endcomment %}
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=282524058603085&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+  $(function () {
+
+    var css = {
+      "#fb-wrap > span" :  {
+        width: "100%"
+      },
+
+      "#fb-wrap iframe": {
+        width: "100%"
+      },
+
+      "#fb-wrap iframe body": {
+        "background-color": "gold"
+      }
+    };
+
+    var setCSS = function (selector, cssObj) {
+      var el = $(selector);
+      if ($(selector).length === 0) {
+        setTimeout(setCSS, 50);
+      } else {
+        el.css(cssObj);
+      }
+    };
+
+    var setImageWidth = function (el) {
+      if ($(el).css('width') !== "100%") {
+        $(el).css('width', '100%');
+      }
+
+      if ($(el).css('height') === "100%") {
+        $(el).css('height', 'auto');
+      }
+
+      var parent = $(el).parent();
+      if (parent) {
+        console.log("tagName: ", parent.prop('tagName'));
+        var tagName = parent.prop('tagName').toLowerCase();
+
+        if (tagName !== 'body') {
+          setImageWidth(parent);
+        }
+      }
+    };
+
+    var checkFrame = function () {
+      if ($("#fb-wrap").length === 0) {
+        setTimeout(checkFrame, 50);
+      } else {
+        setTimeout(function () {
+
+          // set other css width stuff
+          for (var selector in css) {
+            setCSS(selector, css[selector]);
+          }
+
+          // set image width
+          setImageWidth($("#fb-wrap img.scaledImageFitWidth"));
+        }, 5000);
+      }
+    };
+
+    //checkFrame();
+
+  });
+</script>

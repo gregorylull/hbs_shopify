@@ -62,6 +62,7 @@
       {{ 'main.js' | asset_url | script_tag }}
     </head>
     <body id="body-container">
+      {% include 'fb_SDK' %}
 
       <!-- since each of the templates will be using bootstrap, the header and the content_for_layout will be wrapped in a .container div-->
         {{ content_for_layout }}
