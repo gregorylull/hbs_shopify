@@ -100,10 +100,9 @@
 
 <script>
   $(function () {
-    var prevSize = null;
-    var oldSpanWidth, oldIframeWidth;
 
-    $(window).on("resize", function () {
+    // adjust FB feed on the index page so that on NON-mobile devices (laptops/desktops), xs screen width will have 100% width expansion while, everything else will be at a fixed width determined by fb
+    var adjustFBfeed = function () {
       if (!oldSpanWidth || !oldIframeWidth) {
         console.log("\nold span" ,oldSpanWidth, ", old iframe", oldIframeWidth, ', exp:', !oldSpanWidth || !oldIframeWidth);
         oldSpanWidth = $("#fb-wrap > span").css('width');
@@ -131,6 +130,18 @@
         }
       }
       prevSize = check;
+    };
+
+    // 
+
+
+    // closure variables for resize function
+    var prevSize = null;
+    var oldSpanWidth, oldIframeWidth;
+
+    $(window).on("resize", function () {
+      adjustFBfeed();
+
     });
   });
 </script>
