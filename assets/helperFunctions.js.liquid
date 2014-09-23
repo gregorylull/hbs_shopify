@@ -824,9 +824,10 @@ var hbsApp = window.hbsApp
   // returns 
   hbsApp.addExtraFormFields['note'] = function (domNode, options) {
     var div = $('<div></div>').addClass('product-extra-note');
-    var small = $("<small></small>").text(domNode.text());
+    // var small = $("<small></small>").text(domNode.text());
+    var small = $("<small></small>").append(domNode);
 
-    domNode.remove();
+    // domNode.remove();
     return div.append(small);
   };
 
