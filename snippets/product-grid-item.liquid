@@ -22,9 +22,13 @@
 {% for product in collections[product-grid-item].products %}
   
   {% assign hide = false %}
+  {% assign offsite = false %}
   {% for tag in product.tags %}
     {% if tag contains "hide" %}
       {% assign hide = true %}
+    {% endif %}
+    {% if tag contains "offsite" %}
+      {% assign offsite = true %}
     {% endif %}
   {% endfor %}
 
@@ -43,18 +47,22 @@
         </div>
         <h4 class="product-title block-title">{{ product.title }}</h4>
         {% if template != 'index' %}
-          {% if product.price_varies %}
-            <h5 class="product-price">From {{product.price_min | money}} - {{product.price_max | money}}</h5>
-          {% elsif product.price == 0 %}
-            <h5 class="product-price"> Free! </h5>
-          {% else %}
-            <h5 class="product-price">{{ product.price | money }}</h5>
-          {% endif %}
+          {% if offsite == true %}
+            <h5>Purchased Off-site</h5>
+          {% else %}          
+            {% if product.price_varies %}
+              <h5 class="product-price">From {{product.price_min | money}} - {{product.price_max | money}}</h5>
+            {% elsif product.price == 0 %}
+              <h5 class="product-price"> Free! </h5>
+            {% else %}
+              <h5 class="product-price">{{ product.price | money }}</h5>
+            {% endif %}
 
-          {% if product.compare_at_price_min != 0 and product.compare_at_price_varies %}
-            <small class="product-compare"> Normally from {{ product.compare_at_price_min | money }} - {{ product.compare_at_price_max | money }}</small>
-          {% elsif product.compare_at_price_min != 0 %}
-            <small class="product-compare"> Normally {{ product.compare_at_price_max | money }}</small>
+            {% if product.compare_at_price_min != 0 and product.compare_at_price_varies %}
+              <small class="product-compare"> Normally from {{ product.compare_at_price_min | money }} - {{ product.compare_at_price_max | money }}</small>
+            {% elsif product.compare_at_price_min != 0 %}
+              <small class="product-compare"> Normally {{ product.compare_at_price_max | money }}</small>
+            {% endif %}
           {% endif %}
         {% endif %}
 
