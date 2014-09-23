@@ -66,6 +66,7 @@ var hbsApp = window.hbsApp
   /*
     check if images are still loading
     // timesChecked specifies max amount of time this function will run, just in case an image can't be found, the page won't stop loading
+    // same as .load?
   */
   hbsApp.checkImgLoading = function (imageElements, callback, args, context, timesChecked) {
     var interval = 300;
@@ -151,6 +152,111 @@ var hbsApp = window.hbsApp
       }
     }
   };
+
+  // convert a string to a regular expressions, defaults to search for =string=
+  // can take 2 optional args, specifying the start and end regular expression
+  hbsApp.makeRE = function (string, reStart, reEnd) {
+    reStart = reStart || "=\\s*";
+    reEnd = reEnd || "\\s*="
+    return new RegExp(reStart + string + reEnd);
+  };
+
+  // takes an array of strings that are classes to regex match to in Shopify's description input box
+  // e.g. ['description'] will return a new array of regex: ['=\s*sdescription\s*=']
+  hbsApp.toRE = function (array) {
+    var keys = array;
+    var results = [];
+
+    if (!Array.isArray(array)) {
+      keys = Object.keys(array);
+    }
+    for (var i = 0; i < keys.length; i++) {
+      results.push(hbsApp.makeRE(keys[i]));
+    }
+    return results;
+  };
+
+  // extract returns an object with properties that match the 'targets' parameter
+  // the 'targets' parameter is an array of keywords, e.g.: ['description', 'events'];
+  // the 'targetsRE' parameter is an array of targets elements that have been converted to regular expressions
+  /* 
+    For example, if a collection/page/product/blog's content/description on Shopify looks like this:
+
+    Hello, this is just some description of the product
+
+    =special=
+    This text is something special
+
+    =input=
+    This text is also something different
+
+    ----------------------------------------------------------------------------
+    The above will return an object: {
+      special: "<div class="special"><p> This text is something special </p></div>",
+
+      input: "<div class="input"><p>This text is also something different</p></div>"
+    }
+  */
+  hbsApp.extract = function (html, targets, targetsRE) {
+    var children = $(html);
+    var results = {};
+    var appendTarget = null;
+    var skip = true;
+    var keys = targets;
+
+    if (!Array.isArray(targets)) {
+      keys = Object.keys(targets);
+    }
+
+    // create an empty div to hold dom elements that match/fall under the targets we are looking for
+    results = [];
+
+    hbsApp.children = children;
+    console.log(children);
+
+    // if a regex match is found through targetsRE, set the result objects's KEY as the original non-regexp string ('keys'), then set the VALUE as 
+    // the 'skip' variable is to make sure the =string= node itself is NOT appended to anything, and skipped over
+    children.each(function (index) {
+      skip = false;
+      for (var i = 0; i < targetsRE.length; i++) {
+        if ($(this).text().search(targetsRE[i]) >= 0) {
+          var target = keys[i];
+          appendTarget = $('<div></div>').addClass(keys[i]);
+          // this keeps track of what order these special fields appeared
+          results.push({
+            target: appendTarget,
+            regex: target
+          }); 
+          skip = true;
+          $(this).addClass('specialInput');
+        } 
+      }
+
+      if (appendTarget && !skip) {
+        appendTarget.append($(this));
+        $(this).addClass('specialInput');
+      }
+
+    });
+
+    // return object, which consists of properties matching the target name, with values as an array of dom elements
+    return results;
+  };
+
+  // this is a VERY simple generator that uses closure to keep track of state for different keys
+  // incrementer starts at 0 when first invoked
+  hbsApp.increment = (function () {
+    var hash = {};
+
+    return function (key, noIncrement) {
+      if (hash[key] === undefined ) {
+        hash[key] = 0;
+      }
+      return noIncrement ? hash[key] : hash[key]++;
+    };
+
+  })();
+
 
   /****************************************************************************
     SETTINGS: DEFAULT FONTS
@@ -356,73 +462,33 @@ var hbsApp = window.hbsApp
 
   hbsApp.community = {};
   hbsApp.community.categories = {};
-  var categories = hbsApp.community.categories;
 
-  // targets to search for
+  // keys to search for
   hbsApp.community.targets = ['description', 'events', 'image'];
 
-  // helper functions to convert an array of strings to regular expressions for =string=
-  hbsApp.community.makeRE = function (string) {
-    return new RegExp("=\\s*" + string + "\\s*=");
-  };
-
-  hbsApp.community.toRE = function (array) {
-    var results = [];
-    for (var i = 0; i < array.length; i++) {
-      results.push(hbsApp.community.makeRE(array[i]));
-    }
-    return results;
-  };
-
-  // returns an object with properties that match the 'targets' parameter
-  // the 'target' paramenter is an array of keywords, e.g.: ['description', 'events']
-  hbsApp.community.extract = function (html, targets, targetsRE) {
-    var html = $(html);
-    var children = html;
-    var results = {};
-    var appendTarget = null;
-    var skip = true;
-
-    // create empty arrays for results to hold dom elements
-    for (var i = 0; i < targets.length; i++) {
-      results[targets[i]] = $('<div></div>').addClass(targets[i]);
-    }
-
-    window.children = children;
-
-    // if a regex match is found, 
-    children.each(function (index) {
-      skip = false;
-      for (var i = 0; i < targetsRE.length; i++) {
-        if ($(this).text().search(targetsRE[i]) >= 0) {
-          appendTarget = results[targets[i]];
-          skip = true;
-        } 
-      }
-
-      if (appendTarget && !skip) {
-        appendTarget.append($(this));
-      }
-    });
-
-    // return object, which consists of properties matching the target name, with values as an array of dom elements
-    return results;
-  };
+  // specific logic for the community page, appends parsedHTML to different ID's
+  // NOTE* hbsApp.community.categories 's data comes from javascript code in snippet/community.liquid:
+  /*
+    var cat = hbsApp.community.categories;
+    cat["{{page.handle}}"] = {};
+    cat["{{page.handle}}"].title = {{ page.title | json }};
+    cat["{{page.handle}}"].content = {{ page.content | json }};
+  */
+  // basically, a NEW Shopify page has to be created for each community category (e.g. Arts, Service, etc.), and extract information from them.
 
   hbsApp.community.init = function () {
-    console.log('community init');
+    var categories = hbsApp.community.categories;
     var targets = hbsApp.community.targets;
-    var targetsRE = hbsApp.community.toRE(targets);
+    var targetsRE = hbsApp.toRE(targets);
 
     for (var category in categories) {
       page = categories[category];
       var id = category;
-      parsedHTML = hbsApp.community.extract(page.content, targets, targetsRE);
-      window.test = parsedHTML;
+      parsedHTML = hbsApp.extract(page.content, targets, targetsRE);
 
-      for (var target in parsedHTML) {
-        // append description
-        $('#' + id + " ." + target).append(parsedHTML[target]);
+      for (var i = 0, len = parsedHTML.length; i < len; i++) {
+        var obj = parsedHTML[i];
+        $('#' + id + " ." + obj.regex).append(obj.target);        
       }
     }
 
@@ -692,65 +758,99 @@ var hbsApp = window.hbsApp
     $('#product-select').on('change', hbsApp.imageSelect);
   };
 
+/* -------------------------------- */
   // read product.description and retrieve relevant information to insert into proper place and create fields
   hbsApp.addExtraFormFields = {};
+
+  hbsApp.addExtraFormFields.targets = {
+    'input-text': true,
+    'input-checkbox': true,
+    'note': true,
+    'offsite': true,
+    'comment': true
+  };
+
+  // takes a domNode, returns
+  hbsApp.addExtraFormFields['input-text'] = function (domNode, classList) {
+    nodeText = $.trim(domNode.text());
+    hbsApp['node' + hbsApp.increment('special')] = domNode;
+    nodeID = "product-extra-input" + hbsApp.increment('formFields-input');
+    var div = $('<div></div>').addClass('product-extra-input');
+
+    var label = $('<label></label>').text(nodeText).attr({"for" : nodeID});
+    var input = $('<input/>').attr({
+      "id"   : nodeID, 
+      "type" : "text",
+      "name" : "properties[" + nodeText + "]"
+    });
+    div.append(label).append(input);
+
+    //domNode.remove();
+    return div;
+  };
+
+  // returns 
+  hbsApp.addExtraFormFields['note'] = function (domNode, classList) {
+    var div = $('<div></div>').addClass('product-extra-note');
+    var small = $("<small></small>").text(domNode.text());
+
+    domNode.remove();
+    return div.append(small);
+  };
+
+  hbsApp.addExtraFormFields['offsite'] = function (domNode) {
+    var text = $.trim(domNode.children().first().text());
+    var url = $.trim(domNode.children().first().next().text());
+    
+    if (url === "" || url === " ") {
+      url = text;
+    }
+
+    if (text === "" || text === " " || text.search("www") >= 0 || text.search("http") >= 0) {
+      text = "Purchase offsite";
+    } 
+
+    var anchor = $('<a></a>').attr('href', url).text(text);
+    var div = $('<h4></h4>').addClass('offsite block-text').append(anchor);
+    $('#add').before(div);
+    $('#add').remove();
+  };
+
+  // this removes any special comments so that note can be left in product descriptions
+  hbsApp.addExtraFormFields['comment'] = function (domNode) {
+  }
+
+  
   hbsApp.addExtraFormFields.init = function (descriptionSelector, afterNode) {
     descriptionSelector = descriptionSelector || "#product-description";
     afterNode = afterNode || "#product-price";
+    var fields = hbsApp.addExtraFormFields;
 
-    // closure variables
-    var count = 0;
-    var obj = hbsApp.addExtraFormFields;
+    // fields.html info comes from javascript code embedded in product-page-item
+    var parsedHTML = hbsApp.extract(fields.html, fields.targets, hbsApp.toRE(fields.targets));
+    console.log(parsedHTML);
 
     // mutable properties
-    obj.masterDiv = $('<div></div>').attr('id', 'product-extra').addClass('product-extra');
-    obj.insertAfterThisNode = $(afterNode);
-    obj.productDescription = $(descriptionSelector); // obj should be liquid | json ?
-    obj.classList = {
-      'product-extra-input': true, 
-      'product-extra-note' : true
-    };
+    fields.masterDiv = $('<div></div>').attr('id', 'product-extra').addClass('product-extra');
+    fields.insertAfterThisNode = $(afterNode);
+    fields.productDescription = $(descriptionSelector); // fields should be liquid | json ?
 
-    obj.increment = function (noIncrement) {
-      return noIncrement ? count : count++;
-    };
-
-    obj['product-extra-input'] = function (domNode) {
-      nodeText = domNode.text();
-      nodeID = "product-extra-input" + obj.increment();
-      var div = $('<div></div>').addClass('product-extra-input');
-
-      var label = $('<label></label>').text(nodeText).attr({"for" : nodeID});
-      var input = $('<input/>').attr({
-        "id"   : nodeID, 
-        "type" : "text",
-        "name" : "properties[" + nodeText + "]"
-      });
-      div.append(label).append(input);
-
-      domNode.remove();
-      return div;
-    };
-
-    obj['product-extra-note'] = function (domNode) {
-      var div = $('<div></div>').addClass('product-extra-note');
-      var small = $("<small></small>").text(domNode.text());
-
-      domNode.remove();
-      return div.append(small);
-    };
-
-    // LOGIC
-    var children = obj.productDescription.children();
-    children.each(function (index) {
-      for (var targetClass in obj.classList) {
-        if ($(this).hasClass(targetClass)) {   
-          var extraDiv = obj[targetClass]($(this));
-          obj.masterDiv.append(extraDiv);
-        }
+    // parsedHTML returns two things, an object or an index. we are using the index here to keep the order 
+    parsedHTML.forEach(function (obj, index, array) {
+      var fn = fields[obj.regex]
+      if (fn) {
+        var div = fn(obj.target);
+        fields.masterDiv.append(div);
       }
     });
-    obj.insertAfterThisNode.after(obj.masterDiv);
+
+    fields.insertAfterThisNode.after(fields.masterDiv);
+
+    // Re append any remaing description information to the description tab
+    $(descriptionSelector).append(fields.html);
+
+    $('#product-description .specialInput').remove();
+
   }; // END / addExtraFormFields.init
 
 })();
