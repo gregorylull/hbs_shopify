@@ -157,7 +157,7 @@ var hbsApp = window.hbsApp
   // can take 2 optional args, specifying the start and end regular expression
   hbsApp.makeRE = function (string, reStart, reEnd) {
     reStart = reStart || "=\\s*";
-    reEnd = reEnd || "\\s*="
+    reEnd = reEnd || "\\**\\s*="
     return new RegExp(reStart + string + reEnd);
   };
 
@@ -222,10 +222,15 @@ var hbsApp = window.hbsApp
         if ($(this).text().search(targetsRE[i]) >= 0) {
           var target = keys[i];
           appendTarget = $('<div></div>').addClass(keys[i]);
+
+          var required = $(this).text().search(/\*/g) > 0;
           // this keeps track of what order these special fields appeared
           results.push({
             target: appendTarget,
-            regex: target
+            regex: target,
+            options: {
+              require: required
+            }
           }); 
           skip = true;
           $(this).addClass('specialInput');
@@ -771,7 +776,7 @@ var hbsApp = window.hbsApp
   };
 
   // takes a domNode, returns
-  hbsApp.addExtraFormFields['input-text'] = function (domNode, classList) {
+  hbsApp.addExtraFormFields['input-text'] = function (domNode, options) {
     nodeText = $.trim(domNode.text());
     hbsApp['node' + hbsApp.increment('special')] = domNode;
     nodeID = "product-extra-input" + hbsApp.increment('formFields-input');
@@ -783,6 +788,13 @@ var hbsApp = window.hbsApp
       "type" : "text",
       "name" : "properties[" + nodeText + "]"
     });
+
+    // if form validation is required
+    if (options.require) { 
+      input.addClass('required'); 
+      label.text( label.text() + "*" );
+    }
+
     div.append(label).append(input);
 
     //domNode.remove();
@@ -790,7 +802,7 @@ var hbsApp = window.hbsApp
   };
 
   // returns 
-  hbsApp.addExtraFormFields['note'] = function (domNode, classList) {
+  hbsApp.addExtraFormFields['note'] = function (domNode, options) {
     var div = $('<div></div>').addClass('product-extra-note');
     var small = $("<small></small>").text(domNode.text());
 
@@ -839,7 +851,8 @@ var hbsApp = window.hbsApp
     parsedHTML.forEach(function (obj, index, array) {
       var fn = fields[obj.regex]
       if (fn) {
-        var div = fn(obj.target);
+        var div = fn(obj.target, obj.options);
+
         fields.masterDiv.append(div);
       }
     });
