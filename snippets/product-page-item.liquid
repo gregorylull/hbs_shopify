@@ -51,8 +51,7 @@
       <div class="tab-pane active" id="description">
         <div id="product-description" class="rte" itemprop="description">
           <script>
-            hbsApp.addExtraFormFields.html = $({{ product.description | json }});
-        
+            hbsApp.addExtraFormFields.html = {{ product.description | json }};
           </script>
         </div>
       </div>

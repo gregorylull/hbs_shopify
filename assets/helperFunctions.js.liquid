@@ -198,8 +198,17 @@ var hbsApp = window.hbsApp
     }
   */
   hbsApp.extract = function (html, targets, targetsRE) {
-    var children = $(html);
-    var results = {};
+    // html description might just be a string without html tags, if so, then we have to create a dom container for it first
+    // it is very strange that Shopify does give html elements if the product description doesn't have a return
+    var dom = html;
+    console.log('here is html: ', typeof html, html);
+
+    if (typeof html === 'string' && html.search(/<\/*\w*\/*>/) < 0) {
+      console.log('this should not execute');
+      dom = $('<p></p>').text(html);
+    }
+
+    var children = $(dom);
     var appendTarget = null;
     var skip = true;
     var keys = targets;
@@ -216,6 +225,8 @@ var hbsApp = window.hbsApp
 
     // if a regex match is found through targetsRE, set the result objects's KEY as the original non-regexp string ('keys'), then set the VALUE as 
     // the 'skip' variable is to make sure the =string= node itself is NOT appended to anything, and skipped over
+    var nonSpecialTextStart = true;
+    var appendTarget = $('<div></div>');
     children.each(function (index) {
       skip = false;
       for (var i = 0; i < targetsRE.length; i++) {
@@ -233,13 +244,22 @@ var hbsApp = window.hbsApp
             }
           }); 
           skip = true;
-          $(this).addClass('specialInput');
+          nonSpecialTextStart = false;
         } 
+      }
+
+      if (skip === false && nonSpecialTextStart) {
+        results.push({
+          target: appendTarget,
+          regex: 'nonSpecial',
+          options: {
+          }
+        });
+        nonSpecialTextStart = false;
       }
 
       if (appendTarget && !skip) {
         appendTarget.append($(this));
-        $(this).addClass('specialInput');
       }
 
     });
@@ -810,6 +830,11 @@ var hbsApp = window.hbsApp
     return div.append(small);
   };
 
+  hbsApp.addExtraFormFields['nonSpecial'] = function (domNode, options, fields) {
+    domNode.addClass('nonSpecial');
+    fields.productDescription.append(domNode);
+  };
+
   hbsApp.addExtraFormFields['offsite'] = function (domNode) {
     var text = $.trim(domNode.children().first().text());
     var url = $.trim(domNode.children().first().next().text());
@@ -840,7 +865,7 @@ var hbsApp = window.hbsApp
 
     // fields.html info comes from javascript code embedded in product-page-item
     var parsedHTML = hbsApp.extract(fields.html, fields.targets, hbsApp.toRE(fields.targets));
-    console.log(parsedHTML);
+    console.log("parsedHTML:", parsedHTML);
 
     // mutable properties
     fields.masterDiv = $('<div></div>').attr('id', 'product-extra').addClass('product-extra');
@@ -849,20 +874,21 @@ var hbsApp = window.hbsApp
 
     // parsedHTML returns two things, an object or an index. we are using the index here to keep the order 
     parsedHTML.forEach(function (obj, index, array) {
-      var fn = fields[obj.regex]
-      if (fn) {
-        var div = fn(obj.target, obj.options);
-
-        fields.masterDiv.append(div);
+      if (obj.regex === 'nonSpecial') {
+        fields[obj.regex](obj.target, obj.options, fields);
+      } else {
+        var fn = fields[obj.regex]
+        if (fn) {
+          var div = fn(obj.target, obj.options, fields);
+          fields.masterDiv.append(div);
+        }
       }
     });
 
     fields.insertAfterThisNode.after(fields.masterDiv);
 
-    // Re append any remaing description information to the description tab
-    $(descriptionSelector).append(fields.html);
+    // Re append any remaing nonSpecial description information to the description tab
 
-    $('#product-description .specialInput').remove();
 
   }; // END / addExtraFormFields.init
 
