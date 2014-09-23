@@ -132,16 +132,26 @@
       prevSize = check;
     };
 
-    // 
-
-
     // closure variables for resize function
     var prevSize = null;
     var oldSpanWidth, oldIframeWidth;
+    var css = {width: "100%"};
+
+    var setWidth = function (selector, time, css) {
+      setTimeout(function () {
+        var dom = $("#fb-wrap iframe");
+        if (dom && dom.css('width') && dom.css('width').search(/px/) < 0) {
+          setWidth(selector, time, css);
+        } else {
+          $(selector).css(css);
+        }
+      }, time);
+    };
+
+    setWidth("#fb-wrap", 200, css);
 
     $(window).on("resize", function () {
       adjustFBfeed();
-
     });
   });
 </script>
