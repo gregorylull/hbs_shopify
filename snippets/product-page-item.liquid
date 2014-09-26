@@ -1,16 +1,5 @@
 {% include 'pageInfoToJS' with 'product-page-item' %}
 
-{% for variant in product.variants %}
-
-  <script>console.log( "\nvariant title: ", {{ variant.title | json }})</script>
-  <script>console.log( "variant id: ", {{ variant.id | json }})</script>
-  <script>console.log( "image url: ", {{ variant.image.src | json }})</script>
-  <script>console.log( "variant opt1: ", {{ variant.option1 | json }})</script>
-  <script>console.log( "variant opt2: ", {{ variant.option2 | json }})</script>
-  <script>console.log( "variant opt3: ", {{ variant.option3 | json }})</script>
-  
-{% endfor %}
-
 <div class="row product-page-row1">
 
   {% if product.images.size > 1 %}

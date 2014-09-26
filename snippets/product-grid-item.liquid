@@ -19,78 +19,166 @@
 <h4 class="collection-grid-title"> Collection: <span class="collection-grid-current-displayed">{{collections[product-grid-item].title}}</span></h4>
 
 {% assign count = 0 %}
-{% for product in collections[product-grid-item].products %}
-  
-  {% assign hide = false %}
-  {% assign offsite = false %}
-  {% for tag in product.tags %}
-    {% if tag contains "hide" %}
-      {% assign hide = true %}
-    {% endif %}
-    {% if tag contains "offsite" %}
-      {% assign offsite = true %}
-    {% endif %}
-  {% endfor %}
+{% assign paginateBy = 25 %}
 
-  {% if hide == true %}
-    {% assign count = count | plus: 1 %}
-  {% endif %}
-
-  {% unless hide == true %}
+{% paginate collections[product-grid-item].products by paginateBy %}
+  {% for product in collections[product-grid-item].products %}
     
-    <div class="{{ classes }}">
-      <div class="product-grid-wrapper">
-      <a href="/products/{{product.handle}}">
-      <!-- <a href="#"> -->
-        <div class="product-image-wrapper" style="text-align: center">
-          <img class="img-thumbnail" src="{{product.featured_image.src | img_url: 'large' }}" alt="{{product.featured_image.alt}}"/>
-        </div>
-        <h4 class="product-title block-title">{{ product.title }}</h4>
-        {% if template != 'index' %}
-          {% if offsite == true %}
-            <h5>Purchased Off-site</h5>
-          {% else %}          
-            {% if product.price_varies %}
-              <h5 class="product-price">From {{product.price_min | money}} - {{product.price_max | money}}</h5>
-            {% elsif product.price == 0 %}
-              <h5 class="product-price"> Free! </h5>
-            {% else %}
-              <h5 class="product-price">{{ product.price | money }}</h5>
-            {% endif %}
+    {% assign hide = false %}
+    {% assign offsite = false %}
+    {% for tag in product.tags %}
+      {% if tag contains "hide" %}
+        {% assign hide = true %}
+      {% endif %}
+      {% if tag contains "offsite" %}
+        {% assign offsite = true %}
+      {% endif %}
+    {% endfor %}
 
-            {% if product.compare_at_price_min != 0 and product.compare_at_price_varies %}
-              <small class="product-compare"> Normally from {{ product.compare_at_price_min | money }} - {{ product.compare_at_price_max | money }}</small>
-            {% elsif product.compare_at_price_min != 0 %}
-              <small class="product-compare"> Normally {{ product.compare_at_price_max | money }}</small>
+    {% if hide == true %}
+      {% assign count = count | plus: 1 %}
+    {% endif %}
+
+    <script>console.log( "hide: ", {{ hide | json }}, ", index: ", {{forloop.index0 | json }} ,", product: ", {{ product.title | json }})</script>
+
+    {% unless hide == true %}
+      
+      <div class="{{ classes }}">
+        <div class="product-grid-wrapper">
+        <a href="/products/{{product.handle}}">
+        <!-- <a href="#"> -->
+          <div class="product-image-wrapper" style="text-align: center">
+            <img class="img-thumbnail" src="{{product.featured_image.src | img_url: 'large' }}" alt="{{product.featured_image.alt}}"/>
+          </div>
+          <h4 class="product-title block-title">{{ product.title }}</h4>
+          {% if template != 'index' %}
+            {% if offsite == true %}
+              <h5>Purchased Off-site</h5>
+            {% else %}          
+              {% if product.price_varies %}
+                <h5 class="product-price">From {{product.price_min | money}} - {{product.price_max | money}}</h5>
+              {% elsif product.price == 0 %}
+                <h5 class="product-price"> Free! </h5>
+              {% else %}
+                <h5 class="product-price">{{ product.price | money }}</h5>
+              {% endif %}
+
+              {% if product.compare_at_price_min != 0 and product.compare_at_price_varies %}
+                <small class="product-compare"> Normally from {{ product.compare_at_price_min | money }} - {{ product.compare_at_price_max | money }}</small>
+              {% elsif product.compare_at_price_min != 0 %}
+                <small class="product-compare"> Normally {{ product.compare_at_price_max | money }}</small>
+              {% endif %}
             {% endif %}
           {% endif %}
-        {% endif %}
 
-      </div></a> <!-- END /.product-grid-wrapper -->
-    </div> <!-- END / .col-xs-6 .col-sm-4 .col-md-3 -->
+        </div></a> <!-- END /.product-grid-wrapper -->
+      </div> <!-- END / .col-xs-6 .col-sm-4 .col-md-3 -->
 
-    {% comment %}
-      not very clean, but since we're using bootstrap and floats, we need to insert a clearfix after certain elements, namely those that are divisible by 2, 3, and 4
-    {% endcomment %}
+      {% comment %}
+        not very clean, but since we're using bootstrap and floats, we need to insert a clearfix after certain elements, namely those that are divisible by 2, 3, and 4
+      {% endcomment %}
 
-    {% assign byTwo = forloop.index | minus: count | modulo: 2 %}
-    {% assign byThree = forloop.index | minus: count | modulo: 3 %}
-    {% assign byFour = forloop.index | minus: count | modulo: 4 %}
-    {% if byTwo == 0 or byThree == 0 or byFour == 0 %}
-      {% if byTwo == 0 %}<div class="clearfix visible-xs-block"></div>{% endif %}
-      {% if byThree == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
-      {% if byFour == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
-    {% endif %}
+      {% assign byTwo = forloop.index | minus: count | modulo: 2 %}
+      {% assign byThree = forloop.index | minus: count | modulo: 3 %}
+      {% assign byFour = forloop.index | minus: count | modulo: 4 %}
+      {% if byTwo == 0 or byThree == 0 or byFour == 0 %}
+        {% if byTwo == 0 %}<div class="clearfix visible-xs-block"></div>{% endif %}
+        {% if byThree == 0 %}<div class="clearfix visible-sm-block"></div>{% endif %}
+        {% if byFour == 0 %}<div class="clearfix visible-md-block visible-lg-block"></div>{% endif %}
+      {% endif %}
 
-  {% endunless %}
-{% endfor %}
+    {% endunless %}
+  {% endfor %} <!-- end loop through products -->
+
+{% endpaginate %}
 </div> <!-- END / .collection-grid-row -->
 
+<style>
+  #paginate-nav {
+    text-align: center;
+  }
+  #paginate-nav ul {
+    padding: 0px;
+    display: inline-block;
+  }
 
-{% comment %}
-{% endcomment %}
+  #paginate-nav li {
+    display: inline-block;
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
+
+  #paginate-nav .pageNum {
+    border-right: 1px solid rgb(210, 210, 210);
+  }
+
+  #paginate-nav .prev {
+    border-right: 1px solid rgb(210, 210, 210);
+  }
+
+  #paginate-nav a {
+    text-decoration: none;
+  }
+
+  #paginate-nav .activeLink {
+    /*background-color: rgb(240, 240, 240);*/
+    color: red;
+  }
+
+  #paginate-nav li {
+    -webkit-transition: all 0.2s ease-in; /* Changed here */ 
+       -moz-transition: all 0.2s ease-in;
+         -o-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+  }
+
+  #paginate-nav li:hover {
+    background-color: rgb(230, 230, 230);
+    border: none;
+  -webkit-transform: scale(1.5, 1.5);
+     -moz-transform: scale(1.5, 1.5);
+      -ms-transform: scale(1.5, 1.5);
+       -o-transform: scale(1.5, 1.5);
+          transform: scale(1.5, 1.5);
+  }
 
 
+</style>
+
+{% paginate collections[product-grid-item].products by paginateBy %}
+<div id="paginate-nav" class="paginate-nav">
+  <ul class="links">
+
+    {% if paginate.previous.is_link == true %}
+      <a href="{{ paginate.previous.url }}"><li class="prev">Prev</li></a>
+    {% endif %}
+
+    {% for part in paginate.parts %}
+      {% assign url = part.url %}
+      {% if part.is_link == false %}
+        {% assign url = "#" %}
+      {% endif %}
+      <a href="{{url}}"><li class="pageNum">{{part.title}}</li></a>
+    {% endfor %}
+
+    {% if paginate.next.is_link == true %}
+      <a href="{{ paginate.next.url }}"><li class="next">Next</li></a>
+    {% endif %}
+  </ul>
+</div>
+{% endpaginate %}
+
+<script>
+  $(function () {
+    var pathSearch = window.location.pathname + window.location.search;
+    $("#paginate-nav a").each(function (index) {
+      var href = $(this).attr('href');
+      if (href === "#" || href === pathSearch) {
+        $(this).addClass('activeLink');
+      }
+    });
+  });
+</script>
 
 
 {% comment %}

@@ -201,10 +201,8 @@ var hbsApp = window.hbsApp
     // html description might just be a string without html tags, if so, then we have to create a dom container for it first
     // it is very strange that Shopify does give html elements if the product description doesn't have a return
     var dom = html;
-    console.log('here is html: ', typeof html, html);
 
     if (typeof html === 'string' && html.search(/<\/*\w*\/*>/) < 0) {
-      console.log('this should not execute');
       dom = $('<p></p>').text(html);
     }
 
@@ -221,7 +219,6 @@ var hbsApp = window.hbsApp
     results = [];
 
     hbsApp.children = children;
-    console.log(children);
 
     // if a regex match is found through targetsRE, set the result objects's KEY as the original non-regexp string ('keys'), then set the VALUE as 
     // the 'skip' variable is to make sure the =string= node itself is NOT appended to anything, and skipped over
@@ -529,6 +526,8 @@ var hbsApp = window.hbsApp
     CATALOG / COLLECTIONS
     tags: *catalog* *collections* *products*
   ---------------------------------------------------------------------------*/
+
+  hbsApp.collections = {};
   /*
     Catalog page adjust images just in case aspect ratio is not the same when merchant uploaded
     - look for images under the .collection-grid-row
@@ -619,6 +618,28 @@ var hbsApp = window.hbsApp
     $(imageSelector).css({height: idealHeight + 'px', width: 'auto'});
   };
 
+  /* 
+    pagination highlight
+    - if the current page (url) is the same as a <a> link's href, then that link will have have an added class "activeLink"
+  */
+
+  hbsApp.collections.paginateHighlight = function () {
+    var pathSearch = window.location.pathname + window.location.search;
+    $("#paginate-nav a").each(function (index) {
+      var href = $(this).attr('href');
+      if (href === "#" || href === pathSearch) {
+        $(this).addClass('activeLink');
+      }
+    });
+  };
+
+  hbsApp.collections.init = function () {
+    var c = hbsApp.collections;
+
+    // highlight pagination links that represent the current page
+    c.paginateHighlight();
+  };
+
   /*---------------------------------------------------------------------------
     PRODUCT / INDIVIDUAL
     tags: *product* *individual*
@@ -641,6 +662,7 @@ var hbsApp = window.hbsApp
       $(image).parent().addClass('vertRect');
     }
   }
+/* ---------------- product selection from dropdown to separate fields --------------- */
 
   /*
     PLAN: 
@@ -684,33 +706,78 @@ var hbsApp = window.hbsApp
 
   // processData
   hbsApp.variants.processData = function (data) {
-    hbsApp.variants.hashID = {};
-    hbsApp.variants.idHash = {};
+    var v = hbsApp.variants;
+    v.hashID = {};
+    v.idHash = {};
+    v.options = {};
+    v.options.len = data.options.length;
+    v.options[0] = null;
+    v.options[1] = null;
+    v.options[2] = null;
+    v.options.allowed = {};
 
-    // create a hash table for quick access
+    // this is setting up data for dom creation
+    for (var i = 0; i < data.options.length; i++) {
+      if (!v.options[i]) {
+        var optionObj = data.options[i];
+        v.options[i] = {};
+        v.options[i].name = optionObj.name;
+        v.options[i].position = optionObj.position;
+        v.options[i].option = {};
+        v.options[i].order = [];
+      }
+    }
+
+    // create a hash table for quick access, then record each variant's option so we have a master list
     for (var i = 0, len = data.variants.length; i < len; i++) {
       var variant = data.variants[i];
 
-      hbsApp.variants.hashID[variant.title] = variant;
-      hbsApp.variants.idHash[variant.id] = variant;
+      v.hashID[variant.title] = variant;
+      v.idHash[variant.id] = variant;
+
+      // we will create a dictionary so that we can keep track of what order the options appear in
+      // e.g. for clothing sizes, they should appear in whatver order the merchant specified: s, m, l
+
+      for (var j = 0; j < data.options.length; j++) {
+        var value = variant["option" + (j+1)];
+        var masterKey = v.options[j].option; // this master key is for the order
+        if (value) {
+          if (!masterKey[value]) {
+            v.options[j].order.push(value);
+          }
+          masterKey[value] = true;
+        }
+
+        if (!v.options.allowed[value]) {
+          v.options.allowed[value] = {};
+          v.options.allowed[value].self = {value: value, position: (j+1) };
+          v.options.allowed[value].exist = {};
+        }
+
+        for (var k = 0; k < data.options.length; k++) {
+          if (k !== j) {
+            v.options.allowed[value].exist[variant["option" + (k+1)]] = true;
+          }
+        }
+
+      }
     }
 
     // dirty is the FIRST thing to be checked, and has to be resolved
     // starts as true? so we can trigger it?
-    hbsApp.variants.dirty = false;
+    v.dirty = false;
 
     // each time an item is changed, these are changed to reflect the product
-    hbsApp.variants.option1 = null;
-    hbsApp.variants.option2 = null;
-    hbsApp.variants.option3 = null;
+    v.choice1 = null;
+    v.choice2 = null;
+    v.choice3 = null;
 
     // current variant
-    hbsApp.variant.current = {
+    v.current = {
       title: null,
       id: null,
       obj: null
     };
-
   };
 
   hbsApp.variants.getID = function (option1, option2, option3) {
@@ -719,44 +786,86 @@ var hbsApp = window.hbsApp
 
   // createDOM, called ONCE
   hbsApp.variants.createDOM = function (data) {
+    var options = hbsApp.variants.options;
+    var target = $("#product-add").prev();
+    if (target.length < 1) {
+      target = $(".product-vendor");
+      if (target.length < 1) {
+        target = $(".product-name");
+      }
+    }
+
+    var master = $('<div></div>').attr('id', 'variant-table');
+
+    for (var i = 0; i < options.len; i++) {
+      var option = options[i];
+      var div = $('<div></div>').addClass('variant-options');
+      var small = $('<small></small>').addClass('variant-name').attr('variant-name', option.name).text(option.name);
+      var ul = $('<ul></ul>').addClass('variant-list');
+
+      for (var j = 0; j < option.order.length; j++) {
+        var li = $('<li></li>').attr('variant-value', option.order[j]).text(option.order[j]);
+        ul.append(li);
+      }
+      master.append(div.append(small).append(ul));
+    }
+
+    // return a dom
+    target.append(master);
+    return master;
   };
   
+  // 3 tries, otherwise error
+  hbsApp.variants.failCallback = function (data, triesLeft) {
+    if (triesLeft > 0) {
+      hbsApp.variants.ajax(productHandle, triesLeft-1);
+    } else {
+      console.log("Cannot get variant data, error: \n", data);
+    }
+  };
+
+  // on success, our success function will call an init function that takes care of DATA, DOM, and LOGIC
+  hbsApp.variants.successCallback = function (data) {
+    if (data) {
+      var parsed = JSON.parse(data);
+      hbsApp.variants.processData(parsed);
+      hbsApp.variants.createDOM(parsed);
+    }
+  };
+
   // split variants into separate selection menus
-  hbsApp.variants.ajax = function (productHandle, triesLeft) {
+  hbsApp.variants.ajax = function (triesLeft) {
     // no, this is bad, i should construct the url
     // need {{ product.handle }}
     triesLeft = triesLeft === undefined ? 3 : triesLeft;
+    var v = hbsApp.variants;
 
-    url = url || window.location.origin + window.location.pathname; 
+    var url = window.location.origin + window.location.pathname; 
     ajaxURL = url + ".js";
-
-    // 3 tries, otherwise error
-    var failCallback = function (data) {
-      if (triesLeft > 0) {
-        hbsApp.variants.ajax(productHandle, triesLeft-1);
-      } else {
-        console.log("Cannot get variant data, error: \n", data);
-      }
-    };
-
-    // on success, our success function will call an init function that takes care of DATA, DOM, and LOGIC
-    var successCallback = function (data) {
-      if (data) {
-        var parsed = JSON.parse(data);
-        hbsApp.variants.processData(parsed);
-        hbsApp.variants.createDOM(parsed);
-      }
-    };
+    console.log('this is URL', ajaxURL);
 
     // ajax call
     $.ajax({
       url: ajaxURL,
       method: "GET",
-      success: successCallback,
-      fail: failCallback
+      success: function (data) {
+        v.successCallback(data);
+      },
+
+      fail: function (error) {
+        v.failCallback(error, triesLeft);
+      }
     });
   };
 
+  hbsApp.variants.init = function () {
+    if (hbsApp.variants.use) {
+      console.log('using variants transformer');
+      hbsApp.variants.ajax();
+    }
+  };
+
+/* ---------------- Variant selection connect to images --------------- */
   // variant images on enter
   // for left side variant images
   hbsApp.imageReplace = function (index, src) {
@@ -866,7 +975,6 @@ var hbsApp = window.hbsApp
 
     // fields.html info comes from javascript code embedded in product-page-item
     var parsedHTML = hbsApp.extract(fields.html, fields.targets, hbsApp.toRE(fields.targets));
-    console.log("parsedHTML:", parsedHTML);
 
     // mutable properties
     fields.masterDiv = $('<div></div>').attr('id', 'product-extra').addClass('product-extra');

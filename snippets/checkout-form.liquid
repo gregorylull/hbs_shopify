@@ -64,6 +64,11 @@
         {% assign hide_default_title = true %}
       {% endif %}
 
+      <script>
+        // if the product variant size is only one, then we do not need to make an ajax request because we will not be making a special selection menu
+        hbsApp.variants.use = !{{ hide_default_title | json }};
+      </script>
+
 
       {% if showAddCart == true %}
         <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">

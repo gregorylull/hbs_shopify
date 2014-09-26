@@ -37,8 +37,12 @@ $(function () {
   } else if (hbsApp.page === "sponsors") {
     hbsApp.toggleSeparator('#page_container', 'separator', 'level');
 
+  } else if (hbsApp.template === "collection") {
+    hbsApp.collections.init();
+
   } else if (hbsApp.template === "product") {
     hbsApp.addExtraFormFields.init();
+    hbsApp.variants.init();
   } 
 
 /*
