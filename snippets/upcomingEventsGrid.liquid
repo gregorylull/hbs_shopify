@@ -1,8 +1,9 @@
-{% for i in (0..2) %}
+{% for i in (0..19) %}
   {% capture base_string %}{{ 'eventspage_' | append: i | append: '_'}}{% endcapture %}
   {% capture event_display %}{{ base_string | append: 'display'}}{% endcapture %}
+  {% assign event_display_frontpage = base_string | append: "display_frontpage" %}
 
-  {% if settings[event_display] == true %}     
+  {% if settings[event_display] == true and settings[event_display_frontpage] == true %}     
 
     {% capture event_title %}{{ base_string | append: 'title' }}{% endcapture %}
     {% capture event_date %}{{ base_string | append: 'date' }}{% endcapture %}
@@ -19,7 +20,14 @@
           <div class="eventInfo">
             <h4 class="frontpage_event_title">{{ settings[event_title] }}</h4>
             <h5 class="frontpage_event_date">{{ settings[event_date] }}</h5>
-            <h5 class="frontpage_event_location">{{ settings[event_location] }}</h5>
+
+            <h5 class="frontpage_event_location">
+            {% if settings[event_location_link] != blank and settings[event_location_link] != "" %}
+              <a href="{{settings[event_location_link]}}">{{ settings[event_location] }}</a>
+            {% else %}
+              {{ settings[event_location] }}
+            {% endif %}
+            </h5>
             <h4 class="frontpage_event_description">{{ settings[event_description] }}</h4>        
             {% if settings[event_rsvp_display] == true %}
               <a href="{{ settings[event_rsvp_link]}}" target="_blank"> RSVP!</a>
@@ -41,70 +49,3 @@
     </div>
   {% endif %}
 {% endfor %}
-
-<script>
-/*
-  CONSIDER
-    for xs
-      info: col-xs-7
-      img: col-xs-5
-      description: col-xs-12
-
-  Helper function plan. 
-  can it be done without javascript using only css? i don't think so, can't measure height of text...
-
-  if eventInfo contains eventDescription
-    - I take the height of the eventPicture and compare it to the height of overall eventInfo
-      --> if eventInfo is larger, then i take the eventDescription and append it to event_descriptionTemp
-      --> if not larger, then do nothing
-
-  if eventInfo does NOT contain description
-    - I take the heigh of the eventPicture and compare it to the height of the eventInfo PLUS eventDescription with (.col-xs-8 width) (as IF it were inserted back into...hm)..
-      ?? take i take the height of a detached element? --> NO
-      --> if it is smaller, then I insert it back into 
-
-*/
-
-/*
-$(window).resize(function () {
-  // thresholdMax is a multiplier, 1 === 100%, 1.05 == 105%. If the eventInfo is only -slightly- larger than the picture, maybe it is not necessary to take it ou. 
-  var thresholdMax = 1;
-  if (hbsApp.mobileCheck === 'xs') {
-    var eventWrapper = $('.eventWrapper');
-    var pictures = $('.eventPicture', eventWrapper);
-    var eventInfo = $('.eventInfo', eventWrapper);
-    var infoCol = $('.col-xs-8', eventWrapper);
-    var eventTemp = $('.event_descriptionTemp', eventWrapper);
-
-    $('.frontpage_event_description').each(function (index) {
-      var picHeight = parseInt($(pictures[index]).css('height'), 10);
-      var descripHeight = parseInt($(this).css('height'), 10);
-      var infoHeight = parseInt($(eventInfo[index]).css('height'), 10);
-      console.log('checking becaues XS');
-
-      // if parent is eventInfo, that means it is contained within eventInfo, and we check the full height to see if it's more than the eventPicture
-      if ($(this).parent().hasClass('.eventInfo')) {
-        console.log('parent is eventInfo. is infoHeight > picHeight?: ', infoHeight > picHeight);
-        if (infoHeight > picHeight) {
-          $(this).appendTo(eventTemp[index]);
-          tyepasdonethi
-        }
-      // if parent is event_descriptionTemp. we change its width to the infoCol width, and check if the would be height PLUS the currentInfo height is greater than the picture height
-      } else if ($(this).parent().hasClass('event_descriptionTemp')) {
-        console.log('parent is descripTemp');
-        var infoColWidth = $(infoCol[index]).css('width');
-        var withinInfoHeight = parseInt($(this).css('width', infoColWidth).css('height'), 10);
-        // if it is greater, then we append it to the appropriate eventInfo index, else we revert it back to its original width
-        if (withinInfoHeight + infoHeight > picHeight * thresholdMax) {
-          $(this).appendTo(eventInfo[index]);
-        } else {
-          $(this).css('width', 'auto');
-        }
-      }
-
-    });
-  }
-
-}).trigger('resize');
-*/
-</script>
