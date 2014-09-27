@@ -4,18 +4,17 @@
     {% assign imageVariantClasses = "col-xs-3 col-sm-2 col-md-1" %}
     {% assign            gapClass = "col-sm-1 col-md-1"%}
     {% assign        imageClasses = "center-block" %}
-    {% assign       checkoutClass = "col-xs-12 col-sm-3 col-md-4"%}
+    {% assign        middleColumn = "col-xs-12 col-sm-8 col-md-8" %}
+    {% assign       checkoutClass = "col-xs-12 col-sm-4 col-md-4"%}
     {% assign            tabClass = "col-sm-12" %}
 
   {% if product.images.size > 1 %}
     {% assign imageVariantClasses = "col-xs-3 col-sm-2 col-md-2" %}
+    {% assign        imageClasses = "col-xs-9 col-sm-10 col-md-10" %}
     {% assign            gapClass = "col-sm-1 col-md-1"%}
-    {% assign        imageClasses = "col-xs-9 col-sm-10" %}
-    {% assign       checkoutClass = "col-xs-12 col-sm-4 col-md-4"%}
-    {% assign            tabClass = "col-sm-12" %}
   {% endif %}
 
-  <div class="col-xs-12 col-sm-8 col-md-8 product-page-middleColumn">
+  <div class="product-page-middleColumn {{middleColumn}}">
     <div class="row">
       {% if product.images.size > 1 %}
         <div id="product-variant-images" class="{{imageVariantClasses}}">
