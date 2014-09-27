@@ -725,6 +725,7 @@ var hbsApp = window.hbsApp
         v.options[i].position = optionObj.position;
         v.options[i].option = {};
         v.options[i].order = [];
+        v.options[i].ul = null;
       }
     }
 
@@ -765,7 +766,7 @@ var hbsApp = window.hbsApp
 
     // dirty is the FIRST thing to be checked, and has to be resolved
     // starts as true? so we can trigger it?
-    v.dirty = false;
+    v.dirty = null;
 
     // each time an item is changed, these are changed to reflect the product
     v.choice1 = null;
@@ -780,8 +781,9 @@ var hbsApp = window.hbsApp
     };
   };
 
-  hbsApp.variants.getID = function (option1, option2, option3) {
-
+  hbsApp.variants.getVariantviaOptions = function () {
+    var variantString = Array.prototype.join.call(arguments, " / ");
+    return hbsApp.variants.hashID[variantString];
   };
 
   // createDOM, called ONCE
@@ -801,18 +803,50 @@ var hbsApp = window.hbsApp
       var option = options[i];
       var div = $('<div></div>').addClass('variant-options');
       var small = $('<small></small>').addClass('variant-name').attr('variant-name', option.name).text(option.name);
-      var ul = $('<ul></ul>').addClass('variant-list');
+      var ul = $('<ul></ul>').addClass('variant-list').attr('option-position', i);
 
       for (var j = 0; j < option.order.length; j++) {
-        var li = $('<li></li>').attr('variant-value', option.order[j]).text(option.order[j]);
+        var li = $('<li></li>').attr('variant-option', option.order[j]).text(option.order[j]);
         ul.append(li);
       }
+      option.ul = ul;
       master.append(div.append(small).append(ul));
     }
 
-    // return a dom
-    target.append(master);
+    // return a dom, also insert this new dom before the add cart button
+    target.after(master);
     return master;
+  };
+
+  hbsApp.variants.availableToggle = function (target, node, toggleClass) {
+    var v = hbsApp.variants;
+    var options = hbsApp.variants.options;
+    node.children().each(function (index) {
+      var opt = $(this).attr('variant-option');
+      var allow = options.allowed[target].exist[opt];
+      if (!allow) {
+        $(this).addClass(toggleClass);
+      } else {
+        $(this).removeClass(toggleClass);
+      }
+    });
+  };
+
+  hbsApp.variants.addEvents = function (node) {
+    var v = hbsApp.variants;
+    var options = hbsApp.variants.options;
+    $("#variant-table ul").on('click', 'li', function (event) {
+      if (!$(this).hasClass('not-an-option')) {
+        console.log('first click');
+        for (var i = 0; i < options.len; i++) {
+          var position = parseInt($(this).parent().attr('option-position'), 10);
+          if (i !== position) {
+            v.availableToggle($(this).attr('variant-option'), options[i].ul, "not-an-option");
+          }
+        }
+      }
+
+    });
   };
   
   // 3 tries, otherwise error
@@ -827,9 +861,12 @@ var hbsApp = window.hbsApp
   // on success, our success function will call an init function that takes care of DATA, DOM, and LOGIC
   hbsApp.variants.successCallback = function (data) {
     if (data) {
+      var v = hbsApp.variants;
       var parsed = JSON.parse(data);
-      hbsApp.variants.processData(parsed);
-      hbsApp.variants.createDOM(parsed);
+
+      v.processData(parsed);
+      var dom = v.createDOM(parsed);
+      v.addEvents(dom);
     }
   };
 
@@ -970,21 +1007,33 @@ var hbsApp = window.hbsApp
   
   hbsApp.addExtraFormFields.init = function (descriptionSelector, afterNode) {
     descriptionSelector = descriptionSelector || "#product-description";
-    afterNode = afterNode || "#product-price";
     var fields = hbsApp.addExtraFormFields;
+
+    // based on interaction with other dom manipulation methods, certan dom elements may not exist on the final page
+    // for example: if theere is an 'information' tag in the product, then there will be no element with a #product-price id
+    afterNode = afterNode || "#product-price";
+    fields.insertAfterThisNode = $(afterNode);
+    if (fields.insertAfterThisNode.length < 1) {
+      fields.insertAfterThisNode = $(".product-vendor");
+      if (fields.insertAfterThisNode.length < 1) {
+        fields.insertAfterThisNode = $(".product-name");
+      }
+    }
 
     // fields.html info comes from javascript code embedded in product-page-item
     var parsedHTML = hbsApp.extract(fields.html, fields.targets, hbsApp.toRE(fields.targets));
 
     // mutable properties
     fields.masterDiv = $('<div></div>').attr('id', 'product-extra').addClass('product-extra');
-    fields.insertAfterThisNode = $(afterNode);
     fields.productDescription = $(descriptionSelector); // fields should be liquid | json ?
 
     // parsedHTML returns two things, an object or an index. we are using the index here to keep the order 
     parsedHTML.forEach(function (obj, index, array) {
+      // nonSpecial means it belongs in the tab, and not in the checkout form area
       if (obj.regex === 'nonSpecial') {
         fields[obj.regex](obj.target, obj.options, fields);
+
+      // if it is !nonSpecial, then it must be special
       } else {
         var fn = fields[obj.regex]
         if (fn) {

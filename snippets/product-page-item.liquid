@@ -1,54 +1,125 @@
 {% include 'pageInfoToJS' with 'product-page-item' %}
 
 <div class="row product-page-row1">
+    {% assign imageVariantClasses = "col-xs-3 col-sm-2 col-md-1" %}
+    {% assign            gapClass = "col-sm-1 col-md-1"%}
+    {% assign        imageClasses = "center-block" %}
+    {% assign       checkoutClass = "col-xs-12 col-sm-3 col-md-4"%}
+    {% assign            tabClass = "col-sm-12" %}
 
   {% if product.images.size > 1 %}
-    <div id="product-variant-images" class="col-xs-3 col-sm-2 col-md-1">
-    {% for image in product.images %}
-      <img class="variant-image" alt="image.alt" src="{{image.src | img_url: "grande" }}"/>
-    {% endfor %}
-    </div>
-  {% else %}
-  <div class="col-sm-1 col-md-1">    
-  </div>
+    {% assign imageVariantClasses = "col-xs-3 col-sm-2 col-md-2" %}
+    {% assign            gapClass = "col-sm-1 col-md-1"%}
+    {% assign        imageClasses = "col-xs-9 col-sm-10" %}
+    {% assign       checkoutClass = "col-xs-12 col-sm-4 col-md-4"%}
+    {% assign            tabClass = "col-sm-12" %}
   {% endif %}
-  
-  <div class="col-xs-9 col-sm-7 col-md-6">
-    <div class="center-block product-page-productPicture">
-      <img id="main-image" class="main-image thumbnail" src="{{product.featured_image | img_url: 'grande' }}"/>
-    </div> <!-- END ./product-page-productPicture -->
-  </div> <!-- END ./col-sm-7 -->
 
+  <div class="col-xs-12 col-sm-8 col-md-8 product-page-middleColumn">
+    <div class="row">
+      {% if product.images.size > 1 %}
+        <div id="product-variant-images" class="{{imageVariantClasses}}">
+        {% for image in product.images %}
+          <img class="variant-image" alt="image.alt" src="{{image.src | img_url: "grande" }}"/>
+        {% endfor %}
+        </div>
+      {% else %}
+        <div class="{{gapClass}}"></div>
+      {% endif %}
 
-  <div class="col-xs-12 col-sm-3 col-md-4 product-page-rightColumn">
-    <div class="product-page-form">
-      {% include 'checkout-form' %}
-    </div> <!-- product-page-form -->
-  </div> <!-- END /.col-sm-4 -->
+      <!-- picture -->
+      <div class="{{imageClasses}}">
+        <div class="center-block product-page-productPicture">
+          <img id="main-image" class="main-image thumbnail" src="{{product.featured_image | img_url: 'grande' }}"/>
+        </div> <!-- END ./product-page-productPicture -->
+      </div> <!-- END ./col-sm-7 -->
+    </div> <!-- row -->
+
+    <div id="non-mobile" class="row">
+      <!-- Nav tabs -->
+      <div id="tabContent" class="{{tabClass}}">  
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+          <li><a href="#extraInformation" role="tab" data-toggle="tab">Extra Information</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="description">
+            <div id="product-description" class="rte" itemprop="description">
+              <script>
+                hbsApp.addExtraFormFields.html = {{ product.description | json }};
+              </script>
+            </div>
+          </div>
+          <div class="tab-pane" id="extraInformation">
+            {% for collection in product.collections %} 
+              {{ collection.description }}
+            {% endfor %}
+          </div>
+        </div>  
+      </div> <!-- end of nav tabs ./col-sm-8-->     
+    </div> <!-- row -->
+
+  </div> <!-- END ./product-page-middleColumn col -->
+
+  <!-- checkout form -->
+  <div class="product-page-rightColumn {{checkoutClass}}">
+    <div class="row">
+      <div class="col-xs-12 product-page-form">
+        {% include 'checkout-form' %}
+      </div>
+    </div>
+
+    <div id="mobile" class="row">
+      
+    </div>
+  </div> <!-- END /.product-page-rightColumn -->
+
 </div><!-- product-page-row1 -->
 
-<div class="row product-page-row2">
-      <!-- Nav tabs -->
-  <div class="col-sm-7">  
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
-      <li><a href="#extraInformation" role="tab" data-toggle="tab">Extra Information</a></li>
-    </ul>
+<script>
+  $(function () {
+    hbsApp.swap = function (child, originalParent, targetParent, threshold) {
+      var childNode = $(child);
+      var ogParent = $(originalParent);
+      var tgParent = $(targetParent);
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div class="tab-pane active" id="description">
-        <div id="product-description" class="rte" itemprop="description">
-          <script>
-            hbsApp.addExtraFormFields.html = {{ product.description | json }};
-          </script>
-        </div>
-      </div>
-      <div class="tab-pane" id="extraInformation">
-        {% for collection in product.collections %} 
-          {{ collection.description }}
-        {% endfor %}
-      </div>
-    </div>  
-  </div> <!-- end of tab row ./col-sm-8-->
-</div>
+      var currentParent = null;;
+
+      var prevCheck = null;
+
+      var setParent = function () {
+        currentParent = $(child, ogParent).length < 1 ? tgParent : ogParent;
+      };
+
+      var swapNow = function () {
+        var mobileCheck = hbsApp.getMobileCheck();
+        
+        if (mobileCheck === threshold) {
+          if (currentParent[0] !== tgParent[0]) {
+            tgParent.append(childNode);
+            console.log('old attachment');
+            setParent()
+          }
+
+        } else {
+          if (currentParent[0] !== ogParent[0]) {
+            console.log('no new attachment')
+            ogParent.append(childNode);
+            setParent();
+          }
+        }
+      };
+
+      setParent();
+      swapNow();
+
+      $(window).on('resize', function (){
+        swapNow();
+      });
+    };
+
+    hbsApp.swap("#tabContent", "#non-mobile", "#mobile", 'xs')
+  });
+</script>
