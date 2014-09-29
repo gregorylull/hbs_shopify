@@ -3,7 +3,7 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
   <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
   
-  <form action="/cart/add" method="post" enctype="multipart/form-data">
+  <form id="checkout-form" action="/cart/add" method="post" enctype="multipart/form-data">
     
     <div class="product-details">
       

@@ -751,13 +751,13 @@ var hbsApp = window.hbsApp
 
         if (!v.options.allowed[value]) {
           v.options.allowed[value] = {};
-          v.options.allowed[value].self = {value: value, position: (j+1) };
-          v.options.allowed[value].exist = {};
+          v.options.allowed[value].self = {value: value, position: j };
+          v.options.allowed[value].coexist = {};
         }
 
         for (var k = 0; k < data.options.length; k++) {
           if (k !== j) {
-            v.options.allowed[value].exist[variant["option" + (k+1)]] = true;
+            v.options.allowed[value].coexist[variant["option" + (k+1)]] = true;
           }
         }
 
@@ -769,9 +769,18 @@ var hbsApp = window.hbsApp
     v.dirty = null;
 
     // each time an item is changed, these are changed to reflect the product
+    v.choice0 = null;
     v.choice1 = null;
     v.choice2 = null;
-    v.choice3 = null;
+
+    // coexist. currently, once a user selects, that becomes the order in which to calculate a set
+    v.setOrder = {
+      first: null,
+      second: null,
+      third: null
+    };
+
+    v.setAllowed = null;
 
     // current variant
     v.current = {
@@ -779,6 +788,16 @@ var hbsApp = window.hbsApp
       id: null,
       obj: null
     };
+  };
+
+  hbsApp.variants.getPosition = function (li) {
+    return $(li).parent().attr('option-position');
+  };
+
+  hbsApp.variants.clearPrevious = function (choice) {
+    if (choice) {
+      choice.node.removeClass('selected');
+    }
   };
 
   hbsApp.variants.getVariantviaOptions = function () {
@@ -818,32 +837,191 @@ var hbsApp = window.hbsApp
     return master;
   };
 
-  hbsApp.variants.availableToggle = function (target, node, toggleClass) {
+  // for user input, there should be a certain order, which will limit what future choices can be
+
+  hbsApp.variants.setPosition = function (li) {
+    var key = {
+      '0': 'first',
+      '1': 'second',
+      '2': 'third',
+    };
+    var v = hbsApp.variants;
+    var options = v.options;
+    var position = parseInt(v.getPosition(li), 10);
+    var value = $(li).attr('variant-option')
+    var coexist = options.allowed[value].coexist;
+    for (var i = 0; i < v.options.len; i++) {
+      if (!v.setOrder[key[i]]) {
+        console.log("run three times max?");
+        v.setOrder[key[i]] = {};
+        v.setOrder[key[i]].coexist = coexist;
+        v.setOrder[key[i]].position = position;
+        v.setOrder[key[i]].self = options.allowed[value].self;
+        return;
+      // if
+      } else if (v.setOrder[key[i]].position === position) {
+        v.setOrder[key[i]].coexist = coexist;
+        v.setOrder[key[i]].self = options.allowed[value].self;
+        return;
+      }
+    }
+  };
+
+  // objA is considered first/remaining
+  hbsApp.variants.set = function (objA, objB) {
+    var results = {};
+    for (var option in objB) {
+      if (objA[option]) {
+        results[option] = true
+      }
+    }
+    return results;
+  };
+
+  hbsApp.variants.getRowValues = function (ul) {
+    if (typeof ul === 'number') {
+      ul = $("#variant-table ul")[ul];
+    }
+    var results = {};
+    $(ul).children().each(function (index) {
+      results[$(this).attr('variant-option')] = true;
+    });
+
+    return results;
+  };
+
+  /*
+    test
+  */
+
+  /*
+    i need a co exist function...not just if it can exist...a set function
+  */
+  hbsApp.variants.getSet = function () {
+    var key = {
+      "0": 'first',
+      "1": 'second',
+      "2": 'third'
+    };
+    var v = hbsApp.variants;
+    var first = v.setOrder.first;
+    var second = v.setOrder.second;
+    var third = v.setOrder.third;
+    v.setAllowed = {};
+
+    if (first) {
+      v.setAllowed[first.position] = v.getRowValues(first.position);
+      for (var i = 0; i < v.options.len; i++) {
+        if (i !== first.position) {
+          v.setAllowed[i] = v.set(first.coexist, v.getRowValues(i));
+        }
+      }
+      if (second) {
+        for (var i = 0; i < v.options.len; i++) {
+          if (i !== first.position && i !== second.position) {
+            v.setAllowed[i] = v.set(first.coexist, second.coexist);
+            // v.setAllowed[i] = v.set(v.setAllowed[second.position], v.getRowValues(i));
+          }
+        }
+
+        if (third) {
+          // v.setAllowed[third.position] = v.set(v.setAllowed[second.position], third.coexist);
+        }
+      }
+    }
+
+    return v.setOrder;
+  };
+
+  // when an option is clicked, we check if options belonging to other positions can coexist with it
+  hbsApp.variants.availableToggle = function (target, ul, toggleClass) {
     var v = hbsApp.variants;
     var options = hbsApp.variants.options;
-    node.children().each(function (index) {
+    var currentOption = options.allowed[target];
+    var position = ul.attr('option-position');
+
+    // we look at each element, and make sure it can exist with 
+    ul.children().each(function (index) {
       var opt = $(this).attr('variant-option');
-      var allow = options.allowed[target].exist[opt];
+      // var allow = currentOption.coexist[opt]; // this should be a function
+      var allow = v.setAllowed[position][opt];
+
+      // if this item is not allowed to exist, we remove it's tag
       if (!allow) {
-        $(this).addClass(toggleClass);
+        $(this).addClass(toggleClass).removeClass('selected');
       } else {
         $(this).removeClass(toggleClass);
       }
     });
   };
 
+  hbsApp.variants.getHash = function () {
+    var results = {};
+    results.options = [];
+    results.hash = null;
+    results.id = null;
+    results.error = true;
+    results.variant = null;
+    var selected = $("#variant-table ul .selected");
+    var v = hbsApp.variants;
+    if (selected.length === v.options.len) {
+      selected.each(function (index) {
+        results.options.push($(this).attr('variant-option'));
+      });
+
+      results.hash = results.options.join(" / ");
+      results.variant = v.hashID[results.hash];
+      results.id = results.variant.id;
+      results.error = false;
+      return results;
+    }
+
+    return results;
+  };
+
+  /*
+  */
+
   hbsApp.variants.addEvents = function (node) {
     var v = hbsApp.variants;
     var options = hbsApp.variants.options;
     $("#variant-table ul").on('click', 'li', function (event) {
-      if (!$(this).hasClass('not-an-option')) {
-        console.log('first click');
+
+      // 
+      var position = v.getPosition($(this));
+      var value = $(this).attr('variant-option');
+      var choice = v['choice' + (position)];
+
+      // 
+      if (!$(this).hasClass('not-an-option') && !$(this).hasClass('selected')) {
+
+        // 
+        v.clearPrevious(choice);
+        $(this).addClass('selected');
+        v['choice' + position] = {node: $(this), value: value};
+
+        // recalculate what is allowed to exist
+        v.setPosition($(this));
+        v.getSet();
+
+        // this forloop will CHECK what is available to exist and toggle-off invalid options
         for (var i = 0; i < options.len; i++) {
           var position = parseInt($(this).parent().attr('option-position'), 10);
           if (i !== position) {
             v.availableToggle($(this).attr('variant-option'), options[i].ul, "not-an-option");
           }
         }
+
+      } else if ($(this).hasClass('not-an-option')) {
+      }
+
+      var userChoice = v.getHash();
+      if (userChoice.options.length === v.options.len && !userChoice.error) {
+        console.log('hash: ', userChoice.hash);
+        console.log('id: ', userChoice.id);
+
+        // selection form update
+        $('#product-variants select').val(userChoice.id);
       }
 
     });
@@ -862,12 +1040,66 @@ var hbsApp = window.hbsApp
   hbsApp.variants.successCallback = function (data) {
     if (data) {
       var v = hbsApp.variants;
-      var parsed = JSON.parse(data);
+      var parsed = typeof data === 'string' ? JSON.parse(data) : data;
 
       v.processData(parsed);
       var dom = v.createDOM(parsed);
       v.addEvents(dom);
+      v.populateSelections(data);
+      v.preventAddToCart();
+      v.priceUpdate();
     }
+  };
+
+  hbsApp.variants.preventAddToCart = function () {
+    var v = hbsApp.variants;
+    $("#add").one('click', function (e) {
+      if (v.getHash().error) {
+        e.preventDefault;
+        // add warning msg
+        var msg = "Please select a style for each available option, thank you!"
+        var small = $('<small></small>').attr('id', 'variant-warning').text(msg);
+        $("#product-add").after(small);
+      }
+
+      // prevent adds if not complete
+      $('#checkout-form').on('submit', function (e) {
+        if (v.getHash().error) {
+          e.preventDefault();
+        }
+      });
+    });
+  };
+
+  hbsApp.variants.populateSelections = function (data) {
+    var options = hbsApp.variants.options;
+    var v = hbsApp.variants;
+    var firstVariant = $('#product-variants select').val();
+    var variantOptions = v.idHash[firstVariant].options;
+    for (var i = 0; i < options.len; i++) {
+      var selectOpt = variantOptions[i];
+      var ul = options[i].ul;
+      console.log('pos: ', i, ', ul: ', ul);
+      var found = false
+      $(ul).children().each(function (index) {
+        if (!found && $(this).attr('variant-option') === selectOpt) {
+          console.log('this: ', $(this).attr('variant-option'), ',select: ', selectOpt);
+          $(this).click();
+          found = true;
+        }
+      });
+    }
+  };
+
+  hbsApp.variants.priceUpdate = function () {
+    // price update
+    var v = hbsApp.variants;
+    $("#product-variants select").on('change', function (e) {
+      var id = $(this).val();
+      var price = v.idHash(id).price;
+      console.log('id: ', id, ', price: ', price);
+      $("#product-price .product-price").text('$ ' + price);
+    });
   };
 
   // split variants into separate selection menus
@@ -919,7 +1151,7 @@ var hbsApp = window.hbsApp
   // for selected variant
   hbsApp.imageSelect = function (index) {
     var src = $("option:selected", $(this)).attr('img-source');
-    imageReplace(index, src);
+    hbsApp.imageReplace(index, src);
     console.log('selected: ', src);
   };
 
