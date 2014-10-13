@@ -199,6 +199,11 @@ img {
 /*-------------------------------------
   Navigation bar
 --------------------------------------*/
+#hbs_header .header-currentpage {
+  transform: scale(1.2, 1.2);
+  color: rgb(164, 16, 52);
+}
+
 .navbar-toggle span.icon-bar {
 	background-color: black;
 }
@@ -1270,9 +1275,8 @@ div.aboutus_execprofile_divider {
 
 .aboutus_sectionOfficer_divider {
 	width: 100%;
-	border: 1px dotted rgb(220,220,220);
-	margin: 0px auto;
-  padding: 15px 0px;
+	border-bottom: 1px dotted rgb(220,220,220);
+	margin: 15px auto;
 }
 
 .table-container {
@@ -1599,9 +1603,9 @@ OVERWRITING BOOTSTRAP TABLE
 }
 
 .eventspage_divider {
-	width: 100%;
-	border: 2px solid #A32638;
-	margin: 15px 0px;
+	width: 70%;
+	border: 1px dotted rgb(220, 220, 220);
+	margin: 15px auto;
 }
 
 #page_container.eventspage_container .eventspage_page_description {
@@ -1909,7 +1913,6 @@ OVERWRITING BOOTSTRAP TABLE
 }
 
 .community .page-content {
-  border-bottom: 2px solid rgb(240, 240, 240);
   font-family: "{{ community_type_content_fontFamily }}";
   font-size: {{ community_type_content_fontSize }};
   color: {{ community_type_content_color }};
@@ -1970,6 +1973,12 @@ OVERWRITING BOOTSTRAP TABLE
 .community .page-content .block-text {
   padding: 20px 10%;
   text-align: justify;
+}
+
+.community .page-content .content-divider {
+  border-bottom: 1px dotted rgb(220, 220, 220);
+  width: 70%;
+  margin: 15px auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -2047,6 +2056,12 @@ OVERWRITING BOOTSTRAP TABLE
   width: 70%;
   margin: auto;
   border-top: 2px dotted rgb(230, 230, 230);
+}
+
+.content-divider {
+  width: 70%;
+  margin: 15px auto;
+  border: 1px dotted rgb(220, 220, 220);
 }
 
 /* 15 + x +15 + 15 + x + 15 === 60 + 2x. x === 250px; 560px */
@@ -2830,8 +2845,10 @@ OVERWRITING BOOTSTRAP TABLE
 }
 
 #variant-table .selected {
-  text-decoration: underline;
-  text-decoration-color: rgb(152, 13, 52);
+/*  text-decoration: underline;
+  text-decoration-color: rgb(152, 13, 52);*/
+  transform: scale(1.2, 1.2);
+  color: rgb(164, 16, 52);
 }
 
 

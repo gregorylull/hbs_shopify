@@ -33,11 +33,18 @@
       <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
 
       {% assign showAddCart = true %}
+      {% assign useDropdown = false %}
       {% for tag in product.tags %}
         {% if tag contains "information" or tag contains "notforsale" %}
           {% assign showAddCart = false %}
         {% endif %}
+        {% if tag contains "dropdown" %}
+          {% assign useDropdown = true %}
+        {% endif %}
       {% endfor %}
+      <script>
+        hbsApp.variants.useDropdown = {{ useDropdown | json }};
+      </script>
       
       {% if showAddCart == true %}
         <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="delta">
@@ -72,7 +79,7 @@
 
       {% if showAddCart == true %}
         <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">
-          <select id="product-select" name="id">
+          <select id="product-select" name="id" class="{% if useDropdown == false %}hidden{% endif %}">
           {% for variant in product.variants %}
             <option 
               {% if variant == product.selected_or_first_available_variant %}

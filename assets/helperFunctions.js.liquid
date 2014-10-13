@@ -289,15 +289,14 @@ var hbsApp = window.hbsApp
 
   /****************************************************************************
     HEADER
+    *header*
   ****************************************************************************/
   // header navbar link is highlighted if the link's href matches the pathname of the URL
   hbsApp.navbarHighlight = function () {
     var pathname = window.location.pathname;
     $('#hbs_header .navbar-nav a').each(function (index) {
       if ($(this).attr('href') === pathname ) {
-        $(this).css({
-          "background-color": "rgb(245, 245, 245)",
-        });
+        $(this).addClass('header-currentpage');
       }
     });
   };
@@ -1021,7 +1020,7 @@ var hbsApp = window.hbsApp
         console.log('id: ', userChoice.id);
 
         // selection form update
-        $('#product-variants select').val(userChoice.id);
+        $('#product-variants select').val(userChoice.id).trigger('change');
       }
 
     });
@@ -1045,9 +1044,9 @@ var hbsApp = window.hbsApp
       v.processData(parsed);
       var dom = v.createDOM(parsed);
       v.addEvents(dom);
+      v.priceUpdate();
       v.populateSelections(data);
       v.preventAddToCart();
-      v.priceUpdate();
     }
   };
 
@@ -1091,14 +1090,18 @@ var hbsApp = window.hbsApp
     }
   };
 
+  hbsApp.formatMoney = function (number) {
+    return (number/100).toFixed(2);
+  };
+
   hbsApp.variants.priceUpdate = function () {
     // price update
     var v = hbsApp.variants;
     $("#product-variants select").on('change', function (e) {
       var id = $(this).val();
-      var price = v.idHash(id).price;
+      var price = v.idHash[id].price;
       console.log('id: ', id, ', price: ', price);
-      $("#product-price .product-price").text('$ ' + price);
+      $("#product-price .product-price").text('$ ' + hbsApp.formatMoney(price));
     });
   };
 

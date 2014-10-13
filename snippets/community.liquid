@@ -5,13 +5,10 @@
 
   {% assign communityContent = pages['community'].content %}
   {% if communityContent != blank and communityContent != "" %}
-  {% comment %}
-    
-    <h4 class="block-text page-content col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-  {% endcomment %}
     <div class="page-content">
       <h4 class="block-text"> {{ pages['community'].content }} </h4>
     </div>
+    <div class="content-divider"></div>
   {% endif %}
 
   {% for i in (0..20) %}
