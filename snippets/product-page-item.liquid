@@ -53,7 +53,7 @@
           </div>
           <div class="tab-pane" id="extraInformation">
             {% for collection in product.collections %} 
-              {{ collection.description }}
+              {{ collection.description | replace: "=featured=", "" }}
             {% endfor %}
           </div>
         </div>  

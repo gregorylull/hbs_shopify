@@ -24,14 +24,10 @@
             {% include 'upcomingEventsGrid' %}
           </div>
 
-          <div class="col-sm-12 frontpage_md_featuredProduct frontpage_block_content">
+          <div id="featuredProducts" class="col-sm-12 frontpage_md_featuredProduct frontpage_block_content">
             <h3 class="block-title">Featured Products</h3>
             {% include 'featuredProductFP' %}
-           
-            {% comment %}
-              {% include 'product-grid-item' with 'featured-product' %}            
-            {% endcomment %}
-            
+
             {% comment %}
             <div class="row featured-product-wrapper">
               <div class="col-sm-6">

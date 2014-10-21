@@ -1,10 +1,23 @@
 {% comment %}
-  + This code should list all the products for a single collection...or type? BOTH! This snippet can get passed an argument, a string or array: collection/type, handle
+  + This snippet can get passed an argument, a string or array: collection/type, handle
   + if no value is passed, nothing gets displayed
   + products are organized into collections, then types
 {% endcomment %}
 
-{% if collection[product-grid-item].empty? %} {% assign product-grid-item = "all" %} {% endif %}
+<script>console.log( 'product-grid-item: ', {{ product-grid-item | json }})</script>
+<script>console.log( 'collection[product-grid-item].empty: ', {{ collection[product-grid-item].empty | json }})</script>
+
+{% if collection[product-grid-item].empty? or product-grid-item == "" or product-grid-item == blank or product-grid-item == false %} 
+  <script>console.log( 'assigning to all')</script>
+  {% assign productCollection = "all" %}
+{% else %}
+  {% assign productCollection = product-grid-item %}
+  <script>console.log( 'productCollection: ', {{ productCollection | json }})</script>
+{% endif %}
+
+<script>console.log( 'AFTER IF: product-grid-item: ' , {{ productCollection | json }})</script>
+<script>console.log( 'AFTER IF: collection[productCollection].empty: ', {{ collection[productCollection].empty | json }})</script>
+
 
 {% if template == 'index' %}
   {% assign classes = "col-xs-6 col-sm-offset-3 col-sm-3" %}
@@ -16,13 +29,13 @@
 {% endif %}
 
 <div class="row collection-grid-row">
-<h4 class="collection-grid-title"> Collection: <span class="collection-grid-current-displayed">{{collections[product-grid-item].title}}</span></h4>
+<h4 class="collection-grid-title"> Collection: <span class="collection-grid-current-displayed">{{collections[productCollection].title}}</span></h4>
 
 {% assign count = 0 %}
 {% assign paginateBy = 25 %}
 
-{% paginate collections[product-grid-item].products by paginateBy %}
-  {% for product in collections[product-grid-item].products %}
+{% paginate collections[productCollection].products by paginateBy %}
+  {% for product in collections[productCollection].products %}
     
     {% assign hide = false %}
     {% assign offsite = false %}
@@ -146,7 +159,7 @@
 
 </style>
 
-{% paginate collections[product-grid-item].products by paginateBy %}
+{% paginate collections[productCollection].products by paginateBy %}
 <div id="paginate-nav" class="paginate-nav">
   <ul class="links">
 
@@ -191,7 +204,7 @@
   It may be a good idea to provide a theme setting that lets a merchant decide how many products to show per row
   on collection pages. Or, it may be a good idea to provide a control on the store front which lets a shopper decide 
   whether items be presented in a grid or in a list.
-  That information about the presentation can be passed on to the product-grid-item.liquid snippet via the 'with' argument.
+  That information about the presentation can be passed on to the productCollection.liquid snippet via the 'with' argument.
   Use of the 'with' argument is explained here: http://docs.shopify.com/themes/theme-templates/snippets.
   The information can then be referred to by accessing the variable which goes by the same name as the snippet,
   in this case product-grid-item. If the 'with' argument is not used, the snippet variable is set to an empty string.

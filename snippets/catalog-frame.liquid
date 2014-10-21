@@ -23,6 +23,7 @@
       {% if template contains 'product' %}
         {% include 'product-page-item' with product.handle %}
       {% elsif template contains 'collection' %}
+        <script>console.log( 'template contains "collection, including product-grid-item"', {{ collection.handle | json }})</script>
         {% include 'product-grid-item' with collection.handle %} <!-- -->
       {% endif %}
     </div>

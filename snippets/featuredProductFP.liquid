@@ -1,11 +1,52 @@
+{% comment %}
+  featured products can have pictures from collections, and from individual products, will only use the featured image
+{% endcomment %}
+
 <div class="featuredProductContainer">
+
+  {% comment %}
+    Featured collections
+  {% endcomment %}
+
+  {% for collection in collections %}
+    {% if collection.description contains '=feature=' or collection.description contains '=featured=' %}
+    <div class="productWrapper">
+      <div class="productPicture">
+        <a href="collections/{{collection.handle}}">
+          {% if collection.image == false or collection.image == blank or collection.image.empty? %}
+
+            <img src="https://cdn.shopify.com/s/files/1/0554/7965/files/pictureComingSoon.gif?985"/>        
+          {% else %}
+
+            <img src="{{ collection.image | img_url: 'medium' }}"/>        
+          {% endif %}
+        </a>
+
+      </div>
+      <div class="productDescription">
+        <a href="collections/{{collection.handle}}">
+          <h4 class="productTitle"> {{ collection.title }}</h4>
+        </a>
+      </div>
+    </div>  
+    {% endif %}
+  {% endfor %}
+
+  
+  {% comment %}
+    Featured products   
+  {% endcomment %}
   {% for product in collections['featured-product'].products %}
     <div class="productWrapper">
       <div class="productPicture">
-        <img src="{{product.featured_image | img_url: 'medium' }}"/>        
+        <a href="{{product.url}}">
+          <img src="{{product.featured_image | img_url: 'medium' }}"/>        
+        </a>
       </div>
       <div class="productDescription">
-        <h4 class="productTitle"> {{product.title}}</h4>
+        <a href="{{product.url}}">
+          <h4 class="productTitle"> {{product.title}}</h4>
+        </a>
       </div>
     </div>
   {% endfor %}
