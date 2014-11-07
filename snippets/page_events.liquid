@@ -23,6 +23,7 @@
 
 	<div class="eventspage_divider"></div>
 
+  <div id="all_events">
 	{% for i in (0...14) %}
 	  {% capture base_string %}{{ 'eventspage_' | append: i | append: '_'}}{% endcapture %}
 
@@ -32,6 +33,7 @@
 	    {% capture event_title %}{{ base_string | append: 'title' }}{% endcapture %}
 	    {% capture event_date %}{{ base_string | append: 'date' }}{% endcapture %}
 	    {% capture event_description %}{{ base_string | append: 'description' }}{% endcapture %}
+      {% assign event_class = base_string | append: "cohort" %}
 	    {% capture event_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
 	    {% assign event_pictureURL = base_string | append: 'picture_link' %}
 	    {% capture event_rsvp_link %}{{ base_string | append: 'rsvp'}}{% endcapture %}
@@ -39,11 +41,13 @@
 	    {% assign event_location = base_string | append: 'location' %}
 	    {% assign event_link = base_string | append: 'location_link' %}
 
+	    <script>console.log( "class years" , {{ i | json}}, {{ settings[event_class]| json }})</script>
+
 	    {% capture stringToSplit %}{{ event_title | append: ',' | append: event_date | append: ',' | append: event_description}}{% endcapture %}
 	    {% include 'page_debugger' %}
 
       <!-- Beginning of individual event containers-->
-	    <div class="eventspage_event_wrapper">
+	    <div class="eventspage_event_wrapper class_{{ settings[event_class]}}">
 	      <p class="eventspage_event_date">{{ settings[event_date] }}</p>
 	      <div class="eventspage_event_info">
 	        {% if settings[event_pictureURL] != "" %}
@@ -57,12 +61,59 @@
 	      {% if settings[event_rsvp_display] == true %}
 	        <a class='eventspage_event_rsvp_link' target="_blank" href='{{ settings[event_rsvp_link] }}'> RSVP NOW! </a>
 	      {% endif %}
-	    </div> <!-- /.eventspage_event_wrapper -->
 
+			</div> <!-- /.eventspage_event_wrapper -->
 	  {% endif %}
 	{% endfor %}
-</div>
+  </div>
+
+	<div id="class_sections">
+		<div class="section" id="class_both">
+			<div class="class_title">Cross-Year</div>
+			<div class="class_events"></div>
+		</div>
+
+		<div class="eventspage_divider both"></div>
+		
+		<div class="section" id="class_rc">
+			<div class="class_title">RC</div>
+			<div class="class_events"></div>
+		</div>
+
+		<div class="eventspage_divider rc"></div>
+		
+		<div class="section" id="class_ec">
+			<div class="class_title">EC</div>
+			<div class="class_events"></div>
+		</div>
+	</div>
+
+</div> <!-- end /#page_container.eventspage_container-->
+
+<script>
+$(function () {
+  var divIDs = ['both', 'rc', 'ec'];
+
+  var eventClasses = ['both', 'RC', 'EC'];
+
+  eventClasses.forEach(function (el, index, array) {
+  	var events = $('#all_events .class_' + el);
+  	var sectionID = '#class_' + divIDs[index] + ' .class_events';
+  	if (events.length > 0) {
+	  	$(sectionID).append(events);
+  	
+  	} else {
+    // hide sections and separators that don't have any events
+  		$(sectionID).addClass('hidden');
+  		var divider = $('.eventspage_divider' + divIDs[index]);
+  		if (divider.length > 0) { divider.addClass('hidden'); }
+  	}
+
+  });
+
+})
+</script>
 
 {% comment %}
-https://cdn.shopify.com/s/files/1/0595/0661/files/exampleProduct.png?13298
+  https://cdn.shopify.com/s/files/1/0595/0661/files/exampleProduct.png?13298
 {% endcomment %}

@@ -1620,6 +1620,17 @@ OVERWRITING BOOTSTRAP TABLE
   font-style: {{ eventspage_type_page_text_style }}; 
 }
 
+#class_sections .section {
+  position: relative;
+}
+
+#class_sections .class_title {
+
+  font-family: "{{ eventspage_type_page_text_fontFamily }}";
+  font-size: 1.5em;
+  color: rgb(164, 16, 52);
+}
+
 .eventspage_divider {
 	width: 70%;
 	border: 1px dotted rgb(220, 220, 220);
@@ -1646,6 +1657,20 @@ OVERWRITING BOOTSTRAP TABLE
 		width: 850px;
 		margin: 0px auto;
 	}
+
+}
+
+@media screen and (min-width: 1075px) {
+  #class_sections .class_title {
+    width: 15%;
+    position: absolute;
+    top: 55%;
+    left: -13%;
+  }
+
+  #class_sections .class_events {
+    display: inline-block;
+  }
 }
 
 .eventspage_event_wrapper {
