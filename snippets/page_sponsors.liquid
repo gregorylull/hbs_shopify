@@ -52,7 +52,7 @@
           <script>console.log( "ilevel", {{ ilevel | json }})</script>
 
           {% if ilevel != blank and ilevel != "" and ilevel == level %}
-            {% comment %} <div class="wrapper col-sm-6 col-md-4 col-lg-3"> {% endcomment %}
+
             <div class="wrapper">
 
               {% if ilogo_link != blank and ilogo_link != "" %}
@@ -61,7 +61,7 @@
                 {% assign isrc = ilogo | asset_url %}
               {% endif %}
 
-              <div class="image">
+              <div class="image hidden">
                 <img src="{{isrc}}"/>
               </div>
 
@@ -91,3 +91,29 @@
   {% endfor %}
 </div> <!-- END /.container-->
 
+<script>
+$(window).load(function () {
+  var images = $(".image");
+  console.log('exe?', images);
+  images.each(function (index) {
+    var image = $('img', $(this))[0];
+    // var width = parseInt(image.css('width'), 10);
+    // var height = parseInt(image.css('height'), 10);
+    var width = image.width;
+    var height = image.height;
+    var aspect = width / height;
+
+    // if square nothing
+    // if aspect > 1 === rect, add class rect
+    // if aspect < 1 === vert, add class vert
+
+    if (aspect > 1) {
+      $(this).addClass('rect');
+    } else if (aspect < 1) {
+      $(this).addClass('vert');
+    }
+
+    $(this).removeClass('hidden');
+  })
+})
+</script>

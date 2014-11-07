@@ -2072,17 +2072,17 @@ OVERWRITING BOOTSTRAP TABLE
   tags: *sponsors*
 ******************************************************************************/
 
-#page-content {
+.sponsors #page-content {
   text-align: justify;
   padding: 20px 10%;
 }
 
-.level {
+.sponsors .level {
   width: 100%;
   text-align: center;
 }
 
-.level::after {
+.sponsors .level::after {
   content: "";
   display: inline-block;
   width: 100%;
@@ -2090,7 +2090,7 @@ OVERWRITING BOOTSTRAP TABLE
   font-size: 0;
 }
 
-.level .wrapper {
+.sponsors .level .wrapper {
   width: 250px;
   display: inline-block;
   margin: 15px 10px;
@@ -2106,6 +2106,26 @@ OVERWRITING BOOTSTRAP TABLE
   width: 70%;
   margin: 15px auto;
   border: 1px dotted rgb(220, 220, 220);
+}
+
+.sponsors .image {
+  width: 250px;
+  height: 250px;
+}
+
+.sponsors .image.vert img {
+  height: 100%;
+  width: auto;
+}
+
+.sponsors .image.rect {
+  position: relative;
+}
+
+.sponsors .image.rect img {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
 }
 
 /* 15 + x +15 + 15 + x + 15 === 60 + 2x. x === 250px; 560px */
