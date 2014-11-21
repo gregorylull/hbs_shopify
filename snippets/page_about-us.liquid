@@ -1,6 +1,6 @@
 {% include 'pageInfoToJS' with 'page_about-us' %}
 
-<div class="container">
+<div id="pageTop" class="container">
 	{% include 'header' %}
 
 <div id="page_container" class="center-block aboutus_execprofile_container {{page.handle}} {{template}} gl_clearfix">
@@ -9,10 +9,17 @@
 		<h4 class="aboutus_execprofile_page_description"> {{ page.content }}</h4>
 	{% endif %}
 	<div class="aboutus_execprofile_divider nav"></div>
+	<div id="stickyJump">
+		  <a href="#ecOfficers">EC</a>
+		  <a href="#rcOfficers">RC</a>
+	</div>
+	<div class="aboutus_execprofile_divider nav"></div>
 	
 	{% unless settings['aboutus_meet_exec'] == blank %}
 	{% endunless%}
-	<h4 class="aboutus_execprofile_meet_blurb">Meet the Executive Team </h4>
+	<h4 id="execTeam" class="aboutus_execprofile_meet_blurb">
+	  Meet the Executive Team 
+	</h4>
 
 	<div id="wrapAll" class="aboutus_execprofiles">
 		{% for i in (0...14) %}
@@ -76,22 +83,173 @@
 </div> <!-- END /.page_container .aboutus_execprofile_container-->
 </div> <!-- container -->
 
-  {% include 'page_about-us_table' %}
-	<div id="ec-table" class="container table-container {{page.handle}}">
-	  <div class="row">
-		  <h4 class="block-title center-block page-header">Meet the EC Section Officers</h4>
-			<div class="col-xs-12 tableWrapper table-responsive">
-			</div>
-	  </div>
-	</div><!-- END /.table-container-->
+{% include 'page_about-us_table' %}
+<div id="ec-table" class="container table-container {{page.handle}}">
+  <div class="row">
+	  <h4 id="ecOfficers" class="block-title center-block page-header">
+	    Meet the EC Section Officers
+	    <div class="navLinks">
+			  <!-- <a class="arrowUp" href="#pageTop"><span class="glyphicon glyphicon-arrow-up"></span></a> -->
+			  <a href="#pageTop">Top</a>
+			  <a href="#rcOfficers">RC</a>
+	    </div>
+	  </h4>
+		<div class="col-xs-12 tableWrapper table-responsive">
+		</div>
+  </div>
+</div><!-- END /.table-container-->
 
-	<div id="rc-table" class="container table-container {{page.handle}}">
-	  <div class="row">
-		  <h4 class="block-title center-block page-header">Meet the RC Section Officers</h4>
-			<div class="col-xs-12 tableWrapper table-responsive">
-			</div>
-	  </div>
-	</div><!-- END /.table-container-->
+<div id="rc-table" class="container table-container {{page.handle}}">
+  <div class="row">
+	  <h4 id="rcOfficers" class="block-title center-block page-header">
+	    Meet the RC Section Officers
+	    <div class="navLinks">
+  		  <!-- <a class="arrowUp" href="#pageTop"><span class="glyphicon glyphicon-arrow-up"></span></a> -->
+			  <a href="#pageTop">Top</a>
+			  <a href="#ecOfficers">EC</a>
+	    </div>
+	  </h4>
+		<div class="col-xs-12 tableWrapper table-responsive">
+		</div>
+  </div>
+</div><!-- END /.table-container-->
+
+<div id="sticky" class="fadeAway">
+  <div id="sticky-container">
+	  <a href="#execTeam">Execs</a>
+	  <a href="#ecOfficers">EC</a>
+	  <a href="#rcOfficers">RC</a>
+  </div>
+</div>
+
+<style>
+
+/*.block-title.center-block.page-header {
+	margin-left: 15px;
+}*/
+
+#stickyJump {
+	width: 47%;
+	padding: auto 15px;
+	margin: 0px auto;
+	font-family: sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	position: relative;
+}
+
+.navLinks {
+	display: inline-block;
+  font-size: 0.8em;
+  margin-left: 25px;
+  position: absolute;
+}
+
+.navLinks a {
+  padding: 5px;
+  text-decoration: none;
+}
+
+#stickyJump a {
+	text-decoration: none;
+	margin: auto 10px;
+}
+
+#stickyJump a:hover, .arrowUp a:hover, .navLinks a:hover {
+	color: rgb(229, 102, 93);
+
+  -webkit-transition: color 0.1s ease-in; /* Changed here */ 
+   -moz-transition: color 0.1s ease-in;
+     -o-transition: color 0.1s ease-in;
+        transition: color 0.1s ease-in;
+}
+
+#sticky {
+  position: fixed;
+/*  height: 100%;
+  bottom: 0px;
+  right: 0px;
+*/
+		bottom: 0%;
+		height: auto;
+		width: 100%;
+
+  text-align: center;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  font-weight: bold;
+	/*background-color: rgba(240, 240, 240, 0.7);*/
+	/*background-color: rgba(160, 13, 52, 0.9);*/
+	background-color: rgba(175, 230, 241, 0.9);
+
+
+  opacity: 100;
+}
+
+#sticky-container {
+	position: relative;
+	top: 40%;
+	right: 0px;
+}
+
+#sticky.fadeAway {
+  opacity: 0;	
+  -webkit-transition: opacity 0.3s ease-in; /* Changed here */ 
+   -moz-transition: opacity 0.3s ease-in;
+     -o-transition: opacity 0.3s ease-in;
+        transition: opacity 0.3s ease-in;
+}
+
+#sticky a {
+	padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+#sticky a:hover {
+	/*color: rgb(106, 90, 205);*/
+	color: rgb(229, 102, 93);
+
+  -webkit-transition: color 0.1s ease-in; /* Changed here */ 
+   -moz-transition: color 0.1s ease-in;
+     -o-transition: color 0.1s ease-in;
+        transition: color 0.1s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+	#sticky {
+		bottom: 0%;
+		height: auto;
+		width: 100%;
+		background-color: rgba(175, 230, 241, 0.9);
+    z-index: 2;
+	}
+
+	#sticky a {
+		display: inline-block;
+		padding: 10px 20px;
+	}
+
+	#sticky-container {
+
+	}
+
+  .aboutus_execprofile_divider.nav:nth-of-type(1) {
+  	display: none;
+  }
+
+  #stickyJump {
+  	display: none;
+  }
+
+
+	.navLinks {
+		display: none;
+	}
+}
+
+</style>
 
 <script>
 
@@ -115,6 +273,83 @@
 		return result;
 	};
   
+
+
+  // when there is a scroll event, i want to unhide/show (remove 'fadeAway' class)
+  // but, i only need to do it when it is fadeAway in the first place
+  // 3 seconds after there is no more scroll event, i will add the class fadeAway
+  // if there is a scroll event during the 3 seconds wait, it will reset to 0
+
+  var screenType = hbsApp.getMobileCheck();
+  var sticky = $('#sticky');
+  if (screenType === 'xs') {
+  	sticky.removeClass('fadeAway')
+	  setTimeout(function () {
+	  	initialLoad = false;
+	  	sticky.addClass('fadeAway');
+	  }, 5000);
+  }
+  var initialLoad = true;
+  var stickyWidth = window.innerWidth - 50;
+  var viewportWidth = Math.floor(window.innerWidth * 0.85);
+
+  var stickyHeight = window.innerHeight - 100;
+  var viewportHeight = Math.floor(window.innerHeight * 0.85);
+
+  // var stickyMax = screenType === 'xs' ? stickyHeight : stickyWidth;
+  // var viewportMax = screenType === 'xs' ? viewportHeight : viewportWidth;
+
+  stickyMax = stickyHeight;
+  viewportMax = viewportHeight;
+
+  /*
+    if screen type  === xs
+  */
+
+  $(window).scroll((function () {
+    var wait = null;
+    var timeoutFunc = function () {
+        sticky.addClass('fadeAway');
+        wait = null;
+    };
+
+    sticky.on('click', function () {
+      clearTimeout(wait);
+      wait = setTimeout(timeoutFunc, 2000);
+    });
+
+    window.onmousemove = function (e) {
+    	screenType = hbsApp.getMobileCheck();
+    	// var mousePosition = screenType === 'xs' ? e.clientY : e.clientX;
+    	var mousePosition = e.clientY;
+
+    	console.log('screenType: ', screenType, ', mouse: ', mousePosition, ', stickyM: ', stickyMax, ', viewM: ', viewportMax);
+    	if (!initialLoad && screenType === 'xs') {
+	      if (mousePosition >= stickyMax || mousePosition >= viewportMax) {
+	        clearTimeout(wait);
+	        sticky.removeClass('fadeAway');
+	        wait = setTimeout(timeoutFunc, 4000);
+	      } else if (mousePosition <= stickyMax || mousePosition <= viewportMax) {
+	      	if (!sticky.hasClass('fadeAway')) {
+	      		sticky.addClass('fadeAway');
+	      	}
+	      }
+    	}
+    };
+
+    return function () {
+    	if (!initialLoad && screenType === 'xs') {
+	      if (wait !== null) {
+	        clearTimeout(wait);
+	        sticky.removeClass('fadeAway');
+	      }
+	      wait = setTimeout(timeoutFunc, 2000);
+    	}
+    };
+
+  })());
+
+  // resizing
   $(window).resize(function () {
   	if (parseInt(containerWindow.css('width'), 10) < calculateWrap() * 2) {
   		console.log('adding hidden');
@@ -123,6 +358,23 @@
   		$('.breaker').removeClass('hidden');
   		console.log('remove hidden');
   	}
-  });
 
+    screenType = hbsApp.getMobileCheck();
+
+    var factor = screenType === 'xs' ? 0.85 : 0.85;
+    var pixel = screenType === 'xs'? 100 : 50;
+	  
+	  viewportWidth = Math.floor(window.innerWidth * factor);
+	  stickyWidth = window.innerWidth - pixel;
+
+	  viewportHeight = Math.floor(window.innerHeight * factor);
+	  stickyHeight = window.innerHeight - pixel;
+
+	  // stickyMax = screenType === 'xs' ? stickyHeight : stickyWidth;
+	  // viewportMax = screenType === 'xs' ? viewportHeight : viewportWidth;
+
+	  stickyMax = stickyHeight;
+	  viewportMax = viewportHeight;
+
+  });
 </script>
