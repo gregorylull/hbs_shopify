@@ -99,12 +99,15 @@ $(function () {
   eventClasses.forEach(function (el, index, array) {
   	var events = $('#all_events .class_' + el);
   	var sectionID = '#class_' + divIDs[index] + ' .class_events';
+
   	if (events.length > 0) {
 	  	$(sectionID).append(events);
   	
   	} else {
     // hide sections and separators that don't have any events
-  		$(sectionID).addClass('hidden');
+      var msg = $('<span class="noEvents">No events scheduled</span>');
+      $(sectionID).append(msg);
+  		// $(sectionID).addClass('hidden');
   		var divider = $('.eventspage_divider' + divIDs[index]);
   		if (divider.length > 0) { divider.addClass('hidden'); }
   	}

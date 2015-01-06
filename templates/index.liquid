@@ -97,7 +97,16 @@
 <script>
   $(function () {
 
+
+    /*
+      - adjust FB feed using inline css
+        + on mobile -> 
+
+    */
+
     // adjust FB feed on the index page so that on NON-mobile devices (laptops/desktops), xs screen width will have 100% width expansion while, everything else will be at a fixed width determined by fb
+
+  /*
     var adjustFBfeed = function () {
       if (!oldSpanWidth || !oldIframeWidth) {
         console.log("\nold span" ,oldSpanWidth, ", old iframe", oldIframeWidth, ', exp:', !oldSpanWidth || !oldIframeWidth);
@@ -110,11 +119,12 @@
         if (check === "xs" && prevSize !== 'xs') {
           console.log('to xs');
           $("#fb-wrap > span").css({
-            width: "100%"
+            width: "100%",
           });
           $("#fb-wrap iframe").css({
             width: "100%"
           });
+          $("#fb-wrap").css({})
         } else if (check !== 'xs' && prevSize === 'xs') {
           console.log('back to original: ', oldSpanWidth, oldIframeWidth);
           $("#fb-wrap > span").css({
@@ -149,7 +159,10 @@
     $(window).on("resize", function () {
       adjustFBfeed();
     });
+  */
+
   });
+
 </script>
 
 {% comment %}
