@@ -19,9 +19,11 @@
 
       <script>
         var cat = hbsApp.community.categories;
-        cat["{{page.handle}}"] = {};
-        cat["{{page.handle}}"].title = {{ page.title | json }};
-        cat["{{page.handle}}"].content = {{ page.content | json }};
+        var handle = {{ page.handle | json }};
+        hbsApp.community.order.push(handle);
+        cat[handle] = {};
+        cat[handle].title = {{ page.title | json }};
+        cat[handle].content = {{ page.content | json }};
       </script>
 
       <div id="{{page.handle}}" class="category col-sm-6 col-md-4 col-lg-3">

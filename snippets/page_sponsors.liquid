@@ -1,7 +1,5 @@
 {% include 'pageInfoToJS' with 'page_sponsors' %}
 
-<script>console.log("is this page executing!??!")</script>
-
 <div class="container">
   {% include 'header' %}
 </div>
@@ -9,7 +7,7 @@
 <div id="page_container" class="container {{page.handle}} {{template}}">
 
   {% if page.content != blank and page.content != ""  %}
-    <h4 id="page-content" class="block-text"><span>{{page.content}}</span></h4>
+    <h4 id="page-content" class="page-blurb block-text"><span>{{page.content}}</span></h4>
     <div class="content-divider"></div>
   {% endif %}
 
@@ -48,8 +46,6 @@
           {% assign ievents = settings[ievents] %}
           {% assign ilogo = settings[ilogo] %}
           {% assign ilogo_link = settings[ilogo_link] %}
-
-          <script>console.log( "ilevel", {{ ilevel | json }})</script>
 
           {% if ilevel != blank and ilevel != "" and ilevel == level %}
 
@@ -94,18 +90,11 @@
 <script>
 $(window).load(function () {
   var images = $(".image");
-  console.log('exe?', images);
   images.each(function (index) {
     var image = $('img', $(this))[0];
-    // var width = parseInt(image.css('width'), 10);
-    // var height = parseInt(image.css('height'), 10);
     var width = image.width;
     var height = image.height;
     var aspect = width / height;
-
-    // if square nothing
-    // if aspect > 1 === rect, add class rect
-    // if aspect < 1 === vert, add class vert
 
     if (aspect > 1) {
       $(this).addClass('rect');

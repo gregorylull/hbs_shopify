@@ -1,5 +1,3 @@
-<p>Theme settings allow designers to provide an easy way for any user to customize the look and feel of their shop without having to delve into HTML or CSS code. Please see our <a title="Open Theme Settings documentation in a new window" target="docs" href="http://docs.shopify.com/themes/theme-templates/settings">help page on theme settings</a> to learn more about how you can make your theme customizable.</p>
-
 <!-- 
 
 Navigation: 
@@ -59,7 +57,6 @@ Navigation:
 8. Blog pages (null)
 
 9. Cart pages (null)
-
 
 -->
 
@@ -613,7 +610,7 @@ Navigation:
 <!-- */homepage* */frontpage* */slideshow* -->
 
 
-<!-- *homepage type* *frontpage type* -->
+<!-- *homepage type* *frontpage type* *home page typo*-->
 <fieldset>
   <legend>Homepage Typography Options</legend>
   <small>Font sizes are in percentages, 1em is the same as 100% which defaults to 16px, 2.5em is 250% of 16px, so 40px. Also note, most of the values entered below are optional, there are default sizes, colors, and styles for all fonts, so you do not HAVE to enter a value.</small>
@@ -1590,224 +1587,286 @@ Navigation:
 
 <!-- *events type* *event type* *event typography*-->
 <fieldset>
-  <legend>Events Page - Typography</legend>
-  <h3>Page: Header</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_type_page_title_fontFamily">Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="eventspage_type_page_title_fontFamily" id="eventspage_type_page_title_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_title_fontSize">Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="eventspage_type_page_title_fontSize" id="eventspage_type_page_title_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_title_color">Header color</label></td>
-        <td><input type="text" name="eventspage_type_page_title_color" id="eventspage_type_page_title_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_title_weight">Header weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_page_title_weight" id="eventspage_type_page_title_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_title_style">Header style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_page_title_style" id="eventspage_type_page_title_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Page: Blurb</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_type_page_text_fontFamily">Blurb font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="eventspage_type_page_text_fontFamily" id="eventspage_type_page_text_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_text_fontSize">Blurb font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="eventspage_type_page_text_fontSize" id="eventspage_type_page_text_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_text_color">Blurb color</label></td>
-        <td><input type="text" name="eventspage_type_page_text_color" id="eventspage_type_page_text_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_text_weight">Blurb weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_page_text_weight" id="eventspage_type_page_text_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_page_text_style">Blurb style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_page_text_style" id="eventspage_type_page_text_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event: Name</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_type_event_name_fontFamily">Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="eventspage_type_event_name_fontFamily" id="eventspage_type_event_name_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_name_fontSize">Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="eventspage_type_event_name_fontSize" id="eventspage_type_event_name_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_name_color">Name color</label></td>
-        <td><input type="text" name="eventspage_type_event_name_color" id="eventspage_type_event_name_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_name_weight">Name weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_name_weight" id="eventspage_type_event_name_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_name_style">Name style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_name_style" id="eventspage_type_event_name_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event: Date</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_type_event_date_fontFamily">Date font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="eventspage_type_event_date_fontFamily" id="eventspage_type_event_date_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_date_fontSize">Date font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="eventspage_type_event_date_fontSize" id="eventspage_type_event_date_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_date_color">Date color</label></td>
-        <td><input type="text" name="eventspage_type_event_date_color" id="eventspage_type_event_date_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_date_weight">Date weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_date_weight" id="eventspage_type_event_date_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_date_style">Date style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_date_style" id="eventspage_type_event_date_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event: Location</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_type_event_location_fontFamily">Location font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="eventspage_type_event_location_fontFamily" id="eventspage_type_event_location_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_location_fontSize">Location font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="eventspage_type_event_location_fontSize" id="eventspage_type_event_location_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_location_color">Location color</label></td>
-        <td><input type="text" name="eventspage_type_event_location_color" id="eventspage_type_event_location_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_location_weight">Location weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_location_weight" id="eventspage_type_event_location_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_location_style">Location style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_location_style" id="eventspage_type_event_location_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event: Description</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_type_event_text_fontFamily">Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="eventspage_type_event_text_fontFamily" id="eventspage_type_event_text_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_text_fontSize">Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="eventspage_type_event_text_fontSize" id="eventspage_type_event_text_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_text_color">Description color</label></td>
-        <td><input type="text" name="eventspage_type_event_text_color" id="eventspage_type_event_text_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_text_weight">Description weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_text_weight" id="eventspage_type_event_text_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_text_style">Description style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_text_style" id="eventspage_type_event_text_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event: RSVP Link</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_type_event_rsvp_fontFamily">RSVP Link font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="eventspage_type_event_rsvp_fontFamily" id="eventspage_type_event_rsvp_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_rsvp_fontSize">RSVP Link font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="eventspage_type_event_rsvp_fontSize" id="eventspage_type_event_rsvp_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_rsvp_color">RSVP Link color</label></td>
-        <td><input type="text" name="eventspage_type_event_rsvp_color" id="eventspage_type_event_rsvp_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_rsvp_weight">RSVP Link weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_rsvp_weight" id="eventspage_type_event_rsvp_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_type_event_rsvp_style">RSVP Link style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="eventspage_type_event_rsvp_style" id="eventspage_type_event_rsvp_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
+    <legend>Events Page - Typography</legend>
+    <h3>Page: Header</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_page_title_fontFamily">Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_page_title_fontFamily" id="eventspage_type_page_title_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_title_fontSize">Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_page_title_fontSize" id="eventspage_type_page_title_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_title_color">Header color</label></td>
+                <td><input type="text" name="eventspage_type_page_title_color" id="eventspage_type_page_title_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_title_weight">Header weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_page_title_weight" id="eventspage_type_page_title_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_title_style">Header style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_page_title_style" id="eventspage_type_page_title_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Page: Blurb</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_page_text_fontFamily">Blurb font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_page_text_fontFamily" id="eventspage_type_page_text_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_text_fontSize">Blurb font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_page_text_fontSize" id="eventspage_type_page_text_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_text_color">Blurb color</label></td>
+                <td><input type="text" name="eventspage_type_page_text_color" id="eventspage_type_page_text_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_text_weight">Blurb weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_page_text_weight" id="eventspage_type_page_text_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_page_text_style">Blurb style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_page_text_style" id="eventspage_type_page_text_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Class Section: Class Header</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_event_section_header_fontFamily">Class Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_event_section_header_fontFamily" id="eventspage_type_event_section_header_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_header_fontSize">Class Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_event_section_header_fontSize" id="eventspage_type_event_section_header_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_header_color">Class Header color</label></td>
+                <td><input type="text" name="eventspage_type_event_section_header_color" id="eventspage_type_event_section_header_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_header_weight">Class Header weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_section_header_weight" id="eventspage_type_event_section_header_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_header_style">Class Header style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_section_header_style" id="eventspage_type_event_section_header_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Class Section: Default no upcoming events</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_event_section_noEvents_fontFamily">Default no upcoming events font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_event_section_noEvents_fontFamily" id="eventspage_type_event_section_noEvents_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_noEvents_fontSize">Default no upcoming events font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_event_section_noEvents_fontSize" id="eventspage_type_event_section_noEvents_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_noEvents_color">Default no upcoming events color</label></td>
+                <td><input type="text" name="eventspage_type_event_section_noEvents_color" id="eventspage_type_event_section_noEvents_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_noEvents_weight">Default no upcoming events weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_section_noEvents_weight" id="eventspage_type_event_section_noEvents_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_section_noEvents_style">Default no upcoming events style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_section_noEvents_style" id="eventspage_type_event_section_noEvents_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event: Name</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_event_name_fontFamily">Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_event_name_fontFamily" id="eventspage_type_event_name_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_name_fontSize">Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_event_name_fontSize" id="eventspage_type_event_name_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_name_color">Name color</label></td>
+                <td><input type="text" name="eventspage_type_event_name_color" id="eventspage_type_event_name_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_name_weight">Name weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_name_weight" id="eventspage_type_event_name_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_name_style">Name style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_name_style" id="eventspage_type_event_name_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event: Date</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_event_date_fontFamily">Date font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_event_date_fontFamily" id="eventspage_type_event_date_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_date_fontSize">Date font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_event_date_fontSize" id="eventspage_type_event_date_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_date_color">Date color</label></td>
+                <td><input type="text" name="eventspage_type_event_date_color" id="eventspage_type_event_date_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_date_weight">Date weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_date_weight" id="eventspage_type_event_date_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_date_style">Date style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_date_style" id="eventspage_type_event_date_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event: Location</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_event_location_fontFamily">Location font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_event_location_fontFamily" id="eventspage_type_event_location_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_location_fontSize">Location font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_event_location_fontSize" id="eventspage_type_event_location_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_location_color">Location color</label></td>
+                <td><input type="text" name="eventspage_type_event_location_color" id="eventspage_type_event_location_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_location_weight">Location weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_location_weight" id="eventspage_type_event_location_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_location_style">Location style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_location_style" id="eventspage_type_event_location_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event: Description</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_event_text_fontFamily">Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_event_text_fontFamily" id="eventspage_type_event_text_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_text_fontSize">Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_event_text_fontSize" id="eventspage_type_event_text_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_text_color">Description color</label></td>
+                <td><input type="text" name="eventspage_type_event_text_color" id="eventspage_type_event_text_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_text_weight">Description weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_text_weight" id="eventspage_type_event_text_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_text_style">Description style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_text_style" id="eventspage_type_event_text_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event: RSVP Link</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_type_event_rsvp_fontFamily">RSVP Link font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="eventspage_type_event_rsvp_fontFamily" id="eventspage_type_event_rsvp_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_rsvp_fontSize">RSVP Link font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="eventspage_type_event_rsvp_fontSize" id="eventspage_type_event_rsvp_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_rsvp_color">RSVP Link color</label></td>
+                <td><input type="text" name="eventspage_type_event_rsvp_color" id="eventspage_type_event_rsvp_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_rsvp_weight">RSVP Link weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_rsvp_weight" id="eventspage_type_event_rsvp_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_type_event_rsvp_style">RSVP Link style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="eventspage_type_event_rsvp_style" id="eventspage_type_event_rsvp_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
 </fieldset>
 <!-- */events type* */event type* *event typography*-->
 
@@ -2759,524 +2818,1094 @@ Navigation:
       </tr>
     </tbody>
   </table>
-  <h3>Event #16</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_15_display_checkbox">Display Event #16?</label></td>
-        <td><input type="checkbox" name="eventspage_15_display" id="eventspage_15_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_15_display_frontpage" id="eventspage_15_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_15_cohort" id="eventspage_15_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_15_title" id="eventspage_15_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_15_date" id="eventspage_15_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_15_location" id="eventspage_15_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_15_location_link" id="eventspage_15_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_15_description" cols="55" rows="6" value="0" id="eventspage_15_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_15_picture.png" id="eventspage_15_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_15_picture_link" id="eventspage_15_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_15_rsvp" id="eventspage_15_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_15_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_15_rsvp_display" id="eventspage_15_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #17</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_16_display_checkbox">Display Event #17?</label></td>
-        <td><input type="checkbox" name="eventspage_16_display" id="eventspage_16_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_16_display_frontpage" id="eventspage_16_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_16_cohort" id="eventspage_16_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_16_title" id="eventspage_16_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_16_date" id="eventspage_16_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_16_location" id="eventspage_16_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_16_location_link" id="eventspage_16_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_16_description" cols="55" rows="6" value="0" id="eventspage_16_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_16_picture.png" id="eventspage_16_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_16_picture_link" id="eventspage_16_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_16_rsvp" id="eventspage_16_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_16_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_16_rsvp_display" id="eventspage_16_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #18</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_17_display_checkbox">Display Event #18?</label></td>
-        <td><input type="checkbox" name="eventspage_17_display" id="eventspage_17_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_17_display_frontpage" id="eventspage_17_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_17_cohort" id="eventspage_17_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_17_title" id="eventspage_17_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_17_date" id="eventspage_17_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_17_location" id="eventspage_17_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_17_location_link" id="eventspage_17_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_17_description" cols="55" rows="6" value="0" id="eventspage_17_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_17_picture.png" id="eventspage_17_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_17_picture_link" id="eventspage_17_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_17_rsvp" id="eventspage_17_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_17_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_17_rsvp_display" id="eventspage_17_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #19</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_18_display_checkbox">Display Event #19?</label></td>
-        <td><input type="checkbox" name="eventspage_18_display" id="eventspage_18_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_18_display_frontpage" id="eventspage_18_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_18_cohort" id="eventspage_18_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_18_title" id="eventspage_18_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_18_date" id="eventspage_18_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_18_location" id="eventspage_18_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_18_location_link" id="eventspage_18_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_18_description" cols="55" rows="6" value="0" id="eventspage_18_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_18_picture.png" id="eventspage_18_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_18_picture_link" id="eventspage_18_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_18_rsvp" id="eventspage_18_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_18_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_18_rsvp_display" id="eventspage_18_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #20</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_19_display_checkbox">Display Event #20?</label></td>
-        <td><input type="checkbox" name="eventspage_19_display" id="eventspage_19_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_19_display_frontpage" id="eventspage_19_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_19_cohort" id="eventspage_19_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_19_title" id="eventspage_19_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_19_date" id="eventspage_19_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_19_location" id="eventspage_19_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_19_location_link" id="eventspage_19_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_19_description" cols="55" rows="6" value="0" id="eventspage_19_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_19_picture.png" id="eventspage_19_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_19_picture_link" id="eventspage_19_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_19_rsvp" id="eventspage_19_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_19_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_19_rsvp_display" id="eventspage_19_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
 </fieldset>
 <!-- */events* */events page* */event content* -->
 
 <!-- *community* *category* -->
 <fieldset>
-  <legend>Community Categories and Typography</legend>
-  <h3>Community Page Handles</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td colspan="2"><small>For each new category of community events, a Page must be created. The page title can be anything, but the page-handle entered here MUST be the same as the handle for the page </small></td>
-      </tr>
-      <tr>
-        <td><label for="community_0_handle">Community page, category 1 handle:</label></td>
-        <td><input type="text" name="community_0_handle" id="community_0_handle" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_1_handle">Community page, category 2 handle:</label></td>
-        <td><input type="text" name="community_1_handle" id="community_1_handle" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_2_handle">Community page, category 3 handle:</label></td>
-        <td><input type="text" name="community_2_handle" id="community_2_handle" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_3_handle">Community page, category 4 handle:</label></td>
-        <td><input type="text" name="community_3_handle" id="community_3_handle" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_4_handle">Community page, category 5 handle:</label></td>
-        <td><input type="text" name="community_4_handle" id="community_4_handle" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_5_handle">Community page, category 6 handle:</label></td>
-        <td><input type="text" name="community_5_handle" id="community_5_handle" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_6_handle">Community page, category 7 handle:</label></td>
-        <td><input type="text" name="community_6_handle" id="community_6_handle" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_7_handle">Community page, category 8 handle:</label></td>
-        <td><input type="text" name="community_7_handle" id="community_7_handle" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Community: Page Header</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="community_type_header_fontFamily">Page Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="community_type_header_fontFamily" id="community_type_header_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_header_fontSize">Page Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="community_type_header_fontSize" id="community_type_header_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_header_color">Page Header color</label></td>
-        <td><input type="text" name="community_type_header_color" id="community_type_header_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_header_weight">Page Header weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="community_type_header_weight" id="community_type_header_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_header_style">Page Header style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="community_type_header_style" id="community_type_header_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Community: Page Description</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="community_type_content_fontFamily">Page Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="community_type_content_fontFamily" id="community_type_content_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_content_fontSize">Page Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="community_type_content_fontSize" id="community_type_content_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_content_color">Page Description color</label></td>
-        <td><input type="text" name="community_type_content_color" id="community_type_content_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_content_weight">Page Description weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="community_type_content_weight" id="community_type_content_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="community_type_content_style">Page Description style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="community_type_content_style" id="community_type_content_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Community: Category Header</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="category_type_header_fontFamily">Category Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="category_type_header_fontFamily" id="category_type_header_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_header_fontSize">Category Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="category_type_header_fontSize" id="category_type_header_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_header_color">Category Header color</label></td>
-        <td><input type="text" name="category_type_header_color" id="category_type_header_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_header_weight">Category Header weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="category_type_header_weight" id="category_type_header_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_header_style">Category Header style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="category_type_header_style" id="category_type_header_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Community: Category Description</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="category_type_description_fontFamily">Category Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="category_type_description_fontFamily" id="category_type_description_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_description_fontSize">Category Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="category_type_description_fontSize" id="category_type_description_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_description_color">Category Description color</label></td>
-        <td><input type="text" name="category_type_description_color" id="category_type_description_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_description_weight">Category Description weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="category_type_description_weight" id="category_type_description_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_description_style">Category Description style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="category_type_description_style" id="category_type_description_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Community: Category Event List</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="category_type_list_fontFamily">Category Event List font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="category_type_list_fontFamily" id="category_type_list_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_list_fontSize">Category Event List font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="category_type_list_fontSize" id="category_type_list_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_list_color">Category Event List color</label></td>
-        <td><input type="text" name="category_type_list_color" id="category_type_list_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_list_weight">Category Event List weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="category_type_list_weight" id="category_type_list_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="category_type_list_style">Category Event List style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="category_type_list_style" id="category_type_list_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
+    <legend>Community Categories and Typography</legend>
+    <h3>Community Page Handles</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td colspan="2"><small>For each new category of community events, a Page must be created. The page title can be anything, but the page-handle entered here MUST be the same as the handle for the page </small></td>
+            </tr>
+            <tr>
+                <td><label for="community_0_handle">Community page, category 1 handle:</label></td>
+                <td><input type="text" name="community_0_handle" id="community_0_handle" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_1_handle">Community page, category 2 handle:</label></td>
+                <td><input type="text" name="community_1_handle" id="community_1_handle" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_2_handle">Community page, category 3 handle:</label></td>
+                <td><input type="text" name="community_2_handle" id="community_2_handle" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_3_handle">Community page, category 4 handle:</label></td>
+                <td><input type="text" name="community_3_handle" id="community_3_handle" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_4_handle">Community page, category 5 handle:</label></td>
+                <td><input type="text" name="community_4_handle" id="community_4_handle" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_5_handle">Community page, category 6 handle:</label></td>
+                <td><input type="text" name="community_5_handle" id="community_5_handle" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_6_handle">Community page, category 7 handle:</label></td>
+                <td><input type="text" name="community_6_handle" id="community_6_handle" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_7_handle">Community page, category 8 handle:</label></td>
+                <td><input type="text" name="community_7_handle" id="community_7_handle" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Community: Page Header</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="community_type_header_fontFamily">Page Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="community_type_header_fontFamily" id="community_type_header_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_header_fontSize">Page Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="community_type_header_fontSize" id="community_type_header_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_header_color">Page Header color</label></td>
+                <td><input type="text" name="community_type_header_color" id="community_type_header_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_header_weight">Page Header weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="community_type_header_weight" id="community_type_header_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_header_style">Page Header style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="community_type_header_style" id="community_type_header_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Community: Page Description</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="community_type_content_fontFamily">Page Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="community_type_content_fontFamily" id="community_type_content_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_content_fontSize">Page Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="community_type_content_fontSize" id="community_type_content_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_content_color">Page Description color</label></td>
+                <td><input type="text" name="community_type_content_color" id="community_type_content_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_content_weight">Page Description weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="community_type_content_weight" id="community_type_content_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="community_type_content_style">Page Description style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="community_type_content_style" id="community_type_content_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Community: Category Header</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="category_type_header_fontFamily">Category Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="category_type_header_fontFamily" id="category_type_header_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_header_fontSize">Category Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="category_type_header_fontSize" id="category_type_header_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_header_color">Category Header color</label></td>
+                <td><input type="text" name="category_type_header_color" id="category_type_header_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_header_weight">Category Header weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="category_type_header_weight" id="category_type_header_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_header_style">Category Header style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="category_type_header_style" id="category_type_header_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Community: Category Description</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="category_type_description_fontFamily">Category Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="category_type_description_fontFamily" id="category_type_description_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_description_fontSize">Category Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="category_type_description_fontSize" id="category_type_description_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_description_color">Category Description color</label></td>
+                <td><input type="text" name="category_type_description_color" id="category_type_description_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_description_weight">Category Description weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="category_type_description_weight" id="category_type_description_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_description_style">Category Description style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="category_type_description_style" id="category_type_description_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Community: Category Event List Header</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="category_type_list_header_fontFamily">Category Event List Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="category_type_list_header_fontFamily" id="category_type_list_header_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_header_fontSize">Category Event List Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="category_type_list_header_fontSize" id="category_type_list_header_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_header_color">Category Event List Header color</label></td>
+                <td><input type="text" name="category_type_list_header_color" id="category_type_list_header_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_header_weight">Category Event List Header weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="category_type_list_header_weight" id="category_type_list_header_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_header_style">Category Event List Header style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="category_type_list_header_style" id="category_type_list_header_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Community: Category Event List</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="category_type_list_fontFamily">Category Event List font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="category_type_list_fontFamily" id="category_type_list_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_fontSize">Category Event List font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="category_type_list_fontSize" id="category_type_list_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_color">Category Event List color</label></td>
+                <td><input type="text" name="category_type_list_color" id="category_type_list_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_weight">Category Event List weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="category_type_list_weight" id="category_type_list_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="category_type_list_style">Category Event List style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="category_type_list_style" id="category_type_list_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
 </fieldset>
 <!-- */community* -->
+
+<!-- *sponsors* -->
+<fieldset>
+    <legend>Sponsors: Individual Sponsor Information</legend>
+    <h3>Sponsorship Levels</h3>
+    <small>Please enter sponsorship levels exactly as you want them to show up. The blurb and color fields are optional.</small>
+    <h3>Sponsorship Level 1</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_level_0_title">Sponsorship level title</label></td>
+                <td><input type="text" name="sponsor_level_0_title" id="sponsor_level_0_title" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_0_blurb">Description / blurb</label></td>
+                <td><input type="text" name="sponsor_level_0_blurb" id="sponsor_level_0_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_0_color">Associated color</label></td>
+                <td><input type="text" name="sponsor_level_0_color" id="sponsor_level_0_color" class="color" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsorship Level 2</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_level_1_title">Sponsorship level title</label></td>
+                <td><input type="text" name="sponsor_level_1_title" id="sponsor_level_1_title" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_1_blurb">Description / blurb</label></td>
+                <td><input type="text" name="sponsor_level_1_blurb" id="sponsor_level_1_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_1_color">Associated color</label></td>
+                <td><input type="text" name="sponsor_level_1_color" id="sponsor_level_1_color" class="color" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsorship Level 3</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_level_2_title">Sponsorship level title</label></td>
+                <td><input type="text" name="sponsor_level_2_title" id="sponsor_level_2_title" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_2_blurb">Description / blurb</label></td>
+                <td><input type="text" name="sponsor_level_2_blurb" id="sponsor_level_2_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_2_color">Associated color</label></td>
+                <td><input type="text" name="sponsor_level_2_color" id="sponsor_level_2_color" class="color" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsorship Level 4</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_level_3_title">Sponsorship level title</label></td>
+                <td><input type="text" name="sponsor_level_3_title" id="sponsor_level_3_title" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_3_blurb">Description / blurb</label></td>
+                <td><input type="text" name="sponsor_level_3_blurb" id="sponsor_level_3_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_3_color">Associated color</label></td>
+                <td><input type="text" name="sponsor_level_3_color" id="sponsor_level_3_color" class="color" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsorship Level 5</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_level_4_title">Sponsorship level title</label></td>
+                <td><input type="text" name="sponsor_level_4_title" id="sponsor_level_4_title" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_4_blurb">Description / blurb</label></td>
+                <td><input type="text" name="sponsor_level_4_blurb" id="sponsor_level_4_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_4_color">Associated color</label></td>
+                <td><input type="text" name="sponsor_level_4_color" id="sponsor_level_4_color" class="color" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsorship Level 6</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_level_5_title">Sponsorship level title</label></td>
+                <td><input type="text" name="sponsor_level_5_title" id="sponsor_level_5_title" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_5_blurb">Description / blurb</label></td>
+                <td><input type="text" name="sponsor_level_5_blurb" id="sponsor_level_5_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_level_5_color">Associated color</label></td>
+                <td><input type="text" name="sponsor_level_5_color" id="sponsor_level_5_color" class="color" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Individual Sponsor Information</h3>
+    <small>For sponsorship levels, please enter text EXACTLY the same as above, i.e. if a sponorship level is captialized above or with different punctuations, then enter the same below!</small><small> Please start image URLs with '//www.' , 'http://www.' , or 'https://www.'</small>
+    <h3>Sponsor #1</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_0_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_0_name" id="sponsor_0_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_0_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_0_level" id="sponsor_0_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_0_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_0_events" id="sponsor_0_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_0_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_0_blurb" id="sponsor_0_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_0_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_0_logo" id="sponsor_0_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_0_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_0_logo_link" id="sponsor_0_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #2</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_1_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_1_name" id="sponsor_1_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_1_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_1_level" id="sponsor_1_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_1_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_1_events" id="sponsor_1_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_1_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_1_blurb" id="sponsor_1_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_1_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_1_logo" id="sponsor_1_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_1_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_1_logo_link" id="sponsor_1_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #3</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_2_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_2_name" id="sponsor_2_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_2_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_2_level" id="sponsor_2_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_2_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_2_events" id="sponsor_2_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_2_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_2_blurb" id="sponsor_2_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_2_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_2_logo" id="sponsor_2_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_2_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_2_logo_link" id="sponsor_2_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #4</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_3_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_3_name" id="sponsor_3_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_3_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_3_level" id="sponsor_3_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_3_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_3_events" id="sponsor_3_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_3_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_3_blurb" id="sponsor_3_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_3_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_3_logo" id="sponsor_3_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_3_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_3_logo_link" id="sponsor_3_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #5</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_4_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_4_name" id="sponsor_4_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_4_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_4_level" id="sponsor_4_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_4_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_4_events" id="sponsor_4_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_4_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_4_blurb" id="sponsor_4_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_4_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_4_logo" id="sponsor_4_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_4_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_4_logo_link" id="sponsor_4_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #6</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_5_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_5_name" id="sponsor_5_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_5_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_5_level" id="sponsor_5_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_5_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_5_events" id="sponsor_5_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_5_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_5_blurb" id="sponsor_5_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_5_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_5_logo" id="sponsor_5_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_5_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_5_logo_link" id="sponsor_5_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #7</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_6_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_6_name" id="sponsor_6_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_6_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_6_level" id="sponsor_6_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_6_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_6_events" id="sponsor_6_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_6_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_6_blurb" id="sponsor_6_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_6_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_6_logo" id="sponsor_6_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_6_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_6_logo_link" id="sponsor_6_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #8</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_7_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_7_name" id="sponsor_7_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_7_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_7_level" id="sponsor_7_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_7_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_7_events" id="sponsor_7_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_7_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_7_blurb" id="sponsor_7_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_7_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_7_logo" id="sponsor_7_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_7_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_7_logo_link" id="sponsor_7_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #9</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_8_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_8_name" id="sponsor_8_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_8_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_8_level" id="sponsor_8_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_8_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_8_events" id="sponsor_8_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_8_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_8_blurb" id="sponsor_8_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_8_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_8_logo" id="sponsor_8_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_8_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_8_logo_link" id="sponsor_8_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #10</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_9_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_9_name" id="sponsor_9_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_9_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_9_level" id="sponsor_9_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_9_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_9_events" id="sponsor_9_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_9_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_9_blurb" id="sponsor_9_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_9_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_9_logo" id="sponsor_9_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_9_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_9_logo_link" id="sponsor_9_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #11</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_10_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_10_name" id="sponsor_10_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_10_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_10_level" id="sponsor_10_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_10_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_10_events" id="sponsor_10_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_10_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_10_blurb" id="sponsor_10_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_10_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_10_logo" id="sponsor_10_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_10_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_10_logo_link" id="sponsor_10_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #12</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_11_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_11_name" id="sponsor_11_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_11_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_11_level" id="sponsor_11_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_11_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_11_events" id="sponsor_11_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_11_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_11_blurb" id="sponsor_11_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_11_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_11_logo" id="sponsor_11_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_11_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_11_logo_link" id="sponsor_11_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #13</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_12_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_12_name" id="sponsor_12_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_12_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_12_level" id="sponsor_12_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_12_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_12_events" id="sponsor_12_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_12_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_12_blurb" id="sponsor_12_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_12_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_12_logo" id="sponsor_12_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_12_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_12_logo_link" id="sponsor_12_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #14</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_13_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_13_name" id="sponsor_13_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_13_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_13_level" id="sponsor_13_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_13_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_13_events" id="sponsor_13_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_13_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_13_blurb" id="sponsor_13_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_13_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_13_logo" id="sponsor_13_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_13_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_13_logo_link" id="sponsor_13_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #15</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_14_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_14_name" id="sponsor_14_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_14_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_14_level" id="sponsor_14_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_14_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_14_events" id="sponsor_14_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_14_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_14_blurb" id="sponsor_14_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_14_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_14_logo" id="sponsor_14_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_14_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_14_logo_link" id="sponsor_14_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #16</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_15_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_15_name" id="sponsor_15_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_15_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_15_level" id="sponsor_15_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_15_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_15_events" id="sponsor_15_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_15_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_15_blurb" id="sponsor_15_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_15_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_15_logo" id="sponsor_15_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_15_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_15_logo_link" id="sponsor_15_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #17</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_16_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_16_name" id="sponsor_16_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_16_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_16_level" id="sponsor_16_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_16_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_16_events" id="sponsor_16_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_16_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_16_blurb" id="sponsor_16_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_16_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_16_logo" id="sponsor_16_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_16_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_16_logo_link" id="sponsor_16_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #18</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_17_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_17_name" id="sponsor_17_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_17_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_17_level" id="sponsor_17_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_17_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_17_events" id="sponsor_17_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_17_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_17_blurb" id="sponsor_17_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_17_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_17_logo" id="sponsor_17_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_17_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_17_logo_link" id="sponsor_17_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #19</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_18_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_18_name" id="sponsor_18_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_18_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_18_level" id="sponsor_18_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_18_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_18_events" id="sponsor_18_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_18_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_18_blurb" id="sponsor_18_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_18_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_18_logo" id="sponsor_18_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_18_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_18_logo_link" id="sponsor_18_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Sponsor #20</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsor_19_name">Sponsor name</label></td>
+                <td><input type="text" name="sponsor_19_name" id="sponsor_19_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_19_level">Sponsorship level</label></td>
+                <td><input type="text" name="sponsor_19_level" id="sponsor_19_level" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_19_events">Sponsored events</label></td>
+                <td><input type="text" name="sponsor_19_events" id="sponsor_19_events" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_19_blurb">Sponsor description/blurb</label></td>
+                <td><input type="text" name="sponsor_19_blurb" id="sponsor_19_blurb" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_19_logo">Sponsor logo/image local file upload</label></td>
+                <td><input name="sponsor_19_logo" id="sponsor_19_logo" type="file" data-max-width="500" data-max-height="500" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsor_19_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
+                <td><input type="text" name="sponsor_19_logo_link" id="sponsor_19_logo_link" /></td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+<!-- */sponsors* -->
+
+<!-- *sponsor type* *sponsors type* -->
+<fieldset>
+    <legend>Sponsors Page - Typography</legend>
+    <small />
+    <h3>Page: Blurb</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsors_page_blurb_fontFamily">Blurb font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="sponsors_page_blurb_fontFamily" id="sponsors_page_blurb_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_page_blurb_fontSize">Blurb font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="sponsors_page_blurb_fontSize" id="sponsors_page_blurb_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_page_blurb_color">Blurb color</label></td>
+                <td><input type="text" name="sponsors_page_blurb_color" id="sponsors_page_blurb_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_page_blurb_weight">Blurb weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="sponsors_page_blurb_weight" id="sponsors_page_blurb_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_page_blurb_style">Blurb style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="sponsors_page_blurb_style" id="sponsors_page_blurb_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Level: Name</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsors_level_name_fontFamily">Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="sponsors_level_name_fontFamily" id="sponsors_level_name_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_name_fontSize">Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="sponsors_level_name_fontSize" id="sponsors_level_name_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_name_color">Name color</label></td>
+                <td><input type="text" name="sponsors_level_name_color" id="sponsors_level_name_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_name_weight">Name weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="sponsors_level_name_weight" id="sponsors_level_name_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_name_style">Name style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="sponsors_level_name_style" id="sponsors_level_name_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Level: Description</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsors_level_description_fontFamily">Description font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="sponsors_level_description_fontFamily" id="sponsors_level_description_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_description_fontSize">Description font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="sponsors_level_description_fontSize" id="sponsors_level_description_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_description_color">Description color</label></td>
+                <td><input type="text" name="sponsors_level_description_color" id="sponsors_level_description_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_description_weight">Description weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="sponsors_level_description_weight" id="sponsors_level_description_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_level_description_style">Description style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="sponsors_level_description_style" id="sponsors_level_description_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Company: Name</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsors_company_name_fontFamily">Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="sponsors_company_name_fontFamily" id="sponsors_company_name_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_name_fontSize">Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="sponsors_company_name_fontSize" id="sponsors_company_name_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_name_color">Name color</label></td>
+                <td><input type="text" name="sponsors_company_name_color" id="sponsors_company_name_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_name_weight">Name weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="sponsors_company_name_weight" id="sponsors_company_name_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_name_style">Name style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="sponsors_company_name_style" id="sponsors_company_name_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Company: Sponsored Events</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="sponsors_company_events_fontFamily">Sponsored Events font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="sponsors_company_events_fontFamily" id="sponsors_company_events_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_events_fontSize">Sponsored Events font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="sponsors_company_events_fontSize" id="sponsors_company_events_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_events_color">Sponsored Events color</label></td>
+                <td><input type="text" name="sponsors_company_events_color" id="sponsors_company_events_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_events_weight">Sponsored Events weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="sponsors_company_events_weight" id="sponsors_company_events_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="sponsors_company_events_style">Sponsored Events style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="sponsors_company_events_style" id="sponsors_company_events_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+<!-- */sponsor type* */sponsors type* -->
 
 <!-- *products* *catalog* *collections* -->
 <fieldset>
@@ -3554,225 +4183,349 @@ Navigation:
 
 <!-- *product* *purchase* *individual* -->
 <fieldset>
-  <legend>Product Purchase Page - Typography</legend>
-  <small>This page's Left Frame font styling inherits from the settings in 'Products / Collections Typography'</small>
-  <h3>Product Right Info: Name</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="product_info_name_fontFamily">Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="product_info_name_fontFamily" id="product_info_name_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_name_fontSize">Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="product_info_name_fontSize" id="product_info_name_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_name_color">Name color</label></td>
-        <td><input type="text" name="product_info_name_color" id="product_info_name_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_name_weight">Name weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="product_info_name_weight" id="product_info_name_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_name_style">Name style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="product_info_name_style" id="product_info_name_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Product Right Info: Vendor</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="product_info_vendor_fontFamily">Vendor font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="product_info_vendor_fontFamily" id="product_info_vendor_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_vendor_fontSize">Vendor font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="product_info_vendor_fontSize" id="product_info_vendor_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_vendor_color">Vendor color</label></td>
-        <td><input type="text" name="product_info_vendor_color" id="product_info_vendor_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_vendor_weight">Vendor weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="product_info_vendor_weight" id="product_info_vendor_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_vendor_style">Vendor style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="product_info_vendor_style" id="product_info_vendor_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Product Right Info: Price</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="product_info_price_fontFamily">Price font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="product_info_price_fontFamily" id="product_info_price_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_fontSize">Price font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="product_info_price_fontSize" id="product_info_price_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_color">Price color</label></td>
-        <td><input type="text" name="product_info_price_color" id="product_info_price_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_weight">Price weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="product_info_price_weight" id="product_info_price_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_style">Price style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="product_info_price_style" id="product_info_price_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Product Right Info: Price Comparison</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="product_info_price_compare_fontFamily">Price Comparison font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="product_info_price_compare_fontFamily" id="product_info_price_compare_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_compare_fontSize">Price Comparison font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="product_info_price_compare_fontSize" id="product_info_price_compare_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_compare_color">Price Comparison color</label></td>
-        <td><input type="text" name="product_info_price_compare_color" id="product_info_price_compare_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_compare_weight">Price Comparison weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="product_info_price_compare_weight" id="product_info_price_compare_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_price_compare_style">Price Comparison style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="product_info_price_compare_style" id="product_info_price_compare_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Product Right Info: Add To Cart Button</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="product_info_addToCart_fontFamily">Add To Cart Button font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="product_info_addToCart_fontFamily" id="product_info_addToCart_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_addToCart_fontSize">Add To Cart Button font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="product_info_addToCart_fontSize" id="product_info_addToCart_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_addToCart_color">Add To Cart Button color</label></td>
-        <td><input type="text" name="product_info_addToCart_color" id="product_info_addToCart_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_addToCart_weight">Add To Cart Button weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="product_info_addToCart_weight" id="product_info_addToCart_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="product_info_addToCart_style">Add To Cart Button style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="product_info_addToCart_style" id="product_info_addToCart_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Product Tab: Header</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="product_tab_header_fontFamily">Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="product_tab_header_fontFamily" id="product_tab_header_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_header_fontSize">Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="product_tab_header_fontSize" id="product_tab_header_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_header_color">Header color</label></td>
-        <td><input type="text" name="product_tab_header_color" id="product_tab_header_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_header_weight">Header weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="product_tab_header_weight" id="product_tab_header_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_header_style">Header style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="product_tab_header_style" id="product_tab_header_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Product Tab: Content</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="product_tab_text_fontFamily">Content font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
-        <td><input type="text" name="product_tab_text_fontFamily" id="product_tab_text_fontFamily" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_text_fontSize">Content font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
-        <td><input type="text" name="product_tab_text_fontSize" id="product_tab_text_fontSize" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_text_color">Content color</label></td>
-        <td><input type="text" name="product_tab_text_color" id="product_tab_text_color" class="color" /></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_text_weight">Content weight (defaults to normal or 400 if not specified) </label></td>
-        <td><input type="text" name="product_tab_text_weight" id="product_tab_text_weight" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
-      </tr>
-      <tr>
-        <td><label for="product_tab_text_style">Content style (defaults to normal if not specified) </label></td>
-        <td><input type="text" name="product_tab_text_style" id="product_tab_text_style" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
-      </tr>
-    </tbody>
-  </table>
+    <legend>Product Purchase Page - Typography</legend>
+    <small>This page's Left Frame font styling inherits from the settings in 'Products / Collections Typography'</small>
+    <h3>Product Right Info: Name</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_info_name_fontFamily">Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_info_name_fontFamily" id="product_info_name_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_name_fontSize">Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_info_name_fontSize" id="product_info_name_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_name_color">Name color</label></td>
+                <td><input type="text" name="product_info_name_color" id="product_info_name_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_name_weight">Name weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_info_name_weight" id="product_info_name_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_name_style">Name style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_info_name_style" id="product_info_name_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Right Info: Vendor</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_info_vendor_fontFamily">Vendor font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_info_vendor_fontFamily" id="product_info_vendor_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_vendor_fontSize">Vendor font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_info_vendor_fontSize" id="product_info_vendor_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_vendor_color">Vendor color</label></td>
+                <td><input type="text" name="product_info_vendor_color" id="product_info_vendor_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_vendor_weight">Vendor weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_info_vendor_weight" id="product_info_vendor_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_vendor_style">Vendor style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_info_vendor_style" id="product_info_vendor_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Right Info: Price</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_info_price_fontFamily">Price font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_info_price_fontFamily" id="product_info_price_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_fontSize">Price font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_info_price_fontSize" id="product_info_price_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_color">Price color</label></td>
+                <td><input type="text" name="product_info_price_color" id="product_info_price_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_weight">Price weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_info_price_weight" id="product_info_price_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_style">Price style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_info_price_style" id="product_info_price_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Right Info: Price Comparison</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_info_price_compare_fontFamily">Price Comparison font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_info_price_compare_fontFamily" id="product_info_price_compare_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_compare_fontSize">Price Comparison font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_info_price_compare_fontSize" id="product_info_price_compare_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_compare_color">Price Comparison color</label></td>
+                <td><input type="text" name="product_info_price_compare_color" id="product_info_price_compare_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_compare_weight">Price Comparison weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_info_price_compare_weight" id="product_info_price_compare_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_price_compare_style">Price Comparison style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_info_price_compare_style" id="product_info_price_compare_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Right Info: Add To Cart Button</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_info_addToCart_fontFamily">Add To Cart Button font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_info_addToCart_fontFamily" id="product_info_addToCart_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_addToCart_fontSize">Add To Cart Button font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_info_addToCart_fontSize" id="product_info_addToCart_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_addToCart_color">Add To Cart Button color</label></td>
+                <td><input type="text" name="product_info_addToCart_color" id="product_info_addToCart_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_addToCart_weight">Add To Cart Button weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_info_addToCart_weight" id="product_info_addToCart_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_info_addToCart_style">Add To Cart Button style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_info_addToCart_style" id="product_info_addToCart_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Extras: User Input</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_extras_input_fontFamily">User Input font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_extras_input_fontFamily" id="product_extras_input_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_input_fontSize">User Input font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_extras_input_fontSize" id="product_extras_input_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_input_color">User Input color</label></td>
+                <td><input type="text" name="product_extras_input_color" id="product_extras_input_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_input_weight">User Input weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_extras_input_weight" id="product_extras_input_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_input_style">User Input style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_extras_input_style" id="product_extras_input_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Extras: Notes</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_extras_note_fontFamily">Notes font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_extras_note_fontFamily" id="product_extras_note_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_note_fontSize">Notes font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_extras_note_fontSize" id="product_extras_note_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_note_color">Notes color</label></td>
+                <td><input type="text" name="product_extras_note_color" id="product_extras_note_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_note_weight">Notes weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_extras_note_weight" id="product_extras_note_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_extras_note_style">Notes style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_extras_note_style" id="product_extras_note_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Variant: Style Name</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_variant_name_fontFamily">Style Name font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_variant_name_fontFamily" id="product_variant_name_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_name_fontSize">Style Name font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_variant_name_fontSize" id="product_variant_name_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_name_color">Style Name color</label></td>
+                <td><input type="text" name="product_variant_name_color" id="product_variant_name_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_name_weight">Style Name weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_variant_name_weight" id="product_variant_name_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_name_style">Style Name style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_variant_name_style" id="product_variant_name_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Variant: Style Options</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_variant_options_fontFamily">Style Options font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_variant_options_fontFamily" id="product_variant_options_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_options_fontSize">Style Options font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_variant_options_fontSize" id="product_variant_options_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_options_color">Style Options color</label></td>
+                <td><input type="text" name="product_variant_options_color" id="product_variant_options_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_options_weight">Style Options weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_variant_options_weight" id="product_variant_options_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_variant_options_style">Style Options style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_variant_options_style" id="product_variant_options_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Tab: Header</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_tab_header_fontFamily">Header font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_tab_header_fontFamily" id="product_tab_header_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_header_fontSize">Header font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_tab_header_fontSize" id="product_tab_header_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_header_color">Header color</label></td>
+                <td><input type="text" name="product_tab_header_color" id="product_tab_header_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_header_weight">Header weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_tab_header_weight" id="product_tab_header_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_header_style">Header style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_tab_header_style" id="product_tab_header_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Product Tab: Content</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="product_tab_text_fontFamily">Content font-family, enter exactly as specificed in google (capitalize if necessary)</label></td>
+                <td><input type="text" name="product_tab_text_fontFamily" id="product_tab_text_fontFamily" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_text_fontSize">Content font size, enter number starting from 0.1em (if no value is entered, the default is current view on the web)</label></td>
+                <td><input type="text" name="product_tab_text_fontSize" id="product_tab_text_fontSize" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_text_color">Content color</label></td>
+                <td><input type="text" name="product_tab_text_color" id="product_tab_text_color" class="color" /></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_text_weight">Content weight (defaults to normal or 400 if not specified) </label></td>
+                <td><input type="text" name="product_tab_text_weight" id="product_tab_text_weight" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, weight options are: thin, light, normal, bold, etc. or their respective numbers (100, 300, 400...so on)</small></td>
+            </tr>
+            <tr>
+                <td><label for="product_tab_text_style">Content style (defaults to normal if not specified) </label></td>
+                <td><input type="text" name="product_tab_text_style" id="product_tab_text_style" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>Using 'Lato' family as an example, style options are: italic or oblique </small></td>
+            </tr>
+        </tbody>
+    </table>
 </fieldset>
 <!-- */product* */individual* -->
 

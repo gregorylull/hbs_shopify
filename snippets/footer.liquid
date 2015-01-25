@@ -16,14 +16,14 @@
     {% endif %}
 
     {% if settings["footer_navlinks"] == true %}
-    <div class="col-sm-12 block-text "\>
-      Links: 
-      <ul class="links">
-        {% for link in linklists.footer.links %}
-          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
+      <div class="col-sm-12 block-text "\>
+        Links: 
+        <ul class="links">
+          {% for link in linklists.footer.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
     {% endif %}
 
   </div>
