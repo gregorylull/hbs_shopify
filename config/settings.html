@@ -1872,952 +1872,1012 @@ Navigation:
 
 <!-- *events* *events page* *event content* -->
 <fieldset>
-  <legend>Events page</legend>
-  <h3>Event #1</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_0_display_checkbox">Display Event #1?</label></td>
-        <td><input type="checkbox" name="eventspage_0_display" id="eventspage_0_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_0_display_frontpage" id="eventspage_0_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_0_cohort" id="eventspage_0_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_0_title" id="eventspage_0_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_0_date" id="eventspage_0_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_0_location" id="eventspage_0_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_0_location_link" id="eventspage_0_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_0_description" cols="55" rows="6" value="0" id="eventspage_0_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_0_picture.png" id="eventspage_0_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_0_picture_link" id="eventspage_0_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_0_rsvp" id="eventspage_0_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_0_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_0_rsvp_display" id="eventspage_0_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #2</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_1_display_checkbox">Display Event #2?</label></td>
-        <td><input type="checkbox" name="eventspage_1_display" id="eventspage_1_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_1_display_frontpage" id="eventspage_1_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_1_cohort" id="eventspage_1_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_1_title" id="eventspage_1_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_1_date" id="eventspage_1_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_1_location" id="eventspage_1_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_1_location_link" id="eventspage_1_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_1_description" cols="55" rows="6" value="0" id="eventspage_1_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_1_picture.png" id="eventspage_1_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_1_picture_link" id="eventspage_1_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_1_rsvp" id="eventspage_1_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_1_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_1_rsvp_display" id="eventspage_1_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #3</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_2_display_checkbox">Display Event #3?</label></td>
-        <td><input type="checkbox" name="eventspage_2_display" id="eventspage_2_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_2_display_frontpage" id="eventspage_2_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_2_cohort" id="eventspage_2_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_2_title" id="eventspage_2_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_2_date" id="eventspage_2_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_2_location" id="eventspage_2_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_2_location_link" id="eventspage_2_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_2_description" cols="55" rows="6" value="0" id="eventspage_2_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_2_picture.png" id="eventspage_2_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_2_picture_link" id="eventspage_2_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_2_rsvp" id="eventspage_2_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_2_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_2_rsvp_display" id="eventspage_2_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #4</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_3_display_checkbox">Display Event #4?</label></td>
-        <td><input type="checkbox" name="eventspage_3_display" id="eventspage_3_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_3_display_frontpage" id="eventspage_3_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_3_cohort" id="eventspage_3_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_3_title" id="eventspage_3_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_3_date" id="eventspage_3_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_3_location" id="eventspage_3_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_3_location_link" id="eventspage_3_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_3_description" cols="55" rows="6" value="0" id="eventspage_3_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_3_picture.png" id="eventspage_3_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_3_picture_link" id="eventspage_3_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_3_rsvp" id="eventspage_3_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_3_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_3_rsvp_display" id="eventspage_3_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #5</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_4_display_checkbox">Display Event #5?</label></td>
-        <td><input type="checkbox" name="eventspage_4_display" id="eventspage_4_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_4_display_frontpage" id="eventspage_4_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_4_cohort" id="eventspage_4_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_4_title" id="eventspage_4_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_4_date" id="eventspage_4_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_4_location" id="eventspage_4_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_4_location_link" id="eventspage_4_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_4_description" cols="55" rows="6" value="0" id="eventspage_4_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_4_picture.png" id="eventspage_4_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_4_picture_link" id="eventspage_4_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_4_rsvp" id="eventspage_4_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_4_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_4_rsvp_display" id="eventspage_4_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #6</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_5_display_checkbox">Display Event #6?</label></td>
-        <td><input type="checkbox" name="eventspage_5_display" id="eventspage_5_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_5_display_frontpage" id="eventspage_5_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_5_cohort" id="eventspage_5_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC" selected="selected">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_5_title" id="eventspage_5_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_5_date" id="eventspage_5_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_5_location" id="eventspage_5_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_5_location_link" id="eventspage_5_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_5_description" cols="55" rows="6" value="0" id="eventspage_5_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_5_picture.png" id="eventspage_5_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_5_picture_link" id="eventspage_5_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_5_rsvp" id="eventspage_5_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_5_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_5_rsvp_display" id="eventspage_5_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #7</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_6_display_checkbox">Display Event #7?</label></td>
-        <td><input type="checkbox" name="eventspage_6_display" id="eventspage_6_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_6_display_frontpage" id="eventspage_6_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_6_cohort" id="eventspage_6_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC" selected="selected">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_6_title" id="eventspage_6_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_6_date" id="eventspage_6_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_6_location" id="eventspage_6_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_6_location_link" id="eventspage_6_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_6_description" cols="55" rows="6" value="0" id="eventspage_6_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_6_picture.png" id="eventspage_6_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_6_picture_link" id="eventspage_6_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_6_rsvp" id="eventspage_6_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_6_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_6_rsvp_display" id="eventspage_6_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #8</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_7_display_checkbox">Display Event #8?</label></td>
-        <td><input type="checkbox" name="eventspage_7_display" id="eventspage_7_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_7_display_frontpage" id="eventspage_7_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_7_cohort" id="eventspage_7_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC" selected="selected">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_7_title" id="eventspage_7_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_7_date" id="eventspage_7_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_7_location" id="eventspage_7_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_7_location_link" id="eventspage_7_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_7_description" cols="55" rows="6" value="0" id="eventspage_7_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_7_picture.png" id="eventspage_7_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_7_picture_link" id="eventspage_7_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_7_rsvp" id="eventspage_7_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_7_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_7_rsvp_display" id="eventspage_7_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #9</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_8_display_checkbox">Display Event #9?</label></td>
-        <td><input type="checkbox" name="eventspage_8_display" id="eventspage_8_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_8_display_frontpage" id="eventspage_8_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_8_cohort" id="eventspage_8_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC" selected="selected">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_8_title" id="eventspage_8_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_8_date" id="eventspage_8_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_8_location" id="eventspage_8_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_8_location_link" id="eventspage_8_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_8_description" cols="55" rows="6" value="0" id="eventspage_8_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_8_picture.png" id="eventspage_8_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_8_picture_link" id="eventspage_8_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_8_rsvp" id="eventspage_8_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_8_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_8_rsvp_display" id="eventspage_8_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #10</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_9_display_checkbox">Display Event #10?</label></td>
-        <td><input type="checkbox" name="eventspage_9_display" id="eventspage_9_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_9_display_frontpage" id="eventspage_9_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_9_cohort" id="eventspage_9_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC" selected="selected">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_9_title" id="eventspage_9_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_9_date" id="eventspage_9_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_9_location" id="eventspage_9_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_9_location_link" id="eventspage_9_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_9_description" cols="55" rows="6" value="0" id="eventspage_9_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_9_picture.png" id="eventspage_9_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_9_picture_link" id="eventspage_9_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_9_rsvp" id="eventspage_9_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_9_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_9_rsvp_display" id="eventspage_9_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #11</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_10_display_checkbox">Display Event #11?</label></td>
-        <td><input type="checkbox" name="eventspage_10_display" id="eventspage_10_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_10_display_frontpage" id="eventspage_10_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_10_cohort" id="eventspage_10_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC" selected="selected">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_10_title" id="eventspage_10_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_10_date" id="eventspage_10_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_10_location" id="eventspage_10_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_10_location_link" id="eventspage_10_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_10_description" cols="55" rows="6" value="0" id="eventspage_10_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_10_picture.png" id="eventspage_10_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_10_picture_link" id="eventspage_10_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_10_rsvp" id="eventspage_10_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_10_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_10_rsvp_display" id="eventspage_10_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #12</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_11_display_checkbox">Display Event #12?</label></td>
-        <td><input type="checkbox" name="eventspage_11_display" id="eventspage_11_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_11_display_frontpage" id="eventspage_11_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_11_cohort" id="eventspage_11_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC" selected="selected">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_11_title" id="eventspage_11_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_11_date" id="eventspage_11_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_11_location" id="eventspage_11_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_11_location_link" id="eventspage_11_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_11_description" cols="55" rows="6" value="0" id="eventspage_11_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_11_picture.png" id="eventspage_11_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_11_picture_link" id="eventspage_11_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_11_rsvp" id="eventspage_11_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_11_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_11_rsvp_display" id="eventspage_11_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #13</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_12_display_checkbox">Display Event #13?</label></td>
-        <td><input type="checkbox" name="eventspage_12_display" id="eventspage_12_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_12_display_frontpage" id="eventspage_12_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_12_cohort" id="eventspage_12_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_12_title" id="eventspage_12_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_12_date" id="eventspage_12_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_12_location" id="eventspage_12_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_12_location_link" id="eventspage_12_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_12_description" cols="55" rows="6" value="0" id="eventspage_12_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_12_picture.png" id="eventspage_12_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_12_picture_link" id="eventspage_12_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_12_rsvp" id="eventspage_12_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_12_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_12_rsvp_display" id="eventspage_12_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #14</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_13_display_checkbox">Display Event #14?</label></td>
-        <td><input type="checkbox" name="eventspage_13_display" id="eventspage_13_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_13_display_frontpage" id="eventspage_13_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_13_cohort" id="eventspage_13_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_13_title" id="eventspage_13_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_13_date" id="eventspage_13_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_13_location" id="eventspage_13_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_13_location_link" id="eventspage_13_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_13_description" cols="55" rows="6" value="0" id="eventspage_13_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_13_picture.png" id="eventspage_13_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_13_picture_link" id="eventspage_13_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_13_rsvp" id="eventspage_13_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_13_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_13_rsvp_display" id="eventspage_13_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>Event #15</h3>
-  <table>
-    <tbody>
-      <tr>
-        <td><label for="eventspage_14_display_checkbox">Display Event #15?</label></td>
-        <td><input type="checkbox" name="eventspage_14_display" id="eventspage_14_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
-        <td><input type="checkbox" name="eventspage_14_display_frontpage" id="eventspage_14_display_checkbox" value="1" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_cohort_select">Select class year</label></td>
-        <td>
-          <select name="eventspage_14_cohort" id="eventspage_14_cohort_select">
-            <option value="RC">RC</option>
-            <option value="EC">EC</option>
-            <option value="both">both</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_title_input">Event name: </label></td>
-        <td><input type="text" name="eventspage_14_title" id="eventspage_14_title_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_date_input">Event date: </label></td>
-        <td><input type="text" name="eventspage_14_date" id="eventspage_14_date_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_location_input">Event location: </label></td>
-        <td><input type="text" name="eventspage_14_location" id="eventspage_14_location_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_location_link_input">Event location link/map (optional): </label></td>
-        <td><input type="text" name="eventspage_14_location_link" id="eventspage_14_location_link_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_description_textarea">Event description (max ~180 characters): </label></td>
-        <td><textarea name="eventspage_14_description" cols="55" rows="6" value="0" id="eventspage_14_description_textarea" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_picture_upload">Event picture (height:width must be 1:1): </label></td>
-        <td><input name="eventspage_14_picture.png" id="eventspage_14_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
-        <td><input type="text" name="eventspage_14_picture_link" id="eventspage_14_picture_link" /></td>
-      </tr>
-      <tr>
-        <td colspan="2"><small>A url link will take precedence over a local file</small></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_rsvp_input">Event RSVP link: </label></td>
-        <td><input type="text" name="eventspage_14_rsvp" id="eventspage_14_rsvp_input" /></td>
-      </tr>
-      <tr>
-        <td><label for="eventspage_14_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
-        <td><input type="checkbox" name="eventspage_14_rsvp_display" id="eventspage_14_rsvp_live" value="1" /></td>
-      </tr>
-    </tbody>
-  </table>
+    <legend>Events page</legend>
+    <h3>Event #1</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_0_display_checkbox">Display Event #1?</label></td>
+                <td><input type="checkbox" name="eventspage_0_display" id="eventspage_0_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_0_display_frontpage" id="eventspage_0_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_0_cohort" id="eventspage_0_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_0_title" id="eventspage_0_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_0_start_date" id="eventspage_0_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_0_end_date" id="eventspage_0_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_0_location" id="eventspage_0_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_0_location_link" id="eventspage_0_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_0_description" cols="55" rows="6" value="0" id="eventspage_0_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_0_picture.png" id="eventspage_0_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_0_picture_link" id="eventspage_0_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_0_rsvp" id="eventspage_0_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_0_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_0_rsvp_display" id="eventspage_0_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #2</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_1_display_checkbox">Display Event #2?</label></td>
+                <td><input type="checkbox" name="eventspage_1_display" id="eventspage_1_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_1_display_frontpage" id="eventspage_1_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_1_cohort" id="eventspage_1_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC" selected="selected">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_1_title" id="eventspage_1_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_1_start_date" id="eventspage_1_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_1_end_date" id="eventspage_1_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_1_location" id="eventspage_1_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_1_location_link" id="eventspage_1_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_1_description" cols="55" rows="6" value="0" id="eventspage_1_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_1_picture.png" id="eventspage_1_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_1_picture_link" id="eventspage_1_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_1_rsvp" id="eventspage_1_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_1_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_1_rsvp_display" id="eventspage_1_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #3</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_2_display_checkbox">Display Event #3?</label></td>
+                <td><input type="checkbox" name="eventspage_2_display" id="eventspage_2_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_2_display_frontpage" id="eventspage_2_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_2_cohort" id="eventspage_2_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC" selected="selected">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_2_title" id="eventspage_2_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_2_start_date" id="eventspage_2_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_2_end_date" id="eventspage_2_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_2_location" id="eventspage_2_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_2_location_link" id="eventspage_2_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_2_description" cols="55" rows="6" value="0" id="eventspage_2_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_2_picture.png" id="eventspage_2_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_2_picture_link" id="eventspage_2_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_2_rsvp" id="eventspage_2_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_2_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_2_rsvp_display" id="eventspage_2_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #4</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_3_display_checkbox">Display Event #4?</label></td>
+                <td><input type="checkbox" name="eventspage_3_display" id="eventspage_3_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_3_display_frontpage" id="eventspage_3_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_3_cohort" id="eventspage_3_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC" selected="selected">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_3_title" id="eventspage_3_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_3_start_date" id="eventspage_3_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_3_end_date" id="eventspage_3_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_3_location" id="eventspage_3_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_3_location_link" id="eventspage_3_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_3_description" cols="55" rows="6" value="0" id="eventspage_3_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_3_picture.png" id="eventspage_3_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_3_picture_link" id="eventspage_3_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_3_rsvp" id="eventspage_3_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_3_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_3_rsvp_display" id="eventspage_3_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #5</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_4_display_checkbox">Display Event #5?</label></td>
+                <td><input type="checkbox" name="eventspage_4_display" id="eventspage_4_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_4_display_frontpage" id="eventspage_4_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_4_cohort" id="eventspage_4_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_4_title" id="eventspage_4_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_4_start_date" id="eventspage_4_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_4_end_date" id="eventspage_4_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_4_location" id="eventspage_4_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_4_location_link" id="eventspage_4_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_4_description" cols="55" rows="6" value="0" id="eventspage_4_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_4_picture.png" id="eventspage_4_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_4_picture_link" id="eventspage_4_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_4_rsvp" id="eventspage_4_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_4_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_4_rsvp_display" id="eventspage_4_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #6</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_5_display_checkbox">Display Event #6?</label></td>
+                <td><input type="checkbox" name="eventspage_5_display" id="eventspage_5_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_5_display_frontpage" id="eventspage_5_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_5_cohort" id="eventspage_5_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_5_title" id="eventspage_5_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_5_start_date" id="eventspage_5_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_5_end_date" id="eventspage_5_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_5_location" id="eventspage_5_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_5_location_link" id="eventspage_5_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_5_description" cols="55" rows="6" value="0" id="eventspage_5_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_5_picture.png" id="eventspage_5_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_5_picture_link" id="eventspage_5_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_5_rsvp" id="eventspage_5_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_5_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_5_rsvp_display" id="eventspage_5_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #7</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_6_display_checkbox">Display Event #7?</label></td>
+                <td><input type="checkbox" name="eventspage_6_display" id="eventspage_6_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_6_display_frontpage" id="eventspage_6_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_6_cohort" id="eventspage_6_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_6_title" id="eventspage_6_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_6_start_date" id="eventspage_6_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_6_end_date" id="eventspage_6_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_6_location" id="eventspage_6_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_6_location_link" id="eventspage_6_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_6_description" cols="55" rows="6" value="0" id="eventspage_6_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_6_picture.png" id="eventspage_6_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_6_picture_link" id="eventspage_6_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_6_rsvp" id="eventspage_6_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_6_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_6_rsvp_display" id="eventspage_6_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #8</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_7_display_checkbox">Display Event #8?</label></td>
+                <td><input type="checkbox" name="eventspage_7_display" id="eventspage_7_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_7_display_frontpage" id="eventspage_7_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_7_cohort" id="eventspage_7_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_7_title" id="eventspage_7_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_7_start_date" id="eventspage_7_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_7_end_date" id="eventspage_7_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_7_location" id="eventspage_7_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_7_location_link" id="eventspage_7_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_7_description" cols="55" rows="6" value="0" id="eventspage_7_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_7_picture.png" id="eventspage_7_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_7_picture_link" id="eventspage_7_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_7_rsvp" id="eventspage_7_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_7_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_7_rsvp_display" id="eventspage_7_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #9</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_8_display_checkbox">Display Event #9?</label></td>
+                <td><input type="checkbox" name="eventspage_8_display" id="eventspage_8_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_8_display_frontpage" id="eventspage_8_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_8_cohort" id="eventspage_8_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_8_title" id="eventspage_8_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_8_start_date" id="eventspage_8_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_8_end_date" id="eventspage_8_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_8_location" id="eventspage_8_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_8_location_link" id="eventspage_8_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_8_description" cols="55" rows="6" value="0" id="eventspage_8_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_8_picture.png" id="eventspage_8_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_8_picture_link" id="eventspage_8_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_8_rsvp" id="eventspage_8_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_8_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_8_rsvp_display" id="eventspage_8_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #10</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_9_display_checkbox">Display Event #10?</label></td>
+                <td><input type="checkbox" name="eventspage_9_display" id="eventspage_9_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_9_display_frontpage" id="eventspage_9_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_9_cohort" id="eventspage_9_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_9_title" id="eventspage_9_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_9_start_date" id="eventspage_9_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_9_end_date" id="eventspage_9_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_9_location" id="eventspage_9_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_9_location_link" id="eventspage_9_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_9_description" cols="55" rows="6" value="0" id="eventspage_9_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_9_picture.png" id="eventspage_9_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_9_picture_link" id="eventspage_9_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_9_rsvp" id="eventspage_9_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_9_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_9_rsvp_display" id="eventspage_9_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #11</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_10_display_checkbox">Display Event #11?</label></td>
+                <td><input type="checkbox" name="eventspage_10_display" id="eventspage_10_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_10_display_frontpage" id="eventspage_10_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_10_cohort" id="eventspage_10_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_10_title" id="eventspage_10_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_10_start_date" id="eventspage_10_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_10_end_date" id="eventspage_10_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_10_location" id="eventspage_10_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_10_location_link" id="eventspage_10_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_10_description" cols="55" rows="6" value="0" id="eventspage_10_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_10_picture.png" id="eventspage_10_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_10_picture_link" id="eventspage_10_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_10_rsvp" id="eventspage_10_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_10_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_10_rsvp_display" id="eventspage_10_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #12</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_11_display_checkbox">Display Event #12?</label></td>
+                <td><input type="checkbox" name="eventspage_11_display" id="eventspage_11_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_11_display_frontpage" id="eventspage_11_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_11_cohort" id="eventspage_11_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_11_title" id="eventspage_11_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_11_start_date" id="eventspage_11_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_11_end_date" id="eventspage_11_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_11_location" id="eventspage_11_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_11_location_link" id="eventspage_11_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_11_description" cols="55" rows="6" value="0" id="eventspage_11_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_11_picture.png" id="eventspage_11_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_11_picture_link" id="eventspage_11_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_11_rsvp" id="eventspage_11_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_11_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_11_rsvp_display" id="eventspage_11_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #13</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_12_display_checkbox">Display Event #13?</label></td>
+                <td><input type="checkbox" name="eventspage_12_display" id="eventspage_12_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_12_display_frontpage" id="eventspage_12_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_12_cohort" id="eventspage_12_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_12_title" id="eventspage_12_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_12_start_date" id="eventspage_12_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_12_end_date" id="eventspage_12_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_12_location" id="eventspage_12_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_12_location_link" id="eventspage_12_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_12_description" cols="55" rows="6" value="0" id="eventspage_12_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_12_picture.png" id="eventspage_12_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_12_picture_link" id="eventspage_12_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_12_rsvp" id="eventspage_12_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_12_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_12_rsvp_display" id="eventspage_12_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #14</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_13_display_checkbox">Display Event #14?</label></td>
+                <td><input type="checkbox" name="eventspage_13_display" id="eventspage_13_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_13_display_frontpage" id="eventspage_13_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_13_cohort" id="eventspage_13_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_13_title" id="eventspage_13_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_13_start_date" id="eventspage_13_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_13_end_date" id="eventspage_13_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_13_location" id="eventspage_13_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_13_location_link" id="eventspage_13_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_13_description" cols="55" rows="6" value="0" id="eventspage_13_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_13_picture.png" id="eventspage_13_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_13_picture_link" id="eventspage_13_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_13_rsvp" id="eventspage_13_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_13_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_13_rsvp_display" id="eventspage_13_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Event #15</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td><label for="eventspage_14_display_checkbox">Display Event #15?</label></td>
+                <td><input type="checkbox" name="eventspage_14_display" id="eventspage_14_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_display_frontpage">Display on homepage under 'Upcoming Event'?</label></td>
+                <td><input type="checkbox" name="eventspage_14_display_frontpage" id="eventspage_14_display_checkbox" value="1" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_cohort_select">Select class year</label></td>
+                <td>
+                    <select name="eventspage_14_cohort" id="eventspage_14_cohort_select">
+                        <option value="RC">RC</option>
+                        <option value="EC">EC</option>
+                        <option value="both">both</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_title_input">Event name: </label></td>
+                <td><input type="text" name="eventspage_14_title" id="eventspage_14_title_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_start_date_input">Event start date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_14_start_date" id="eventspage_14_start_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_end_date_input">Event end date (mm/dd/yyyy): </label></td>
+                <td><input type="text" name="eventspage_14_end_date" id="eventspage_14_end_date_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_location_input">Event location: </label></td>
+                <td><input type="text" name="eventspage_14_location" id="eventspage_14_location_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_location_link_input">Event location link/map (optional): </label></td>
+                <td><input type="text" name="eventspage_14_location_link" id="eventspage_14_location_link_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_description_textarea">Event description (max ~180 characters): </label></td>
+                <td><textarea name="eventspage_14_description" cols="55" rows="6" value="0" id="eventspage_14_description_textarea" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_picture_upload">Event picture (height:width must be 1:1): </label></td>
+                <td><input name="eventspage_14_picture.png" id="eventspage_14_picture_upload" type="file" data-max-width="600" data-max-height="600" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_picture_link">Event picture URL if there is no local file (URL MUST begin with // or http:// or https:// ): </label></td>
+                <td><input type="text" name="eventspage_14_picture_link" id="eventspage_14_picture_link" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><small>A url link will take precedence over a local file</small></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_rsvp_input">Event RSVP link: </label></td>
+                <td><input type="text" name="eventspage_14_rsvp" id="eventspage_14_rsvp_input" /></td>
+            </tr>
+            <tr>
+                <td><label for="eventspage_14_rsvp_live">Display RSVP link (is event RSVP live)?: </label></td>
+                <td><input type="checkbox" name="eventspage_14_rsvp_display" id="eventspage_14_rsvp_live" value="1" /></td>
+            </tr>
+        </tbody>
+    </table>
 </fieldset>
 <!-- */events* */events page* */event content* -->
 
@@ -3594,151 +3654,6 @@ Navigation:
             <tr>
                 <td><label for="sponsor_14_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
                 <td><input type="text" name="sponsor_14_logo_link" id="sponsor_14_logo_link" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>Sponsor #16</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td><label for="sponsor_15_name">Sponsor name</label></td>
-                <td><input type="text" name="sponsor_15_name" id="sponsor_15_name" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_15_level">Sponsorship level</label></td>
-                <td><input type="text" name="sponsor_15_level" id="sponsor_15_level" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_15_events">Sponsored events</label></td>
-                <td><input type="text" name="sponsor_15_events" id="sponsor_15_events" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_15_blurb">Sponsor description/blurb</label></td>
-                <td><input type="text" name="sponsor_15_blurb" id="sponsor_15_blurb" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_15_logo">Sponsor logo/image local file upload</label></td>
-                <td><input name="sponsor_15_logo" id="sponsor_15_logo" type="file" data-max-width="500" data-max-height="500" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_15_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
-                <td><input type="text" name="sponsor_15_logo_link" id="sponsor_15_logo_link" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>Sponsor #17</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td><label for="sponsor_16_name">Sponsor name</label></td>
-                <td><input type="text" name="sponsor_16_name" id="sponsor_16_name" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_16_level">Sponsorship level</label></td>
-                <td><input type="text" name="sponsor_16_level" id="sponsor_16_level" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_16_events">Sponsored events</label></td>
-                <td><input type="text" name="sponsor_16_events" id="sponsor_16_events" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_16_blurb">Sponsor description/blurb</label></td>
-                <td><input type="text" name="sponsor_16_blurb" id="sponsor_16_blurb" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_16_logo">Sponsor logo/image local file upload</label></td>
-                <td><input name="sponsor_16_logo" id="sponsor_16_logo" type="file" data-max-width="500" data-max-height="500" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_16_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
-                <td><input type="text" name="sponsor_16_logo_link" id="sponsor_16_logo_link" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>Sponsor #18</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td><label for="sponsor_17_name">Sponsor name</label></td>
-                <td><input type="text" name="sponsor_17_name" id="sponsor_17_name" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_17_level">Sponsorship level</label></td>
-                <td><input type="text" name="sponsor_17_level" id="sponsor_17_level" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_17_events">Sponsored events</label></td>
-                <td><input type="text" name="sponsor_17_events" id="sponsor_17_events" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_17_blurb">Sponsor description/blurb</label></td>
-                <td><input type="text" name="sponsor_17_blurb" id="sponsor_17_blurb" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_17_logo">Sponsor logo/image local file upload</label></td>
-                <td><input name="sponsor_17_logo" id="sponsor_17_logo" type="file" data-max-width="500" data-max-height="500" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_17_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
-                <td><input type="text" name="sponsor_17_logo_link" id="sponsor_17_logo_link" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>Sponsor #19</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td><label for="sponsor_18_name">Sponsor name</label></td>
-                <td><input type="text" name="sponsor_18_name" id="sponsor_18_name" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_18_level">Sponsorship level</label></td>
-                <td><input type="text" name="sponsor_18_level" id="sponsor_18_level" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_18_events">Sponsored events</label></td>
-                <td><input type="text" name="sponsor_18_events" id="sponsor_18_events" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_18_blurb">Sponsor description/blurb</label></td>
-                <td><input type="text" name="sponsor_18_blurb" id="sponsor_18_blurb" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_18_logo">Sponsor logo/image local file upload</label></td>
-                <td><input name="sponsor_18_logo" id="sponsor_18_logo" type="file" data-max-width="500" data-max-height="500" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_18_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
-                <td><input type="text" name="sponsor_18_logo_link" id="sponsor_18_logo_link" /></td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>Sponsor #20</h3>
-    <table>
-        <tbody>
-            <tr>
-                <td><label for="sponsor_19_name">Sponsor name</label></td>
-                <td><input type="text" name="sponsor_19_name" id="sponsor_19_name" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_19_level">Sponsorship level</label></td>
-                <td><input type="text" name="sponsor_19_level" id="sponsor_19_level" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_19_events">Sponsored events</label></td>
-                <td><input type="text" name="sponsor_19_events" id="sponsor_19_events" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_19_blurb">Sponsor description/blurb</label></td>
-                <td><input type="text" name="sponsor_19_blurb" id="sponsor_19_blurb" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_19_logo">Sponsor logo/image local file upload</label></td>
-                <td><input name="sponsor_19_logo" id="sponsor_19_logo" type="file" data-max-width="500" data-max-height="500" /></td>
-            </tr>
-            <tr>
-                <td><label for="sponsor_19_logo_link">Sponsor logo/image URL (this file will take precedence over local file)</label></td>
-                <td><input type="text" name="sponsor_19_logo_link" id="sponsor_19_logo_link" /></td>
             </tr>
         </tbody>
     </table>

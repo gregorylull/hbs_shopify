@@ -1,25 +1,65 @@
-{% for i in (0..19) %}
-  {% capture base_string %}{{ 'eventspage_' | append: i | append: '_'}}{% endcapture %}
-  {% capture event_display %}{{ base_string | append: 'display'}}{% endcapture %}
+<div id="sortEvents" class="hide">
+{% for i in (0..14) %}
+<!--   {% capture base_string %}{{ 'eventspage_' | append: i | append: '_'}}{% endcapture %}
+  {% capture event_display %}{{ base_string | append: 'display'}}{% endcapture %} -->
+  
+  {% assign base_string = 'eventspage_' | append: i | append: '_' %}
+  {% assign event_display = base_string | append: "display" %}
   {% assign event_display_frontpage = base_string | append: "display_frontpage" %}
 
   {% if settings[event_display] == true and settings[event_display_frontpage] == true %}     
 
-    {% capture event_title %}{{ base_string | append: 'title' }}{% endcapture %}
+<!--     {% capture event_title %}{{ base_string | append: 'title' }}{% endcapture %}
     {% capture event_date %}{{ base_string | append: 'date' }}{% endcapture %}
     {% capture event_description %}{{ base_string | append: 'description' }}{% endcapture %}
-    {% capture event_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %}
+    {% capture event_picture %}{{ base_string | append: 'picture.png'}}{% endcapture %} -->
+    
+    {% assign event_title = base_string | append: 'title' %}
+    {% assign event_start_date = base_string | append: 'start_date' %}
+    {% assign event_end_date = base_string | append: 'end_date' %}
+
+    {% assign event_description = base_string | append: 'description' %}
+    {% assign event_picture = base_string | append: 'picture.png' %}
+
+    
     {% assign event_picture_link = base_string | append: 'picture_link' %}
-    {% capture event_rsvp_link %}{{ base_string | append: 'rsvp'}}{% endcapture %}
-    {% capture event_rsvp_display %}{{ base_string | append: 'rsvp_display'}}{% endcapture %}
+    
+    <!-- {% capture event_rsvp_link %}{{ base_string | append: 'rsvp'}}{% endcapture %} -->
+    {% assign event_rsvp_link = base_string | append: 'rsvp' %}
+
+    <!-- {% capture event_rsvp_display %}{{ base_string | append: 'rsvp_display'}}{% endcapture %} -->
+    {% assign event_rsvp_display = base_string | append: 'rsvp_display' %}
+    
     {% assign event_location = base_string | append: 'location' %}
     {% assign event_location_link = base_string | append: 'location_link' %}
 
-    <div class="row{% cycle ' img-left', ' img-right' %}{% cycle ' info-right', ' info-left' %} eventWrapper">
-      <div class="col-xs-8 {% cycle 'col-xs-push-4', '' %}">
+    <div class="row eventWrapper">
+      <div class="col-xs-8">
           <div class="eventInfo">
             <h4 class="frontpage_event_title">{{ settings[event_title] }}</h4>
-            <h5 class="frontpage_event_date">{{ settings[event_date] }}</h5>
+            <h5 class="frontpage_event_date" data-startDate="{{settings[event_start_date]}}" data-endDate="{{event_end_date}}">
+
+
+              {% if settings[event_end_date] != blank and settings[event_end_date] != "" and settings[event_end_date] != settings[event_start_date] %}
+
+              <script>console.log( "data for: ", {{ settings[event_title] | json }})</script>
+              <script>console.log( 'end not blank, diff than start', {{ event_end_date | json }})</script>
+              
+                {% assign splitStart = settings[event_start_date] | split: '/' %}
+                {% assign splitEnd = settings[event_end_date] | split: '/' %}
+
+                {% assign startDate = splitStart[0] | append: '/' | append: splitStart[1] %}
+                {% assign endDate = splitEnd[0] | append: '/' | append: splitEnd[1] %}
+
+                {{ startDate }} - {{ endDate }}, {{splitEnd[2]}}
+
+                <script>console.log( 'splitStart', {{ splitStart| json }})</script>
+                <script>console.log( 'splitEnd', {{ splitEnd | json }})</script>
+
+              {% else %}
+                {{ settings[event_start_date] }} 
+              {% endif %}
+            </h5>
 
             <h5 class="frontpage_event_location">
             {% if settings[event_location_link] != blank and settings[event_location_link] != "" %}
@@ -40,8 +80,8 @@
           {% assign eventPictureURL = event_picture | asset_url %}
       {% endif %}
 
-      <div class="col-xs-4 {% cycle 'col-xs-pull-8', '' %}">
-          <div class="eventPicture {% cycle 'pull-left', 'pull-right' %}">
+      <div class="col-xs-4">
+          <div class="eventPicture">
             <img class="frontpage_upcomingevents_picture" src="{{ eventPictureURL }}" alt="event picture {{i}}"/>    
           </div>
       </div> <!-- END event img /.col-xs-4 -->
@@ -49,3 +89,78 @@
     </div>
   {% endif %}
 {% endfor %}
+</div> <!-- sort events first-->
+
+<script type="text/javascript">
+
+  // INFO
+  //    <div class="row{% cycle ' img-left', ' img-right' %}{% cycle ' info-right', ' info-left' %} eventWrapper">
+  //    <div class="col-xs-8 {% cycle 'col-xs-push-4', '' %}">
+
+  // IMAGE
+  // <div class="col-xs-4 {% cycle 'col-xs-pull-8', '' %}">
+  //     <div class="eventPicture {% cycle 'pull-left', 'pull-right' %}">
+
+  /*
+    for this sorting algorithm:
+
+    we compare year first, then month, then day
+
+    if year1 < year2 return -1
+    if year2 > year1 return 1
+    else year1 === year2
+  */
+  $(document).ready(function () {
+    var events = $("#sortEvents");
+    var wrappers = $('.eventWrapper');
+    var sliced = [];
+
+    wrappers.each(function (i, el) {
+      var dateEl = $('.frontpage_event_date', el)
+      var date = new Date (dateEl.attr('data-startdate'));
+      sliced.push({date: date, node: el});
+    });
+
+    console.log('sliced', sliced);
+
+    sliced.sort(function (a,b) {
+      if (a.date < b.date) { return -1; }
+      else if (a.date > b.date) { return 1; }
+      else { return 0; }
+    });
+
+    var imgInfoPull = ['img-left', 'img-right']; // .eventWrapper / el
+    var infoPull = ['info-right', 'info-left']; // .eventwrapper / el
+    var textColPull = ['col-xs-push-4', '']; // .eventInfo.parent
+
+    var imgColPull = ['col-xs-pull-8', '' ]; // .eventPicture.parent
+    var imgPull = ['pull-left', 'pull-right']; // .eventPicture
+
+    sliced.forEach(function (el, i) {
+      var cycle = i%2;
+      
+      var eventInfo = $('.eventInfo', el.node);
+      var eventPic = $('.eventPicture', el.node);
+
+      console.log('e info: ', eventInfo);
+      console.log('e pic: ', eventPic);
+
+      window.recent = eventPic;
+
+      $(el.node).addClass(imgInfoPull[cycle]);
+      $(el.node).addClass(infoPull[cycle]);
+
+      console.log('added class?');
+      eventInfo.parent().addClass(textColPull[cycle]);
+
+      eventPic.parent().addClass(imgColPull[cycle]);
+      eventPic.addClass(imgPull[cycle]);
+
+      events.append(el.node);
+    });
+
+    events.removeClass('hide');
+
+  });
+
+</script>
